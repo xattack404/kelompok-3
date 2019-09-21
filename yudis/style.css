@@ -4,3 +4,24 @@ img {
      border: 4px solid #575D63;
      padding: 10px;
    }
+
+h4{
+	color: orange;
+	font-family: sans-serif;
+	text-align: center;
+}
+ 
+.kotak{
+	padding: 50px;
+	width: 100px;
+	color: #fff;
+	margin: 10px;
+	background: orange;	
+}
+ 
+#kotak{
+	width: 400px;
+	color: #fff;
+	background: blue;
+	padding: 50px;
+}
