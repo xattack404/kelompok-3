@@ -6,7 +6,7 @@ img {
    }
 
 h4{
-	color: orange;
+	color: blue;
 	font-family: sans-serif;
 	text-align: center;
 }
@@ -16,12 +16,12 @@ h4{
 	width: 100px;
 	color: #fff;
 	margin: 10px;
-	background: orange;	
+	background: red;	
 }
  
 #kotak{
 	width: 400px;
 	color: #fff;
-	background: blue;
+	background: aqua;
 	padding: 50px;
 }
