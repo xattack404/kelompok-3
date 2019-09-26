@@ -1,0 +1,33 @@
+body{
+	font-family: sans-serif;
+	background: #d5f0f3;
+}
+
+.kotak{
+	width: 350px;
+	background: white;
+	/*meletakkan form ke tengah*/
+	margin: 80px auto;
+	padding: 30px 20px;
+}
+.Name_Box{
+    
+	background: #46de4b;
+	color: white;
+	font-size: 11pt;
+	width: 8%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+}
+
+.Selection{
+    
+	background: magenta;
+	color: white;
+	font-size: 11pt;
+	width: 8%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+}
