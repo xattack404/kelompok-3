@@ -4,11 +4,20 @@ body{
 }
 
 .kotak{
-	width: 350px;
-	background: white;
-	/*meletakkan form ke tengah*/
-	margin: 80px auto;
-	padding: 30px 20px;
+	width: 300px;
+	background: azure;
+	margin: 0px;
+	padding: 20px 10px;
+}
+.BanList{
+    
+	background: blue;
+	color: white;
+	font-size: 11pt;
+	width: 8%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
 }
 .Name_Box{
     
