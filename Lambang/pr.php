@@ -5,8 +5,8 @@
 </head>
 <body>
 
-<h1 style="color:red">Selamat Belajar HTML</h1>
-<h2 style="color:blue">Nama Saya: (Isi dengan nama kalian)</h2>
+<p center><h1 style="color:navy">Selamat Belajar HTML</h1></p>
+<h2 style="color:blue">Nama Saya: Lambang Arinanda Hadi</h2>
 <h3>Politeknik Negeri Jember</h3>
 
 <?php
@@ -15,7 +15,7 @@
 	$Tempat = "di Polije Dua";
 	$TempaT = "di Polije Tiga";
 
-	echo "<h1 style='color:red'>Selamat Belajar HTML ".$tempat."</h1>";
+	echo "<h1 style='color:green'>Selamat Belajar HTML ".$tempat."</h1>";
 	ECHO "<h2 style='color:blue'>Selamat Belajar HTML</h2>";
 	EcHo "<h3>Selamat Belajar HTML ".$Tempat."</h3>";
 	echo $TempaT."</br></br>";
