@@ -1,5 +1,6 @@
 <?php 
-
+session_start();
+require_once "../_config/config.php";
 if (!isset($_SESSION['login'])) {
 	header("Location: auth/login.php");
 	exit;	
@@ -20,29 +21,26 @@ if (!isset($_SESSION['login'])) {
     <script src="../_assets/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<div class="container-fluid">
 	<div class="box">
-		<h1>Dokter</h1>
+		<h1>Mahasiswa</h1>
 		<h4>
-			<small>Data Dokter</small>
+			<small>Data Mahasiswa</small>
 			<div class="pull-right">
 				<a href="" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-refresh"></i></a>
-				<a href="add.php" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i>Tambah Dokter</a>
+				<a href="add.php" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i>Tambah Mahasiswa</a>
+				<a href="../auth/logout.php" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-chevron-left"></i>Keluar</a>
 			</div>
 		</h4>
-		<form method="post" name="proses">
 		<div class="table-responsive">
 				<table class="table table-striped table-bordered table-hover" id="dokter">
 					<thead>
 						<tr>
-							<th>
-								<center>
-									<input type="checkbox" id="select_all" value="">
-								</center>
-							</th>
 							<th>No.</th>
-							<th>Nama Dokter</th>
-							<th>Spesialis</th>
-							<th>Alamat</th>
+							<th>Nim</th>
+							<th>nama</th>
+							<th>alamat</th>
+							<th>tanggal lahir</th>
 							<th>No. Telepon</th>
 							<th><i class="glyphicon glyphicon-cog"></i></th>
 						</tr>
@@ -61,7 +59,7 @@ if (!isset($_SESSION['login'])) {
 									<td><?= $data['no_hp'] ?></td>
 									<td>
 										<a href="edit.php?id=<?=$data['id_mahasiswa']?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
-										<a href="hapus.php?id=<?=$data['id_mahasiswa']?>" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+										<a href="del.php?id=<?=$data['id_mahasiswa']?>" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
 									</td>
 								</tr>
 							<?php
@@ -70,7 +68,7 @@ if (!isset($_SESSION['login'])) {
 					</tbody>
 				</table>
 		</div>
-		</form>
+	</div>
 	</div>		
 </body>
 </html>

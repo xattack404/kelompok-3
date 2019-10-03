@@ -26,42 +26,36 @@ if (!isset($_SESSION['login'])) {
 		<div class="box">
 		<h1>Mahasiswa</h1>
 		<h4>
-			<small>Edit Data Mahasiswa</small>
+			<small>Tambah Data Mahasiswa</small>
 			<div class="pull-right">
 				<a href="data.php" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-chevron-left "></i>Kembali</a>
 			</div>
 		</h4>
 		<div class="row">
-			<?php
-			$id = @$_GET['id'];
-			$sql_mhs = mysqli_query($conn, "SELECT * FROM tb_mahasiswa WHERE id_mahasiswa = '$id'") or die(mysqli_error($conn));
-			$data = mysqli_fetch_array($sql_mhs); 
-			?>
 			<div class="col-lg-6 col-lg-offset-3">
 				<form action="proses.php" method="post">
 					<div class="form-group">
 						<label for="nim">NIM</label>
-						<input type="hidden" name="id" name="id" value="<?= $data['id_mahasiswa'] ?>">
-						<input type="text" name="nim" id="nim" autofocus class="form-control" required value="<?= $data['nim'] ?>">
+						<input type="text" name="nim" id="nim" autofocus class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label for="nama">Nama Mahasiswa</label>
-						<input type="text" name="nama" id="nama"  class="form-control" required required value="<?= $data['nama_mahasiswa'] ?>">
+						<input type="text" name="nama" id="nama"  class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label for="alamat">Alamat</label>
-						<textarea name="alamat" id="alamat" class="form-control" required><?= $data['alamat'] ?></textarea>
+						<textarea name="alamat" id="alamat" class="form-control" required></textarea>
 					</div>
 					<div class="form-group">
 						<label for="tgl">Tanggal Lahir</label>
-						<input type="text" name="tgl" id="tgl"  class="form-control" required required value="<?= $data['tgl'] ?>">
+						<input type="text" name="tgl" id="tgl"  class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label for="no_hp">no_hp</label>
-						<input type="number" name="no_hp" id="no_hp" class="form-control" required required value="<?= $data['no_hp'] ?>">
+						<label for="no_hp">Nomor Handphone</label>
+						<input type="number" name="no_hp" id="no_hp" class="form-control" required>
 					</div>
 					<div class="form-group pull-right">
-						<input type="submit" name="ubah" value="Simpan" class="btn btn-success">
+						<input type="submit" name="tambah" value="Simpan" class="btn btn-success">
 					</div>
 				</form>
 			</div>
