@@ -2,7 +2,7 @@
 $sql_details = array(
 	'user'	=> 'root',
 	'pass'	=> '',
-	'db'	=> 'ajax',
+	'db'	=> 'lt_kelompok3',
 	'host'	=> 'localhost'
 );
 
