@@ -5,25 +5,40 @@
         </title>
     </head>
     <body>
-        <center>
         
         <?php
+	echo "<center>";
     echo "Hallowww Kelas </br></br>";
     $tempat = "di Polije";
 	$Tempat = "di Polije Dua";
 	$TempaT = "di Polije Tiga";
 
 	echo "<h1 style='color:red'>Selamat Belajar HTML ".$tempat."</h1>";
-	ECHO "<h2 style='color:blue'>Selamat Belajar HTML</h2>";
+	ECHO "<h2 style='color:blue'>Selamat Belajar HTML ".$Tempat."</h2>";
 	EcHo "<h3>Selamat Belajar HTML ".$Tempat."</h3>";
-	echo $TempaT."</br></br>";
-	echo date("Y/m/d")."</br></br>";
-
+	echo "</br></br>";
+	echo date("m/d/y")."</br></br>";
+	echo "</center>";
 	//Penjumlahan
-	$a = 10; $b = $c = 20; $d = 2;
-	$jumlah = ($a + $b)/$d;
+	echo "a = ".$a = 10.;
+	echo "</br>";
+	echo "b = ".$b = 20.;
+	echo "</br>";
+	echo "c = ".$c = 20.;
+	echo "</br>"; 
+	echo "d = ".$d = 2. ;
+	echo "</br>";
+	echo "Penjumlahan Dari (a + b)/ d * c = ";
+	$jumlah = ($a + $b)/$d * $c;
 
 	echo $jumlah."</br></br>";
+
+	$s = 0;
+	do{
+		echo "Tempat Ke - ".$s."<br>";
+		$s++;
+	}while($s <= 10);
+	echo "<br><br>";
 
 	for ($x = 0; $x <= 10; $x++) {
     	echo "Tempat Ke - ".$x."<br>";
@@ -36,12 +51,12 @@
 	}
 
 	//Konstanta
-	define("Alvin", "Selamat datang di Polije!");
+	define("Alvin", "Selamat Datang di Polije");
 	echo "</br></br>".Alvin;
 
 	//Fungsi
 	function Alvin(){
-		echo "</br></br>".Alvin." Dua";
+		echo "</br></br>".Alvin."Dua";
 	}
 
 	Alvin();
