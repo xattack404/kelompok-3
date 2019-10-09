@@ -2,7 +2,8 @@
     <head>
         <title>
             Page Title!
-        </title>
+		</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         
@@ -14,22 +15,26 @@
 	$TempaT = "di Polije Tiga";
 
 	echo "<h1 style='color:red'>Selamat Belajar HTML ".$tempat."</h1>";
-	ECHO "<h2 style='color:blue'>Selamat Belajar HTML ".$Tempat."</h2>";
-	EcHo "<h3>Selamat Belajar HTML ".$Tempat."</h3>";
+	echo "<h2 style='color:blue'>Selamat Belajar HTML ".$Tempat."</h2>";
+	echo "<h3>Selamat Belajar HTML ".$Tempat."</h3>";
 	echo "</br></br>";
 	echo date("m/d/y")."</br></br>";
 	echo "</center>";
+	
 	//Penjumlahan
+	echo " Variabel : ";
+	echo "</br>";
 	echo "a = ".$a = 10.;
 	echo "</br>";
 	echo "b = ".$b = 20.;
 	echo "</br>";
-	echo "c = ".$c = 20.;
+	echo "c = ".$c = 30.;
 	echo "</br>"; 
-	echo "d = ".$d = 2. ;
+	echo "d = ".$d = 3. ;
 	echo "</br>";
-	echo "Penjumlahan Dari (a + b)/ d * c = ";
-	$jumlah = ($a + $b)/$d * $c;
+	echo "</br>";
+	echo "Penjumlahan Dari (a + b) / c * d = ";
+	$jumlah = ($a + $b)/$c * $d;
 
 	echo $jumlah."</br></br>";
 
@@ -40,12 +45,14 @@
 	}while($s <= 10);
 	echo "<br><br>";
 
+	//Perulangan
 	for ($x = 0; $x <= 10; $x++) {
     	echo "Tempat Ke - ".$x."<br>";
 		}
 
 	$t = date("H");
-
+	
+	//Kondisi
 	if ($t < "20") {
     	echo "Selamat Pagi!";
 	}
