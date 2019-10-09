@@ -66,14 +66,19 @@
         <?php
         //Konstanta
         define("yudis", "Selamat datang di Polije!");
+        define("tiono", "saya yudis");
         echo "</br></br>".yudis;
 
         //Fungsi
         function yudis(){
             echo "</br></br>".yudis." Dua";
+            function tiono(){
+             echo "</br></br>".tiono." Dua";   
+            }
         }
 
         yudis();
+        tiono();
         ?>
     </body>
 
