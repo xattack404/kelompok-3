@@ -10,6 +10,7 @@
 <h3>Politeknik Negeri Jember</h3>
 
 <?php
+//membuat variabel yang berbeda untuk membuktikan CASE SENSITIVE
     echo "Hallowww Kelas </br></br>";
     $tempat = "di Polije";
 	$Tempat = "di Polije Dua";
