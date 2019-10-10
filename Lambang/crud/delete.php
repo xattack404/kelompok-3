@@ -3,7 +3,7 @@ include('config/koneksi.php');
  
 $id = $_GET['id'];
  
-$query = mysql_query("delete from siswa where id_siswa='$id'") or die(mysql_error());
+$query = mysqli_query($koneksi,"delete from barang where no_id='$id'") or die(mysql_error());
  
 if ($query) {
     echo "<script>alert('Data berhasil dihapus!');location='view.php';</script>"; 

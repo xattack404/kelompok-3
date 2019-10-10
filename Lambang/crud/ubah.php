@@ -1,4 +1,15 @@
 <html lang="en">
+<?php
+include 'header.php';
+include 'config/koneksi.php';
+?>
+<?php
+$id = $_GET['id'];
+ 
+$query = mysqli_query($koneksi,"select * from barang where no_id='$id'") or die(mysql_error());
+ 
+$data = mysqli_fetch_array($query);
+?>
 <head>
   <title>Registrasi</title>
   <meta charset="utf-8">
@@ -19,20 +30,20 @@
     <div class="card-header bg-dark text-white">Entry Form</div>
     <div class="card-body">
 
-      <form method="post" action="simpan.php">
+      <form method="post" action="">
         <div class="form-group">
-          <label for="no_id">No ID</label><input type="text" class="form-control"  name="no_id" id="no_id" disabled>
+          <label for="no_id">No ID</label><input type="text" class="form-control" value="<?php echo $id; ?>"  name="no_id" id="no_id" disabled>
         </div>
         <div class="form-group">
-          <label for="nama_merk">Nama Merk</label><input type="text" class="form-control"  name="nama_merk" id="nama_merk">
+          <label for="nama_merk">Nama Merk</label><input type="text" class="form-control" value="<?php echo $data['nama_merk']; ?>"  name="nama_merk" id="nama_merk">
         </div>
 
        <div class="form-group">
-          <label for="warna">Warna</label><input type="text" class="form-control"  name="warna" id="warna">
+          <label for="warna">Warna</label><input type="text" class="form-control" value="<?php echo $data['warna']; ?>" name="warna" id="warna">
         </div>
 
        <div class="form-group">
-          <label for="jumlah">Jumlah</label><input type="text" class="form-control"  name="jumlah" id="jumlah">
+          <label for="jumlah">Jumlah</label><input type="text" class="form-control" value="<?php echo $data['jumlah']; ?>" name="jumlah" id="jumlah">
         </div>
         
         <div class="form-group">
@@ -43,4 +54,21 @@
   </div>
 </div>
 </body>
+
+<?php
+ if (isset($_POST['simpan'])){
+//tangkap data dari form
+
+$nama = $_POST['nama_merk'];
+$warna = $_POST['warna'];
+$jumlah = $_POST['jumlah'];
+
+ 
+//update data di database sesuai user_id
+$query1 = mysqli_query($koneksi,"update barang set nama_merk='$nama', 
+                       warna='$warna', jumlah='$jumlah' where no_id='$id'") or die(mysqli_error());
+ 
+echo "<script>alert('Data berhasil disimpan!');location='view.php';</script>"; 
+}
+?>
 </html>
