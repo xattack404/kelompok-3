@@ -11,7 +11,7 @@ $nama = $_POST['nama_merk'];
 $warna = $_POST['warna'];
 $jumlah = $_POST['jumlah'];
 
- 
+
 //simpan data ke database
 	$query = mysqli_query($koneksi,"insert into barang values('$no', 
 															  '$nama', 
