@@ -1,6 +1,6 @@
 <html lang="en">
 <?php
-include 'header.php';
+
 include 'config/koneksi.php';
 ?>
 <?php
