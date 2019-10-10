@@ -13,8 +13,11 @@ $jumlah = $_POST['jumlah'];
 
  
 //simpan data ke database
-	$query = mysql_query("insert into barang values('$no', '$nama', '$warna', '$jumlah')") or die(	    mysql_error());
+	$query = mysqli_query($koneksi,"insert into barang values('$no', 
+															  '$nama', 
+															  '$warna', '
+															  $jumlah')") or die(mysqli_error());
  
-echo "<script>alert('Data berhasil disimpan!');location='v_form1.php';</script>"; 
+echo "<script>alert('Data berhasil disimpan!');location='view.php';</script>"; 
 
 ?>
