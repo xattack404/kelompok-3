@@ -43,9 +43,9 @@
            	 <td><?php echo $data['nama_merk']; ?></td>
            	 <td><?php echo $data['warna']; ?></td>
              <td><?php echo $data['jumlah']; ?></td>
-             <td><a href='tambah.php' class='btn btn-danger btn-small' id='custId' data-toggle='edit'>Hapus</a></td>
-              <td><a href='delete.php?id=<?php echo $data['no_id']; ?>' class='btn btn-danger btn-small' id='custId' data-toggle='edit'>Hapus</a></td>
-              <td><a href='ubah.php?id=<?php echo $data['no_id']; ?>' class='btn btn-warning btn-small' id='custId' data-toggle='edit'>Ubah</a></td>
+             <td><a href='tambah.php' class='btn btn-success btn-small' id='custId' data-toggle='edit'>Tambah Data</a></td>
+             <td><a href='delete.php?id=<?php echo $data['no_id']; ?>' class='btn btn-danger btn-small' id='custId' data-toggle='edit'>Hapus</a></td>
+             <td><a href='ubah.php?id=<?php echo $data['no_id']; ?>' class='btn btn-warning btn-small' id='custId' data-toggle='edit'>Ubah</a></td>
              </tr>
             <?php 
             $no++; 
