@@ -57,13 +57,12 @@ $data = mysqli_fetch_array($query);
 
 <?php
  if (isset($_POST['simpan'])){
-//tangkap data dari form
+//tangkap data dari forms
 
 $nama = $_POST['nama_merk'];
 $warna = $_POST['warna'];
 $jumlah = $_POST['jumlah'];
 
- 
 //update data di database sesuai user_id
 $query1 = mysqli_query($koneksi,"update barang set nama_merk='$nama', 
                        warna='$warna', jumlah='$jumlah' where no_id='$id'") or die(mysqli_error());
