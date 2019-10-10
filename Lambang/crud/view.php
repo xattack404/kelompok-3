@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php 
+	session_start();
+	if($_SESSION['status']!="login"){
+		header("location:index.php?pesan=belum_login");
+	}
+	?>
+  
 <html lang="en">
   <head>
     <meta charset="utf-8">
