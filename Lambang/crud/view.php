@@ -41,7 +41,7 @@
 	//panggil semua data di tabel barang
     $query = mysqli_query($koneksi,"select * from barang");
  	$no = 1;
-   
+   //menampilkan data dengan perulangan WHILE
     while ($data = mysqli_fetch_array($query)) {
     ?>
              <tr>     
