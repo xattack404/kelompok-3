@@ -1,10 +1,10 @@
 <?php
-include 'record/record_bseller.php';      include 'record/record_kategori.php';   include 'record/record_subkat.php';
-include 'record/record_supersubkat.php';  include 'record/record_produk.php';     include 'record/record_resi.php';
-include 'record/record_slider.php';       include 'record/record_testi_new.php';  include 'record/record_testi_acc.php';
-include 'record/record_user.php';
+//include 'record/record_bseller.php';      include 'record/record_kategori.php';   include 'record/record_subkat.php';
+//include 'record/record_supersubkat.php';  include 'record/record_user.php';     include 'record/record_resi.php';
+//include 'record/record_slider.php';       include 'record/record_testi_new.php';  include 'record/record_testi_acc.php';
+include 'record/record_produk.php';
 // Super Admin Menu
-if ($sesen_usertype == "superadmin")
+if ($sesen_akses == "admin")
 {
   echo "
   <div class='col-lg-3 col-xs-6'>
@@ -78,7 +78,7 @@ if ($sesen_usertype == "superadmin")
     </div>
   </div>";
 }
-elseif ($sesen_usertype == "admin")
+elseif ($sesen_akses == "admin")
 {
   echo "
   <div class='col-lg-3 col-xs-6'>
