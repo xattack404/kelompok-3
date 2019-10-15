@@ -34,7 +34,7 @@
     if ($sesen_akses == "admin")
     {
       echo "
-      <a href='#'><i class='fa fa-user'></i><span> User </span><i class='fa fa-angle-left pull-right'></i></a>
+      <a href='#'><i class='fa fa-user'></i><span> User Admin </span><i class='fa fa-angle-left pull-right'></i></a>
         <ul class='treeview-menu'>
           <li><a href='user_add.php'><i class='fa fa-circle-o'></i> Tambah User </a></li>
           <li><a href='user_list.php'><i class='fa fa-circle-o'></i> Data User </a></li>
@@ -43,22 +43,35 @@
     }
     ?>
   </li>
-  <li class="header">PENGATURAN</li>
   <li class='treeview'>
-    <a href='#'><i class='fa fa-cogs'></i><span> Halaman </span><i class='fa fa-angle-left pull-right'></i></a>
-    <ul class='treeview-menu'>
-      <?php
-      $sql        = "SELECT * FROM navigasi ORDER BY judul ASC";
-      $result     = mysqli_query($conn, $sql);
-      while($data = mysqli_fetch_array($result)) 
-      {
-        $id_nav = $data['id_nav'];
-        $judul  = $data['judul'];
-        echo " <li><a href='navigasi.php?id_nav=$id_nav'><i class='fa fa-circle-o'></i>$judul</a></li>";
-      }
-      ?>
-    </ul>
+    <?php
+    if ($sesen_akses == "admin")
+    {
+      echo "
+      <a href='#'><i class='fa fa-user'></i><span> Member </span><i class='fa fa-angle-left pull-right'></i></a>
+        <ul class='treeview-menu'>
+          <li><a href='member_add.php'><i class='fa fa-circle-o'></i> Tambah Member </a></li>
+          <li><a href='member_list.php'><i class='fa fa-circle-o'></i> Data Member </a></li>
+        </ul>
+      ";
+    }
+    ?>
   </li>
+  <li class='treeview'>
+    <?php
+    if ($sesen_akses == "admin")
+    {
+      echo "
+      <a href='#'><i class='fa fa-user'></i><span> Supplier </span><i class='fa fa-angle-left pull-right'></i></a>
+        <ul class='treeview-menu'>
+          <li><a href='supplier_add.php'><i class='fa fa-circle-o'></i> Tambah Supplier </a></li>
+          <li><a href='supplier_list.php'><i class='fa fa-circle-o'></i> Data Supplier </a></li>
+        </ul>
+      ";
+    }
+    ?>
+  </li>
+  <li class="header">PENGATURAN</li>
   <li class='treeview'>
     <a href='#'><i class='fa fa-asterisk'></i><span> Password </span><i class='fa fa-angle-left pull-right'></i></a>
     <ul class='treeview-menu'>
