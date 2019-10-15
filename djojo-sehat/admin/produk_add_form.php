@@ -12,7 +12,7 @@
             <input class="form-control" name="nama_brg" type="text" id="nama_brg" size="30" placeholder="Deskripsi singkat produk"/>
           </div>
           <div class="form-group"><label>Deskripsi Produk</label>
-            <textarea class="form-control" rows="10" id="deskripsi" name="deskripsi"></textarea>
+            <textarea class="form-control" rows="10" id="deskripsi_brg" name="deskripsi_brg"></textarea>
           </div>
         </div><!-- /.box-body -->
       </div><!-- /.box -->

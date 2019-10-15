@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
   $id             = mysqli_real_escape_string($koneksi, $_POST['id_brg']);
   $nama           = mysqli_real_escape_string($koneksi, $_POST['nama_brg']);
   $judul          = judul_seo($nama);
-  $deskripsi      = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
+  $deskripsi      = mysqli_real_escape_string($koneksi, $_POST['deskripsi_brg']);
   $jenis          = mysqli_real_escape_string($koneksi, $_POST['jenis_brg']);
   $satuan         = mysqli_real_escape_string($koneksi, $_POST['satuan_brg']);
   $jumlah         = mysqli_real_escape_string($koneksi, $_POST['jumlah_brg']);
