@@ -33,10 +33,10 @@ if(isset($_POST['submit']))
       $del  = "SELECT foto_barang FROM tb_barang WHERE id_barang = '$id' ";
       $res  = mysqli_query($koneksi, $del);
       $d    = mysqli_fetch_object($res);
-      if(file_exists($d->img))
+      if(file_exists($d->$img))
       {
         // Memutuskan koneksi file yang lama
-        unlink($d->img);
+        unlink($d->$img);
       }
       move_uploaded_file($file_tmp, $lokasi);
       // Update photo dengan yang baru
@@ -49,7 +49,8 @@ if(isset($_POST['submit']))
       }
   }
 
-  $sql = "UPDATE tb_barang SET nama_barang = '$nama',
+  $sql = "UPDATE tb_barang SET id_barang   = '$id',
+                               nama_barang = '$nama',
                                    judul   = '$judul',
                                    jenis   = '$jenis',
                                id_satuan   = '$satuan',
@@ -59,9 +60,9 @@ if(isset($_POST['submit']))
                               harga_beli   = '$harga_beli',
                               harga_jual   = '$harga_jual',
                              foto_barang   = '$img',
-                                kategori   = '$kategori',
+                                kategori   = '$kategori'
                          WHERE id_barang   = '$id' ";
-                         
+
 
   if(mysqli_query($koneksi, $sql))
   {
