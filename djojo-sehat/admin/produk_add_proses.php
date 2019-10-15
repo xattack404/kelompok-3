@@ -50,7 +50,7 @@ if(isset($_POST['submit']))
                                       harga_beli,
                                       harga_jual,
                                       foto_barang,
-                                      ketegori)
+                                      kategori)
                             VALUES ('$id',
                                     '$nama',
                                     '$judul',
