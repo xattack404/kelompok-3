@@ -1,10 +1,9 @@
 <?php session_start();
-include '../config.php';                    // Panggil koneksi ke database
-include '../fungsi/cek_login.php';          // Panggil fungsi cek sudah login/belum
-include '../fungsi/cek_session.php';        // Panggil fungsi cek session
-include '../fungsi/cek_aksi_ubah.php';      // Panggil fungsi boleh ubah data atau tidak
-include '../fungsi/setting.php';            // Panggil data setting
-include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin yang boleh melakukan aksi
+include '../config/koneksi.php';                // Panggil koneksi ke database
+include 'cek_login.php';      // Panggil fungsi cek sudah login/belum
+include 'cek_session.php';    // Panggil fungsi cek session
+include '../fungsi/cek_aksi_ubah.php';
+//Panggil fungsi boleh ubah data atau tidak 
 ?>
 <!DOCTYPE html>
 <html>

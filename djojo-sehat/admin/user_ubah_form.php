@@ -1,7 +1,7 @@
 <?php
-$id_user  = mysqli_real_escape_string($conn, $_GET['id_user']);
-$sql      = "SELECT * FROM user WHERE id_user = '$id_user' ";
-$result   = mysqli_query($conn, $sql);
+$id_user  = mysqli_real_escape_string($koneksi, $_GET['id_user']);
+$sql      = "SELECT * FROM tb_login WHERE id_login = '$id_user' ";
+$result   = mysqli_query($koneksi, $sql);
 $data     = mysqli_fetch_array($result);
 ?>
 <form action="user_ubah_proses.php" method="post">
@@ -15,20 +15,22 @@ $data     = mysqli_fetch_array($result);
           </div>
           <div class="form-group"><label>Username</label>
             <input type="text" name="username" class="form-control" required value="<?php echo $data['username'] ?>"/>
+          <div class="form-group"><label>No Hp</label>
+            <input type="text" name="no_hp" class="form-control" required value="<?php echo $data['no_hp'] ?>"/>
           </div>
           <div class="form-group"><label>Tipe User</label><br/>
             <?php echo
-            "<input type='radio' name='usertype' value='superadmin' ".($data['usertype'] == "superadmin"?'checked':'')."> Super Admin &nbsp ".
-            "<input type='radio' name='usertype' value='admin' ".($data['usertype'] == "admin"?'checked':'')."> Admin &nbsp ";
+            "<input type='radio' name='tipe' value='1' ".($data['id_posisi'] == "1"?'checked':'').">  Admin &nbsp ".
+            "<input type='radio' name='tipe' value='3' ".($data['id_posisi'] == "3"?'checked':'')."> Super Admin &nbsp ";
             ?>
           </div>
           <div class="form-group"><label>Hak Akses</label><br/>
             <?php echo 
-            "<input type='radio' name='access' value='3' ".($data['access'] == "3"?'checked':'')."> Full Access &nbsp ".
-            "<input type='radio' name='access' value='2' ".($data['access'] == "2"?'checked':'')."> Change &nbsp ".
-            "<input type='radio' name='access' value='1' ".($data['access'] == "1"?'checked':'')."> Read &nbsp ".
-            "<input type='radio' name='access' value='0' ".($data['access'] == "0"?'checked':'')."> No Access &nbsp ";
+            "<input type='radio' name='access' value='admin' ".($data['akses'] == "3"?'checked':'')."> Full Access &nbsp "
             ?>
+            <!-- "<input type='radio' name='access' value='2' ".($data['access'] == "2"?'checked':'')."> Change &nbsp ".
+            "<input type='radio' name='access' value='1' ".($data['access'] == "1"?'checked':'')."> Read &nbsp ".
+            "<input type='radio' name='access' value='0' ".($data['access'] == "0"?'checked':'')."> No Access &nbsp "; -->
           </div>
         </div>
         <div class="box-footer">
