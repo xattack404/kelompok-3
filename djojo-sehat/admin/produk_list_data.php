@@ -32,13 +32,13 @@
             <td valign='top' align='center'>".$no."</td>
             <td style='text-align: left'>".$data['nama_barang']."</td>
             <td style='text-align: center'>".$data['kategori']."</td>
-            <td style='text-align: center'>.$harga_jual. </td>
+            <td style='text-align: center'>$harga_jual. </td>
             <td style='text-align: center'>".$data['jumlah']."</td>
             <td style='text-align: center'>
-              <a href='produk_ubah.php?id_produk=$data[id_barang]'>
+              <a href='produk_ubah.php?id_barang=$data[id_barang]'>
                 <button type='submit' class='btn btn-primary'>Ubah</button>
               </a>
-              <a href='produk_hapus.php?id_produk=$data[id_barang]'>
+              <a href='produk_hapus.php?id_barang=$data[id_barang]'>
                 <button type='submit' class='btn btn-danger' OnClick=\"return confirm('Apakah Anda yakin?');\">Hapus</button>
               </a>
             </td>

@@ -1,24 +1,24 @@
 <?php session_start();
-include '../config.php';                  // Panggil koneksi ke database
-include '../fungsi/cek_login.php';        // Panggil fungsi cek sudah login/belum
+include '../config/koneksi.php';                  // Panggil koneksi ke database
+include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
 include '../fungsi/cek_aksi_hapus.php'; 	// Panggil fungsi boleh hapus data atau tidak
 
-$id_produk   = mysqli_real_escape_string($conn, $_GET['id_produk']);
+$id_barang   = mysqli_real_escape_string($koneksi, $_GET['id_barang']);
 
-$del_img  = "SELECT img FROM produk WHERE id_produk = '$id_produk' ";
-$res      = mysqli_query($conn, $del_img);
+$del_img  = "SELECT foto_barang FROM tb_barang WHERE id_barang = '$id_barang' ";
+$res      = mysqli_query($koneksi, $del_img);
 $data     = mysqli_fetch_array($res);
-$img   		= $data['img'];
+$img   		= $data['foto_barang'];
 $tmpfile 	= "../images/produk/$img";
 
-$sql = "DELETE FROM produk WHERE id_produk = '$id_produk' ";
-if (mysqli_query($conn, $sql)) 
+$sql = "DELETE FROM tb_barang WHERE id_barang = '$id_barang' ";
+if (mysqli_query($koneksi, $sql)) 
 {
 	unlink ($tmpfile);
   echo "<script>alert('Hapus data berhasil! Klik ok untuk melanjutkan');location.replace('produk_list.php')</script>"; 
 }
   else 
   {
-    echo "Error updating record: " . mysqli_error($conn);
+    echo "Error updating record: " . mysqli_error($koneksi);
   }
 ?>
