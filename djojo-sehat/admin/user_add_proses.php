@@ -4,15 +4,21 @@ include 'cek_login.php';          // Panggil fungsi cek sudah login/belum
 include 'cek_session.php';        // Panggil fungsi cek session
 include '../fungsi/cek_aksi_tambah.php';    // Panggil fungsi boleh tambah data atau tidak
 include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin yang boleh melakukan aksi
+require "template/libs/vendor/autoload.php";
+
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if(isset($_POST['submit']))
 {
-  $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
+  $uuid = Uuid::uuid4()->toString();
   $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
-  $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
-  $usertype   = mysqli_real_escape_string($koneksi,$_POST['usertype']);
+  $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
+  $no_hp   = mysqli_real_escape_string($koneksi,$_POST['no_hp']);
+  $tampung       = mysqli_real_escape_string($koneksi,$_POST['password']);
+  $password   = password_hash($tampung, PASSWORD_DEFAULT);
+  $tipe   = mysqli_real_escape_string($koneksi,$_POST['tipe']);
   $access     = mysqli_real_escape_string($koneksi,$_POST['access']);
-  $nohp       = mysqli_real_escape_string($koneksi,$_POST['hp']);
   $cekdata = "SELECT username FROM tb_login WHERE username = '$username' ";
   $ada     = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
@@ -22,20 +28,20 @@ if(isset($_POST['submit']))
     else
     {
       // Proses insert data dari form ke db
-      $sql = "INSERT INTO tb_login (`username`, 
-                                    `nama`,
-                                    `no_hp`, 
-                                    `password`, 
-                                    `id_posisi`, 
-                                    `akses`)
-                        VALUE  ('$username',
+      $sql = "INSERT INTO tb_login (id_login,
+                                    username, 
+                                    nama,
+                                    no_hp, 
+                                    password, 
+                                    id_posisi, 
+                                    akses)
+                        VALUES  ('$uuid',
+                                '$username',
                                 '$nama',
-                                '$nohp',
+                                '$no_hp',
                                 '$password',
-                                '$usertype',
-                                '$access',
-                                now(),
-                                now())";
+                                '$tipe',
+                                '$access')";
 
       if(mysqli_query($koneksi, $sql)) 
       {

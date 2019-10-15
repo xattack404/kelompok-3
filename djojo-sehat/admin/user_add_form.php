@@ -11,17 +11,17 @@
             <input type="text" name="username" class="form-control" required/>
           </div>
           <div class="form-group"><label>No HP</label>
-            <input type="text" name="hp" class="form-control" required/>
+            <input type="number" name="no_hp" class="form-control" required/>
           </div>
           <div class="form-group"><label>Password Login</label>
             <input type="password" name="password" class="form-control" required/>
           </div>
           <div class="form-group"><label>Tipe User</label><br/>
-            <input type="radio" name="usertype" value="superadmin"> Super Admin &nbsp 
-            <input type="radio" name="usertype" value="admin" checked> Admin &nbsp 
+            <input type="radio" name="tipe" value="3"> Super Admin &nbsp; 
+            <input type="radio" name="tipe" value="1" checked> Admin &nbsp 
           </div>
           <div class="form-group"><label>Hak Akses</label><br/>
-            <input type="radio" name="access" value="1"> Full Access &nbsp 
+            <input type="radio" name="access" value="admin"> Full Access &nbsp 
             <!--<input type="radio" name="access" value="2"> Change &nbsp 
             <input type="radio" name="access" value="1"> Read &nbsp 
             <input type="radio" name="access" value="0" checked> No Access</td>-->

@@ -1,12 +1,9 @@
 <?php session_start();
-
-include '../config/koneksi.php';                    // Panggil koneksi ke database
-// include '../fungsi/cek_login.php';          // Panggil fungsi cek sudah login/belum
-//include '../fungsi/cek_session.php';        // Panggil fungsi cek session
-//include '../fungsi/cek_aksi_tambah.php';    // Panggil fungsi boleh tambah data atau tidak
-include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin yang boleh melakukan aksi
-include '../fungsi/setting.php';            // Panggil data setting
-include '../fungsi/tgl_indo.php';           // Panggil fungsi merubah tanggal menjadi format seperti 2 Mei 2015
+include '../config/koneksi.php';                  // Panggil koneksi ke database
+include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
+include 'cek_session.php';      // Panggil fungsi cek session
+//include '../fungsi/setting.php';          // Panggil data setting
+include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menjadi format seperti 2 Mei 2015
 ?>
 <!DOCTYPE html>
 <html>

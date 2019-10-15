@@ -8,7 +8,7 @@
           <th style="text-align: center">Username</th>
           <th style="text-align: center">No Telp</th>
           <th style="text-align: center">Posisi</th>
-          <!-- <th style="text-align: center"></th> -->
+          <th style="text-align: center"></th>
           <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
@@ -28,6 +28,7 @@
                   <td style="text-align: center"><?= $data['username'] ?></td>
                   <td style="text-align: center"><?= $data['no_hp'] ?></td>
                   <td style="text-align: center"><?= $data['posisi'] ?></td>
+                  <td style="text-align: center"><?= $data['akses'] ?></td>
                   <td style="text-align: center">
                     <a href="user_ubah.php?id_user=$data['id_user']">
                       <button type="submit" class="btn btn-primary">Ubah</button>
