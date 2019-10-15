@@ -6,7 +6,7 @@ include '../fungsi/cek_aksi_tambah.php';    // Panggil fungsi boleh tambah data 
 include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin yang boleh melakukan aksi
 require "template/libs/vendor/autoload.php";
 
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\Uuid; 
 use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if(isset($_POST['submit']))
