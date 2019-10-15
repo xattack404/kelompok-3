@@ -11,12 +11,12 @@ $data             = mysqli_fetch_array($result);
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-body">
-          <input name="id_barang" type="hidden" id="id_barang" value="<?php echo $data['id_barang'] ?>">
+          <input name="id_brg" type="hidden" id="id_brg" value="<?php echo $data['id_barang'] ?>">
           <div class="form-group"><label>Nama Barang</label>
             <input class="form-control" name="nama_brg" type="text" id="nama_brg" size="30" value="<?php echo $data['nama_barang'] ?>"/>
           </div>
           <div class="form-group"><label>Deskripsi Produk</label>
-            <textarea class="form-control" rows="10" id="deskripsi_brg" name="deskripsi_brg" value="<?php echo $data['deskripsi'] ?>"></textarea>
+            <textarea class="form-control" rows="10" id="deskripsi_brg" name="deskripsi_brg" ><?php echo $data['deskripsi'] ?></textarea>
           </div>
         </div><!-- /.box-body -->
       </div><!-- /.box -->
@@ -42,41 +42,47 @@ $data             = mysqli_fetch_array($result);
               <select name="satuan_brg" id="satuan_brg" class="form-control" required>
               <option value="">--Pilih Satuan--</option>
               <?php
-                $query = "SELECT * FROM tb_satuan ORDER BY nama_satuan";
-                $sql = mysqli_query($koneksi, $query);
-                while($data = mysqli_fetch_array($sql)){echo '<option value="'.$data['id_satuan'].'">'.$data['nama_satuan'].'</option>';}
+                $sat            = "SELECT * FROM tb_satuan ORDER BY nama_satuan ASC";
+                $result         = mysqli_query($koneksi, $sat);
+                while($datasat  = mysqli_fetch_array($result))
+                {
+                  echo "<option value='$datasat[id_satuan]'".($data['id_satuan']==$datasat['id_satuan']?' selected':'').">$datasat[nama_satuan]</option>\n";
+                }
                 ?>
               </select>
               </div>
             <div class="col-xs-4"><label>Jumlah Barang</label>
-              <input class="form-control" name="jumlah_brg" type="text" id="b" size="30" placeholder="Isi angka saja" onkeyup="hitung();"/>
+              <input class="form-control" name="jumlah_brg" type="text" id="b"  size="30" placeholder="Isi angka saja" value="<?php echo $data['jumlah'] ?>" />
             </div>
-            </div></br>
+            </div>
           <div class="row">
           <div class="col-xs-3"><label>Berat</label>
-              <input class="form-control" name="berat_brg" type="text" id="berat_brg" size="30" placeholder="Per Gram"/>
+              <input class="form-control" name="berat_brg" type="text" id="berat_brg" size="30" placeholder="Per Gram" value="<?php echo $data['berat'] ?>"/>
             </div>
             <div class="col-xs-3"><label>Harga Beli</label>
-              <input class="form-control" name="hrg_beli" type="text" id="hrg_beli" size="30" placeholder="Angka saja"/>
+              <input class="form-control" name="hrg_beli" type="text" id="hrg_beli" size="30" placeholder="Angka saja" value="<?php echo $data['harga_beli'] ?>"/>
             </div>
             <div class="col-xs-3"><label>Harga Jual</label>
-              <input class="form-control" name="hrg_jual" type="text" id="hrg_jual" size="30" placeholder="Angka saja"/>
+              <input class="form-control" name="hrg_jual" type="text" id="hrg_jual" size="30" placeholder="Angka saja" value="<?php echo $data['harga_jual'] ?>"/>
             </div>
             <div class="col-xs-4"><label>Kategori</label>
               <br/>
               <select name="kategori" id="kategori" class="form-control" required>
               <option value="">--Pilih Kategori--</option>
-                <?php
-                $query = "SELECT * FROM tb_kategori ORDER BY nama_kategori";
-                $sql = mysqli_query($koneksi, $query);
-                while($data = mysqli_fetch_array($sql)){echo '<option value="'.$data['id_kategori'].'">'.$data['nama_kategori'].'</option>';}
+              <?php
+                $kat            = "SELECT * FROM tb_kategori ORDER BY nama_kategori ASC";
+                $result         = mysqli_query($koneksi, $kat);
+                while($datakat  = mysqli_fetch_array($result))
+                {
+                  echo "<option value='$datakat[id_kategori]'".($data['kategori']==$datakat['id_kategori']?' selected':'').">$datakat[nama_kategori]</option>\n";
+                }
                 ?>
               </select>
               </div>
           </div><br>
           <div class="form-group"><label>Gambar Sebelumnya</label>
             <br/>
-            <?php echo "<img src='../images/produk/".$data['img']."' width='150' height='150'>"; ?>
+            <?php echo "<img src='../images/produk/".$data['foto_barang']."' width='150' height='150'>"; ?>
           </div>
           <div class="form-group"><label>Gambar Baru</label>
             <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')"/>
