@@ -4,10 +4,15 @@ include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
 include 'cek_session.php';      // Panggil fungsi cek session
 include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tamabah data atau tidak
 include '../fungsi/judul_seo.php';        // Panggil fungsi judul_seo untuk merubah teks dalam format tanpa spasi dan simbol
+require "template/libs/vendor/autoload.php";
+
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if(isset($_POST['submit']))
 {
-  $id             = mysqli_real_escape_string($koneksi, $_POST['id_brg']);
+  // $id             = mysqli_real_escape_string($koneksi, $_POST['id_brg']);
+  $uuid = Uuid::uuid4()->toString();
   $nama           = mysqli_real_escape_string($koneksi, $_POST['nama_brg']);
   $judul          = judul_seo($nama);
   $deskripsi      = mysqli_real_escape_string($koneksi, $_POST['deskripsi_brg']);
@@ -30,6 +35,8 @@ if(isset($_POST['submit']))
     {
       $allowed_ext  = array('jpg', 'jpeg', 'png', 'gif');
       $file_name    = $_FILES['img']['name']; // File adalah name dari tombol input pada form
+      // $text = end(explode('.',$file_name));
+      // $file_ext=strtolower($text);
       $file_ext     = strtolower(end(explode('.', $file_name)));
       $file_tmp     = $_FILES['img']['tmp_name'];
       $lokasi       = '../images/produk/'.$nama.'.'.$file_ext;
@@ -51,7 +58,7 @@ if(isset($_POST['submit']))
                                       harga_jual,
                                       foto_barang,
                                       kategori)
-                            VALUES ('$id',
+                            VALUES ('$uuid',
                                     '$nama',
                                     '$judul',
                                     '$jenis',
@@ -65,7 +72,7 @@ if(isset($_POST['submit']))
                                     '$kategori')";
         if(mysqli_query($koneksi, $sql))
         {
-          echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('produk_list.php')</script>";
+           echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('produk_list.php')</script>";
         }
           else
           {
@@ -83,3 +90,4 @@ if(isset($_POST['submit']))
     echo "<script>alert('Gak boleh tembak langsung ya, pencet dulu tombol uploadnya!');history.go(-1)</script>";
   }
 ?>
+  

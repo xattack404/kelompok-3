@@ -1,6 +1,6 @@
 <?php
 $id_barang        = mysqli_real_escape_string($koneksi, $_GET['id_barang']);
-$sql              = "SELECT * FROM tb_barang WHERE id_barang = $id_barang ";
+$sql              = "SELECT * FROM tb_barang WHERE id_barang = '$id_barang' ";
 $result           = mysqli_query($koneksi, $sql);
 $data             = mysqli_fetch_array($result);
 ?>
@@ -32,7 +32,7 @@ $data             = mysqli_fetch_array($result);
           <div class="col-xs-4"><label>Jenis Barang</label>
               <br/>
               <select name="jenis_brg" id="jenis_brg" class="form-control" required>
-              <option value="">--Pilih Jenis--</option>
+              <option value="<?php echo $data['jenis'] ?>">--Pilih Jenis--</option>
               <option value="obat">Obat</option>
               <option value="fashion">Fashion</option>
               </select>
@@ -40,30 +40,30 @@ $data             = mysqli_fetch_array($result);
             <div class="col-xs-4"><label>Satuan</label>
               <br/>
               <select name="satuan_brg" id="satuan_brg" class="form-control" required>
-              <option value="">--Pilih Satuan--</option>
+              <option value="<?php echo $data['id_satuan'] ?>">--Pilih Satuan--</option>
               <?php
                 $sat            = "SELECT * FROM tb_satuan ORDER BY nama_satuan ASC";
                 $result         = mysqli_query($koneksi, $sat);
                 while($datasat  = mysqli_fetch_array($result))
                 {
-                  echo "<option value='$datasat[id_satuan]'".($data['id_satuan']==$datasat['id_satuan']?' selected':'').">$datasat[nama_satuan]</option>\n";
+                  echo "<option value='$datasat[id_satuan]'".($data['id_satuan']==$datasat['id_satuan']?' selected':'').">$datasat[nama_satuan]</option>";
                 }
                 ?>
               </select>
               </div>
             <div class="col-xs-4"><label>Jumlah Barang</label>
-              <input class="form-control" name="jumlah_brg" type="text" id="b"  size="30" placeholder="Isi angka saja" value="<?php echo $data['jumlah'] ?>" />
+              <input class="form-control" name="jumlah_brg" type="number" id="b"  size="30" placeholder="Isi angka saja" value="<?php echo $data['jumlah'] ?>" />
             </div>
             </div>
           <div class="row">
           <div class="col-xs-3"><label>Berat</label>
-              <input class="form-control" name="berat_brg" type="text" id="berat_brg" size="30" placeholder="Per Gram" value="<?php echo $data['berat'] ?>"/>
+              <input class="form-control" name="berat_brg" type="number" id="berat_brg" size="30" placeholder="Per Gram" value="<?php echo $data['berat'] ?>"/>
             </div>
             <div class="col-xs-3"><label>Harga Beli</label>
-              <input class="form-control" name="hrg_beli" type="text" id="hrg_beli" size="30" placeholder="Angka saja" value="<?php echo $data['harga_beli'] ?>"/>
+              <input class="form-control" name="hrg_beli" type="number" id="hrg_beli" size="30" placeholder="Angka saja" value="<?php echo $data['harga_beli'] ?>"/>
             </div>
             <div class="col-xs-3"><label>Harga Jual</label>
-              <input class="form-control" name="hrg_jual" type="text" id="hrg_jual" size="30" placeholder="Angka saja" value="<?php echo $data['harga_jual'] ?>"/>
+              <input class="form-control" name="hrg_jual" type="number" id="hrg_jual" size="30" placeholder="Angka saja" value="<?php echo $data['harga_jual'] ?>"/>
             </div>
             <div class="col-xs-4"><label>Kategori</label>
               <br/>
