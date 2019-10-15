@@ -1,7 +1,7 @@
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.0
+      <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2015-2016 <a href="http://azmicolejr.com">Azmi Cole Jr</a>.</strong> All rights reserved.
-    Theme by <a href="http://almsaeedstudio.com">Almsaeed Studio</a>
+    <strong>Copyright &copy; 2019 <a href="#">Kelompok 3</a>.</strong> All rights reserved.
+    Theme by <a href="http://T-flor.com">T-Flor Studio</a>
 </footer>

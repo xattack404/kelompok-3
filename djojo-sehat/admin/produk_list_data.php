@@ -14,7 +14,7 @@
       <tbody>
 
       <?php
-      $sql = "SELECT a.id_barang,a.nama_barang,a.harga_jual,a.jumlah
+      $sql = "SELECT a.id_barang,a.nama_barang,a.jumlah,a.harga_jual
               b.nama_kategori as kategori 
               FROM tb_barang a 
               LEFT JOIN tb_kategori b on b.id_kategori = a.kategori 
@@ -31,10 +31,10 @@
             <td valign='top' align='center'>".$no."</td>
             <td style='text-align: left'>".$data['nama_barang']."</td>
             <td style='text-align: center'>".$data['kategori']."</td>
-            <td style='text-align: center'>$harga_jual </td>
+            <td style='text-align: center'>.$harga_jual. </td>
             <td style='text-align: center'>".$data['jumlah']."</td>
             <td style='text-align: center'>
-              <a href='produk_ubah.php?id_produk=$data[id_barang]' '>
+              <a href='produk_ubah.php?id_produk=$data[id_barang]'>
                 <button type='submit' class='btn btn-primary'>Ubah</button>
               </a>
               <a href='produk_hapus.php?id_produk=$data[id_barang]'>
@@ -51,3 +51,17 @@
   </table>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
