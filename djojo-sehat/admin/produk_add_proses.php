@@ -7,24 +7,21 @@ include '../fungsi/judul_seo.php';        // Panggil fungsi judul_seo untuk meru
 
 if(isset($_POST['submit']))
 {
-  $nama_produk    = mysqli_real_escape_string($conn, $_POST['nama_produk']);
-  $judul_seo      = judul_seo($nama_produk);
-  $seo_deskripsi  = mysqli_real_escape_string($conn, $_POST['seo_deskripsi']);
-  $seo_keywords   = mysqli_real_escape_string($conn, $_POST['seo_keywords']);
-  $deskripsi      = mysqli_real_escape_string($conn, $_POST['deskripsi']);
-  $warna          = mysqli_real_escape_string($conn, $_POST['warna']);
-  $berat          = mysqli_real_escape_string($conn, $_POST['berat']);
-  $harga          = mysqli_real_escape_string($conn, $_POST['harga']);
-  $diskon         = mysqli_real_escape_string($conn, $_POST['diskon']);
-  $harga_diskon   = mysqli_real_escape_string($conn, $_POST['harga_diskon']);
-  $stok           = mysqli_real_escape_string($conn, $_POST['stok']);
-  $garansi        = mysqli_real_escape_string($conn, $_POST['garansi']);
-  $kat            = mysqli_real_escape_string($conn, $_POST['cmbkat']);
-  $subkat         = mysqli_real_escape_string($conn, $_POST['cmbsubkat']);
-  $supersubkat    = mysqli_real_escape_string($conn, $_POST['cmbsupersubkat']);
+  $id             = mysqli_real_escape_string($koneksi, $_POST['id_brg']);
+  $nama           = mysqli_real_escape_string($koneksi, $_POST['nama_brg']);
+  $judul          = judul_seo($nama);
+  $deskripsi      = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
+  $jenis          = mysqli_real_escape_string($koneksi, $_POST['jenis_brg']);
+  $satuan         = mysqli_real_escape_string($koneksi, $_POST['satuan_brg']);
+  $jumlah         = mysqli_real_escape_string($koneksi, $_POST['jumlah_brg']);
+  $berat          = mysqli_real_escape_string($koneksi, $_POST['berat_brg']);
+  $harga_beli     = mysqli_real_escape_string($koneksi, $_POST['hrg_beli']);
+  $harga_jual     = mysqli_real_escape_string($koneksi, $_POST['hrg_jual']);
+  $kategori       = mysqli_real_escape_string($koneksi, $_POST['kategori']);
 
-  $cekdata = "SELECT nama_produk FROM produk WHERE nama_produk = '$nama_produk' ";
-  $ada     = mysqli_query($conn, $cekdata);
+
+  $cekdata = "SELECT nama_barang FROM tb_barang WHERE nama_barang = '$nama' ";
+  $ada     = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
   {
     echo "<script>alert('ERROR: Judul telah terdaftar, silahkan pakai Judul lain!');history.go(-1)</script>";
@@ -35,58 +32,44 @@ if(isset($_POST['submit']))
       $file_name    = $_FILES['img']['name']; // File adalah name dari tombol input pada form
       $file_ext     = strtolower(end(explode('.', $file_name)));
       $file_tmp     = $_FILES['img']['tmp_name'];
-      $lokasi       = '../images/produk/'.$judul_seo.'.'.$file_ext;
-      $img          = $judul_seo.'.'.$file_ext;
+      $lokasi       = '../images/produk/'.$nama.'.'.$file_ext;
+      $img          = $nama.'.'.$file_ext;
 
       if(in_array($file_ext, $allowed_ext) === true)
       {
         move_uploaded_file($file_tmp, $lokasi);
         // Proses insert data dari form ke db
-        $sql = "INSERT INTO produk (nama_produk,
-                                    judul_seo,
-                                    seo_deskripsi,
-                                    seo_keywords,
-                                    deskripsi,
-                                    warna,
-                                    berat,
-                                    kat,
-                                    subkat,
-                                    supersubkat,
-                                    harga,
-                                    diskon,
-                                    harga_diskon,
-                                    stok,
-                                    garansi,
-                                    uploader,
-                                    jam_upload,
-                                    tgl_upload,
-                                    img)
-                            VALUES ('$nama_produk',
-                                    '$judul_seo',
-                                    '$seo_deskripsi',
-                                    '$seo_keywords',
-                                    '$deskripsi',
-                                    '$warna',
+        $sql = "INSERT INTO tb_barang (id_barang,
+                                      nama_barang,
+                                      judul,
+                                      jenis,
+                                      id_satuan,
+                                      jumlah,
+                                      berat,
+                                      deskripsi,
+                                      harga_beli,
+                                      harga_jual,
+                                      foto_barang,
+                                      ketegori)
+                            VALUES ('$id',
+                                    '$nama',
+                                    '$judul',
+                                    '$jenis',
+                                    '$satuan',
+                                    '$jumlah',
                                     '$berat',
-                                    '$kat',
-                                    '$subkat',
-                                    '$supersubkat',
-                                    '$harga',
-                                    '$diskon',
-                                    '$harga_diskon',
-                                    '$stok',
-                                    '$garansi',
-                                    '$sesen_username',
-                                    now(),
-                                    now(),
-                                    '$img')";
-        if(mysqli_query($conn, $sql))
+                                    '$deskripsi',
+                                    '$harga_beli',
+                                    '$harga_jual',
+                                    '$img',
+                                    '$kategori')";
+        if(mysqli_query($koneksi, $sql))
         {
           echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('produk_list.php')</script>";
         }
           else
           {
-            echo "Error updating record: " . mysqli_error($conn);
+            echo "Error updating record: " . mysqli_error($koneksi);
           }
       }
         else

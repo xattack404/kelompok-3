@@ -6,13 +6,13 @@
       <div class="box box-primary">
         <div class="box-body">
           <div class="form-group"><label>ID BARANG</label>
-            <input class="form-control" name="id_brg" type="text" id="nama_produk" size="30" placeholder="Huruf besar diawal lalu kecil"/>
+            <input class="form-control" name="id_brg" type="text" id="id_brg" size="30" placeholder="Huruf besar diawal lalu kecil"/>
           </div>
           <div class="form-group"><label>Nama Barang</label>
-            <input class="form-control" name="nama_brg" type="text" id="seo_deskripsi" size="30" placeholder="Deskripsi singkat produk"/>
+            <input class="form-control" name="nama_brg" type="text" id="nama_brg" size="30" placeholder="Deskripsi singkat produk"/>
           </div>
           <div class="form-group"><label>Deskripsi Produk</label>
-            <textarea class="form-control" rows="10" id="deskripsi_brg" name="deskripsi"></textarea>
+            <textarea class="form-control" rows="10" id="deskripsi" name="deskripsi"></textarea>
           </div>
         </div><!-- /.box-body -->
       </div><!-- /.box -->
@@ -27,7 +27,7 @@
           <div class="row">
             <div class="col-xs-4"><label>Jenis Barang</label>
               <br/>
-              <select name="cmbkat" id="cmbkat" class="form-control" required>
+              <select name="jenis_brg" id="jenis_brg" class="form-control" required>
               <option value="">--Pilih Jenis--</option>
               <option value="obat">Obat</option>
               <option value="fashion">Fashion</option>
@@ -35,7 +35,7 @@
               </div>
             <div class="col-xs-4"><label>Satuan</label>
               <br/>
-              <select name="cmbkat" id="cmbkat" class="form-control" required>
+              <select name="satuan_brg" id="satuan_brg" class="form-control" required>
               <option value="">--Pilih Satuan--</option>
               <?php
                 $query = "SELECT * FROM tb_satuan ORDER BY nama_satuan";
@@ -60,7 +60,7 @@
             </div>
             <div class="col-xs-4"><label>Kategori</label>
               <br/>
-              <select name="cmbkat" id="cmbkat" class="form-control" required>
+              <select name="kategori" id="kategori" class="form-control" required>
               <option value="">--Pilih Kategori--</option>
                 <?php
                 $query = "SELECT * FROM tb_kategori ORDER BY nama_kategori";
