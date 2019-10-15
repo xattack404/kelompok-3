@@ -14,11 +14,12 @@
       <tbody>
 
       <?php
-      $sql = "SELECT a.id_barang,a.nama_barang,a.jumlah,a.harga_jual
+      $sql = "SELECT a.id_barang, a.nama_barang, a.jumlah, a.harga_jual,
               b.nama_kategori as kategori 
               FROM tb_barang a 
               LEFT JOIN tb_kategori b on b.id_kategori = a.kategori 
               ORDER BY a.id_barang ASC";
+              
       $result = mysqli_query($koneksi, $sql);
       $no = 1;
       if (mysqli_num_rows($result) > 0)
