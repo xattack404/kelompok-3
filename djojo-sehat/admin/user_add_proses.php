@@ -7,14 +7,14 @@ include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin y
 
 if(isset($_POST['submit']))
 {
-  $nama       = mysqli_real_escape_string($conn,$_POST['nama']);
-  $username   = mysqli_real_escape_string($conn,$_POST['username']);
+  $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
+  $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
   $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
-  $usertype   = mysqli_real_escape_string($conn,$_POST['usertype']);
-  $access     = mysqli_real_escape_string($conn,$_POST['access']);
+  $usertype   = mysqli_real_escape_string($koneksi,$_POST['akses']);
+  $access     = mysqli_real_escape_string($koneksi,$_POST['id_posisi']);
 
-  $cekdata = "SELECT username FROM user WHERE username = '$username' ";
-  $ada     = mysqli_query($conn, $cekdata);
+  $cekdata = "SELECT username FROM tb_login WHERE username = '$username' ";
+  $ada     = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
   { 
     echo "<script>alert('ERROR: Username telah terdaftar, silahkan pakai Username lain!');history.go(-1)</script>";
@@ -22,30 +22,26 @@ if(isset($_POST['submit']))
     else
     {
       // Proses insert data dari form ke db
-      $sql = "INSERT INTO user (nama,
+      $sql = "INSERT INTO tb_login (nama,
                                 username,
                                 password,
-                                usertype,
-                                access,
-                                uploader,
-                                jam_upload,
-                                tgl_upload)
+                                id_posisi,
+                                akses)
                         VALUES ('$nama',
                                 '$username',
                                 '$password',
-                                '$usertype',
                                 '$access',
-                                '$sesen_username',
+                                '$usertype',
                                 now(),
                                 now())";
 
-      if(mysqli_query($conn, $sql)) 
+      if(mysqli_query($koneksi, $sql)) 
       {
         echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('user_list.php')</script>";
       } 
         else 
         {
-          echo "Error updating record: " . mysqli_error($conn);
+          echo "Error updating record: " . mysqli_error($koneksi);
         }
     }
 }

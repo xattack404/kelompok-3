@@ -18,10 +18,10 @@
             <input type="radio" name="usertype" value="admin" checked> Admin &nbsp 
           </div>
           <div class="form-group"><label>Hak Akses</label><br/>
-            <input type="radio" name="access" value="3"> Full Access &nbsp 
-            <input type="radio" name="access" value="2"> Change &nbsp 
+            <input type="radio" name="access" value="1"> Full Access &nbsp 
+            <!--<input type="radio" name="access" value="2"> Change &nbsp 
             <input type="radio" name="access" value="1"> Read &nbsp 
-            <input type="radio" name="access" value="0" checked> No Access</td>
+            <input type="radio" name="access" value="0" checked> No Access</td>-->
           </div>
         </div>
         <div class="box-footer">

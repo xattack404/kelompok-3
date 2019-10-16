@@ -1,4 +1,5 @@
 <?php 
+include "../config/koneksi.php";
 // Query atau Pemanggilan data dari database setting berdasarkan id_setting
 $query_namatoko 		= "SELECT isi_setting FROM setting WHERE id_setting = 1 ";
 $hasil_namatoko			= mysqli_query($koneksi,$query_namatoko); 
