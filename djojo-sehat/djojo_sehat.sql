@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2019 at 12:13 PM
+-- Generation Time: Oct 16, 2019 at 04:29 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -110,7 +110,7 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id_barang`, `nama_barang`, `judul`, `jenis`, `id_satuan`, `jumlah`, `berat`, `deskripsi`, `harga_beli`, `harga_jual`, `foto_barang`, `kategori`) VALUES
-('Baju anak anak', 'baju anak anak', 'baju-anak-anak', 'fashion', '1', 10, 100, '<p>njkbk</p>', 20000, 30000, 'baju anak anak.jpg', 1);
+('1', 'baju anak anakqaa', 'baju-anak-anakqaa', 'obat', '1', 10, 30, '<p>njkbkqaaaaz</p>', 20000, 40000, 'baju-anak-anakqaa.jpg', 1);
 
 -- --------------------------------------------------------
 

@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 //include 'record/record_bseller.php';      include 'record/record_kategori.php';   include 'record/record_subkat.php';
 //include 'record/record_supersubkat.php';  include 'record/record_user.php';     include 'record/record_resi.php';
 //include 'record/record_slider.php';       include 'record/record_testi_new.php';  include 'record/record_testi_acc.php';
