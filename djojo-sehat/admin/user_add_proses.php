@@ -10,9 +10,9 @@ if(isset($_POST['submit']))
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
   $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
   $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
-  $usertype   = mysqli_real_escape_string($koneksi,$_POST['akses']);
-  $access     = mysqli_real_escape_string($koneksi,$_POST['id_posisi']);
-
+  $usertype   = mysqli_real_escape_string($koneksi,$_POST['usertype']);
+  $access     = mysqli_real_escape_string($koneksi,$_POST['access']);
+  $nohp       = mysqli_real_escape_string($koneksi,$_POST['hp']);
   $cekdata = "SELECT username FROM tb_login WHERE username = '$username' ";
   $ada     = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
@@ -22,16 +22,18 @@ if(isset($_POST['submit']))
     else
     {
       // Proses insert data dari form ke db
-      $sql = "INSERT INTO tb_login (nama,
-                                username,
-                                password,
-                                id_posisi,
-                                akses)
-                        VALUES ('$nama',
-                                '$username',
+      $sql = "INSERT INTO tb_login (`username`, 
+                                    `nama`,
+                                    `no_hp`, 
+                                    `password`, 
+                                    `id_posisi`, 
+                                    `akses`)
+                        VALUE  ('$username',
+                                '$nama',
+                                '$nohp',
                                 '$password',
-                                '$access',
                                 '$usertype',
+                                '$access',
                                 now(),
                                 now())";
 

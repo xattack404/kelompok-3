@@ -10,6 +10,9 @@
           <div class="form-group"><label>Username</label>
             <input type="text" name="username" class="form-control" required/>
           </div>
+          <div class="form-group"><label>No HP</label>
+            <input type="text" name="hp" class="form-control" required/>
+          </div>
           <div class="form-group"><label>Password Login</label>
             <input type="password" name="password" class="form-control" required/>
           </div>
