@@ -14,10 +14,10 @@ if(isset($_POST['submit']))
   $uuid = Uuid::uuid4()->toString();
   $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
-  $no_hp   = mysqli_real_escape_string($koneksi,$_POST['no_hp']);
+  $no_Hp   = mysqli_real_escape_string($koneksi,$_POST['hp']);
   $tampung       = mysqli_real_escape_string($koneksi,$_POST['password']);
   $password   = password_hash($tampung, PASSWORD_DEFAULT);
-  $tipe   = mysqli_real_escape_string($koneksi,$_POST['tipe']);
+  $tipe   = mysqli_real_escape_string($koneksi,$_POST['user_type']);
   $access     = mysqli_real_escape_string($koneksi,$_POST['access']);
   $cekdata = "SELECT username FROM tb_login WHERE username = '$username' ";
   $ada     = mysqli_query($koneksi, $cekdata);
@@ -38,7 +38,7 @@ if(isset($_POST['submit']))
                         VALUES  ('$uuid',
                                 '$username',
                                 '$nama',
-                                '$no_hp',
+                                '$no_Hp',
                                 '$password',
                                 '$tipe',
                                 '$access')";
