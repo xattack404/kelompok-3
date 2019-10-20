@@ -8,7 +8,7 @@
           <th style="text-align: center">Username</th>
           <th style="text-align: center">No Telp</th>
           <th style="text-align: center">Posisi</th>
-          <th style="text-align: center"></th>
+          <th style="text-align: center">Akses</th>
           <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
