@@ -30,10 +30,10 @@
                   <td style="text-align: center"><?= $data['posisi'] ?></td>
                   <td style="text-align: center"><?= $data['akses'] ?></td>
                   <td style="text-align: center">
-                    <a href="user_ubah.php?id_user=<?=$data['id_login']?>">
+                    <a href="user_ubah.php?id=<?=$data['id_login']?>">
                       <button type="submit" class="btn btn-primary">Ubah</button>
                     </a>
-                    <a href="user_hapus.php?id_user=<?=$data['id_login']?>">
+                    <a href="user_hapus.php?id=<?=$data['id_login']?>">
                       <button type="submit" class="btn btn-danger" OnClick="return confirm('Apakah Anda yakin?');">Hapus</button>
                     </a>
                   </td>

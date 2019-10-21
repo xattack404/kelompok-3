@@ -1,6 +1,6 @@
 <?php
-$id_user  = mysqli_real_escape_string($koneksi, $_GET['id_user']);
-$sql      = "SELECT * FROM tb_login WHERE id_login = '$id_user' ";
+$id  = mysqli_real_escape_string($koneksi, $_GET['id']);
+$sql      = "SELECT * FROM tb_login WHERE id_login = '$id' ";
 $result   = mysqli_query($koneksi, $sql);
 $data     = mysqli_fetch_array($result);
 ?>
@@ -9,7 +9,7 @@ $data     = mysqli_fetch_array($result);
     <div class="col-md-6">
       <div class="box box-primary">
         <div class="box-body">
-          <input type="hidden" name="id_user" class="form-control" value="<?php echo $data['id_user'] ?>" />
+          <input type="hidden" name="id" class="form-control" value="<?php echo $data['id_login'] ?>" />
           <div class="form-group"><label>Nama</label>
             <input type="text" name="nama" class="form-control" required value="<?php echo $data['nama'] ?>" />
           </div>
@@ -20,13 +20,12 @@ $data     = mysqli_fetch_array($result);
           </div>
           <div class="form-group"><label>Tipe User</label><br/>
             <?php echo
-            "<input type='radio' name='tipe' value='1' ".($data['id_posisi'] == "1"?'checked':'').">  Admin &nbsp ".
-            "<input type='radio' name='tipe' value='3' ".($data['id_posisi'] == "3"?'checked':'')."> Super Admin &nbsp ";
+            "<input type='radio' name='tipe' value='1' ".($data['id_posisi'] == "1"?'checked':'').">  Admin &nbsp "
             ?>
           </div>
           <div class="form-group"><label>Hak Akses</label><br/>
             <?php echo 
-            "<input type='radio' name='access' value='admin' ".($data['akses'] == "3"?'checked':'')."> Full Access &nbsp "
+            "<input type='radio' name='access' value='admin' ".($data['akses'] == "admin"?'checked':'')."> Full Access &nbsp "
             ?>
             <!-- "<input type='radio' name='access' value='2' ".($data['access'] == "2"?'checked':'')."> Change &nbsp ".
             "<input type='radio' name='access' value='1' ".($data['access'] == "1"?'checked':'')."> Read &nbsp ".

@@ -17,7 +17,6 @@
             <input type="password" name="password" class="form-control" required/>
           </div>
           <div class="form-group"><label>Tipe User</label><br/>
-            <input type="radio" name="user_type" value="3"> Super Admin &nbsp; 
             <input type="radio" name="user_type" value="1"> Admin &nbsp 
           </div>
           <div class="form-group"><label>Hak Akses</label><br/>

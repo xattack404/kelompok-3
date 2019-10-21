@@ -7,25 +7,25 @@ include '../fungsi/judul_seo.php';        // Panggil fungsi mengubah teks menjad
 
 if(isset($_POST['submit']))
 {
-  $id_user    = mysqli_real_escape_string($koneksi,$_POST['id_user']);
+  $id    = mysqli_real_escape_string($koneksi,$_POST['id']);
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
   $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
-  $no_hp   = mysqli_real_escape_string($koneksi,$_POST['no_hp']);
-  $tipe   = mysqli_real_escape_string($koneksi,$_POST['tipe']);
+  $no_hp      = mysqli_real_escape_string($koneksi,$_POST['no_hp']);
+  $tipe       = mysqli_real_escape_string($koneksi,$_POST['tipe']);
   $access     = mysqli_real_escape_string($koneksi,$_POST['access']);
   
   // Proses update data dari form ke db
-  $sql = "UPDATE tb_login SET id_login     = '$id_user',
-                          nama        = '$nama',
-                          username    = '$username',
-                          id_posisi    = '$tipe',
-                          akses      = '$access',
-                          no_hp       = '$no_hp'
-                    WHERE id_login     = '$id_user'";
+  $sql = "UPDATE tb_login SET id_login    = '$id',
+                              nama        = '$nama',
+                              username    = '$username',
+                              id_posisi   = '$tipe',
+                              akses       = '$access',
+                              no_hp       = '$no_hp'
+                        WHERE id_login    = '$id'";
 
   if(mysqli_query($koneksi, $sql)) 
   {
-    // echo "<script>alert('Update data berhasil! Klik ok untuk melanjutkan');location.replace('user_list.php')</script>";
+   echo "<script>alert('Update data berhasil! Klik ok untuk melanjutkan');location.replace('user_list.php')</script>";
   } 
     else 
     {
