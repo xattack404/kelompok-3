@@ -4,8 +4,8 @@ include '../config/koneksi.php';					// Panggil koneksi ke database
 include '../fungsi/cek_aksi_hapus.php';		// Panggil fungsi boleh hapus data atau tidak
 include 'cek_login.php'; // Panggil fungsi 
 
-$id_user   = $_GET['id_user'];
-$sql  = "DELETE FROM tb_login WHERE id_login = '$id_user'";
+$id  = $_GET['id'];
+$sql  = "DELETE FROM tb_login WHERE id_login = '$id'";
 
 if (mysqli_query($koneksi, $sql)) 
 {
