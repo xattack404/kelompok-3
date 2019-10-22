@@ -4,18 +4,16 @@
       <thead>
         <tr>
           <th style="text-align: center">No.</th>
-          <th style="text-align: center">Nama</th>
-          <th style="text-align: center">Username</th>
-          <th style="text-align: center">No Telp</th>
-          <th style="text-align: center">Posisi</th>
-          <th style="text-align: center">Akses</th>
+          <th style="text-align: center">Nama Suplier</th>
+          <th style="text-align: center">Alamat</th>
+          <th style="text-align: center">No Hp</th>
           <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
       <tbody>
 
       <?php
-      $sql = "SELECT *, tb_login.id_posisi as no FROM tb_login, tb_posisi WHERE  tb_login.id_posisi = tb_posisi.id_posisi ORDER BY id_login DESC";
+      $sql = "SELECT * FROM tb_supplier";
       $result = mysqli_query($koneksi, $sql);
       $no = 1;
       if (mysqli_num_rows($result) > 0)
@@ -24,16 +22,14 @@
         {?>
           <tr>
                   <td style="text-align: center"><?= $no++ ?></td>
-                  <td style="text-align: left"><?= $data['nama'] ?></td>
-                  <td style="text-align: center"><?= $data['username'] ?></td>
+                  <td style="text-align: left"><?= $data['nama_supplier'] ?></td>
+                  <td style="text-align: center"><?= $data['alamat'] ?></td>
                   <td style="text-align: center"><?= $data['no_hp'] ?></td>
-                  <td style="text-align: center"><?= $data['posisi'] ?></td>
-                  <td style="text-align: center"><?= $data['akses'] ?></td>
                   <td style="text-align: center">
-                    <a href="user_ubah.php?id=<?=$data['id_login']?>">
+                    <a href="user_ubah.php?id=<?=$data['id_supplier']?>">
                       <button type="submit" class="btn btn-primary">Ubah</button>
                     </a>
-                    <a href="user_hapus.php?id=<?=$data['id_login']?>">
+                    <a href="user_hapus.php?id=<?=$data['id_supplier']?>">
                       <button type="submit" class="btn btn-danger" OnClick="return confirm('Apakah Anda yakin?');">Hapus</button>
                     </a>
                   </td>
@@ -41,7 +37,9 @@
               
        <?php
         }
-      }
+      } else {echo "Belum ada data";
+    }
+      
       ?>
       </tbody>
   </table>
