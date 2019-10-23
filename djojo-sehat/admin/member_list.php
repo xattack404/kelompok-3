@@ -9,7 +9,7 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Daftar User | <?php include "title.php" ?></title>
+    <title>Daftar Member | <?php include "title.php" ?></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Favicon -->
     <link rel="shortcut icon" href="../images/fav.ico" />
@@ -32,16 +32,16 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
 
       <div class="content-wrapper">
         <section class="content-header">
-          <h1>Daftar User <small><a href="user_add.php">Tambah User Baru</a></small></h1>
+          <h1>Daftar Member <small><a href="member_add.php">Tambah Member Baru</a></small></h1>
           <ol class="breadcrumb">
             <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
             <li>User</li>
-            <li class="active"><a href="user_list.php">Daftar User</a></li>
+            <li class="active"><a href="member_list.php">Daftar Member</a></li>
           </ol>
         </section>
 
         <section class="content">
-          <?php include "user_list_data.php" ?>
+          <?php include "member_list_data.php" ?>
         </section>
       </div>
 
