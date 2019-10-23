@@ -1,4 +1,4 @@
-<form action="user_add_proses.php" method="POST" enctype="multipart/form-data">
+<form action="member_add_proses.php" method="POST" enctype="multipart/form-data">
   <div class="row">
     <div class="col-md-6">
       <!-- general form elements -->
