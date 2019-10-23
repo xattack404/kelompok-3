@@ -55,12 +55,11 @@ if(isset($_POST['submit']))
                                 '$kode_pos',
                                 '$email',
                                 '$no_hp',
-                                '$tipe',
                                 '$password')";
 
       if(mysqli_query($koneksi, $sql)) 
       {
-        echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('user_list.php')</script>";
+        echo "<script>alert('Input data berhasil! Klik ok untuk melanjutkan');location.replace('user_list.php')</script>";
       } 
         else 
         {
