@@ -10,7 +10,7 @@ include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin y
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Tambah User Baru | <?php include "title.php" ?></title>
+    <title>Tambah Member Baru | <?php include "title.php" ?></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Favicon -->
     <link rel="shortcut icon" href="../images/fav.ico" />
@@ -33,7 +33,7 @@ include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin y
         </section>
 
         <section class="content">
-          <?php include "user_add_form.php" ?>
+          <?php include "member_add_form.php" ?>
         </section>
       </div>
       

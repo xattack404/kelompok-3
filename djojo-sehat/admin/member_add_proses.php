@@ -11,15 +11,18 @@ use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if(isset($_POST['submit']))
 {
-  $uuid = Uuid::uuid4()->toString();
-  $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
+  $id = mysqli_real_escape_string($koneksi,$_POST['id_member']);
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
-  $no_Hp      = mysqli_real_escape_string($koneksi,$_POST['hp']);
+  $Alamat       = mysqli_real_escape_string($koneksi,$_POST['alamat']);
+  $TempatLahir       = mysqli_real_escape_string($koneksi,$_POST['tempat_lahir']);
+  $TanggalLahir       = mysqli_real_escape_string($koneksi,$_POST['tanggal_lahir']);
+  $Kecamatan       = mysqli_real_escape_string($koneksi,$_POST['kecamatan']);
+  $Kabupaten       = mysqli_real_escape_string($koneksi,$_POSTs['kabupaten']);
+  $kode_Pos       = mysqli_real_escape_string($koneksi,$_POST['kd_pos']);
+  $email       = mysqli_real_escape_string($koneksi,$_POST['email']);
+  $nohp       = mysqli_real_escape_string($koneksi,$_POST['hp']);
   $tampung    = mysqli_real_escape_string($koneksi,$_POST['password']);
   $password   = password_hash($tampung, PASSWORD_DEFAULT);
-  $tipe       = mysqli_real_escape_string($koneksi,$_POST['user_type']);
-  $access     = mysqli_real_escape_string($koneksi,$_POST['access']);
-  $cekdata    = "SELECT username FROM tb_login WHERE username = '$username' ";
   $ada        = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
   { 
@@ -28,20 +31,29 @@ if(isset($_POST['submit']))
     else
     {
       // Proses insert data dari form ke db
-      $sql = "INSERT INTO tb_login (id_login,
-                                    username, 
-                                    nama,
-                                    no_hp, 
-                                    password, 
-                                    id_posisi, 
-                                    akses)
-                        VALUES  ('$uuid',
-                                '$username',
+      $sql = "INSERT INTO tb_member (id_member,
+                                    nama, 
+                                    alamat,
+                                    tempat_lahir, 
+                                    tanggal_lahir, 
+                                    kecamatan, 
+                                    kabupaten_kota,
+                                    kode_pos,
+                                    email,
+                                    no_hp,
+                                    password)
+                        VALUES  ('$id',
                                 '$nama',
-                                '$no_Hp',
-                                '$password',
+                                '$Alamat',
+                                '$TempatLahir',
+                                '$TanggalLahir',
+                                '$Kecamatan',
+                                '$Kabupaten',
+                                '$kode_pos',
+                                '$email',
+                                '$nohp',
                                 '$tipe',
-                                '$access')";
+                                '$password')";
 
       if(mysqli_query($koneksi, $sql)) 
       {
