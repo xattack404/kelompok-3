@@ -13,17 +13,20 @@ if(isset($_POST['submit']))
 {
   $id = mysqli_real_escape_string($koneksi,$_POST['id_member']);
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
-  $Alamat       = mysqli_real_escape_string($koneksi,$_POST['alamat']);
-  $TempatLahir       = mysqli_real_escape_string($koneksi,$_POST['tempat_lahir']);
-  $TanggalLahir       = mysqli_real_escape_string($koneksi,$_POST['tanggal_lahir']);
-  $Kecamatan       = mysqli_real_escape_string($koneksi,$_POST['kecamatan']);
-  $Kabupaten       = mysqli_real_escape_string($koneksi,$_POSTs['kabupaten']);
-  $kode_Pos       = mysqli_real_escape_string($koneksi,$_POST['kd_pos']);
+  $alamat       = mysqli_real_escape_string($koneksi,$_POST['alamat']);
+  $tempat_lahir       = mysqli_real_escape_string($koneksi,$_POST['tempat_lahir']);
+  $tanggal_lahir       = mysqli_real_escape_string($koneksi,$_POST['tanggal_lahir']);
+  $kecamatan       = mysqli_real_escape_string($koneksi,$_POST['kecamatan']);
+  $kabupaten       = mysqli_real_escape_string($koneksi,$_POST['kabupaten']);
+  $kode_pos       = mysqli_real_escape_string($koneksi,$_POST['kd_pos']);
   $email       = mysqli_real_escape_string($koneksi,$_POST['email']);
   $nohp       = mysqli_real_escape_string($koneksi,$_POST['hp']);
   $tampung    = mysqli_real_escape_string($koneksi,$_POST['password']);
   $password   = password_hash($tampung, PASSWORD_DEFAULT);
-  $ada        = mysqli_query($koneksi, $cekdata);
+  
+  //Melakukan cek data ke tabel agar tidak ada data yang sama
+  $cekdata = "SELECT email FROM tb_member WHERE email = '$email' ";
+  $ada     = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
   { 
     echo "<script>alert('ERROR: Username telah terdaftar, silahkan pakai Username lain!');history.go(-1)</script>";
@@ -44,11 +47,11 @@ if(isset($_POST['submit']))
                                     password)
                         VALUES  ('$id',
                                 '$nama',
-                                '$Alamat',
-                                '$TempatLahir',
-                                '$TanggalLahir',
-                                '$Kecamatan',
-                                '$Kabupaten',
+                                '$alamat',
+                                '$tempat_lahir',
+                                '$tanggal_lahir',
+                                '$kecamatan',
+                                '$kabupaten',
                                 '$kode_pos',
                                 '$email',
                                 '$nohp',
