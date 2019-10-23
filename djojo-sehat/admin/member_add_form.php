@@ -17,7 +17,7 @@
             <input type="text" name="tempat_lahir" class="form-control" required/>
           </div>
           <div class="form-group"><label>Tanggal Lahir</label>
-            <input type="text" name="tanggal_lahir" class="form-control" required/>
+            <input type="date" name="tanggal_lahir" class="form-control" required/>
           </div>
           <div class="form-group"><label>Kecamatan</label>
             <input type="text" name="kecamatan" class="form-control" required/>

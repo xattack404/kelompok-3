@@ -5,7 +5,7 @@ include '../fungsi/cek_aksi_hapus.php';		// Panggil fungsi boleh hapus data atau
 include 'cek_login.php'; // Panggil fungsi 
 
 $id  = $_GET['id'];
-$sql  = "DELETE FROM tb_login WHERE id_login = '$id'";
+$sql  = "DELETE FROM tb_member WHERE id_member = '$id'";
 
 if (mysqli_query($koneksi, $sql)) 
 {
