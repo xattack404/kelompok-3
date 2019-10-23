@@ -20,7 +20,7 @@ if(isset($_POST['submit']))
   $kabupaten       = mysqli_real_escape_string($koneksi,$_POST['kabupaten']);
   $kode_pos       = mysqli_real_escape_string($koneksi,$_POST['kd_pos']);
   $email       = mysqli_real_escape_string($koneksi,$_POST['email']);
-  $nohp       = mysqli_real_escape_string($koneksi,$_POST['hp']);
+  $no_hp       = mysqli_real_escape_string($koneksi,$_POST['hp']);
   $tampung    = mysqli_real_escape_string($koneksi,$_POST['password']);
   $password   = password_hash($tampung, PASSWORD_DEFAULT);
   
@@ -54,7 +54,7 @@ if(isset($_POST['submit']))
                                 '$kabupaten',
                                 '$kode_pos',
                                 '$email',
-                                '$nohp',
+                                '$no_hp',
                                 '$tipe',
                                 '$password')";
 
