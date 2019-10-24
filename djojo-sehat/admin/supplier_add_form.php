@@ -1,4 +1,4 @@
-<form action="user_add_proses.php" method="POST" enctype="multipart/form-data">
+<form action="supplier_add_proses.php" method="POST" enctype="multipart/form-data">
   <div class="row">
     <div class="col-md-6">
       <!-- general form elements -->
@@ -7,23 +7,11 @@
           <div class="form-group"><label>Nama</label>
             <input type="text" name="nama" class="form-control" required/>
           </div>
-          <div class="form-group"><label>Username</label>
-            <input type="text" name="username" class="form-control" required/>
+          <div class="form-group"><label>Alamat</label>
+            <input type="text" name="alamat" class="form-control" required/>
           </div>
           <div class="form-group"><label>No HP</label>
             <input type="number" name="hp" class="form-control" required/>
-          </div>
-          <div class="form-group"><label>Password Login</label>
-            <input type="password" name="password" class="form-control" required/>
-          </div>
-          <div class="form-group"><label>Tipe User</label><br/>
-            <input type="radio" name="user_type" value="1"> Admin &nbsp 
-          </div>
-          <div class="form-group"><label>Hak Akses</label><br/>
-            <input type="radio" name="access" value="admin"> Full Access &nbsp 
-            <!--<input type="radio" name="access" value="2"> Change &nbsp 
-            <input type="radio" name="access" value="1"> Read &nbsp 
-            <input type="radio" name="access" value="0" checked> No Access</td>-->
           </div>
         </div>
         <div class="box-footer">

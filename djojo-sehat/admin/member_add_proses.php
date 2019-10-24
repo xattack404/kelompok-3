@@ -11,7 +11,7 @@ use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if(isset($_POST['submit']))
 {
-  $id = mysqli_real_escape_string($koneksi,$_POST['id_member']);
+  $uuid = Uuid::uuid4()->toString();
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
   $alamat       = mysqli_real_escape_string($koneksi,$_POST['alamat']);
   $tempat_lahir       = mysqli_real_escape_string($koneksi,$_POST['tempat_lahir']);
@@ -45,7 +45,7 @@ if(isset($_POST['submit']))
                                     email,
                                     no_hp,
                                     password)
-                        VALUES  ('$id',
+                        VALUES  ('$uuid',
                                 '$nama',
                                 '$alamat',
                                 '$tempat_lahir',
