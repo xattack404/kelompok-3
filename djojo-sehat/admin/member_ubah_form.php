@@ -34,7 +34,7 @@ $data     = mysqli_fetch_array($result);
         </div>
         <div class="box-footer">
           <button type="submit" name="submit" class="btn btn-success">Submit</button>
-          <button type="reset" name="reset" class="btn btn-danger">Reset</button>
+          <button type="reset" name="reset" class="btn btn-danger" >Reset</button>
         </div>
       </div>
     </div>

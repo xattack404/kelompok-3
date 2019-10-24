@@ -42,6 +42,8 @@
                     <a href="user_hapus.php?id=<?=$data['id_member']?>">
                       <button type="submit" class="btn btn-danger" OnClick="return confirm('Apakah Anda yakin?');">Hapus</button>
                     </a>
+                    <a href = "user_detail.php?id<?=$data['id_member']?>">
+                      <button type="Detail" class="btn btn-success">Detail</button>
                   </td>
           </tr>
               
