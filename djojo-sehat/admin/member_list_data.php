@@ -43,7 +43,7 @@
                       <button type="submit" class="btn btn-danger" OnClick="return confirm('Apakah Anda yakin?');">Hapus</button>
                     </a>
                     <a href = "user_detail.php?id<?=$data['id_member']?>">
-                      <button type="Detail" class="btn btn-success">Detail</button>
+                      <button type="Detail" class="btn btn-success" OnClick="return confirm('Apakah Anda Ingin Mengubah Detail Data ?');">Detail</button>
                   </td>
           </tr>
               
