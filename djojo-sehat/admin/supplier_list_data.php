@@ -4,9 +4,11 @@
       <thead>
         <tr>
           <th style="text-align: center">No.</th>
-          <th style="text-align: center">Nama</th>
+
+          <th style="text-align: center">Nama Suplier</th>
           <th style="text-align: center">Alamat</th>
-          <th style="text-align: center">No Telp</th>
+          <th style="text-align: center">No Hp</th>
+          <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
       <tbody>
@@ -36,7 +38,9 @@
               
        <?php
         }
-      }
+      } else {echo "Belum ada data";
+    }
+      
       ?>
       </tbody>
   </table>
