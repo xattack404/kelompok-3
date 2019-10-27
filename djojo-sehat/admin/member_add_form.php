@@ -4,9 +4,6 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-body">
-          <div class="form-group"><label>Id Member</label>
-            <input type="text" name="id_member" class="form-control" required/>
-          </div>
           <div class="form-group"><label>Nama</label>
             <input type="text" name="nama" class="form-control" required/>
           </div>

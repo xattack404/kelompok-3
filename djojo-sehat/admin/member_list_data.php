@@ -5,17 +5,20 @@
         <tr>
           <th style="text-align: center">No.</th>
           <th style="text-align: center">Nama</th>
-          <th style="text-align: center">Username</th>
-          <th style="text-align: center">No Telp</th>
-          <th style="text-align: center">Posisi</th>
-          <th style="text-align: center">Akses</th>
+          <th style="text-align: center">Alamat</th>
+          <th style="text-align: center">Tempat, Tanggal Lahir</th>
+          <th style="text-align: center">Kecamatan</th>
+          <th style="text-align: center">Kabupaten</th>
+          <th style="text-align: center">Kode Pos</th>
+          <th style="text-align: center">Email</th>
+          <th style="text-align: center">No Hp</th>
           <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
       <tbody>
 
       <?php
-      $sql = "SELECT *, tb_login.id_posisi as no FROM tb_login, tb_posisi WHERE  tb_login.id_posisi = tb_posisi.id_posisi ORDER BY id_login DESC";
+      $sql = "SELECT * FROM tb_member";
       $result = mysqli_query($koneksi, $sql);
       $no = 1;
       if (mysqli_num_rows($result) > 0)
@@ -25,17 +28,22 @@
           <tr>
                   <td style="text-align: center"><?= $no++ ?></td>
                   <td style="text-align: left"><?= $data['nama'] ?></td>
-                  <td style="text-align: center"><?= $data['username'] ?></td>
+                  <td style="text-align: left"><?= $data['alamat'] ?></td>
+                  <td style="text-align: center"><?= $data['alamat'] ?>, <?= $data['tanggal_lahir'] ?></td>
+                  <td style="text-align: center"><?= $data['kecamatan'] ?></td>
+                  <td style="text-align: center"><?= $data['kabupaten_kota'] ?></td>
+                  <td style="text-align: center"><?= $data['kode_pos'] ?></td>
+                  <td style="text-align: center"><?= $data['email'] ?></td>
                   <td style="text-align: center"><?= $data['no_hp'] ?></td>
-                  <td style="text-align: center"><?= $data['posisi'] ?></td>
-                  <td style="text-align: center"><?= $data['akses'] ?></td>
                   <td style="text-align: center">
-                    <a href="user_ubah.php?id=<?=$data['id_login']?>">
+                    <a href="member_ubah.php?id=<?=$data['id_member']?>">
                       <button type="submit" class="btn btn-primary">Ubah</button>
                     </a>
-                    <a href="user_hapus.php?id=<?=$data['id_login']?>">
+                    <a href="member_hapus.php?id=<?=$data['id_member']?>">
                       <button type="submit" class="btn btn-danger" OnClick="return confirm('Apakah Anda yakin?');">Hapus</button>
                     </a>
+                    <a href = "member_detail.php?id<?=$data['id_member']?>">
+                      <button type="Detail" class="btn btn-success" OnClick="return confirm('Apakah Anda Ingin Mengubah Detail Data ?');">Detail</button>
                   </td>
           </tr>
               

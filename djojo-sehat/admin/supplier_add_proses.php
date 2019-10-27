@@ -12,40 +12,30 @@ use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 if(isset($_POST['submit']))
 {
   $uuid = Uuid::uuid4()->toString();
-  $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
+  $alamat     = mysqli_real_escape_string($koneksi,$_POST['alamat']);
   $no_Hp      = mysqli_real_escape_string($koneksi,$_POST['hp']);
-  $tampung    = mysqli_real_escape_string($koneksi,$_POST['password']);
-  $password   = password_hash($tampung, PASSWORD_DEFAULT);
-  $tipe       = mysqli_real_escape_string($koneksi,$_POST['user_type']);
-  $access     = mysqli_real_escape_string($koneksi,$_POST['access']);
-  $cekdata    = "SELECT username FROM tb_login WHERE username = '$username' ";
+  $cekdata    = "SELECT nama FROM tb_supplier WHERE nama = '$nama' ";
   $ada        = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
   { 
-    echo "<script>alert('ERROR: Username telah terdaftar, silahkan pakai Username lain!');history.go(-1)</script>";
+    echo "<script>alert('ERROR: Nama telah terdaftar !');history.go(-1)</script>";
   }
     else
     {
       // Proses insert data dari form ke db
-      $sql = "INSERT INTO tb_login (id_login,
-                                    username, 
-                                    nama,
-                                    no_hp, 
-                                    password, 
-                                    id_posisi, 
-                                    akses)
+      $sql = "INSERT INTO tb_supplier (id_supplier, 
+                                    nama_supplier,
+                                    alamat,
+                                    no_hp)
                         VALUES  ('$uuid',
-                                '$username',
                                 '$nama',
-                                '$no_Hp',
-                                '$password',
-                                '$tipe',
-                                '$access')";
+                                '$alamat',
+                                '$no_Hp')";
 
       if(mysqli_query($koneksi, $sql)) 
       {
-        echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('user_list.php')</script>";
+        echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('supplier_list.php')</script>";
       } 
         else 
         {
