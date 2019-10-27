@@ -36,13 +36,13 @@
                   <td style="text-align: center"><?= $data['email'] ?></td>
                   <td style="text-align: center"><?= $data['no_hp'] ?></td>
                   <td style="text-align: center">
-                    <a href="user_ubah.php?id=<?=$data['id_member']?>">
+                    <a href="member_ubah.php?id=<?=$data['id_member']?>">
                       <button type="submit" class="btn btn-primary">Ubah</button>
                     </a>
-                    <a href="user_hapus.php?id=<?=$data['id_member']?>">
+                    <a href="member_hapus.php?id=<?=$data['id_member']?>">
                       <button type="submit" class="btn btn-danger" OnClick="return confirm('Apakah Anda yakin?');">Hapus</button>
                     </a>
-                    <a href = "user_detail.php?id<?=$data['id_member']?>">
+                    <a href = "member_detail.php?id<?=$data['id_member']?>">
                       <button type="Detail" class="btn btn-success" OnClick="return confirm('Apakah Anda Ingin Mengubah Detail Data ?');">Detail</button>
                   </td>
           </tr>
