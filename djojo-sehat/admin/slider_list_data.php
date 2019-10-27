@@ -3,31 +3,25 @@
     <table id="example1" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th style="text-align: center">No. Urut</th>
           <th style="text-align: center">Judul Slider</th>
           <th style="text-align: center">Foto</th>
-          <th style="text-align: center">Tgl Upload</th>
-          <th style="text-align: center">Active</th>
-          <th style="text-align: center">Uploader</th>
+          <th style="text-align: center">Link</th>         
           <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
       <tbody>
 
       <?php
-      $sql = "SELECT * FROM slider ORDER BY no_urut";
-      $result = mysqli_query($conn, $sql);
+      $sql = "SELECT * FROM slider";
+      $result = mysqli_query($koneksi, $sql);
       if (mysqli_num_rows($result) > 0)
       {
         while ($data = mysqli_fetch_array($result))
         {
           echo "<tr>
-                  <td style='text-align: center'>".$data['no_urut']."</td>
                   <td style='text-align: left'>".$data['judul_slider']."</td>
-                  <td style='text-align: center'><img src='../images/slider/".$data['img']."' width='200px' height='100px'></td>
-                  <td style='text-align: center'>".tgl_indo($data['tgl_upload'])."</td>
-                  <td style='text-align: center'>".$data['active']."</td>
-                  <td style='text-align: center'>".$data['uploader']."</td>
+                  <td style='text-align: center'><img src='../images/slider/".$data['gambar']."' width='200px' height='100px'></td>
+                  <td style='text-align: left'>".$data['link']."</td>
                   <td style='text-align: center'>
                     <a href='slider_ubah.php?id_slider=$data[id_slider]'>
                       <button type='submit' class='btn btn-primary'>Ubah</button>
