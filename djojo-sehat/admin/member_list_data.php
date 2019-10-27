@@ -36,18 +36,17 @@
                   <td style="text-align: center"><?= $data['email'] ?></td>
                   <td style="text-align: center"><?= $data['no_hp'] ?></td>
                   <td style="text-align: center">
-                    <a href="member_ubah.php?id=<?=$data['id_member']?>">
-                    <span class="glyphicon glyphicon-pencil" title="Edit Data" ></span>
-                    </a>
-                    <a href="member_hapus.php?id=<?=$data['id_member']?>">
-                    <span class="glyphicon glyphicon-trash" title="Hapus Data"  OnClick="return confirm('Apakah Anda yakin?');"></span>
-                    </a>
-                    <a href = "member_detail.php?id<?=$data['id_member']?>">
-                    <span class="glyphicon glyphicon-user" title="Edit Data" ></span>                  </td>
+                    <a href="member_ubah.php?id=<?=$data['id_member'];?>" title="ubah Data" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a href="member_reset.php?id=<?=$data['id_member'];?>" title="reset password" class="btn btn-secondary btn-xs"><i class="glyphicon glyphicon-lock"></i></a>
+                    <a href="member_hapus.php?id=<?=$data['id_member'];?>" title="Hapus Data" class="btn btn-danger btn-xs" OnClick="return confirm('Apakah Anda yakin?');"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a href="member_detail.php?id=<?=$data['id_member'];?>" title="Detail Data" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-user"></i></a>
+                                   
+                  </td>
           </tr>
               
        <?php
         }
+        
       }
       ?>
       </tbody>
