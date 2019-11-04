@@ -3,6 +3,7 @@
     <table id="example1" class="table table-bordered table-striped">
       <thead>
         <tr>
+          <th style="text-align: center">No Urut</th>
           <th style="text-align: center">Judul Slider</th>
           <th style="text-align: center">Foto</th>
           <th style="text-align: center">Link</th>     
@@ -20,6 +21,7 @@
         while ($data = mysqli_fetch_array($result))
         {
           echo "<tr>
+                  <td style='text-align: left'>".$data['id_slider']."</td>
                   <td style='text-align: left'>".$data['judul_slider']."</td>
                   <td style='text-align: center'><img src='../images/slider/".$data['gambar']."' width='200px' height='100px'></td>
                   <td style='text-align: left'>".$data['link']."</td>
