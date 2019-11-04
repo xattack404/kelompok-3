@@ -29,7 +29,7 @@
                   <td style="text-align: center"><?= $no++ ?></td>
                   <td style="text-align: left"><?= $data['nama'] ?></td>
                   <td style="text-align: left"><?= $data['alamat'] ?></td>
-                  <td style="text-align: center"><?= $data['alamat'] ?>, <?= $data['tanggal_lahir'] ?></td>
+                  <td style="text-align: center"><?= $data['tempat_lahir'] ?>, <?= $data['tanggal_lahir'] ?></td>
                   <td style="text-align: center"><?= $data['kecamatan'] ?></td>
                   <td style="text-align: center"><?= $data['kabupaten_kota'] ?></td>
                   <td style="text-align: center"><?= $data['kode_pos'] ?></td>
@@ -37,14 +37,13 @@
                   <td style="text-align: center"><?= $data['no_hp'] ?></td>
                   <td style="text-align: center">
                     <a href="member_ubah.php?id=<?=$data['id_member']?>">
-                      <button type="submit" class="btn btn-primary">Ubah</button>
+                    <span class="glyphicon glyphicon-pencil" title="Edit Data" ></span>
                     </a>
                     <a href="member_hapus.php?id=<?=$data['id_member']?>">
-                      <button type="submit" class="btn btn-danger" OnClick="return confirm('Apakah Anda yakin?');">Hapus</button>
+                    <span class="glyphicon glyphicon-trash" title="Hapus Data"  OnClick="return confirm('Apakah Anda yakin?');"></span>
                     </a>
                     <a href = "member_detail.php?id<?=$data['id_member']?>">
-                      <button type="Detail" class="btn btn-success" OnClick="return confirm('Apakah Anda Ingin Mengubah Detail Data ?');">Detail</button>
-                  </td>
+                    <span class="glyphicon glyphicon-user" title="Edit Data" ></span>                  </td>
           </tr>
               
        <?php
