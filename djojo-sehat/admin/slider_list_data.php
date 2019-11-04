@@ -5,14 +5,15 @@
         <tr>
           <th style="text-align: center">Judul Slider</th>
           <th style="text-align: center">Foto</th>
-          <th style="text-align: center">Link</th>         
+          <th style="text-align: center">Link</th>     
+          <th style="text-align: center">Active</th>    
           <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
       <tbody>
 
       <?php
-      $sql = "SELECT * FROM slider";
+      $sql = "SELECT * FROM tb_slider";
       $result = mysqli_query($koneksi, $sql);
       if (mysqli_num_rows($result) > 0)
       {
@@ -22,6 +23,7 @@
                   <td style='text-align: left'>".$data['judul_slider']."</td>
                   <td style='text-align: center'><img src='../images/slider/".$data['gambar']."' width='200px' height='100px'></td>
                   <td style='text-align: left'>".$data['link']."</td>
+                  <td style='text-align: center'>".$data['active']."</td>
                   <td style='text-align: center'>
                     <a href='slider_ubah.php?id_slider=$data[id_slider]'>
                       <button type='submit' class='btn btn-primary'>Ubah</button>

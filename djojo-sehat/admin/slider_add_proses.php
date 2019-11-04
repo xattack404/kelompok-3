@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
   $judul_slider = mysqli_real_escape_string($koneksi, $_POST['judul_slider']);
   $link         = mysqli_real_escape_string($koneksi, $_POST['link']);
 
-  $cekdata      = "SELECT judul_slider FROM slider WHERE judul_slider = '$judul_slider' ";
+  $cekdata      = "SELECT judul_slider FROM tb_slider WHERE judul_slider = '$judul_slider' ";
   $ada          = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
   {
@@ -30,7 +30,7 @@ if(isset($_POST['submit']))
         move_uploaded_file($file_tmp, $lokasi);
 
         // Proses insert data dari form ke db
-        $sql = "INSERT INTO slider (id_slider,
+        $sql = "INSERT INTO tb_slider (id_slider,
                                     judul_slider,
                                     link,
                                     gambar)
