@@ -87,8 +87,8 @@
     <a href='#'><i class='fa fa-wrench'></i><span> Lainnya </span><i class='fa fa-angle-left pull-right'></i></a>
     <ul class='treeview-menu'>
       <?php
-      $sql        = "SELECT * FROM setting ORDER BY judul_setting ASC";
-      $result     = mysqli_query($conn, $sql);
+      $sql        = "SELECT * FROM tb_setting ORDER BY judul_setting ASC";
+      $result     = mysqli_query($koneksi, $sql);
       while($data = mysqli_fetch_array($result)) 
       {
         $id_setting     = $data['id_setting'];
