@@ -1,17 +1,17 @@
 <?php session_start();
-include '../config.php';                  // Panggil koneksi ke database
-include '../fungsi/cek_login.php';        // Panggil fungsi cek sudah login/belum
-include '../fungsi/cek_session.php';      // Panggil fungsi cek session
+include '../config/koneksi.php';                  // Panggil koneksi ke database
+include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
+include 'cek_session.php';      // Panggil fungsi cek session
 include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tamabah data atau tidak
 
 if(isset($_POST['submit']))
 {
-  $no_urut      = mysqli_real_escape_string($conn, $_POST['no_urut']);
-  $judul_slider = mysqli_real_escape_string($conn, $_POST['judul_slider']);
-  $link         = mysqli_real_escape_string($conn, $_POST['link']);
+  $id           = mysqli_real_escape_string($koneksi, $_POST['id_slider']);
+  $judul_slider = mysqli_real_escape_string($koneksi, $_POST['judul_slider']);
+  $link         = mysqli_real_escape_string($koneksi, $_POST['link']);
 
   $cekdata      = "SELECT judul_slider FROM slider WHERE judul_slider = '$judul_slider' ";
-  $ada          = mysqli_query($conn, $cekdata);
+  $ada          = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
   {
     echo "<script>alert('ERROR: Judul telah terdaftar, silahkan pakai Judul lain!');history.go(-1)</script>";
@@ -30,27 +30,21 @@ if(isset($_POST['submit']))
         move_uploaded_file($file_tmp, $lokasi);
 
         // Proses insert data dari form ke db
-        $sql = "INSERT INTO slider (no_urut,
+        $sql = "INSERT INTO slider (id_slider,
                                     judul_slider,
                                     link,
-                                    jam_upload,
-                                    tgl_upload,
-                                    uploader,
-                                    img)
-                            VALUES ('$no_urut',
+                                    gambar)
+                            VALUES ('$id',
                                     '$judul_slider',
                                     '$link',
-                                    now(),
-                                    now(),
-                                    '$sesen_username',
                                     '$img')";
-        if(mysqli_query($conn, $sql))
+        if(mysqli_query($koneksi, $sql))
         {
           echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('slider_list.php')</script>";
         }
           else
           {
-            echo "Error updating record: " . mysqli_error($conn);
+            echo "Error updating record: " . mysqli_error($koneksi);
           }
       }
         else

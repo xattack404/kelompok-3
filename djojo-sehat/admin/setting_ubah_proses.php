@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
   $isi_setting  = mysqli_real_escape_string($koneksi, $_POST['isi_setting']);
 
   $sql = "UPDATE tb_setting SET  id_setting    = '$id_setting',
-                                 isi_setting   = '$isi_setting',
+                                 isi_setting   = '$isi_setting'
                           WHERE  id_setting    = '$id_setting' ";
                             
   if(mysqli_query($koneksi, $sql)) 
