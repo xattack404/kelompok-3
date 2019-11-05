@@ -1,7 +1,7 @@
 <?php
-$id_slider  = mysqli_real_escape_string($conn,$_GET['id_slider']);
-$sql        = "SELECT * FROM slider WHERE id_slider = '$id_slider' ";
-$result     = mysqli_query($conn, $sql);
+$id_slider  = mysqli_real_escape_string($koneksi,$_GET['id_slider']);
+$sql        = "SELECT * FROM tb_slider WHERE id_slider = '$id_slider' ";
+$result     = mysqli_query($koneksi, $sql);
 $data       = mysqli_fetch_array($result);
 ?>
 
@@ -13,8 +13,6 @@ $data       = mysqli_fetch_array($result);
       <div class="box box-primary">
         <div class="box-body">
           <input name="id_slider" type="hidden" id="id_slider" value="<?php echo $data['id_slider'] ?>">
-          <div class="form-group"><label>No. Urut</label>
-            <input class="form-control" name="no_urut" type="text" id="no_urut" size="30" value="<?php echo $data['no_urut'] ?>" required/>
           </div>
           <div class="form-group"><label>Judul Slider</label>
             <input class="form-control" name="judul_slider" type="text" id="judul_slider" size="30" value="<?php echo $data['judul_slider'] ?>" required/>
@@ -24,7 +22,7 @@ $data       = mysqli_fetch_array($result);
           </div>
           <div class="form-group"><label>Gambar Sebelumnya</label>
             <br/>
-            <img src="../images/slider/<?php echo $data['img'] ?> " width="75%" height="75%" />
+            <img src="../images/slider/<?php echo $data['gambar'] ?> " width="75%" height="75%" />
           </div>
           <div class="form-group"><label>Gambar Baru</label>
             <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')"/>
