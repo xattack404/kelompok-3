@@ -4,6 +4,8 @@ include 'cek_login.php';                         // Panggil fungsi cek sudah log
 include 'cek_session.php';                      // Panggil fungsi cek session
 include '../fungsi/cek_aksi_ubah.php';         // Panggil fungsi boleh ubah data atau tidak
 
+error_reporting(0);  // Menghilangkan NOTICE eror yang tidak berpengaruh pada jalannya system
+
 if(isset($_POST['submit']))
 {
   $id_slider    = mysqli_real_escape_string($koneksi, $_POST['id_slider']);
