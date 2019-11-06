@@ -35,11 +35,12 @@
             <td style='text-align: center'>$harga_jual. </td>
             <td style='text-align: center'>".$data['jumlah']."</td>
             <td style='text-align: center'>
-              <a href='produk_ubah.php?id_barang=$data[id_barang]'>
-                <button type='submit' class='btn btn-primary'>Ubah</button>
+              <a href='produk_ubah.php?id_barang=$data[id_barang]' title='ubah Data' class='btn btn-warning btn-xs'><i
+                class='glyphicon glyphicon-pencil'></i>
               </a>
               <a href='produk_hapus.php?id_barang=$data[id_barang]'>
-                <button type='submit' class='btn btn-danger' OnClick=\"return confirm('Apakah Anda yakin?');\">Hapus</button>
+                <button type='submit' title='Hapus Data' class='btn btn-danger btn-xs' OnClick=\"return confirm('Apakah Anda yakin?');\"><i
+                class='glyphicon glyphicon-trash'></i></button>
               </a>
             </td>
           </tr>";
