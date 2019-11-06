@@ -9,7 +9,7 @@
         {
           echo '
           <div class="item '; if($row['active'] == 1){ echo 'active'; } echo '">
-            <img class="slide-image" src="'.$base_url.'images/slider/'.$row['img'].'" title="'.$row['judul_slider'].'" alt="'.$row['judul_slider'].'" width="100%"/>
+            <img class="slide-image" src="'.$base_url.'images/slider/'.$row['gambar'].'" title="'.$row['judul_slider'].'" alt="'.$row['judul_slider'].'" width="100%"/>
             <div class="carousel-caption">
               <h1 class="carousel-caption-header"></h1>
               <p class="carousel-caption-text hidden-sm hidden-xs"></p>
