@@ -19,9 +19,10 @@
         
         <!-- form cari -->
         <li>>
-	  <label class="search" for="inpt_search">
-			<input id="inpt_search" type="text" />
-    </label>
+        <div class="container">
+  <input type="text" placeholder="Search...">
+  <div class="search"></div>
+</div>
         </li>
         <li>
           <a href='<?php echo $base_url ?>index.html'>
