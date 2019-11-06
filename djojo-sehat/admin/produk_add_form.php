@@ -5,9 +5,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-body">
-          <!-- <div class="form-group"><label>ID BARANG</label>
-            <input class="form-control" name="id_brg" type="text" id="id_brg" size="30" placeholder="Huruf besar diawal lalu kecil"/>
-          </div> -->
+  
           <div class="form-group"><label>Nama Barang</label>
             <input class="form-control" name="nama_brg" type="text" id="nama_brg" size="30"
               placeholder="Huruf besar diawal lalu kecil" />
