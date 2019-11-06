@@ -4,15 +4,15 @@ include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
 include 'cek_session.php';      // Panggil fungsi cek session
 include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tamabah data atau tidak
 include '../fungsi/judul_seo.php';        // Panggil fungsi judul_seo untuk merubah teks dalam format tanpa spasi dan simbol
-require "template/libs/vendor/autoload.php";
+// require "template/libs/vendor/autoload.php";
 
-use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
+// use Ramsey\Uuid\Uuid;
+// use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 
 if(isset($_POST['submit']))
 {
-  $uuid = Uuid::uuid4()->toString();
+  // $uuid = Uuid::uuid4()->toString();
   $judul_kat    = mysqli_real_escape_string($koneksi, $_POST['judul_kat']);
 
   $cekdata = "SELECT nama_kategori FROM tb_kategori WHERE nama_kategori = '$judul_kat' ";
@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
     else
     {
       // Proses insert data dari form ke db
-      $sql = "INSERT INTO tb_kategori (id_kategori, nama_kategori) VALUES ('$uuid', '$judul_kat')";
+      $sql = "INSERT INTO tb_kategori (id_kategori, nama_kategori) VALUES ('', '$judul_kat')";
 
       if(mysqli_query($koneksi, $sql)) 
       {
