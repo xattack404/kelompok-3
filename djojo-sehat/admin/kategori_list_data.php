@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th style="text-align: center">No.</th>
-          <th style="text-align: center">Nama Kategori</th>
+          <th >Nama Kategori</th>
           <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
@@ -22,11 +22,13 @@
                   <td valign='top' align='center'>".$no."</td>
                   <td style='text-align: left'>".$data['nama_kategori']."</td>
                   <td style='text-align: center'>
-                    <a href='kategori_ubah.php?id_kat=$data[id_kategori]'>
-                      <button type='submit' class='btn btn-primary'>Ubah</button>
+                    <a href='kategori_ubah.php?id_kat=$data[id_kategori]' title='ubah Data' class='btn btn-warning btn-xs'><i
+                class='glyphicon glyphicon-pencil'></i>
                     </a>
                     <a href='kategori_hapus.php?id_kat=$data[id_kategori]'>
-                      <button type='submit' class='btn btn-danger' OnClick=\"return confirm('Apakah Anda yakin?');\">Hapus</button>
+                      <button type='submit' title='Hapus Data' class='btn btn-danger btn-xs' OnClick=\"return confirm('Apakah Anda yakin?');\"><i
+                class='glyphicon glyphicon-trash'></i>
+                </button>
                     </a>
                   </td>
                 </tr>";
