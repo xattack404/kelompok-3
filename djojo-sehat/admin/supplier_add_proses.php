@@ -6,12 +6,10 @@ include '../fungsi/cek_aksi_tambah.php';    // Panggil fungsi boleh tambah data 
 include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin yang boleh melakukan aksi
 require "template/libs/vendor/autoload.php";
 
-use Ramsey\Uuid\Uuid; 
-use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if(isset($_POST['submit']))
 {
-  $uuid = Uuid::uuid4()->toString();
+
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
   $alamat     = mysqli_real_escape_string($koneksi,$_POST['alamat']);
   $no_Hp      = mysqli_real_escape_string($koneksi,$_POST['hp']);
@@ -28,7 +26,7 @@ if(isset($_POST['submit']))
                                     nama_supplier,
                                     alamat,
                                     no_hp)
-                        VALUES  ('$uuid',
+                        VALUES  ('',
                                 '$nama',
                                 '$alamat',
                                 '$no_Hp')";

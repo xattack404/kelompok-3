@@ -6,14 +6,11 @@ include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tamabah data a
 include '../fungsi/judul_seo.php';        // Panggil fungsi judul_seo untuk merubah teks dalam format tanpa spasi dan simbol
 // require "template/libs/vendor/autoload.php"; //Panggil Composser
 
-// use Ramsey\Uuid\Uuid;
-// use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if(isset($_POST['submit']))
 {
-  // $id             = mysqli_real_escape_string($koneksi, $_POST['id_brg']);
-  // $uuid = Uuid::uuid4()->toString();
-  // $nama           = mysqli_real_escape_string($koneksi, $_POST['nama_brg']);
+  
+  $nama           = mysqli_real_escape_string($koneksi, $_POST['nama_brg']);
   $judul          = judul_seo($nama);
   $deskripsi      = mysqli_real_escape_string($koneksi, $_POST['deskripsi_brg']);
   $jenis          = mysqli_real_escape_string($koneksi, $_POST['jenis_brg']);
