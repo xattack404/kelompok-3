@@ -39,7 +39,7 @@ if(isset($_POST['submit']))
         if($data['akses'] == 'admin')
         {
           echo "<script language='javascript'>alert('Anda berhasil Login sebagai Admin'); location.replace('home.php')</script>";
-          tulis("berhasil Login", $_SESSION['nama']);
+          // tulis("berhasil Login", $_SESSION['nama']);
         }
         
       }
@@ -58,12 +58,12 @@ if(isset($_POST['submit']))
   {
     echo "<script>alert('Pencet dulu tombolnya!');history.go(-1)</script>";
   }
-  function tulis($aktivitas, $nae){
-    $fp = fopen('catatanyanglogin.txt', 'a+');
-    $ip = $_SERVER['REMOTE_ADDR'];
-    $nama = $_SERVER['HTTP_USER_AGENT'];
-    $time = date("y-m-d H:i:s");
-    fwrite($fp, $time.' : '.$ip.' '.$nae.' : '.$aktivitas."\n");
-    fclose($fp);
-  }
+  // function tulis($aktivitas, $nae){
+  //   $fp = fopen('catatanyanglogin.txt', 'a+');
+  //   $ip = $_SERVER['REMOTE_ADDR'];
+  //   $nama = $_SERVER['HTTP_USER_AGENT'];
+  //   $time = date("y-m-d H:i:s");
+  //   fwrite($fp, $time.' : '.$ip.' '.$nae.' : '.$aktivitas."\n");
+  //   fclose($fp);
+  // }
 ?>
