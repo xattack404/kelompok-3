@@ -1,15 +1,15 @@
 <?php session_start();                    // Memulai session
-include 'config.php';                     // Panggil koneksi ke database
+include 'config/koneksi.php';                     // Panggil koneksi ke database
 include 'fungsi/base_url.php';            // Panggil fungsi base_url
 include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
 include 'fungsi/navigasi.php';            // Panggil data navigasi
 include 'fungsi/setting.php';             // Panggil data setting
-$searchterm = mysqli_real_escape_string($conn,$_POST['searchterm']); 
+$searchterm = mysqli_real_escape_string($koneksi,$_POST['searchterm']); 
 
 if((isset($_POST['searchterm'])) AND ($_POST['searchterm'] <> "")) 
 {  
-  $query_cari = "SELECT * FROM produk WHERE seo_keywords LIKE '%$searchterm%' ";
-  $hasil_cari = mysqli_query($conn, $query_cari);
+  $query_cari = "SELECT * FROM tb_barang WHERE nama_barang LIKE '%$searchterm%' ";
+  $hasil_cari = mysqli_query($koneksi, $query_cari);
   $data_cari  = mysqli_num_rows($hasil_cari); 
 }
 ?>
@@ -20,8 +20,8 @@ if((isset($_POST['searchterm'])) AND ($_POST['searchterm'] <> ""))
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<?php echo $katalog['seo_deskripsi'] ?>" />
-    <meta name="keywords" content="<?php echo $katalog['seo_keywords'] ?>" />
+    <meta name="description" content="<?php echo $katalog['deskripsi'] ?>" />
+    <meta name="keywords" content="<?php echo $katalog['nama_barang'] ?>" />
     <meta name="author" content="<?php echo $author ?>" />    
     <!-- CSS Bootstrap -->
     <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
@@ -46,22 +46,20 @@ if((isset($_POST['searchterm'])) AND ($_POST['searchterm'] <> ""))
                 <?php
                 while($data_cari = mysqli_fetch_array($hasil_cari))
                 {
-                  $harga_diskon = $data_cari['harga_diskon'];
                   $harga = $data_cari['harga'];
               ?>
                 <div class='col-md-4 col-sm-6'>
                   <div class='thumbnail'>
-                    <a href='produk/<?php echo $data_cari['judul_seo']; ?>.html' class='title'>
-                      <h4 align='center'><?php echo $data_cari['nama_produk']; ?></h4>
+                    <a href='produk/<?php echo $data_cari['judul']; ?>.html' class='title'>
+                      <h4 align='center'><?php echo $data_cari['nama_barang']; ?></h4>
                     </a>
-                    <a href="produk/<?php echo $data_cari['judul_seo']; ?>.html">
-                      <img alt="<?php echo $data_cari['nama_produk']; ?>" src="<?php echo base_url(); ?>images/produk/<?php echo $data_cari['img']; ?>"/>
+                    <a href="produk/<?php echo $data_cari['judul']; ?>.html">
+                      <img alt="<?php echo $data_cari['nama_barang']; ?>" src="<?php echo base_url(); ?>images/produk/<?php echo $data_cari['img']; ?>"/>
                     </a>
                     <div class="caption" align="center">
                       <h4><strike><?php echo "Rp " .number_format($harga, 0, ',', '.').",-" ?></strike></h4>
-                      <h4><font color="red"><?php echo "Rp " .number_format($harga_diskon, 0, ',', '.').",-" ?></font></h4>
-                      <a href='beli/<?php echo $data_cari['id_produk']; ?>' class='btn btn-primary'>Beli</a> 
-                      <a href='produk/<?php echo $data_cari['judul_seo']; ?>.html' class='btn btn-default'>Detail</a>
+                      <a href='beli/<?php echo $data_cari['id_barang']; ?>' class='btn btn-primary'>Beli</a> 
+                      <a href='produk/<?php echo $data_cari['judul']; ?>.html' class='btn btn-default'>Detail</a>
                     </div>
                   </div>
                 </div>

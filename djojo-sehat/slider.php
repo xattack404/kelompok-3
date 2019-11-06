@@ -4,7 +4,7 @@
       <div class="carousel-inner">
         <?php
         //membuat query
-        $sql = mysqli_query($conn,"SELECT * FROM tb_slider ORDER BY no_urut ASC");
+        $sql = mysqli_query($koneksi,"SELECT * FROM tb_slider ORDER BY id_slider ASC");
         while($row = mysqli_fetch_assoc($sql))
         {
           echo '

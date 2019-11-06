@@ -1,13 +1,13 @@
 <?php session_start();                    // Memulai session
-include 'config.php';                     // Panggil koneksi ke database
+include 'config/koneksi.php';                     // Panggil koneksi ke database
 include 'fungsi/base_url.php';            // Panggil fungsi base_url
 include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
 include 'fungsi/navigasi.php';            // Panggil data navigasi
 include 'fungsi/setting.php';             // Panggil data setting
 
-$id_nav = mysqli_real_escape_string($conn,$_GET['id_nav']);
-$sql    = "SELECT * FROM navigasi WHERE judul_seo = '$id_nav' ";
-$result = mysqli_query($conn,$sql);
+$id_nav = mysqli_real_escape_string($koneksi,$_GET['id_navigasi']);
+$sql    = "SELECT * FROM tb_navigasi WHERE judul_seo = '$id_nav' ";
+$result = mysqli_query($koneksi,$sql);
 $page   = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>

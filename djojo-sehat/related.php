@@ -1,26 +1,26 @@
 <?php
   // batas threshold 75%
   $threshold = 75;
-  // jumlah maksimum produk terkait yg ditampilkan 10 buah
+  // jumlah maksimum barang terkait yg ditampilkan 10 buah
   $maksProduk = 10;
 
-  // array yang nantinya diisi judul produk terkait
+  // array yang nantinya diisi judul barang terkait
   $listProduk = Array();
 
-  // membaca judul produk dari ID tertentu (ID produk acuan)
+  // membaca judul produk dari ID tertentu (ID barang acuan)
   // judul ini nanti akan dicek kemiripannya dengan produk yang lain
-  $query = "SELECT nama_produk,harga,harga_diskon,img FROM produk WHERE judul_seo = '$id_produk'";
-  $hasil = mysqli_query($conn,$query);
+  $query = "SELECT nama_barang,harga,foto_barang FROM tb_barang WHERE judul = '$id_produk'";
+  $hasil = mysqli_query($koneksi,$query);
   $data  = mysqli_fetch_array($hasil);
-  $nama_produk = $data['nama_produk'];
+  $nama_barang = $data['nama_barang'];
 
   // membaca semua data produk selain ID produk acuan
-  $query = "SELECT id_produk, nama_produk, judul_seo, img FROM produk WHERE id_produk <> '$id_produk'";
-  $hasil = mysqli_query($conn,$query);
+  $query = "SELECT id_barang, nama_barang, judul, foto_barang FROM tb_barang WHERE id_barang <> '$id_produk'";
+  $hasil = mysqli_query($koneksi,$query);
   while ($data = mysqli_fetch_array($hasil))
   {
     // cek similaritas judul produk acuan dengan judul produk lainnya
-    similar_text($nama_produk, $data['nama_produk'], $percent);
+    similar_text($nama_barang, $data['nama_barang'], $percent);
     if($percent >= $threshold)
     {
       // jika presentase kemiripan judul di atas threshold
@@ -30,13 +30,13 @@
         $listProduk[] =
         "<div class='col-md-4 col-sm-6'>
           <div class='thumbnail'>
-            <a href='$base_url"."produk/$data[judul_seo].html' class='title'>
-              <h4 align='center'>$data[nama_produk]</h4>
+            <a href='$base_url"."produk/$data[judul].html' class='title'>
+              <h4 align='center'>$data[nama_barang]</h4>
             </a>
-            <img alt='$data[nama_produk]' src='$base_url"."images/produk/$data[img]'/>
+            <img alt='$data[nama_barang]' src='$base_url"."images/produk/$data[foto_barang]'/>
             <div class='caption' align='center'>
-              <a href='$base_url"."beli/$data[id_produk]' class='btn btn-primary'>Beli</a>
-              <a href='$base_url"."produk/$data[judul_seo].html' class='btn btn-default'>Detail</a>
+              <a href='$base_url"."beli/$data[id_barang]' class='btn btn-primary'>Beli</a>
+              <a href='$base_url"."produk/$data[judul].html' class='btn btn-default'>Detail</a>
             </div>
           </div>
         </div>";

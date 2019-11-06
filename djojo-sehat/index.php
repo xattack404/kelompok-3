@@ -1,5 +1,5 @@
 ﻿<?php session_start();                    // Memulai session
-include 'config.php';                     // Panggil koneksi ke database
+include 'config/koneksi.php';                     // Panggil koneksi ke database
 include 'fungsi/base_url.php';            // Panggil fungsi base_url
 include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
 include 'fungsi/navigasi.php';            // Panggil data navigasi
@@ -14,7 +14,7 @@ include 'fungsi/setting.php';             // Panggil data setting
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?php echo $home['seo_deskripsi'] ?>"/>
-    <meta name="keywords" content="<?php echo $home['seo_keywords'] ?>"/>
+    <meta name="keywords" content="<?php echo $home['seo_keyword'] ?>"/>
     <meta name="author" content="<?php echo $author ?>"/>
     <!-- CSS Bootstrap -->
     <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
