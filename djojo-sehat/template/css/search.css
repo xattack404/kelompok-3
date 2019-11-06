@@ -76,7 +76,7 @@
     cursor: text;
   }
   .container input:focus ~ .search {
-    right: -250px;
+    margin-left: 250px;
     background: #151515;
     z-index: 6;
   }
