@@ -13,7 +13,7 @@
       </thead>
       <tbody>
 
-      <?php
+        <?php
       $sql = "SELECT a.id_barang, a.nama_barang, a.jumlah, a.harga_jual,
               b.nama_kategori as kategori 
               FROM tb_barang a 
@@ -48,21 +48,7 @@
       }
       else {echo "Belum ada data";}
     ?>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -10,7 +10,7 @@
       </thead>
       <tbody>
 
-      <?php
+        <?php
       $sql = "SELECT * FROM tb_kategori ORDER BY nama_kategori ASC";
       $result = mysqli_query($koneksi, $sql);
       $no = 1;
@@ -38,7 +38,7 @@
         echo "Belum ada data";
       }
     ?>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
   </div>
 </div>

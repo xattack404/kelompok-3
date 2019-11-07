@@ -6,14 +6,14 @@
           <th style="text-align: center">No Urut</th>
           <th style="text-align: center">Judul Slider</th>
           <th style="text-align: center">Foto</th>
-          <th style="text-align: center">Link</th>     
-          <th style="text-align: center">Active</th>    
+          <th style="text-align: center">Link</th>
+          <th style="text-align: center">Active</th>
           <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
       <tbody>
 
-      <?php
+        <?php
       $sql = "SELECT * FROM tb_slider";
       $result = mysqli_query($koneksi, $sql);
       if (mysqli_num_rows($result) > 0)
@@ -45,7 +45,7 @@
         echo "Belum ada data";
       }
     ?>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
   </div>
 </div>

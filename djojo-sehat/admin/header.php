@@ -16,7 +16,7 @@
         </li>
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="../images/admin.png" width="160px" height="160px" class="user-image" alt="User Image"/>
+            <img src="../images/admin.png" width="160px" height="160px" class="user-image" alt="User Image" />
             <span class="hidden-xs">
               <?php
               if ($sesen_akses == "admin"){echo "Halo, $sesen_nama ";}
@@ -28,12 +28,13 @@
             <li class="user-header">
               <img src="../images/admin.png" class="img-circle" alt="User Image" />
               <p>
-              <?php if ($sesen_akses == "admin" OR "admin2"){echo "$sesen_nama";} ?></p>
+                <?php if ($sesen_akses == "admin" OR "admin2"){echo "$sesen_nama";} ?></p>
               (<?php if($sesen_akses == 'admin'){echo "Admin";} if($sesen_akses == 'admin'){echo "Super Admin";}?>)
             </li>
             <li class="user-body">
               <div class="col-xs-6 text-center">
-                <a href='ubah_pass.php?id_user=<?php echo $sesen_id_user ?>' class='btn btn-default btn-flat'>Ubah Password</a>
+                <a href='ubah_pass.php?id_user=<?php echo $sesen_id_user ?>' class='btn btn-default btn-flat'>Ubah
+                  Password</a>
               </div>
               <div class="col-xs-6 text-center">
                 <a href='logout.php' class='btn btn-default btn-flat'>Logout</a>
@@ -52,7 +53,7 @@
   <section class="sidebar">
     <!-- Sidebar user panel -->
     <div class="user-panel">
-      <div class="pull-left image"><img src="../images/admin.png" class="img-circle" alt="User Image"/></div>
+      <div class="pull-left image"><img src="../images/admin.png" class="img-circle" alt="User Image" /></div>
       <div class="pull-left info">
         <p><?php if ($sesen_akses == "admin" OR "admin2"){echo "$sesen_nama";} ?></p>
         <p>(<?php if($sesen_akses == 'admin2'){echo "Admin ";}if($sesen_akses == 'admin'){echo "Super Admin";}?>)</p>

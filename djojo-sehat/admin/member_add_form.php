@@ -5,34 +5,34 @@
       <div class="box box-primary">
         <div class="box-body">
           <div class="form-group"><label>Nama</label>
-            <input type="text" name="nama" class="form-control" required/>
+            <input type="text" name="nama" class="form-control" required />
           </div>
           <div class="form-group"><label>Alamat</label>
-            <input type="text" name="alamat" class="form-control" required/>
+            <input type="text" name="alamat" class="form-control" required />
           </div>
           <div class="form-group"><label>Tempat Lahir</label>
-            <input type="text" name="tempat_lahir" class="form-control" required/>
+            <input type="text" name="tempat_lahir" class="form-control" required />
           </div>
           <div class="form-group"><label>Tanggal Lahir</label>
-            <input type="date" name="tanggal_lahir" class="form-control" required/>
+            <input type="date" name="tanggal_lahir" class="form-control" required />
           </div>
           <div class="form-group"><label>Kecamatan</label>
-            <input type="text" name="kecamatan" class="form-control" required/>
+            <input type="text" name="kecamatan" class="form-control" required />
           </div>
           <div class="form-group"><label>Kabupaten</label>
-            <input type="text" name="kabupaten" class="form-control" required/>
+            <input type="text" name="kabupaten" class="form-control" required />
           </div>
           <div class="form-group"><label>Kode Pos</label>
-            <input type="text" name="kd_pos" class="form-control" required/>
+            <input type="text" name="kd_pos" class="form-control" required />
           </div>
           <div class="form-group"><label>Email</label>
-            <input type="text" name="email" class="form-control" required/>
+            <input type="text" name="email" class="form-control" required />
           </div>
           <div class="form-group"><label>No HP</label>
-            <input type="number" name="hp" class="form-control" required/>
+            <input type="number" name="hp" class="form-control" required />
           </div>
           <div class="form-group"><label>Password</label>
-            <input type="password" name="password" class="form-control" required/>
+            <input type="password" name="password" class="form-control" required />
           </div>
         </div>
         <div class="box-footer">

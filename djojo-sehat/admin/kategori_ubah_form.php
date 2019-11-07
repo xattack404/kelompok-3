@@ -14,7 +14,8 @@ $data       = mysqli_fetch_array($result);
         <div class="box-body">
           <input name="id_kat" type="hidden" id="id_kat" value="<?php echo $data['id_kategori'] ?>">
           <div class="form-group"><label>Judul Kategori</label>
-            <input type="text" class="form-control" name="judul_kat" id="judul_kat" size="30" value="<?php echo $data['nama_kategori'] ?>" required/>
+            <input type="text" class="form-control" name="judul_kat" id="judul_kat" size="30"
+              value="<?php echo $data['nama_kategori'] ?>" required />
           </div>
         </div><!-- /.box-body -->
         <div class="box-footer">

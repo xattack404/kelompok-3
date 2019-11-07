@@ -1,3 +1,6 @@
+<?php
+      include 'login_form.php';
+?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -87,6 +90,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+     
       <?php
       if(!empty($_SESSION['username']) && empty($_SESSION['usertype']))
       {
@@ -106,7 +110,10 @@
       }
         else
         {
-          echo "<li><a href='$base_url"."register.html'><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Register/ Login</a></li>";
+          echo "<li><a href='$base_url"."register.html'><span class='glyphicon glyphicon-user' aria-hidden='true'></span> Register</a></li>";
+          echo "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#login_modal'>
+          Login
+        </button>";
         }
       ?>
       </ul>

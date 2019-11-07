@@ -13,7 +13,7 @@
       </thead>
       <tbody>
 
-      <?php
+        <?php
       $sql = "SELECT * FROM tb_supplier";
       $result = mysqli_query($koneksi, $sql);
       $no = 1;
@@ -21,28 +21,29 @@
       {
         while ($data = mysqli_fetch_array($result))
         {?>
-          <tr>
-                  <td style="text-align: center"><?= $no++ ?></td>
-                  <td style="text-align: left"><?= $data['nama_supplier'] ?></td>
-                  <td style="text-align: center"><?= $data['alamat'] ?></td>
-                  <td style="text-align: center"><?= $data['no_hp'] ?></td>
-                  <td style="text-align: center">
-                    <a href="user_ubah.php?id=<?=$data['id_supplier']?>">
-                      <button type="submit" class="btn btn-primary">Ubah</button>
-                    </a>
-                    <a href="user_hapus.php?id=<?=$data['id_supplier']?>">
-                      <button type="submit" class="btn btn-danger" OnClick="return confirm('Apakah Anda yakin?');">Hapus</button>
-                    </a>
-                  </td>
-          </tr>
-              
-       <?php
+        <tr>
+          <td style="text-align: center"><?= $no++ ?></td>
+          <td style="text-align: left"><?= $data['nama_supplier'] ?></td>
+          <td style="text-align: center"><?= $data['alamat'] ?></td>
+          <td style="text-align: center"><?= $data['no_hp'] ?></td>
+          <td style="text-align: center">
+            <a href="user_ubah.php?id=<?=$data['id_supplier']?>">
+              <button type="submit" class="btn btn-primary">Ubah</button>
+            </a>
+            <a href="user_hapus.php?id=<?=$data['id_supplier']?>">
+              <button type="submit" class="btn btn-danger"
+                OnClick="return confirm('Apakah Anda yakin?');">Hapus</button>
+            </a>
+          </td>
+        </tr>
+
+        <?php
         }
       } else {echo "Belum ada data";
     }
       
       ?>
       </tbody>
-  </table>
+    </table>
   </div>
 </div>

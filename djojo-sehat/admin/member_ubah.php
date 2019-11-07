@@ -7,36 +7,39 @@ include '../fungsi/cek_aksi_ubah.php';
 ?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Ubah Data Member | <?php include "title.php" ?></title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../images/fav.ico" />
-    <!-- JS -->
-    <?php include 'js.php'; ?>
-  </head>
-  <body class="skin-blue sidebar-mini">
-    <div class="wrapper">
-      <?php include "header.php"; ?>
-      
-      <div class="content-wrapper">
-        <section class="content-header">
-          <h1>Ubah Data Member</h1>
-          <ol class="breadcrumb">
-            <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Member</li>
-            <li class="active">Ubah Data Member</li>
-          </ol>
-        </section>
 
-        <section class="content">
-          <?php include "member_ubah_form.php" ?>
-        </section>
-      </div>
-      
-      <?php include "footer.php" ?>
+<head>
+  <meta charset="UTF-8">
+  <title>Ubah Data Member | <?php include "title.php" ?></title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../images/fav.ico" />
+  <!-- JS -->
+  <?php include 'js.php'; ?>
+</head>
 
+<body class="skin-blue sidebar-mini">
+  <div class="wrapper">
+    <?php include "header.php"; ?>
+
+    <div class="content-wrapper">
+      <section class="content-header">
+        <h1>Ubah Data Member</h1>
+        <ol class="breadcrumb">
+          <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li>Member</li>
+          <li class="active">Ubah Data Member</li>
+        </ol>
+      </section>
+
+      <section class="content">
+        <?php include "member_ubah_form.php" ?>
+      </section>
     </div>
 
-  </body>
+    <?php include "footer.php" ?>
+
+  </div>
+
+</body>
+
 </html>

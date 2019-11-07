@@ -1,8 +1,8 @@
 <?php session_start();          // Memulai session
 include 'config/koneksi.php';           // Panggil koneksi ke database
 include 'fungsi/base_url.php';  // Panggil fungsi base_url
-include 'fungsi/navigasi.php';  // Panggil data navigasi
-include 'fungsi/setting.php';   // Panggil data author
+//include 'fungsi/navigasi.php';  // Panggil data navigasi
+//include 'fungsi/setting.php';   // Panggil data author
 
 // pengecekan session
 if(isset($_SESSION['email']))
@@ -45,7 +45,6 @@ if(isset($_SESSION['email']))
             <div class="caption-full">
               <h3 align="center">Login</h3>
               <hr/>
-              <?php include "login_form.php" ?>
 
               <hr/>
 

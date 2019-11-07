@@ -7,37 +7,40 @@ include '../fungsi/cek_aksi_ubah.php';  // Panggil fungsi boleh ubah data atau t
 ?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Ubah Data Produk | <?php include "title.php" ?></title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../images/fav.ico" />
-   <!-- JS -->
-   <?php include 'js.php'; ?>
-  </head>
-  <body class="skin-blue sidebar-mini">
-    <div class="wrapper">
-      <?php include 'header.php'; ?>
-      
-      <div class="content-wrapper">
-        <section class="content-header">
-          <h1>Ubah Data Produk</h1>
-          <ol class="breadcrumb">
-            <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Produk</li>
-            <li class="active"><a href="#">Ubah Data Produk</a></li>
-          </ol>
-        </section>
 
-        <section class="content">
-          <?php include "produk_ubah_form.php" ?>
-        </section>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <title>Ubah Data Produk | <?php include "title.php" ?></title>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../images/fav.ico" />
+  <!-- JS -->
+  <?php include 'js.php'; ?>
+</head>
 
-      <?php include "footer.php" ?>
+<body class="skin-blue sidebar-mini">
+  <div class="wrapper">
+    <?php include 'header.php'; ?>
 
+    <div class="content-wrapper">
+      <section class="content-header">
+        <h1>Ubah Data Produk</h1>
+        <ol class="breadcrumb">
+          <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li>Produk</li>
+          <li class="active"><a href="#">Ubah Data Produk</a></li>
+        </ol>
+      </section>
+
+      <section class="content">
+        <?php include "produk_ubah_form.php" ?>
+      </section>
     </div>
-    
-  </body>
+
+    <?php include "footer.php" ?>
+
+  </div>
+
+</body>
+
 </html>

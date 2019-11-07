@@ -6,18 +6,21 @@
       <div class="box box-primary">
         <div class="box-body">
           <div class="form-group"><label>ID Slider</label>
-            <input class="form-control" name="id_slider" type="text" id="id_slider" size="30" placeholder="Huruf besar diawal lalu kecil"/>
+            <input class="form-control" name="id_slider" type="text" id="id_slider" size="30"
+              placeholder="Huruf besar diawal lalu kecil" />
           </div>
           <div class="form-group"><label>Judul Slider</label>
-            <input class="form-control" name="judul_slider" type="text" id="judul_slider" size="30" placeholder="Huruf besar diawal lalu kecil"/>
+            <input class="form-control" name="judul_slider" type="text" id="judul_slider" size="30"
+              placeholder="Huruf besar diawal lalu kecil" />
           </div>
           <div class="form-group"><label>Link</label>
-            <input class="form-control" name="link" type="text" id="link" size="30" placeholder="Ex: http://www.google.com"/>
+            <input class="form-control" name="link" type="text" id="link" size="30"
+              placeholder="Ex: http://www.google.com" />
           </div>
-          <div class="form-group"><label>Gambar Slider</label><br/>
-            <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')" required/>
+          <div class="form-group"><label>Gambar Slider</label><br />
+            <input type="file" name="imgs" id="img" onchange="tampilkanPreview(this,'preview')" required />
             <br><b>Preview Gambar</b><br>
-            <img id="preview" src="" alt="" width="50%"/>
+            <img id="preview" src="" alt="" width="50%" />
           </div>
         </div><!-- /.box-body -->
         <div class="box-footer">

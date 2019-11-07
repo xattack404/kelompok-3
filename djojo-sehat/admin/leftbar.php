@@ -8,7 +8,7 @@
   <li class='treeview'>
     <a href='pesanan.php'><i class='fa fa-shopping-cart'></i><span> Pesanan Barang Baru</span></a>
   </li>
-    <li class='treeview'>
+  <li class='treeview'>
     <a href='#'><i class='fa fa-tag'></i><span> Kategori </span><i class='fa fa-angle-left pull-right'></i></a>
     <ul class='treeview-menu'>
       <li><a href='kategori_add.php'><i class='fa fa-circle-o'></i> Tambah Kategori </a></li>
@@ -75,7 +75,8 @@
   <li class='treeview'>
     <a href='#'><i class='fa fa-asterisk'></i><span> Password </span><i class='fa fa-angle-left pull-right'></i></a>
     <ul class='treeview-menu'>
-      <li><a href='ubah_pass.php?username=<?php echo $sesen_username ?>'><i class='fa fa-circle-o'></i> Ubah Password Sendiri</a></li>
+      <li><a href='ubah_pass.php?username=<?php echo $sesen_username ?>'><i class='fa fa-circle-o'></i> Ubah Password
+          Sendiri</a></li>
       <?php
       // Admin Menu
       if ($sesen_akses == "admin")
@@ -97,7 +98,7 @@
       }
       ?>
     </ul>
-  </li>  
+  </li>
   <li>
     <a href='logout.php'>
       <i class="fa fa-sign-out"></i> <span>Logout</span>

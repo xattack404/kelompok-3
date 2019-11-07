@@ -13,30 +13,32 @@ $data       = mysqli_fetch_array($result);
       <div class="box box-primary">
         <div class="box-body">
           <input name="id_slider" type="hidden" id="id_slider" value="<?php echo $data['id_slider'] ?>">
-          </div>
-          <div class="form-group"><label>Judul Slider</label>
-            <input class="form-control" name="judul_slider" type="text" id="judul_slider" size="30" value="<?php echo $data['judul_slider'] ?>" required/>
-          </div>
-          <div class="form-group"><label>Link</label>
-            <input class="form-control" name="link" type="text" id="link" size="30" value="<?php echo $data['link'] ?>" required/>
-          </div>
-          <div class="form-group"><label>Gambar Sebelumnya</label>
-            <br/>
-            <img src="../images/slider/<?php echo $data['gambar'] ?> " width="75%" height="75%" />
-          </div>
-          <div class="form-group"><label>Gambar Baru</label>
-            <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')"/>
-            <br><b>Preview Gambar</b><br>
-            <img id="preview" src="" alt="" width="50%"/>
-          </div>
-        </div><!-- /.box-body -->
-        <div class="box-footer">
-          <button type="submit" name="submit" class="btn btn-success">Submit</button>
-          <button type="reset" name="reset" class="btn btn-danger">Reset</button>
         </div>
-      </div><!-- /.box -->
-      <!-- left column -->
-    </div>
+        <div class="form-group"><label>Judul Slider</label>
+          <input class="form-control" name="judul_slider" type="text" id="judul_slider" size="30"
+            value="<?php echo $data['judul_slider'] ?>" required />
+        </div>
+        <div class="form-group"><label>Link</label>
+          <input class="form-control" name="link" type="text" id="link" size="30" value="<?php echo $data['link'] ?>"
+            required />
+        </div>
+        <div class="form-group"><label>Gambar Sebelumnya</label>
+          <br />
+          <img src="../images/slider/<?php echo $data['gambar'] ?> " width="75%" height="75%" />
+        </div>
+        <div class="form-group"><label>Gambar Baru</label>
+          <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')" />
+          <br><b>Preview Gambar</b><br>
+          <img id="preview" src="" alt="" width="50%" />
+        </div>
+      </div><!-- /.box-body -->
+      <div class="box-footer">
+        <button type="submit" name="submit" class="btn btn-success">Submit</button>
+        <button type="reset" name="reset" class="btn btn-danger">Reset</button>
+      </div>
+    </div><!-- /.box -->
+    <!-- left column -->
+  </div>
   </div>
 </form>
 

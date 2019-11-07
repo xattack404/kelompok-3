@@ -9,7 +9,8 @@
             <input class="form-control" name="id_brg" type="text" id="id_brg" size="30" placeholder="Huruf besar diawal lalu kecil"/>
           </div> -->
           <div class="form-group"><label>Nama Barang</label>
-            <input class="form-control" name="nama_brg" type="text" id="nama_brg" size="30" placeholder="Huruf besar diawal lalu kecil"/>
+            <input class="form-control" name="nama_brg" type="text" id="nama_brg" size="30"
+              placeholder="Huruf besar diawal lalu kecil" />
           </div>
           <div class="form-group"><label>Deskripsi Produk</label>
             <textarea class="form-control" rows="10" id="deskripsi_brg" name="deskripsi_brg"></textarea>
@@ -26,54 +27,58 @@
         <div class="box-body">
           <div class="row">
             <div class="col-xs-4"><label>Jenis Barang</label>
-              <br/>
+              <br />
               <select name="jenis_brg" id="jenis_brg" class="form-control" required>
-              <option value="">--Pilih Jenis--</option>
-              <option value="obat">Obat</option>
-              <option value="fashion">Fashion</option>
+                <option value="">--Pilih Jenis--</option>
+                <option value="obat">Obat</option>
+                <option value="fashion">Fashion</option>
               </select>
-              </div>
+            </div>
             <div class="col-xs-4"><label>Satuan</label>
-              <br/>
+              <br />
               <select name="satuan_brg" id="satuan_brg" class="form-control" required>
-              <option value="">--Pilih Satuan--</option>
-              <?php
+                <option value="">--Pilih Satuan--</option>
+                <?php
                 $query = "SELECT * FROM tb_satuan ORDER BY nama_satuan";
                 $sql = mysqli_query($koneksi, $query);
                 while($data = mysqli_fetch_array($sql)){echo '<option value="'.$data['id_satuan'].'">'.$data['nama_satuan'].'</option>';}
                 ?>
               </select>
-              </div>
-            <div class="col-xs-4"><label>Jumlah Barang</label>
-              <input class="form-control" name="jumlah_brg" type="number" id="b" size="30" placeholder="Isi angka saja" onkeyup="hitung();"/>
             </div>
-          </div><br/>
+            <div class="col-xs-4"><label>Jumlah Barang</label>
+              <input class="form-control" name="jumlah_brg" type="number" id="b" size="30" placeholder="Isi angka saja"
+                onkeyup="hitung();" />
+            </div>
+          </div><br />
           <div class="row">
             <div class="col-xs-3"><label>Berat</label>
-              <input class="form-control" name="berat_brg" type="number" id="berat_brg" size="30" placeholder="Per Gram"/>
+              <input class="form-control" name="berat_brg" type="number" id="berat_brg" size="30"
+                placeholder="Per Gram" />
             </div>
             <div class="col-xs-3"><label>Harga Beli</label>
-              <input class="form-control" name="hrg_beli" type="number" id="hrg_beli" size="30" placeholder="Angka saja"/>
+              <input class="form-control" name="hrg_beli" type="number" id="hrg_beli" size="30"
+                placeholder="Angka saja" />
             </div>
             <div class="col-xs-3"><label>Harga Jual</label>
-              <input class="form-control" name="hrg_jual" type="number" id="hrg_jual" size="30" placeholder="Angka saja"/>
+              <input class="form-control" name="hrg_jual" type="number" id="hrg_jual" size="30"
+                placeholder="Angka saja" />
             </div>
             <div class="col-xs-4"><label>Kategori</label>
-              <br/>
+              <br />
               <select name="kategori" id="kategori" class="form-control" required>
-              <option value="">--Pilih Kategori--</option>
+                <option value="">--Pilih Kategori--</option>
                 <?php
                 $query = "SELECT * FROM tb_kategori ORDER BY nama_kategori";
                 $sql = mysqli_query($koneksi, $query);
                 while($data = mysqli_fetch_array($sql)){echo '<option value="'.$data['id_kategori'].'">'.$data['nama_kategori'].'</option>';}
                 ?>
               </select>
-              </div>
-          </div><br/>
-          <div class="form-group"><label>* Foto Baru</label><br/>
-            <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')" required/>
+            </div>
+          </div><br />
+          <div class="form-group"><label>* Foto Baru</label><br />
+            <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')" required />
             <br><b>Preview Gambar</b><br>
-            <img id="preview" src="" alt="" width="35%"/>
+            <img id="preview" src="" alt="" width="35%" />
           </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
