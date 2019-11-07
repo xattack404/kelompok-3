@@ -18,6 +18,7 @@ if(isset($_POST['submit']))
   $tanggal_lahir       = mysqli_real_escape_string($koneksi,$_POST['tanggal_lahir']);
   $kecamatan       = mysqli_real_escape_string($koneksi,$_POST['kecamatan']);
   $kabupaten       = mysqli_real_escape_string($koneksi,$_POST['kabupaten']);
+  $provinsi      = mysqli_real_escape_string($koneksi,$_POST['provinsi']);
   $kode_pos       = mysqli_real_escape_string($koneksi,$_POST['kd_pos']);
   $email       = mysqli_real_escape_string($koneksi,$_POST['email']);
   $no_hp       = mysqli_real_escape_string($koneksi,$_POST['hp']);
@@ -41,6 +42,7 @@ if(isset($_POST['submit']))
                                     tanggal_lahir, 
                                     kecamatan, 
                                     kabupaten_kota,
+                                    provinsi,
                                     kode_pos,
                                     email,
                                     no_hp,
@@ -52,6 +54,7 @@ if(isset($_POST['submit']))
                                 '$tanggal_lahir',
                                 '$kecamatan',
                                 '$kabupaten',
+                                '$provinsi',
                                 '$kode_pos',
                                 '$email',
                                 '$no_hp',

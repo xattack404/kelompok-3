@@ -9,23 +9,35 @@ if(isset($_POST['submit']))
 {
   $id    = mysqli_real_escape_string($koneksi,$_POST['id']);
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
-  $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
-  $no_hp      = mysqli_real_escape_string($koneksi,$_POST['no_hp']);
-  $tipe       = mysqli_real_escape_string($koneksi,$_POST['tipe']);
-  $access     = mysqli_real_escape_string($koneksi,$_POST['access']);
+  $alamat       = mysqli_real_escape_string($koneksi,$_POST['alamat']);
+  $tempat_lahir       = mysqli_real_escape_string($koneksi,$_POST['tempat_lahir']);
+  $tanggal_lahir       = mysqli_real_escape_string($koneksi,$_POST['tanggal_lahir']);
+  $kecamatan       = mysqli_real_escape_string($koneksi,$_POST['kecamatan']);
+  $kabupaten       = mysqli_real_escape_string($koneksi,$_POST['kabupaten']);
+  $provinsi      = mysqli_real_escape_string($koneksi,$_POST['provinsi']);
+  $kode_pos       = mysqli_real_escape_string($koneksi,$_POST['kd_pos']);
+  $email       = mysqli_real_escape_string($koneksi,$_POST['email']);
+  $no_hp       = mysqli_real_escape_string($koneksi,$_POST['hp']);
+  $tampung    = mysqli_real_escape_string($koneksi,$_POST['password']);
   
   // Proses update data dari form ke db
-  $sql = "UPDATE tb_login SET id_login    = '$id',
+  $sql = "UPDATE tb_member SET id_member    = '$id',
                               nama        = '$nama',
-                              username    = '$username',
-                              id_posisi   = '$tipe',
-                              akses       = '$access',
-                              no_hp       = '$no_hp'
+                              alamat    = '$alamat',
+                              tempat_lahir   = '$tempat_lahir',
+                              tanggal_lahir       = '$tanggal_lahir',
+                              kecamatan       = '$kecamatan',
+                              kabupaten       = '$kabupaten',
+                              provinsi       = '$provinsi',
+                              kode_pos       = '$kode_pos',
+                              email       = '$email',
+                              no_hp       = '$no_hp',
+                              password       = '$tampung'
                         WHERE id_login    = '$id'";
 
   if(mysqli_query($koneksi, $sql)) 
   {
-   echo "<script>alert('Update data berhasil! Klik ok untuk melanjutkan');location.replace('user_list.php')</script>";
+   echo "<script>alert('Update data berhasil! Klik ok untuk melanjutkan');location.replace('member_list.php')</script>";
   } 
     else 
     {

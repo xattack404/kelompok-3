@@ -22,6 +22,9 @@
           <div class="form-group"><label>Kabupaten</label>
             <input type="text" name="kabupaten" class="form-control" required />
           </div>
+          <div class="form-group"><label>Provinsi</label>
+            <input type="text" name="provinsi" class="form-control" required />
+          </div>
           <div class="form-group"><label>Kode Pos</label>
             <input type="text" name="kd_pos" class="form-control" required />
           </div>

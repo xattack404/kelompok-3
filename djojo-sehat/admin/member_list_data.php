@@ -9,6 +9,7 @@
           <th style="text-align: center">Tempat, Tanggal Lahir</th>
           <th style="text-align: center">Kecamatan</th>
           <th style="text-align: center">Kabupaten</th>
+          <th style="text-align: center">Provinsi</th>
           <th style="text-align: center">Kode Pos</th>
           <th style="text-align: center">Email</th>
           <th style="text-align: center">No Hp</th>
@@ -32,6 +33,7 @@
           <td style="text-align: center"><?= $data['tempat_lahir'] ?>, <?= $data['tanggal_lahir'] ?></td>
           <td style="text-align: center"><?= $data['kecamatan'] ?></td>
           <td style="text-align: center"><?= $data['kabupaten_kota'] ?></td>
+          <td style="text-align: center"><?= $data['Provinsi'] ?></td>
           <td style="text-align: center"><?= $data['kode_pos'] ?></td>
           <td style="text-align: center"><?= $data['email'] ?></td>
           <td style="text-align: center"><?= $data['no_hp'] ?></td>

@@ -9,7 +9,7 @@ $sql  = "DELETE FROM tb_member WHERE id_member = '$id'";
 
 if (mysqli_query($koneksi, $sql)) 
 {
-  echo "<script>alert('Hapus data berhasil! Klik ok untuk melanjutkan');location.replace('user_list.php')</script>";
+  echo "<script>alert('Hapus data berhasil! Klik ok untuk melanjutkan');location.replace('member_list.php')</script>";
 } 
   else 
   {
