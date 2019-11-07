@@ -44,18 +44,6 @@ if(isset($_SESSION['email']))
             <hr />
           </div>
 
-          <div class="caption-full">
-            <h3 align="center">Login</h3>
-            <hr />
-
-            <hr />
-
-            <h3 align="center">Register</h3>
-            <hr />
-            <?php include "register_form.php" ?>
-          </div>
-        </div>
-      </div>
 
       <?php include 'sidebar.php'; ?>
 

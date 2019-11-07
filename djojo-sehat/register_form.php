@@ -1,34 +1,45 @@
-<form method="post" id="form-register" action="send.php">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="box box-primary">
-        <div class="box-body">
+<div class="modal fade" id="registerform" tabindex="-1" role="dialog" aria-labelledby="registerform" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerform">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form method="post" id="form-register" action="send.php">
           <div class="row">
-            <div class="col-xs-4"><label>Nama Lengkap</label>
-              <input class="form-control" name="nama" type="text" id="nama" size="30" required />
-            </div>
-            <div class="col-xs-4"><label>Username</label>
-              <input class="form-control" name="username" type="text" id="username" size="30" required />
-            </div>
-            <div class="col-xs-4"><label>No. Telepon</label>
-              <input class="form-control" name="telepon" type="text" id="telepon" size="30" required />
-            </div>
-          </div><br />
-          <div class="row">
-            <div class="col-xs-6"><label>Email</label>
-              <input class="form-control" name="email" type="text" id="email" size="30" required />
-            </div>
-            <div class="col-xs-6"><label>Password</label>
-              <input class="form-control" name="password" type="password" id="password" size="30" required />
-            </div>
-          </div><br />
-          <div class="form-group"><label>Alamat</label>
-            <textarea class="form-control" name="alamat" id="alamat" required></textarea>
-          </div>
-          <div class="form-group"><label>Provinsi</label>
-            <select name="prov" id="prov" class="form-control" required>
-              <option value="">--Pilih Provinsi--</option>
-              <?php
+            <div class="col-md-12">
+              <div class="box box-primary">
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-xs-4"><label>Nama Lengkap</label>
+                      <input class="form-control" name="nama" type="text" id="nama" size="30" required />
+                    </div>
+                    <div class="col-xs-4"><label>Username</label>
+                      <input class="form-control" name="username" type="text" id="username" size="30" required />
+                    </div>
+                    <div class="col-xs-4"><label>No. Telepon</label>
+                      <input class="form-control" name="telepon" type="text" id="telepon" size="30" required />
+                    </div>
+                  </div><br />
+                  <div class="row">
+                    <div class="col-xs-6"><label>Email</label>
+                      <input class="form-control" name="email" type="text" id="email" size="30" required />
+                    </div>
+                    <div class="col-xs-6"><label>Password</label>
+                      <input class="form-control" name="password" type="password" id="password" size="30" required />
+                    </div>
+                  </div><br />
+                  <div class="form-group"><label>Alamat</label>
+                    <textarea class="form-control" name="alamat" id="alamat" required></textarea>
+                  </div>
+                  <div class="form-group"><label>Provinsi</label>
+                    <select name="prov" id="prov" class="form-control" required>
+                      <option value="">--Pilih Provinsi--</option>
+                      <?php
                 $prov = "SELECT * FROM prov ORDER BY nama_prov";
                 $result = mysqli_query($conn, $prov);
                 if (mysqli_num_rows($result) > 0)
@@ -43,27 +54,31 @@
                     echo "Belum ada data";
                   }
                 ?>
-            </select>
+                    </select>
+                  </div>
+                  <div class="form-group"><label>Kabupaten/ Kota</label>
+                    <select name="kot" id="kot" class="form-control" required>
+                      <option value="">--Pilih Kabupaten/ Kota--</option>
+                    </select>
+                  </div>
+                  <div class="form-group"><label>Kecamatan</label>
+                    <select name="kec" id="kec" class="form-control" required>
+                      <option value="">--Pilih Kecamatan--</option>
+                    </select>
+                  </div>
+                </div><!-- /.box-body -->
+                <div class="box-footer">
+
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group"><label>Kabupaten/ Kota</label>
-            <select name="kot" id="kot" class="form-control" required>
-              <option value="">--Pilih Kabupaten/ Kota--</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Kecamatan</label>
-            <select name="kec" id="kec" class="form-control" required>
-              <option value="">--Pilih Kecamatan--</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Kode Pos</label>
-            <input class="form-control" name="kopos" type="text" id="kopos" size="30" />
-          </div>
-        </div><!-- /.box-body -->
-        <div class="box-footer">
-          <button type="submit" name="submit" class="btn btn-success">Submit</button>
-          <button type="reset" name="reset" class="btn btn-danger">Reset</button>
-        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="submit" class="btn btn-success">Submit</button>
+        <button type="reset" name="reset" class="btn btn-danger">Reset</button>
       </div>
     </div>
   </div>
-</form>
+</div>
