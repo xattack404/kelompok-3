@@ -18,16 +18,17 @@
       <ul class="nav navbar-nav">
         <!-- form cari -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">
             <span class='glyphicon glyphicon-search' aria-hidden='true'></span> Cari<span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-          <li>
-            <form method="POST" class="navbar-form navbar-left" action="<?php echo $base_url ?>search">
-              <div class="form-group">
-                <input name="searchterm" type="text" class="form-control" placeholder="Cari Barang...">
-              </div>
-            </form>
+            <li>
+              <form method="POST" class="navbar-form navbar-left" action="<?php echo $base_url ?>search">
+                <div class="form-group">
+                  <input name="searchterm" type="text" class="form-control" placeholder="Cari Barang...">
+                </div>
+              </form>
             </li>
           </ul>
         </li>
@@ -46,7 +47,7 @@
             <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'></span> Keranjang
           </a>
         </li>
-			  <li>
+        <li>
           <a href='<?php echo $base_url ?>resi.html'>
             <span class='glyphicon glyphicon-plane' aria-hidden='true'></span> Resi
           </a>
@@ -62,8 +63,10 @@
           </a>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class='glyphicon glyphicon-blackboard' aria-hidden='true'></span> Tentang Kami<span class="caret"></span>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">
+            <span class='glyphicon glyphicon-blackboard' aria-hidden='true'></span> Tentang Kami<span
+              class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li>
@@ -90,8 +93,8 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-     
-      <?php
+
+        <?php
       if(!empty($_SESSION['username']) && empty($_SESSION['usertype']))
       {
         echo "

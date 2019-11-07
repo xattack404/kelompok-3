@@ -12,51 +12,54 @@ $page   = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title><?php echo $page['judul'] ?> | <?php echo $namatoko ?></title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<?php echo $page['seo_deskripsi'] ?>" />
-    <meta name="keywords" content="<?php echo $page['seo_keywords'] ?>" />
-    <meta name="author" content="<?php echo $author ?>" />
-    <!-- CSS Bootstrap -->
-    <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
-    <!-- Favicon -->
-    <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
-  </head>
-  <body>
-    <?php include 'navbar.php'; ?>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-sm-push-3">
-          <div class="thumbnail">
-            <div class="col-md-12">
-              <h3><?php echo $page['judul']; ?></h3>
-              <hr/>
-            </div>
-            <div class="caption-full">
-              <?php
+<head>
+  <title><?php echo $page['judul'] ?> | <?php echo $namatoko ?></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="<?php echo $page['seo_deskripsi'] ?>" />
+  <meta name="keywords" content="<?php echo $page['seo_keywords'] ?>" />
+  <meta name="author" content="<?php echo $author ?>" />
+  <!-- CSS Bootstrap -->
+  <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon" />
+</head>
+
+<body>
+  <?php include 'navbar.php'; ?>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-sm-push-3">
+        <div class="thumbnail">
+          <div class="col-md-12">
+            <h3><?php echo $page['judul']; ?></h3>
+            <hr />
+          </div>
+          <div class="caption-full">
+            <?php
               if (mysqli_num_rows($result) > 0){echo " ".$page['isi']." ";}else{echo "Belum ada data";}
               ?>
-            </div>
           </div>
         </div>
-
-        <?php include 'sidebar.php'; ?>
-
       </div>
 
-      <hr/>
-
-      <?php include 'footer.php'; ?>
+      <?php include 'sidebar.php'; ?>
 
     </div>
 
-    <!-- Memanggil JS -->
-    <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
-    <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
-  </body>
+    <hr />
+
+    <?php include 'footer.php'; ?>
+
+  </div>
+
+  <!-- Memanggil JS -->
+  <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
+  <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
+</body>
+
 </html>
