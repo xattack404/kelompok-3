@@ -41,7 +41,12 @@ $page   = mysqli_fetch_array($result);
           </div>
           <div class="caption-full">
             <?php
-              if (mysqli_num_rows($result) > 0){echo " ".$page['isi']." ";}else{echo "Belum ada data";}
+              if (mysqli_num_rows($result) > 0){
+                echo " ".$page['isi']." ";
+              }
+              else{
+                echo "Belum ada data";
+              }
               ?>
           </div>
         </div>

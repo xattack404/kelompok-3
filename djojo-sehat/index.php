@@ -38,7 +38,9 @@ include 'fungsi/setting.php';             // Panggil data setting
       </div>
     </div>
 
-    <?php include 'bseller_new.php'; ?>
+    <?php
+    // include 'bseller_new.php'; 
+    ?>
 
     <hr />
 
@@ -48,7 +50,9 @@ include 'fungsi/setting.php';             // Panggil data setting
       </div>
     </div>
 
-    <?php include 'produk_new.php'; ?>
+    <?php
+     // include 'produk_new.php';
+    ?>
 
     <hr />
 

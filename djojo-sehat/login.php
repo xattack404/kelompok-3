@@ -5,8 +5,8 @@ include 'fungsi/base_url.php';
 if(isset($_POST['submit']))
 {
   $errors     = array();
-  $username   = mysqli_real_escape_string($conn, $_POST['user']);
-  $pass       = mysqli_real_escape_string($conn, $_POST['password']);
+  $username   = mysqli_real_escape_string($koneksi, $_POST['user']);
+  $pass       = mysqli_real_escape_string($koneksi, $_POST['password']);
 
   if (empty($username) && empty($pass))
   {
