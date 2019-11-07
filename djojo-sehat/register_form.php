@@ -7,9 +7,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-
         <form method="post" id="form-register" action="send.php">
+      <div class="modal-body">
           <div class="row">
             <div class="col-md-12">
               <div class="box box-primary">
@@ -73,12 +72,12 @@
               </div>
             </div>
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="submit" name="submit" class="btn btn-success">Submit</button>
         <button type="reset" name="reset" class="btn btn-danger">Reset</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

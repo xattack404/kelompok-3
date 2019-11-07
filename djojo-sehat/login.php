@@ -1,12 +1,11 @@
 <?php session_start();
-include 'config.php';
+include 'config/koneksi.php';
 include 'fungsi/base_url.php';
-
 // jika tombol submit ditekan
 if(isset($_POST['submit']))
 {
   $errors     = array();
-  $username   = mysqli_real_escape_string($conn, $_POST['username']);
+  $username   = mysqli_real_escape_string($conn, $_POST['user']);
   $pass       = mysqli_real_escape_string($conn, $_POST['password']);
 
   if (empty($username) && empty($pass))
@@ -23,7 +22,7 @@ if(isset($_POST['submit']))
   }
 
   // cek data ke db
-  $sql    = "SELECT * FROM customer WHERE username = '$username' ";
+  $sql    = "SELECT * FROM tb_member WHERE nama = '$username' ";
   $result = mysqli_query($conn, $sql);
   $data   = mysqli_fetch_array($result);
 
@@ -42,7 +41,7 @@ if(isset($_POST['submit']))
 	      if(empty($errors))
 	      {
 	        $_SESSION['id_customer']= $data['id_customer'];
-	        $_SESSION['username']   = $data['username'];
+	        $_SESSION['user']   = $data['user'];
 	        $_SESSION['nama']       = $data['nama'];
 	        $_SESSION['kecamatan']  = $data['kecamatan'];
 	        $_SESSION['kota']       = $data['kota'];
