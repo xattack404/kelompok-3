@@ -77,6 +77,7 @@ if(isset($_SESSION['email']))
           }
         });
       });
+      
       $("#kot").change(function () {
         var kot = $("#kot").val();
         $.ajax({

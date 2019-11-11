@@ -40,7 +40,7 @@
                       <option value="">--Pilih Provinsi--</option>
                       <?php
                 $prov = "SELECT * FROM prov ORDER BY nama_prov";
-                $result = mysqli_query($conn, $prov);
+                $result = mysqli_query($koneksi, $prov);
                 if (mysqli_num_rows($result) > 0)
                 {
                   while ($data = mysqli_fetch_array($result))
