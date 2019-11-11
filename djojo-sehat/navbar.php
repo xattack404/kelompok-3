@@ -14,24 +14,18 @@
       <!-- nama toko -->
       <a class="navbar-brand" href="<?php echo $base_url ?>"><?php echo $namatoko ?></a>
     </div>
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        
         <!-- form cari -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-            aria-expanded="false">
-            <span class='glyphicon glyphicon-search' aria-hidden='true'></span> Cari<span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <form method="POST" class="navbar-form navbar-left" action="<?php echo $base_url ?>search">
-                <div class="form-group">
-                  <input name="searchterm" type="text" class="form-control" placeholder="Cari Barang...">
-                </div>
-              </form>
-            </li>
-          </ul>
+        <li>
+        <div class="cntr">
+	<div class="cntr-innr">
+	  <label class="search" for="inpt_search">
+			<input id="inpt_search" type="text" />
+		</label>
+	</div>
+</div>
         </li>
         <li>
           <a href='<?php echo $base_url ?>index.html'>
