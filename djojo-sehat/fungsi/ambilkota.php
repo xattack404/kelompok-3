@@ -1,5 +1,5 @@
 <?php
-include '../config/koneksi.php';;
+include '../config/koneksi.php';
 
 $prov 		= $_GET['prov'];
 $kabkot 	= "SELECT id_kabkot,nama_kabkot FROM kabkot WHERE id_prov = '$prov' ORDER BY nama_kabkot";
