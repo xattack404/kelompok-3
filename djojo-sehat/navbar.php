@@ -18,14 +18,10 @@
       <ul class="nav navbar-nav">
         
         <!-- form cari -->
-        <li>
-        <div class="cntr">
-	<div class="cntr-innr">
+        <li>>
 	  <label class="search" for="inpt_search">
 			<input id="inpt_search" type="text" />
-		</label>
-	</div>
-</div>
+    </label>
         </li>
         <li>
           <a href='<?php echo $base_url ?>index.html'>

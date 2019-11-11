@@ -4,11 +4,11 @@
   position: relative;
   height: 25px;
   width: 25px;
-  top:10px;
+  top: 10px;
   box-sizing: border-box;
   margin: 0px 8px 7px 0px;
   padding: 7px 9px 0px 9px;
-  border: 3px solid rgb(119, 118, 118);
+  border: 3px solid #FFFFFF;
   border-radius: 25px;
   transition: all 200ms ease;
   cursor: text;
@@ -20,7 +20,7 @@
   height: 15px;
   right: -5px;
   top: 14px;
-  background: rgb(119, 118, 118);
+  background: #FFFFFF;
   border-radius: 3px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -41,7 +41,7 @@
   box-sizing: border-box;
   font-family: Helvetica;
   font-size: 15px;
-  color: inherit;
+  color: white;
   background: transparent;
   outline-width: 0px;
 }
