@@ -2,12 +2,13 @@
 .search {
   display: inline-block;
   position: relative;
-  height: 35px;
-  width: 35px;
+  height: 25px;
+  width: 25px;
+  top:10px;
   box-sizing: border-box;
   margin: 0px 8px 7px 0px;
   padding: 7px 9px 0px 9px;
-  border: 3px solid #FFFFFF;
+  border: 3px solid rgb(119, 118, 118);
   border-radius: 25px;
   transition: all 200ms ease;
   cursor: text;
@@ -16,10 +17,10 @@
   content: "";
   position: absolute;
   width: 3px;
-  height: 20px;
+  height: 15px;
   right: -5px;
-  top: 21px;
-  background: #FFFFFF;
+  top: 14px;
+  background: rgb(119, 118, 118);
   border-radius: 3px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -35,6 +36,7 @@
   height: 0px;
 }
 .search input {
+  width: 100%;
   border: none;
   box-sizing: border-box;
   font-family: Helvetica;
