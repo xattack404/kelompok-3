@@ -6,7 +6,7 @@
           <th style="text-align: center">No.</th>
           <th style="text-align: center">Nama</th>
           <th style="text-align: center">Alamat</th>
-          <th style="text-align: center">Tempat, Tanggal Lahir</th>
+          <th style="text-align: center">Jenis Kelamin</th>
           <th style="text-align: center">Kecamatan</th>
           <th style="text-align: center">Kabupaten</th>
           <th style="text-align: center">Provinsi</th>
@@ -30,7 +30,7 @@
           <td style="text-align: center"><?= $no++ ?></td>
           <td style="text-align: left"><?= $data['nama'] ?></td>
           <td style="text-align: left"><?= $data['alamat'] ?></td>
-          <td style="text-align: center"><?= $data['tempat_lahir'] ?>, <?= $data['tanggal_lahir'] ?></td>
+          <td style="text-align: center"><?= $data['jenis_kelamin'] ?></td>
           <td style="text-align: center"><?= $data['kecamatan'] ?></td>
           <td style="text-align: center"><?= $data['kabupaten_kota'] ?></td>
           <td style="text-align: center"><?= $data['provinsi'] ?></td>

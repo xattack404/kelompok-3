@@ -34,7 +34,7 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
 
     <div class="content-wrapper">
       <section class="content-header">
-        <h1>Daftar Member <small><a href="user_add.php">Tambah Member Baru</a></small></h1>
+        <h1>Daftar Member <small><a href="member_add.php">Tambah Member Baru</a></small></h1>
         <ol class="breadcrumb">
           <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
           <li>Member</li>
