@@ -5,10 +5,6 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-body">
-          <div class="form-group"><label>ID Slider</label>
-            <input class="form-control" name="id_slider" type="text" id="id_slider" size="30"
-              placeholder="Huruf besar diawal lalu kecil" />
-          </div>
           <div class="form-group"><label>Judul Slider</label>
             <input class="form-control" name="judul_slider" type="text" id="judul_slider" size="30"
               placeholder="Huruf besar diawal lalu kecil" />

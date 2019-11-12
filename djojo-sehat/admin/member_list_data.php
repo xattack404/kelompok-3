@@ -33,7 +33,7 @@
           <td style="text-align: center"><?= $data['tempat_lahir'] ?>, <?= $data['tanggal_lahir'] ?></td>
           <td style="text-align: center"><?= $data['kecamatan'] ?></td>
           <td style="text-align: center"><?= $data['kabupaten_kota'] ?></td>
-          <td style="text-align: center"><?= $data['Provinsi'] ?></td>
+          <td style="text-align: center"><?= $data['provinsi'] ?></td>
           <td style="text-align: center"><?= $data['kode_pos'] ?></td>
           <td style="text-align: center"><?= $data['email'] ?></td>
           <td style="text-align: center"><?= $data['no_hp'] ?></td>

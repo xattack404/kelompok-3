@@ -4,14 +4,11 @@ include 'cek_login.php';          // Panggil fungsi cek sudah login/belum
 include 'cek_session.php';        // Panggil fungsi cek session
 include '../fungsi/cek_aksi_tambah.php';    // Panggil fungsi boleh tambah data atau tidak
 include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin yang boleh melakukan aksi
-// require "template/libs/vendor/autoload.php";
 
-// use Ramsey\Uuid\Uuid; 
-// use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if(isset($_POST['submit']))
 {
-  // $uuid = Uuid::uuid4()->toString();
+  
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
   $alamat       = mysqli_real_escape_string($koneksi,$_POST['alamat']);
   $tempat_lahir       = mysqli_real_escape_string($koneksi,$_POST['tempat_lahir']);

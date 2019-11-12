@@ -73,6 +73,21 @@
   </li>
   <li class="header">PENGATURAN</li>
   <li class='treeview'>
+    <a href='#'><i class='fa fa-cogs'></i><span> Halaman </span><i class='fa fa-angle-left pull-right'></i></a>
+    <ul class='treeview-menu'>
+      <?php
+      $sql        = "SELECT * FROM tb_navigasi ORDER BY judul ASC";
+      $result     = mysqli_query($koneksi, $sql);
+      while($data = mysqli_fetch_array($result)) 
+      {
+        $id_nav = $data['id_navigasi'];
+        $judul  = $data['judul'];
+        echo " <li><a href='navigasi.php?id_nav=$id_nav'><i class='fa fa-circle-o'></i>$judul</a></li>";
+      }
+      ?>
+    </ul>
+  </li>
+  <li class='treeview'>
     <a href='#'><i class='fa fa-asterisk'></i><span> Password </span><i class='fa fa-angle-left pull-right'></i></a>
     <ul class='treeview-menu'>
       <li><a href='ubah_pass.php?username=<?php echo $sesen_username ?>'><i class='fa fa-circle-o'></i> Ubah Password

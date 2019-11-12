@@ -4,10 +4,6 @@ include 'cek_login.php';          // Panggil fungsi cek sudah login/belum
 include 'cek_session.php';        // Panggil fungsi cek session
 include '../fungsi/cek_aksi_tambah.php';    // Panggil fungsi boleh tambah data atau tidak
 include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin yang boleh melakukan aksi
-require "template/libs/vendor/autoload.php";
-
-use Ramsey\Uuid\Uuid; 
-use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if(isset($_POST['submit']))
 {
@@ -35,7 +31,7 @@ if(isset($_POST['submit']))
                                     password, 
                                     id_posisi, 
                                     akses)
-                        VALUES  ('$uuid',
+                        VALUES  ('',
                                 '$username',
                                 '$nama',
                                 '$no_Hp',
