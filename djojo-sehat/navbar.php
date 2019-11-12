@@ -1,6 +1,6 @@
 <?php
-      include 'login_form.php';
-      include 'register_form.php';
+      //include 'login_form.php';
+      //include 'register_form.php';
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
