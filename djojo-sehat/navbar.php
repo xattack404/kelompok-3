@@ -18,7 +18,7 @@
       <ul class="nav navbar-nav">
         
         <!-- form cari -->
-        <li>>
+        <li>
         <div class="container">
   <input type="text" placeholder="Search...">
   <div class="search"></div>
