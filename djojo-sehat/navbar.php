@@ -18,11 +18,9 @@
       <ul class="nav navbar-nav">
         
         <!-- form cari -->
-        <li>>
-        <div class="container">
+        <li>
   <input type="text" placeholder="Search...">
   <div class="search"></div>
-</div>
         </li>
         <li>
           <a href='<?php echo $base_url ?>index.html'>
