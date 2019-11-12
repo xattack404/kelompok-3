@@ -2,8 +2,10 @@
 include '../config/koneksi.php';                  // Panggil koneksi ke database
 include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
 include 'cek_session.php';      // Panggil fungsi cek session
-//include '../fungsi/setting.php';          // Panggil data setting
+include '../fungsi/setting.php';          // Panggil data setting
 include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menjadi format seperti 2 Mei 2015
+
+
 ?>
 <!DOCTYPE html>
 <html>

@@ -38,13 +38,8 @@
           </a>
         </li>
         <li>
-          <a href='<?php echo $base_url ?>resi.html'>
-            <span class='glyphicon glyphicon-plane' aria-hidden='true'></span> Resi
-          </a>
-        </li>
-        <li>
-          <a href='<?php echo $base_url ?>testimoni.html'>
-            <span class='glyphicon glyphicon-comment' aria-hidden='true'></span> Testimoni
+          <a href='<?php echo $base_url ?>konsultasi.html'>
+            <span class='glyphicon glyphicon-comment' aria-hidden='true'></span> Konsultasi
           </a>
         </li>
         <li>

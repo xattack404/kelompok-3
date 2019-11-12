@@ -1,5 +1,5 @@
 <?php
-$id_nav     = mysqli_real_escape_string($conn,$_GET['id_navigasi']);
+$id_nav     = mysqli_real_escape_string($koneksi,$_GET['id_navigasi']);
 $sql        = "SELECT * FROM tb_navigasi WHERE id_navigasi = '$id_nav' ";
 $result     = mysqli_query($koneksi, $sql);
 $data       = mysqli_fetch_array($result);
@@ -10,7 +10,7 @@ $data       = mysqli_fetch_array($result);
     <div class="col-md-8">
       <div class="box box-primary">
         <div class="box-body">
-          <input name="id_nav" type="hidden" id="id_nav" value="<?php echo $data['id_nav'] ?>">
+          <input name="id_navigasi" type="hidden" id="id_navigasi" value="<?php echo $data['id_navigasi'] ?>">
           <div class="form-group"><label>SEO Deskripsi</label>
             <input type="text" class="form-control" name="seo_deskripsi" id="seo_deskripsi" value="<?php echo $data['seo_deskripsi'] ?>" placeholder="Isilah deskripsi halaman <?php include 'navigasi_judul.php'; ?>">
           </div>

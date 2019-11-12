@@ -14,7 +14,7 @@
               placeholder="Ex: http://www.google.com" />
           </div>
           <div class="form-group"><label>Gambar Slider</label><br />
-            <input type="file" name="imgs" id="img" onchange="tampilkanPreview(this,'preview')" required />
+            <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')" required />
             <br><b>Preview Gambar</b><br>
             <img id="preview" src="" alt="" width="50%" />
           </div>
