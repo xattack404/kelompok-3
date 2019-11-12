@@ -2,10 +2,12 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="login_modal">Login</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+        <h3 class="modal-title text-center" id="login_modal">Login</h3>
+        <p class="text-center">silahkan login menggunakan akun yang sudah terdaftar</p>
+        <p class="text-center">belum punya akun ? <a href="register.php">Klik disini</a></p>
       </div>
       <form method="post" id="form-login" class="form-contrainer" action="login.php">
         <div class="modal-body">
@@ -34,8 +36,10 @@
           </div>
         </div>
         <div class="modal-footer">
+         <!--  <button type="submit" name="submit" class="btn btn-secondary">Lupa Password</button> -->
           <button type="submit" name="submit" class="btn btn-success">Submit</button>
           <button type="reset" name="reset" class="btn btn-danger">Reset</button>
+          <a href="">lupa password</a>
         </div>
       </form>
     </div>

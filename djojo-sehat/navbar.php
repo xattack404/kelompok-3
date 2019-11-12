@@ -98,9 +98,9 @@
       }
         else
         {
-          echo "<button type='button' class='btn btn-primary' style ='margin-top:7px; margin-left:10px;' data-toggle='modal' data-target='#registerform'><span class='glyphicon glyphicon-user' aria-hidden='true'></span>
-          Register
-        </button>";
+        //   echo "<button type='button' class='btn btn-primary' style ='margin-top:7px; margin-left:10px;' data-toggle='modal' data-target='#registerform'><span class='glyphicon glyphicon-user' aria-hidden='true'></span>
+        //   Register
+        // </button>";
           echo "<button type='button' class='btn btn-primary ml-5' style ='margin-top:7px;margin-left:10px;' data-toggle='modal' data-target='#login_modal'><span class='glyphicon glyphicon-user' aria-hidden='true'></span>
           Login
         </button>";

@@ -34,9 +34,9 @@ if ($sesen_akses == "admin")
   </div>
   <div class='col-lg-3 col-xs-6'>
     <div class='small-box bg-red'>
-      <div class='inner'><h3> $slider </h3><p>Slider</p></div>
+      <div class='inner'><h3> $konsultasi </h3><p>Konsultasi</p></div>
       <div class='icon'><i class='fa fa-plane'></i></div>
-      <a href='slider_list.php' class='small-box-footer'>Selengkapnya <i class='fa fa-arrow-circle-right'></i></a>
+      <a href='konsultasi_list.php' class='small-box-footer'>Selengkapnya <i class='fa fa-arrow-circle-right'></i></a>
     </div>
   </div>
   <div class='col-lg-3 col-xs-6'>

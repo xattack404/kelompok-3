@@ -3,7 +3,7 @@ include 'config/koneksi.php';           // Panggil koneksi ke database
 include 'fungsi/base_url.php';  // Panggil fungsi base_url
 include 'fungsi/navigasi.php';  // Panggil data navigasi
 include 'fungsi/setting.php';   // Panggil data author
-include 'register_form.php';
+// include 'register_form.php';
 
 // pengecekan session
 if(isset($_SESSION['email']))
@@ -41,18 +41,18 @@ if(isset($_SESSION['email']))
       <div class="col-sm-9 col-sm-push-3">
         <div class="thumbnail">
           <div class="col-md-12">
-            <h3><?php echo $register['judul']; ?></h3>
+            <!-- <h3><?php echo $register['judul']; ?></h3> -->
             <hr />
             
           </div>
 
 
       <?php include 'sidebar.php'; ?>
-
-    </div>
-
-    <hr />
-
+    
+      </div>
+        
+        <hr/>
+    <?php include_once 'register_form.php'; ?>
     <!-- Awal Footer -->
     <?php include 'footer.php'; ?>
     <!-- Akhir Footer -->
