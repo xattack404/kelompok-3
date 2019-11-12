@@ -1,13 +1,15 @@
 <?php
-include 'config.php';
+include 'config/koneksi.php';
 include 'fungsi/base_url.php';
-require 'phpmailer/PHPMailerAutoload.php';
+//require 'phpmailer/PHPMailerAutoload.php';
 
 if(isset($_POST['submit']))
 {
   $nama       = mysqli_real_escape_string($conn,$_POST['nama']);
   $username   = mysqli_real_escape_string($conn,$_POST['username']);
   $email      = mysqli_real_escape_string($conn,$_POST['email']);
+  $tgl_lahir      = mysqli_real_escape_string($conn,$_POST['tanggal_lahir']);
+  $tpt_lahir      = mysqli_real_escape_string($conn,$_POST['Tempat_lahir']);
   $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
   $telepon    = mysqli_real_escape_string($conn,$_POST['telepon']);
   $alamat     = mysqli_real_escape_string($conn,$_POST['alamat']);
@@ -17,7 +19,7 @@ if(isset($_POST['submit']))
   $kec        = mysqli_real_escape_string($conn,$_POST['kec']);
 
   // cek data
-  $sql        = "SELECT email, status FROM customer WHERE email = '$email' and status = 1 ";
+  $sql        = "SELECT email, status FROM tb_member WHERE email = '$email' and status = 1 ";
   $cek_email  = mysqli_query($conn,$sql);
   if(mysqli_num_rows($cek_email) > 0)
   {
@@ -104,10 +106,12 @@ if(isset($_POST['submit']))
         else
         {
           // Proses insert data customer
-          $create = mysqli_query($conn, "INSERT INTO customer (
+          $create = mysqli_query($conn, "INSERT INTO tb_member (
                                             nama,
                                             username,
                                             email,
+                                            tanggal_lahir,
+                                            tempat_lahir,
                                             password,
                                             telepon,
                                             alamat,
@@ -120,6 +124,8 @@ if(isset($_POST['submit']))
                                     VALUES ('$nama',
                                             '$username',
                                             '$email',
+                                            '$tgl_lahir',
+                                            '$tpt_lahir',
                                             '$password',
                                             '$telepon',
                                             '$alamat',
