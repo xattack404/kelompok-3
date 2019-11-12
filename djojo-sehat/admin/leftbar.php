@@ -27,6 +27,12 @@
     </ul>
   </li>
   <li class='treeview'>
+    <a href='#'><i class='fa fa-truck'></i><span> Ongkir </span><i class='fa fa-angle-left pull-right'></i></a>
+    <ul class='treeview-menu'>
+      <li><a href='ongkir_list.php'><i class='fa fa-circle-o'></i> Data Ongkir </a></li>
+    </ul>
+  </li>
+  <li class='treeview'>
     <a href='#'><i class='fa fa-credit-card'></i><span> Slider </span><i class='fa fa-angle-left pull-right'></i></a>
     <ul class='treeview-menu'>
       <li><a href='slider_add.php'><i class='fa fa-circle-o'></i> Tambah Slider </a></li>

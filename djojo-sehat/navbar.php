@@ -2,6 +2,7 @@
       include 'login_form.php';
       //include 'register_form.php';
 ?>
+<link href="<?php echo $base_url ?>template/css/search.css" rel="stylesheet">
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
