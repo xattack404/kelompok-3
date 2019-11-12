@@ -1,12 +1,11 @@
   .container .search {
-    position: absolute;
-    margin: auto;
+    position: relative;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     background: crimson;
     border-radius: 50%;
     transition: all 1s;
@@ -19,12 +18,12 @@
   .container .search::before {
     content: "";
     position: absolute;
-    margin: auto;
-    top: 10px;
+    margin :auto;
+    top: 22px;
     right: 0;
     bottom: 0;
-    left: 10px;
-    width: 10px;
+    left: 22px;
+    width: 12px;
     height: 2px;
     background: white;
     transform: rotate(45deg);

@@ -19,10 +19,8 @@
         
         <!-- form cari -->
         <li>
-        <div class="container">
   <input type="text" placeholder="Search...">
   <div class="search"></div>
-</div>
         </li>
         <li>
           <a href='<?php echo $base_url ?>index.html'>
