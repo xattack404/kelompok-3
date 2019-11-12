@@ -5,7 +5,7 @@ include 'fungsi/base_url.php';
 if(isset($_POST['submit']))
 {
   $errors     = array();
-  $username   = mysqli_real_escape_string($koneksi, $_POST['user']);
+  $username   = mysqli_real_escape_string($koneksi, $_POST['username']);
   $pass       = mysqli_real_escape_string($koneksi, $_POST['password']);
 
   if (empty($username) && empty($pass))
@@ -48,6 +48,7 @@ if(isset($_POST['submit']))
 	        $_SESSION['provinsi']   = $data['provinsi'];
 
 	        echo "<script language='javascript'>alert('Anda berhasil Login'); location.replace('$base_url')</script>";
+          tulis("Berhasil Login");
 	      }
 	    }
 	      else
@@ -60,4 +61,13 @@ if(isset($_POST['submit']))
   {
     echo "<script>alert('Gak boleh tembak langsung ya, pencet dulu tombolnya!');location.replace('$base_url')</script>";
   }
+  function tulis($aktivitas){
+    $fp = fopen('catatanyanglogin.txt', 'a+');
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $nama = $_SERVER['HTTP_USER_AGENT'];
+    $time = date("y-m-d H:i:s");
+    fwrite($fp, $time.' : '.$ip.' '.$nama.' : '.$aktivitas."\n");
+    fclose($fp);
+  }
+
 ?>
