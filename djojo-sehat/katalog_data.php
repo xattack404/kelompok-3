@@ -23,7 +23,7 @@ if($halaman > 1)
   }
 
 // Memanggil data dari tabel produk diurutkan dengan id_produk secara DESC dan dibatasi sesuai $start dan $per_halaman
-$data     = mysqli_query($conn, "SELECT * FROM tabel ORDER BY id DESC LIMIT $start, $per_halaman");
+$data     = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang DESC LIMIT $start, $per_halaman");
 $numrows  = mysqli_num_rows($data);
 ?>
 
@@ -33,22 +33,53 @@ if($numrows > 0)
 {
   while($row = mysqli_fetch_assoc($data))
   {
-    $harga_normal = number_format($row['harga'], 0, ',', '.').",-";
+    $harga_normal = number_format($row['harga_jual'], 0, ',', '.').",-";
 ?>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="<?php echo $base_url ?>produk/<?php echo $row['judul_seo']; ?>.html" class="title">
-        <h4><?php echo $row['nama_produk']; ?></h4>
-      </a>
-      <img alt="<?php echo $row['nama_produk']; ?>" src="<?php echo $base_url ?>images/produk/<?php echo $row['img']; ?>"/>
-      <div class="caption">
-        <h4><strike>Rp <?php echo $harga_normal ?></strike></h4>
-        <h4><font color="red">Rp <?php echo $harga_diskon ?></font></h4>
-        <a href="<?php echo $base_url ?>beli/<?php echo $row['id_produk']; ?>" class="btn btn-primary">Beli</a>
-        <a href="<?php echo $base_url ?>produk/<?php echo $row['judul_seo']; ?>.html" class="btn btn-default">Detail</a>
-      </div>
-    </div>
-  </div>
+ <!-- <?php foreach ($data as $row) : ?> -->
+          <div class="profile" >
+            <div class="form-group">
+              <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="title">
+                <h1><?php echo $row['judul']; ?></h1></a>
+            </div>
+            <div class="image-thumbnail">
+              <img src="<?=$base_url; ?>images/produk/<?= $row['foto_barang'] ?>"  width ="200px"alt="<?= $row['nama_barang'] ?>">
+            </div>
+            
+            <div class="name"><?= $harga_normal ?></div>          
+            <div class="actions">
+              <button id="<?= $row['id_barang'] ?>" class="tmb"><i class="fa fa-eye"></i> Detail</button>
+              <a href=""><input type="submit" name="beli"  value="Beli" class="btn btn-primary"></a>
+            </div>
+          </div><!--TUTUP CLASS PROFILE -->
+          <div class="Biodata" style="display: none; " id="t<?= $row['id_barang'] ?>">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td class="desbio">Deskripsi</td>
+                <td class="isibio"><?= $row['deskripsi'] ?></td>
+              </tr>
+              <tr>
+                <td class="desbio">Kategori</td>
+                <td class="isibio"><?= $row['kategori'] ?></td>
+              </tr>
+              <tr>
+                <td class="desbio">Stok</td>
+                <td class="isibio"><?= $row['jumlah'] ?></td>
+              </tr>
+              <tr>
+                <td class="desbio">Berat</td>
+                <td class="isibio"><?= $row['berat'] ?></td>
+              </tr>
+              <tr>
+                <td class="desbio">Satuan</td>
+                <td class="isibio">s<?= $row['id_satuan'] ?></td>
+              </tr>
+              <tr><td>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      <!-- <?php endforeach; ?> -->
   <?php
   // Mengakhiri pengulangan while
   }
@@ -56,7 +87,7 @@ if($numrows > 0)
 
   <?php
   // Menghitung Data pada tabel produk
-  $count    = mysqli_query($conn, "SELECT * FROM produk ");
+  $count    = mysqli_query($koneksi, "SELECT * FROM tb_barang ");
   $total    = mysqli_num_rows($count);
 
   // Membuat variabel halamans dari hasil pembagian $total dan per_halaman menggunakan ceil (penggenapan koma keatas)

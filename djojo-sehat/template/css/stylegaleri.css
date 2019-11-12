@@ -1,0 +1,628 @@
+body{
+	height: 100%;
+	min-height: 100%;
+	background-color: #efeded;
+}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: museo-slab,Georgia,"Times New Roman",Times,serif;
+}
+
+a{
+	color:white;
+}
+header{
+	/*background-image:url(../Img/bg2.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;*/
+	/*min-width: 400px;*/
+}
+.FlyMenu{
+	display: block;
+	background-color:rgba(21,21,21,1);
+	margin: 0 auto;
+	/*width: 100%;*/
+	height: auto;
+	padding: 20px;
+	padding-bottom: 40px;
+
+	
+}
+.FlyMenu-left{
+float: left;
+}
+.FlyMenu-left a{
+	margin-right: 20px;
+	color: #c6c6c6;
+}
+.FlyMenu-left a:hover{
+	color:#f52f2f;
+}
+.FlyMenu-left a:active{
+	color:red;
+}
+
+.FlyMenu-right{
+display: inline-block;
+float: right;
+
+}
+.FlyMenu-right a{
+	padding-right: 30px;
+	color: #f52f2f;
+}
+.FlyMenu-right a:hover{
+	color:#c6c6c6;
+}
+.Content{
+	 display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;  
+    padding-top: 10%;
+    padding-bottom: 10%;
+    text-shadow:1px 5px 5px black;
+}
+.Content h1{
+	color:#c6c6c6;
+	text-shadow: 1px 1px 10px black;
+}
+.Content p{
+	font-size: 20px;
+	color: #c6c6c6;
+	text-shadow: 1px 1px 1px black;
+}
+
+#isi{
+	text-align: center;
+	display: inline-block;
+	padding: 10px;
+	margin: 20px 10px 20px 10px;
+	position: relative;
+	width: -moz-available;
+	width: 93%;
+}
+#pencarian{
+	padding: 20px 20px 20px 20px;
+	text-align: center;
+	border-bottom: 1px solid #c2c2c2;
+	background-color: #d7d7d7;
+}
+#tempat{
+	display: inline-block;
+	background-color: white;
+	font-size: 16px;
+	text-align: center;
+	padding:3px 10px;
+	width: 40%;
+
+}
+
+
+#tempat input[type=text]{
+	border:none;
+	padding: 5px 5px 5px 5px;
+	color: black;
+	background-color: white;
+	background-color: transparent;
+	width: 85%;
+}
+
+.btn-s{
+	background-color: transparent;
+	border:none;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	color:#bcbcbc;
+	width: 10%;
+	text-align: right;
+}
+
+.tempatopsi{
+	display: block;
+	margin: 0 auto;
+	/*width: 100%;*/
+	height: auto;
+	padding-bottom: 20px;
+}
+.inp{
+	background-color: #fefefe;
+	border: 1px solid #c2bbbb;
+	color: black;
+	padding: 5px;
+	border-radius: 3px;
+	box-shadow: inset 0px 0px 3px #d4d4d4;
+}
+.inp:focus{
+	border: 1px solid #c2bbbb;
+	box-shadow: 0px 0px 2px #42b8d1;
+}
+
+#dicari{
+float: left;
+}
+#pengurutan{
+display: block;
+float: right;
+margin-right: 20px;
+margin-top:10px;
+
+}
+
+
+#dicari{
+	margin-top:10px;
+	display: inline-block;
+	float: left;
+}
+
+
+.foto{
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	overflow: hidden;
+	width: 200px;
+	margin:6px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	height:200px;
+	box-shadow: 0px 0px 2px black;
+	transition: height 0.3s ease-in-out;
+}
+.foto img{
+    position: relative;
+    top: 50%;
+    left: -10%;
+    right: -10%;
+    min-width: 200px;
+    min-height: 100%;
+    transform: translateY(-50%);
+    width: 130%;
+    height: 100%;
+}
+.foto img:hover{
+	cursor: pointer;
+}
+
+#judulgambar{
+	margin: auto;
+    display: block;
+    text-align: center;
+    color: #ccc;
+    font-size: 20px;
+    background-color: transparent;
+}
+
+.show{
+	z-index:999;
+	height: 100%;
+	display: none;
+}
+
+.show .overlay{
+	width: 100%;
+	height: 100%;
+	background:rgba(0,0,0,0.9);
+	position: fixed;
+	top: 0;
+	left:0;
+}
+.show .img-show{
+	width: 40%;
+	height: auto;
+	/*background:rgba(0,0,0,0.9)*/;
+	position: fixed;
+	display: inline-block;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	/*overflow: hidden;*/
+	/*margin-top:50px;*/
+	padding-bottom: 10px;
+}
+.close {
+	position: fixed;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+.close:hover{
+	cursor:pointer;
+}
+
+.img-show img{
+	width: 100%;
+	height: 100%;
+}
+
+.foto:hover{
+	box-shadow: 0px 0px 5px black;
+}
+
+
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tulisan {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(21,21,21,0.9);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.foto:hover .tulisan {
+  height: 15%;
+}
+
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.Biodata{
+	width: 60%;
+	height: auto;
+	display: inline-block;
+	padding:10px;
+
+	vertical-align: top;
+	text-align: left;
+	/*background-color: #4fd555;*/
+	color: black;
+	border-left: 1px solid #d7d7d7;
+}
+.Biodata table{
+	width: 100%;
+	font-size: 14px;
+	vertical-align: top;
+	font-weight: bold;
+}
+.desbio{
+	
+	width: 35%;
+	vertical-align: top;
+	padding-bottom: 20px;
+}
+
+.isibio{
+	font-size: 12px;
+	padding-top: 2px;
+	color: #4b4b4b;
+	padding-bottom: 20px;
+}
+
+.Judul{
+	text-align: center;
+	font-weight: bold;
+}
+.medsos{
+	color:white;
+	background-color: #158383;
+	font-size: 18px;
+	padding: 5px;
+	margin-right: 10px;
+}
+.medsos:hover{
+	color:#158383;
+	transition: 0.4s;
+	background-color: white;
+}
+
+
+.center {
+  /*vertical-align: top;*/
+  /*top: 50px;
+  left: 40px*/;
+  /*display: none;*/
+  height: 300px;
+  width: 16%;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 5px 5px;
+  overflow: hidden;
+  position: relative;
+  vertical-align: top;
+  box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+.profile {
+  /*float: left;*/
+  width: 200px;
+  padding-left: 2px;
+  height: 320px;
+  display: inline-block;
+  text-align: center;
+}
+.profile .image {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 38px auto 0 auto;
+}
+.profile .image .circle-1, .profile .image .circle-2 {
+  position: absolute;
+  box-sizing: border-box;
+  width: 106px;
+  height: 106px;
+  top: -3px;
+  left: -3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #158383 #158383 #158383 transparent;
+  border-radius: 50%;
+  -webkit-transition: all 1.5s ease-in-out;
+  transition: all 1.5s ease-in-out;
+}
+.profile .image .circle-2 {
+  width: 112px;
+  height: 112px;
+  top: -6px;
+  left: -6px;
+  border-color: #158383 transparent #158383 #158383;
+}
+.profile .image img {
+  display: block;
+  border-radius: 50%;
+  background: #F5E8DF;
+}
+
+.profile .name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.profile .job {
+  font-size: 11px;
+  line-height: 15px;
+}
+.profile .actions {
+  margin-top: 33px;
+}
+.profile .actions .tmb {
+  display: inline-block;
+  width: 130px;
+  height: 30px;
+  margin: 0 auto 10px auto;
+  background: none;
+  border: 1px solid #158383;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  box-sizing: border-box;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  color: #158383;
+}
+.profile .actions .tmb:hover {
+  background: #158383;
+  cursor: pointer;
+  color: #fff;
+}
+
+
+
+.gambar img{
+	border-radius: 50%;
+	margin-bottom: 10px;
+	object-fit: cover;
+}
+
+#pagination {
+    display: inline-block;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#pagination a {
+    color: black;
+    float: left;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+
+#pagination a.active {
+    color: white;
+    background-color: #387cc0;
+    box-shadow: 0px 0px 1px black;
+}
+
+#pagination a:hover {
+    color: white;
+    box-shadow: 0px 0px 2px black;
+    background-color: #4f93d5;
+}
+
+#kaki{
+	/*width: 100%;*/
+	height: 100px;
+	background-color:rgb(21,21,21);
+	text-align: center;
+	padding:40px 20px 40px 20px;
+	color:#c6c6c6;
+	height: auto;
+
+}
+.wadahkaki{
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.judulkaki{
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	color:red;
+	text-align: left;
+}
+.isikaki{
+	font-size: 14px;
+	text-align: left;
+}
+.isikaki p{
+	margin-bottom:5px;
+}
+.isikaki a:hover,.link a:hover{
+	color:#f52f2f;
+}
+.link{
+	margin-bottom: 20px;
+	font-weight: bold
+}
+@media only screen and (max-width:700px){
+	.show .img-show{
+		width: 50%;
+	}
+}
+@media only screen and (max-width:615px){
+	#pengurutan{
+		display: block;
+		text-align: center;
+		float: left;
+	}
+	#pencarian{
+		min-height: 90px;
+		height: 120px;
+	}
+
+	#hasilpencarian{
+		display: block;
+	}
+}
+
+@media only screen and (max-width:480px){
+	.judulkaki{
+		text-align: center;
+	}
+
+	.show .img-show{
+		width: 70%;
+	}
+}
+@media only screen and (max-width:440px){
+    .FlyMenu-left a i{
+		display: none;
+	}
+	.wadahkaki{
+	display:block;
+	text-align: center;
+	}
+
+	.isikaki{
+		text-align: center;
+	}
+	.link{
+		border-top:  1px solid #4e4e4e;
+		border-bottom:1px solid #4e4e4e;
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+
+}
+
+@media only screen and (max-width:450px){
+	 table{
+        width:100%;
+    }
+
+    td{
+        display:block;
+        width:100%;
+	}
+
+
+    tr{
+        display:block;
+        margin-bottom:10px;
+    }
+
+    tr tr{
+        margin-bottom:0;
+    }
+    .center{
+    	width: 80%;
+    	max-width: 200px;
+    	height: auto;
+    	text-align: center;
+	}
+
+  .Biodata{
+	  	width: 80%;
+		padding: 10px;
+		vertical-align: top;
+		text-align: center;
+		border:none;
+		padding:5px;
+	}
+	.desbio{
+		
+		width: auto;
+		text-align: center;
+		vertical-align: top;
+		padding-bottom: 5px;
+	}
+
+	.isibio{
+		font-size: 12px;
+		padding-top: 2px;
+		color: #4b4b4b;
+		padding-bottom: 5px;
+	}
+}
+
+
+
+@media only screen and (max-width:800px){
+	#tempat{
+		width: 90%;
+	}
+	#tempat input[type=text]{
+	padding: 1px;
+	}
+	#pengurutan{
+		margin-top:10px;
+	}
+	#pengurutan .btn-c{
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+}
+
+}
+
+
+

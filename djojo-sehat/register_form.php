@@ -1,6 +1,4 @@
 
-<div class="container">
-<div class=" col-lg-8">
 <form method="post" id="form-register" action="register_proses.php">
   <div class="row">
     <div class="col-md-12">
@@ -9,7 +7,7 @@
         <div class="box-body">
           <div class="form-group"><label>Nama Lengkap</label>
             <input class="form-control" name="nama" type="text" id="nama" size="30" required/>
-           </div>
+          </div>
           <div class="form-group"><label>Alamat</label>
             <textarea class="form-control" name="alamat" id="alamat" required></textarea>
           </div> 
@@ -70,7 +68,7 @@
           </div>
           </div><br>
         </div><!-- /.box-body -->
-        <div class="box-footer">
+        <div class="box-footer text-center">
           <button type="submit" name="submit" class="btn btn-success">Submit</button>
           <button type="reset" name="reset" class="btn btn-danger">Reset</button>
         </div>
@@ -78,5 +76,3 @@
     </div>
   </div>
 </form>
-</div>
-</div>

@@ -17,6 +17,8 @@ include 'fungsi/setting.php';             // Panggil data setting
     <meta name="author" content="<?php echo $author ?>" />    
     <!-- CSS Bootstrap -->
     <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $base_url ?>template/css/stylegaleri.css" rel="stylesheet">
+    <link href="<?php echo $base_url ?>template/fonts/font-awesome4.3.0/css/font-awesome.css" rel="stylesheet">
     <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
     <!-- Favicon -->
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
@@ -37,12 +39,18 @@ include 'fungsi/setting.php';             // Panggil data setting
                 <?php include 'katalog_data.php'; ?>
               </div>
             </div>
+            <?php $data     = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang DESC LIMIT $start, $per_halaman");
+              // $numrows  = mysqli_num_rows($data); ?>
+                <div class="text-center" id="w<?= $row['id_barang'] ?>">
+         
           </div>
+
         </div>
+
 
         <?php include 'sidebar.php'; ?>
 
-      </div>
+
       
       <hr/>
 
@@ -51,7 +59,31 @@ include 'fungsi/setting.php';             // Panggil data setting
     </div>
     
     <!-- Memanggil file JS -->
-    <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
+    <script src="<?php echo $base_url ?>template/js/jquery2.js"></script>
     <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(".tmb").click(function() {
+        var id = $(this).attr('id'); // $(this) refers to button that was clicked
+        var tableid = "#t"+id;
+        var tombolid = "#"+id;
+        var wadahid = "#w"+id;
+        $(tableid).toggle(
+          function(){
+          if($(tableid).is(":visible")){
+            $(tableid).show();
+            $(tombolid).html("<i class='fa fa-eye-slash'></i> Sembunyikan Detail");
+            $(wadahid).css('transition','0.5s');
+            $(wadahid).css('width','600px');
+          } else {
+            
+            $(tombolid).html("<i class='fa fa-eye'></i> Detail");
+            $(wadahid).css('width','200px');
+            $(tableid).hide();
+          }
+        }
+        );
+         
+    });
+  </script>
   </body>
 </html>
