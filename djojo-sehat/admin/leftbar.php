@@ -9,7 +9,7 @@
     <a href='pesanan.php'><i class='fa fa-shopping-cart'></i><span> Pesanan Barang Baru</span></a>
   </li>
   <li class='treeview'>
-    <a href='konsultasi.php'><i class='fa fa-comment-o'></i><span> Konsultasi</span></a>
+    <a href='konsultasi_list.php'><i class='fa fa-comment-o'></i><span> Konsultasi</span></a>
   </li>
   <li class='treeview'>
     <a href='#'><i class='fa fa-tag'></i><span> Kategori </span><i class='fa fa-angle-left pull-right'></i></a>

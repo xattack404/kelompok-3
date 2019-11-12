@@ -14,6 +14,7 @@ if(isset($_POST['submit']))
   $jenis_kelamin       = mysqli_real_escape_string($koneksi,$_POST['jenis_kelamin']);
   $kecamatan       = mysqli_real_escape_string($koneksi,$_POST['kecamatan']);
   $kabupaten       = mysqli_real_escape_string($koneksi,$_POST['kabupaten']);
+  var_dump($kabupaten);
   $provinsi      = mysqli_real_escape_string($koneksi,$_POST['provinsi']);
   $kode_pos       = mysqli_real_escape_string($koneksi,$_POST['kd_pos']);
   $email       = mysqli_real_escape_string($koneksi,$_POST['email']);
@@ -56,7 +57,7 @@ if(isset($_POST['submit']))
 
       if(mysqli_query($koneksi, $sql)) 
       {
-        echo "<script>alert('Input data berhasil! Klik ok untuk melanjutkan');location.replace('member_list.php')</script>";
+        ///echo "<script>alert('Input data berhasil! Klik ok untuk melanjutkan');location.replace('member_list.php')</script>";
       } 
         else 
         {

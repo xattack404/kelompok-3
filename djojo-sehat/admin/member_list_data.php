@@ -7,10 +7,6 @@
           <th style="text-align: center">Nama</th>
           <th style="text-align: center">Alamat</th>
           <th style="text-align: center">Jenis Kelamin</th>
-          <th style="text-align: center">Kecamatan</th>
-          <th style="text-align: center">Kabupaten</th>
-          <th style="text-align: center">Provinsi</th>
-          <th style="text-align: center">Kode Pos</th>
           <th style="text-align: center">Email</th>
           <th style="text-align: center">No Hp</th>
           <th style="text-align: center">Aksi</th>
@@ -19,7 +15,7 @@
       <tbody>
 
         <?php
-      $sql = "SELECT * FROM tb_member";
+      $sql = "SELECT id_member, nama, alamat, email, no_hp, jenis_kelamin FROM tb_member ";
       $result = mysqli_query($koneksi, $sql);
       $no = 1;
       if (mysqli_num_rows($result) > 0)
@@ -31,10 +27,6 @@
           <td style="text-align: left"><?= $data['nama'] ?></td>
           <td style="text-align: left"><?= $data['alamat'] ?></td>
           <td style="text-align: center"><?= $data['jenis_kelamin'] ?></td>
-          <td style="text-align: center"><?= $data['kecamatan'] ?></td>
-          <td style="text-align: center"><?= $data['kabupaten_kota'] ?></td>
-          <td style="text-align: center"><?= $data['provinsi'] ?></td>
-          <td style="text-align: center"><?= $data['kode_pos'] ?></td>
           <td style="text-align: center"><?= $data['email'] ?></td>
           <td style="text-align: center"><?= $data['no_hp'] ?></td>
           <td style="text-align: center">
@@ -44,7 +36,7 @@
               class="btn btn-secondary btn-xs"><i class="glyphicon glyphicon-lock"></i></a>
             <a href="member_hapus.php?id=<?=$data['id_member'];?>" title="Hapus Data" class="btn btn-danger btn-xs"
               OnClick="return confirm('Apakah Anda yakin?');"><i class="glyphicon glyphicon-trash"></i></a>
-            <a href="member_detail.php?id=<?=$data['id_member'];?>" title="Detail Data" class="btn btn-info btn-xs"><i
+            <a data-toggle="modal" data-target="#detail" title="Detail Data" class="btn btn-info btn-xs"><i
                 class="glyphicon glyphicon-user"></i></a>
 
           </td>
