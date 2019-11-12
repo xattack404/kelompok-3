@@ -32,15 +32,10 @@
           <td style="text-align: center"><?= $data['balas_konsultasi'] ?></td>
           <td style="text-align: center"><?= $data['nama_admin'] ?></td>
           <td style="text-align: center">
-            <a href="member_ubah.php?id=<?=$data['id_konsultasi'];?>" title="ubah Data" class="btn btn-warning btn-xs"><i
-                class="glyphicon glyphicon-pencil"></i></a>
-            <a href="member_reset.php?id=<?=$data['id_konsultasi'];?>" title="reset password"
-              class="btn btn-secondary btn-xs"><i class="glyphicon glyphicon-lock"></i></a>
-            <a href="member_hapus.php?id=<?=$data['id_konsultasi'];?>" title="Hapus Data" class="btn btn-danger btn-xs"
-              OnClick="return confirm('Apakah Anda yakin?');"><i class="glyphicon glyphicon-trash"></i></a>
-            <a data-toggle="modal" data-target="#detail" title="Detail Data" class="btn btn-info btn-xs"><i
-                class="glyphicon glyphicon-user"></i></a>
-
+            <a href="konsultasi_balas.php?id_konsultasi=<?=$data['id_konsultasi'];?>" title="ubah Data" class="btn btn-primary btn-xs"><i
+                class="glyphicon glyphicon-pencil">&nbsp;<b>Balas</b> </i></a>
+            <a href="konsultasi_hapus.php?id_konsultasi=<?=$data['id_konsultasi'];?>" title="Hapus Data" class="btn btn-danger btn-xs"
+              OnClick="return confirm('Apakah Anda yakin?');"><i class="glyphicon glyphicon-trash">&nbsp;<b>Hapus</b></i></a>
           </td>
         </tr>
 
