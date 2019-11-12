@@ -37,22 +37,16 @@ if(isset($_SESSION['email']))
 
   <!-- Awal Konten Utama -->
   <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-sm-push-3">
-        <div class="thumbnail">
-          <div class="col-md-12">
-            <!-- <h3><?php echo $register['judul']; ?></h3> -->
-            <hr />
-            
-          </div>
+    
+       <?php include 'register_form.php'; ?>     
 
 
       <?php include 'sidebar.php'; ?>
     
-      </div>
+  
         
-        <hr/>
-    <?php include 'register_form.php'; ?>
+      
+
     <!-- Awal Footer -->
     <?php include 'footer.php'; ?>
     <!-- Akhir Footer -->
