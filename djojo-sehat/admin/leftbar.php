@@ -82,7 +82,7 @@
       {
         $id_nav = $data['id_navigasi'];
         $judul  = $data['judul'];
-        echo " <li><a href='navigasi.php?id_nav=$id_nav'><i class='fa fa-circle-o'></i>$judul</a></li>";
+        echo " <li><a href='navigasi.php?id_navigasi=$id_nav'><i class='fa fa-circle-o'></i>$judul</a></li>";
       }
       ?>
     </ul>
