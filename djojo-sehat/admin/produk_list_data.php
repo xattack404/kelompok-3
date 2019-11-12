@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th style="text-align: center">No.</th>
-          <th style="text-align: center">Judul Barang</th>
+          <th style="text-align: center">Nama Barang</th>
           <th style="text-align: center">Kategori</th>
           <th style="text-align: center">Harga</th>
           <th style="text-align: center">Jumlah</th>

@@ -7,7 +7,6 @@ error_reporting(0);
 
 if(isset($_POST['submit']))
 {
-  $id           = mysqli_real_escape_string($koneksi, $_POST['id_slider']);
   $judul_slider = mysqli_real_escape_string($koneksi, $_POST['judul_slider']);
   $link         = mysqli_real_escape_string($koneksi, $_POST['link']);
 
@@ -35,7 +34,7 @@ if(isset($_POST['submit']))
                                     judul_slider,
                                     link,
                                     gambar)
-                            VALUES ('$id',
+                            VALUES ('',
                                     '$judul_slider',
                                     '$link',
                                     '$img')";

@@ -1,2 +1,3 @@
 19-11-06 02:47:36 : ::1 Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0 : berhasil Login
 19-11-06 02:49:34 : ::1 Administrator : berhasil Login
+19-11-12 02:15:18 : 127.0.0.1 Administrator : berhasil Login
