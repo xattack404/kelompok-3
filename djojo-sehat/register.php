@@ -52,7 +52,7 @@ if(isset($_SESSION['email']))
       </div>
         
         <hr/>
-    <?php include_once 'register_form.php'; ?>
+    <?php include 'register_form.php'; ?>
     <!-- Awal Footer -->
     <?php include 'footer.php'; ?>
     <!-- Akhir Footer -->
