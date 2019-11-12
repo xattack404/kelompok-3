@@ -1,9 +1,9 @@
 .split {
     height: 100%;
-    width: 70%;
-    position: absolute;
+    width: 50%;
+    position: fixed;
     z-index: 1;
-    top: 9px;
+    top: 0;
     overflow-x: hidden;
     padding-top: 20px;
   }
