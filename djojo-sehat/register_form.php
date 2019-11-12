@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-<div class="col-xs-offset-3  col-lg-6">
+<div class="  col-lg-6">
 <form method="post" id="form-register" action="register_proses.php">
   <div class="row">
     <div class="col-md-12">
