@@ -9,6 +9,9 @@
     <a href='pesanan.php'><i class='fa fa-shopping-cart'></i><span> Pesanan Barang Baru</span></a>
   </li>
   <li class='treeview'>
+    <a href='konsultasi.php'><i class='fa fa-comment-o'></i><span> Konsultasi</span></a>
+  </li>
+  <li class='treeview'>
     <a href='#'><i class='fa fa-tag'></i><span> Kategori </span><i class='fa fa-angle-left pull-right'></i></a>
     <ul class='treeview-menu'>
       <li><a href='kategori_add.php'><i class='fa fa-circle-o'></i> Tambah Kategori </a></li>
@@ -20,6 +23,7 @@
     <ul class='treeview-menu'>
       <li><a href='produk_add.php'><i class='fa fa-circle-o'></i> Tambah Barang </a></li>
       <li><a href='produk_list.php'><i class='fa fa-circle-o'></i> Data Barang </a></li>
+      <li><a href='satuan_list.php'><i class='fa fa-circle-o'></i> Satuan Barang </a></li>
     </ul>
   </li>
   <li class='treeview'>
