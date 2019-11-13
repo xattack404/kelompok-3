@@ -8,8 +8,7 @@ if(isset($_POST['submit']))
   $nama       = mysqli_real_escape_string($conn,$_POST['nama']);
   $username   = mysqli_real_escape_string($conn,$_POST['username']);
   $email      = mysqli_real_escape_string($conn,$_POST['email']);
-  $tgl_lahir      = mysqli_real_escape_string($conn,$_POST['tanggal_lahir']);
-  $tpt_lahir      = mysqli_real_escape_string($conn,$_POST['Tempat_lahir']);
+  $jkl      = mysqli_real_escape_string($conn,$_POST['jenis']);
   $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
   $telepon    = mysqli_real_escape_string($conn,$_POST['telepon']);
   $alamat     = mysqli_real_escape_string($conn,$_POST['alamat']);
@@ -110,8 +109,7 @@ if(isset($_POST['submit']))
                                             nama,
                                             username,
                                             email,
-                                            tanggal_lahir,
-                                            tempat_lahir,
+                                            jenis,
                                             password,
                                             telepon,
                                             alamat,
@@ -124,8 +122,7 @@ if(isset($_POST['submit']))
                                     VALUES ('$nama',
                                             '$username',
                                             '$email',
-                                            '$tgl_lahir',
-                                            '$tpt_lahir',
+                                            '$jlk',
                                             '$password',
                                             '$telepon',
                                             '$alamat',

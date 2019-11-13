@@ -30,7 +30,7 @@ if(isset($_SESSION['email']))
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <!-- Favicon -->
   <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon" />
-  !--<link href="<?php echo $base_url ?>template/css/search.css" rel="stylesheet">
+  <link href="<?php echo $base_url ?>template/css/split.css" rel="stylesheet">
 </head>
 
 <body>
@@ -38,26 +38,21 @@ if(isset($_SESSION['email']))
 
   <!-- Awal Konten Utama -->
   <div class="container">
-    <div class="row">
       <div class="col-sm-9 col-sm-push-3">
-            <!-- <h3><?php echo $register['judul']; ?></h3> -->
-            <hr />
-            
+            <!-- <h3><?php echo $register['judul']; ?></h3> -->            
           </div>
-
-
       <?php
-      // include 'sidebar.php';
+       include 'sidebar.php';
        ?>
     
       </div>
         
-        <hr/>
     <?php include 'register_form.php'; ?>
     <!-- Awal Footer -->
     <?php include 'footer.php'; ?>
     <!-- Akhir Footer -->
 
+  </div>
   </div>
   <!-- Akhir Konten Utama -->
 
