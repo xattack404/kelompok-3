@@ -1,14 +1,14 @@
-
+<div class="split right">
 <div class="container">
 <div class=" col-lg-8">
-<form method="post" id="form-register" action="register_proses.php">
+<form method="post" id="form-register" action="send.php">
   <div class="row">
     <div class="col-md-12">
       <h1 class="text-center">Daftar Akun Baru</h1>
       <div class="box box-primary">
         <div class="box-body">
           <div class="form-group"><label>Nama Lengkap</label>
-            <input class="form-control" name="nama" type="text" id="nama" size="30" required/>
+            <input class="form-control" name="nama" rows ="1" type="text" id="nama" size="30" required/>
            </div>
           <div class="form-group"><label>Alamat</label>
             <textarea class="form-control" name="alamat" id="alamat" required></textarea>
@@ -78,5 +78,6 @@
     </div>
   </div>
 </form>
+</div>
 </div>
 </div>
