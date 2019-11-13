@@ -24,12 +24,13 @@ if(isset($_SESSION['email']))
   <meta name="keywords" content="<?php echo $register['seo_keywords'] ?>" />
   <meta name="author" content="<?php echo $author ?>" />
   <!-- CSS Bootstrap -->
-  <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo $base_url ?>template/css/bootstrap.css" rel="stylesheet">
   <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
   <!-- JS -->
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <!-- Favicon -->
   <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon" />
+  !--<link href="<?php echo $base_url ?>template/css/search.css" rel="stylesheet">
 </head>
 
 <body>
@@ -37,22 +38,25 @@ if(isset($_SESSION['email']))
 
   <!-- Awal Konten Utama -->
   <div class="container">
+
+    
+       <?php include 'register_form.php'; ?>     
     <div class="row">
       <div class="col-sm-9 col-sm-push-3">
-        <div class="thumbnail">
-          <div class="col-md-12">
             <!-- <h3><?php echo $register['judul']; ?></h3> -->
             <hr />
             
           </div>
 
 
-      <?php include 'sidebar.php'; ?>
+      <?php
+      // include 'sidebar.php';
+       ?>
     
-      </div>
+  
         
-        <hr/>
-    <?php include 'register_form.php'; ?>
+      
+
     <!-- Awal Footer -->
     <?php include 'footer.php'; ?>
     <!-- Akhir Footer -->
