@@ -55,7 +55,7 @@ if ($sesen_akses == "admin")
   </div>
   <div class='col-lg-3 col-xs-6'>
     <div class='small-box bg-orange'>
-      <div class='inner'><h3> $topik </h3><p>Topik</p></div>
+      <div class='inner'><h3> $topik </h3><p>Konsultasi</p></div>
       <div class='icon'><i class='fa fa-comment-o'></i></div>
       <a href='topik_li.php' class='small-box-footer'>Selengkapnya <i class='fa fa-arrow-circle-right'></i></a>
     </div>
