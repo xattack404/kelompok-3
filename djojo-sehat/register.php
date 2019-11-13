@@ -38,6 +38,10 @@ if(isset($_SESSION['email']))
 
   <!-- Awal Konten Utama -->
   <div class="container">
+
+    
+       <?php include 'register_form.php'; ?>     
+    <div class="row">
       <div class="col-sm-9 col-sm-push-3">
             <!-- <h3><?php echo $register['judul']; ?></h3> -->            
           </div>
@@ -45,9 +49,10 @@ if(isset($_SESSION['email']))
        include 'sidebar.php';
        ?>
     
-      </div>
+  
         
-    <?php include 'register_form.php'; ?>
+      
+
     <!-- Awal Footer -->
     <?php include 'footer.php'; ?>
     <!-- Akhir Footer -->

@@ -23,7 +23,7 @@ if($halaman > 1)
   }
 
 // Memanggil data dari tabel produk diurutkan dengan id_produk secara DESC dan dibatasi sesuai $start dan $per_halaman
-$data     = mysqli_query($conn, "SELECT * FROM tabel ORDER BY id DESC LIMIT $start, $per_halaman");
+$data     = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang DESC LIMIT $start, $per_halaman");
 $numrows  = mysqli_num_rows($data);
 ?>
 
@@ -37,15 +37,15 @@ if($numrows > 0)
 ?>
   <div class="col-md-4">
     <div class="thumbnail">
-      <a href="<?php echo $base_url ?>produk/<?php echo $row['judul_seo']; ?>.html" class="title">
-        <h4><?php echo $row['nama_produk']; ?></h4>
+      <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="title">
+        <h4><?php echo $row['nama_barang']; ?></h4>
       </a>
-      <img alt="<?php echo $row['nama_produk']; ?>" src="<?php echo $base_url ?>images/produk/<?php echo $row['img']; ?>"/>
+      <img alt="<?php echo $row['nama_barang']; ?>" src="<?php echo $base_url ?>images/produk/<?php echo $row['foto_barang']; ?>"/>
       <div class="caption">
         <h4><strike>Rp <?php echo $harga_normal ?></strike></h4>
         <h4><font color="red">Rp <?php echo $harga_diskon ?></font></h4>
-        <a href="<?php echo $base_url ?>beli/<?php echo $row['id_produk']; ?>" class="btn btn-primary">Beli</a>
-        <a href="<?php echo $base_url ?>produk/<?php echo $row['judul_seo']; ?>.html" class="btn btn-default">Detail</a>
+        <a href="<?php echo $base_url ?>beli/<?php echo $row['id_barang']; ?>" class="btn btn-primary">Beli</a>
+        <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="btn btn-default">Detail</a>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@ if($numrows > 0)
 
   <?php
   // Menghitung Data pada tabel produk
-  $count    = mysqli_query($conn, "SELECT * FROM produk ");
+  $count    = mysqli_query($koneksi, "SELECT * FROM tb_barang ");
   $total    = mysqli_num_rows($count);
 
   // Membuat variabel halamans dari hasil pembagian $total dan per_halaman menggunakan ceil (penggenapan koma keatas)
