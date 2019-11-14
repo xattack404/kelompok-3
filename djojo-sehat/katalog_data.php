@@ -33,7 +33,7 @@ if($numrows > 0)
 {
   while($row = mysqli_fetch_assoc($data))
   {
-    $harga_normal = number_format($row['harga'], 0, ',', '.').",-";
+    $harga_normal = number_format($row['harga_jual'], 0, ',', '.').",-";
 ?>
   <div class="col-md-4">
     <div class="thumbnail">
@@ -42,8 +42,8 @@ if($numrows > 0)
       </a>
       <img alt="<?php echo $row['nama_barang']; ?>" src="<?php echo $base_url ?>images/produk/<?php echo $row['foto_barang']; ?>"/>
       <div class="caption">
-        <h4><strike>Rp <?php echo $harga_normal ?></strike></h4>
-        <h4><font color="red">Rp <?php echo $harga_diskon ?></font></h4>
+        <h4><font color="red">Rp <?php echo $harga_normal ?></font></h4>
+        
         <a href="<?php echo $base_url ?>beli/<?php echo $row['id_barang']; ?>" class="btn btn-primary">Beli</a>
         <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="btn btn-default">Detail</a>
       </div>
