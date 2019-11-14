@@ -2,7 +2,117 @@
       include 'login_form.php';
       //include 'register_form.php';
 ?>
-<link href="<?php echo $base_url ?>template/css/search.css" rel="stylesheet">
+<style>
+.search {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  height: 10px;
+}
+.search .search-box{
+  position: relative;
+  margin-top:-45px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 50%;
+  transition: all 1s;
+  z-index: 4;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+.search .search-box:hover{
+  cursor: pointer;
+}
+.search .search-box::before {
+  content: "";
+      position: absolute;
+      margin: auto;
+      top: 22px;
+      right: 0;
+      bottom: 0;
+      left: 22px;
+      width: 12px;
+      height: 2px;
+      background: white;
+      transform: rotate(45deg);
+      transition: all .5s;
+}
+.search .search-box::after{
+  content: "";
+      position: absolute;
+      margin: auto;
+      top: -5px;
+      right: 0;
+      bottom: 0;
+      left: -5px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 2px solid white;
+      transition: all .5s;
+}
+.search input {
+  font-family: 'Inconsolata', monospace;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border: none;
+    background: crimson;
+    color: white;
+    text-shadow: 0 0 10px crimson;
+    padding: 0 80px 0 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 25px 0 crimson,
+                0 20px 25px 0 rgba(0, 0, 0, 0.2);
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+}
+.search input:hover{
+  cursor: pointer;
+}
+.search input:focus {
+  margin-left:700px;
+      width: 300px;
+      opacity: 1;
+      cursor: text;
+}
+.search input:focus ~ .search-box{
+      background: black;
+      z-index: 6;
+      margin-left:970px;
+}
+.search input:focus ~ .search-box:before{
+  top: 0;
+        left: 0;
+        width: 25px;
+}
+.search input:focus ~ .search-box:after{
+  top: 0;
+        left: 0;
+        width: 25px;
+        height: 2px;
+        border: none;
+        background: white;
+        border-radius: 0%;
+        transform: rotate(-45deg);
+}
+
+  </style>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -20,9 +130,10 @@
         
         <!-- form cari -->
         <li>
-  <input type="text" placeholder="Search...">
-  <div class="search"></div>
-        </li>
+        <div class="search">
+  <input type="text" placeholder="Search..." />
+  <div class="search-box"></div>
+</div>
         <li>
           <a href='<?php echo $base_url ?>index.html'>
             <span class='glyphicon glyphicon-home' aria-hidden='true'></span> Home
