@@ -42,6 +42,43 @@ include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tambah data at
     <?php include "footer.php" ?>
 
   </div>
+  <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
+    <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      //apabila terjadi event onchange terhadap object <select id=propinsi>
+      $("#prov").change(function(){
+        var prov = $("#prov").val();
+        $.ajax({
+            url: "../fungsi/ambilkota.php",
+            data: "prov="+prov,
+            cache: false,
+            success: function(msg){
+                //jika data sukses diambil dari server kita tampilkan
+                //di <select id=kota>
+                $("#kot").html(msg);
+            }
+        });
+      });
+      $("#kot").change(function(){
+        var kot = $("#kot").val();
+        $.ajax({
+            url: "../fungsi/ambilkecamatan.php",
+            data: "kot="+kot,
+            cache: false,
+            success: function(msg){
+                $("#kec").html(msg);
+            }
+        });
+      });
+      // $(':input:not([type="submit"])').each(function() {
+      //     $(this).focus(function() {
+      //     $(this).addClass('hilite');
+      //     }).blur(function() {
+      //     $(this).removeClass('hilite');});
+      //   });
+      }); 
+    </script>
 
 </body>
 

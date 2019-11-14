@@ -35,6 +35,53 @@ if($numrows > 0)
   {
     $harga_normal = number_format($row['harga_jual'], 0, ',', '.').",-";
 ?>
+
+ <!-- <?php foreach ($data as $row) : ?> -->
+          <div class="profile" >
+            <div class="form-group">
+              <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="title">
+                <h1><?php echo $row['judul']; ?></h1></a>
+            </div>
+            <div class="image-thumbnail">
+              <img src="<?=$base_url; ?>images/produk/<?= $row['foto_barang'] ?>"  width ="200px"alt="<?= $row['nama_barang'] ?>">
+            </div>
+            
+            <div class="name"><?= $harga_normal ?></div>          
+            <div class="actions">
+              <button id="<?= $row['id_barang'] ?>" class="tmb"><i class="fa fa-eye"></i> Detail</button>
+              <a href=""><input type="submit" name="beli"  value="Beli" class="btn btn-primary"></a>
+            </div>
+          </div><!--TUTUP CLASS PROFILE -->
+          <div class="Biodata" style="display: none; " id="t<?= $row['id_barang'] ?>">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td class="desbio">Deskripsi</td>
+                <td class="isibio"><?= $row['deskripsi'] ?></td>
+              </tr>
+              <tr>
+                <td class="desbio">Kategori</td>
+                <td class="isibio"><?= $row['kategori'] ?></td>
+              </tr>
+              <tr>
+                <td class="desbio">Stok</td>
+                <td class="isibio"><?= $row['jumlah'] ?></td>
+              </tr>
+              <tr>
+                <td class="desbio">Berat</td>
+                <td class="isibio"><?= $row['berat'] ?></td>
+              </tr>
+              <tr>
+                <td class="desbio">Satuan</td>
+                <td class="isibio">s<?= $row['id_satuan'] ?></td>
+              </tr>
+              <tr><td>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      <!-- <?php endforeach; ?> -->
+
   <div class="col-md-4">
     <div class="thumbnail">
       <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="title">
@@ -49,6 +96,7 @@ if($numrows > 0)
       </div>
     </div>
   </div>
+
   <?php
   // Mengakhiri pengulangan while
   }

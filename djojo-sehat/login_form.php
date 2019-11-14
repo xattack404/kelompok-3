@@ -44,3 +44,17 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+      if ($('#form-login').size()) {
+        $.getScript(
+          'jquery.passroids.min.js',
+      function() {
+        $('form').passroids({
+          main : "#pass"
+        });
+      });
+      }
+  });
+</script>

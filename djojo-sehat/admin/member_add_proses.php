@@ -11,14 +11,13 @@ if(isset($_POST['submit']))
   
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
   $alamat       = mysqli_real_escape_string($koneksi,$_POST['alamat']);
-  $tempat_lahir       = mysqli_real_escape_string($koneksi,$_POST['tempat_lahir']);
-  $tanggal_lahir       = mysqli_real_escape_string($koneksi,$_POST['tanggal_lahir']);
+  $jenis_kelamin       = mysqli_real_escape_string($koneksi,$_POST['jenis_kelamin']);
   $kecamatan       = mysqli_real_escape_string($koneksi,$_POST['kecamatan']);
   $kabupaten       = mysqli_real_escape_string($koneksi,$_POST['kabupaten']);
   $provinsi      = mysqli_real_escape_string($koneksi,$_POST['provinsi']);
   $kode_pos       = mysqli_real_escape_string($koneksi,$_POST['kd_pos']);
   $email       = mysqli_real_escape_string($koneksi,$_POST['email']);
-  $no_hp       = mysqli_real_escape_string($koneksi,$_POST['hp']);
+  $no_hp       = mysqli_real_escape_string($koneksi,$_POST['no_hp']);
   $tampung    = mysqli_real_escape_string($koneksi,$_POST['password']);
   $password   = password_hash($tampung, PASSWORD_DEFAULT);
   
@@ -35,8 +34,7 @@ if(isset($_POST['submit']))
       $sql = "INSERT INTO tb_member (id_member,
                                     nama, 
                                     alamat,
-                                    tempat_lahir, 
-                                    tanggal_lahir, 
+                                    jenis_kelamin, 
                                     kecamatan, 
                                     kabupaten_kota,
                                     provinsi,
@@ -47,8 +45,7 @@ if(isset($_POST['submit']))
                         VALUES  ('',
                                 '$nama',
                                 '$alamat',
-                                '$tempat_lahir',
-                                '$tanggal_lahir',
+                                '$jenis_kelamin',
                                 '$kecamatan',
                                 '$kabupaten',
                                 '$provinsi',
