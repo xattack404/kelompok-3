@@ -1,6 +1,6 @@
 <?php session_start();
 include '../config/koneksi.php';                  // Panggil koneksi ke database
-include '../fungsi/cek_login.php';        // Panggil fungsi cek sudah login/belum
+include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
 include '../fungsi/cek_aksi_ubah.php';    // Panggil fungsi boleh ubah data atau tidak
 
 if(isset($_POST['submit']))
