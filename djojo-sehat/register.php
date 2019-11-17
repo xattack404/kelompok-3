@@ -13,46 +13,6 @@ if(isset($_SESSION['username']))
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title><?php echo $register['judul'] ?> | <?php echo $namatoko ?></title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<?php echo $register['seo_deskripsi'] ?>" />
-    <meta name="keywords" content="<?php echo $register['seo_keywords'] ?>" />
-    <meta name="author" content="<?php echo $author ?>" />
-    <!-- CSS Bootstrap -->
-    <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
-    <!-- JS -->
-    <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
-    <!-- Favicon -->
-    <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
-     <style>
-      .hilite{
-          background-color: #FDECB2;
-        }
- </style> 
-  </head>
-  <body>
-    <?php include 'navbar.php'; ?>
-
-    <!-- Awal Konten Utama -->
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-sm-push-1">
-          <div class="thumbnail">
-
-            <div class="caption-full">              
-              <?php include "register_form.php" ?>
-              <hr/>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <hr/>
 <head>
   <meta charset="utf-8">
   <title><?php echo $register['judul'] ?> | <?php echo $namatoko ?></title>
@@ -68,7 +28,6 @@ if(isset($_SESSION['username']))
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <!-- Favicon -->
   <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon" />
-  <link href="<?php echo $base_url ?>template/css/split.css" rel="stylesheet">
 </head>
 
 <body>
@@ -79,7 +38,6 @@ if(isset($_SESSION['username']))
 
     
        <?php include 'register_form.php'; ?>     
-    <div class="row">
       <div class="col-sm-9 col-sm-push-3">
             <!-- <h3><?php echo $register['judul']; ?></h3> -->            
           </div>

@@ -1,7 +1,5 @@
-<div class="row carousel-holder">
-  <div class="col-md-12">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" style="width:400px;height:400px;">
         <?php
         //membuat query
         $sql = mysqli_query($koneksi,"SELECT * FROM tb_slider ORDER BY id_slider ASC");
@@ -26,5 +24,3 @@
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
     </div>
-  </div>
-</div>
