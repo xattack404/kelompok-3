@@ -35,9 +35,11 @@ $data     = mysqli_fetch_array($result);
             <!-- <input type="radio" name="jenis_kelamin" value="Laki-laki" style="cursor: pointer;"> Laki-laki
             <input type="radio" name="jenis_kelamin" value="Perempuan" style="cursor: pointer;"> Perempuan<br> -->
           </div>
-          <div class="form-group"><label>Alamat</label>
+          <div class="form-group"><label>Alamat</label><br><span>jumlah karakter maksimal: 100</span>
             <textarea class="form-control" rows="10" id="alamat" name="alamat" placeholder="alamat Asli" ><?= $data['alamat'] ?></textarea>
+            <span id="hitung">100</span> Karakter Tersisa.
           </div>
+           
         </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>

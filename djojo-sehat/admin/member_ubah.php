@@ -71,6 +71,13 @@ include '../fungsi/cek_aksi_ubah.php';
             }
         });
       });
+      $('#alamat').keyup(function() {
+          var len = this.value.length;
+          if (len >= 100) {
+              this.value = this.value.substring(0, 150);
+          }
+          $('#hitung').text(100 - len);
+          });
       // $(':input:not([type="submit"])').each(function() {
       //     $(this).focus(function() {
       //     $(this).addClass('hilite');

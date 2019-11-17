@@ -23,7 +23,7 @@ if(isset($_POST['submit']))
 
   // cek data ke db
   $sql    = "SELECT * FROM tb_member WHERE nama = '$username' ";
-  $result = mysqli_query($conn, $sql);
+  $result = mysqli_query($koneksi, $sql);
   $data   = mysqli_fetch_array($result);
 
   if (mysqli_num_rows($result) == 0)

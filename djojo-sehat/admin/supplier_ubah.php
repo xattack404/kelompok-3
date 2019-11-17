@@ -10,7 +10,7 @@ include '../fungsi/cek_aksi_ubah.php';
 
 <head>
   <meta charset="UTF-8">
-  <title>Ubah Data User | <?php include "title.php" ?></title>
+  <title>Ubah Data Supplier | <?php include "title.php" ?></title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="../images/fav.ico" />
   <!-- JS -->
@@ -23,16 +23,16 @@ include '../fungsi/cek_aksi_ubah.php';
 
     <div class="content-wrapper">
       <section class="content-header">
-        <h1>Ubah Data User</h1>
+        <h1>Ubah Data Supplier</h1>
         <ol class="breadcrumb">
           <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li>User</li>
-          <li class="active">Ubah Data User</li>
+          <li>Supplier</li>
+          <li class="active">Ubah Data Supplier</li>
         </ol>
       </section>
 
       <section class="content">
-        <?php include "user_ubah_form.php" ?>
+        <?php include "supplier_ubah_form.php" ?>
       </section>
     </div>
 

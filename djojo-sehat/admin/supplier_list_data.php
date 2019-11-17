@@ -27,11 +27,11 @@
           <td style="text-align: center"><?= $data['alamat'] ?></td>
           <td style="text-align: center"><?= $data['no_hp'] ?></td>
           <td style="text-align: center">
-            <a href="user_ubah.php?id=<?=$data['id_supplier']?>">
+            <a href="supplier_ubah.php?id=<?=$data['id_supplier']?>">
               <button type="submit" title="ubah Data" class="btn btn-warning btn-xs"><i
                 class="glyphicon glyphicon-pencil"></i></button>
             </a>
-            <a href="user_hapus.php?id=<?=$data['id_supplier']?>">
+            <a href="supplier_hapus.php?id=<?=$data['id_supplier']?>">
               <button type="submit" title="Hapus Data" class="btn btn-danger btn-xs"
                 OnClick="return confirm('Apakah Anda yakin?');"><i
                 class="glyphicon glyphicon-user"></i></button>

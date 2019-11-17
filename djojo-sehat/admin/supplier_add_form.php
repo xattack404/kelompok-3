@@ -8,7 +8,7 @@
             <input type="text" name="nama" class="form-control" required/>
           </div>
           <div class="form-group"><label>Alamat</label>
-            <input type="text" name="alamat" class="form-control" required/>
+            <textarea name="alamat" class="form-control" required></textarea>
           </div>
           <div class="form-group"><label>No HP</label>
             <input type="number" name="hp" class="form-control" required/>

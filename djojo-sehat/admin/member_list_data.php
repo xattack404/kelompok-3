@@ -32,13 +32,12 @@
           <td style="text-align: center">
             <a href="member_ubah.php?id=<?=$data['id_member'];?>" title="ubah Data" class="btn btn-warning btn-xs"><i
                 class="glyphicon glyphicon-pencil"></i></a>
-            <a href="member_reset.php?id=<?=$data['id_member'];?>" title="reset password"
+            <a href="member_reset.php?id=<?=$data['id_member'];?>" OnClick="return confirm('yakin mau direset?'); title="reset password"
               class="btn btn-secondary btn-xs"><i class="glyphicon glyphicon-lock"></i></a>
             <a href="member_hapus.php?id=<?=$data['id_member'];?>" title="Hapus Data" class="btn btn-danger btn-xs"
               OnClick="return confirm('Apakah Anda yakin?');"><i class="glyphicon glyphicon-trash"></i></a>
             <a data-toggle="modal" data-target="#detail" title="Detail Data" class="btn btn-info btn-xs"><i
                 class="glyphicon glyphicon-user"></i></a>
-
           </td>
         </tr>
 
