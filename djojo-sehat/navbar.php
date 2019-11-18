@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css" type="text/css">
-    <header class="header-section">
+    <header style ="background-image:url(<?php echo $base_url ?>template/Design/ecommerce.jpg)" class="header-section">
         <div class="container-fluid">
             <div class="inner-header">
                 <div class="logo">
@@ -87,3 +87,27 @@
         }
       ?>
 </header>
+<div class="header-info">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="header-item">
+            <img src="<?php echo $base_url ?>template/Design/icons/delivery.png" alt="">
+            <p>Free shipping on orders over $30 in USA</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-left text-lg-center">
+          <div class="header-item">
+            <img src="<?php echo $base_url ?>template/Design/icons/voucher.png" alt="">
+            <p>20% Student Discount</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-left text-xl-right">
+          <div class="header-item">
+            <img src="<?php echo $base_url ?>template/Design/icons/sales.png" alt="">
+            <p>30% off on dresses. Use code: 30OFF</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
