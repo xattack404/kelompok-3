@@ -14,12 +14,12 @@ body{
 a{
 	color:white;
 }
-header{
+/*header{
 	/*background-image:url(../Img/bg2.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;*/
 	/*min-width: 400px;*/
-}
+/*}*/
 .FlyMenu{
 	display: block;
 	background-color:rgba(21,21,21,1);
@@ -47,7 +47,7 @@ float: left;
 
 .FlyMenu-right{
 display: inline-block;
-float: right;
+/*float: right;*/
 
 }
 .FlyMenu-right a{
@@ -161,7 +161,7 @@ margin-top:10px;
 #dicari{
 	margin-top:10px;
 	display: inline-block;
-	float: left;
+	/*float: left;*/
 }
 
 
@@ -341,7 +341,7 @@ margin-top:10px;
 .center {
   /*vertical-align: top;*/
   /*top: 50px;
-  left: 40px*/;
+  left: 40px*;/
   /*display: none;*/
   height: 300px;
   width: 16%;
@@ -622,7 +622,7 @@ margin-top:10px;
 	}
 }
 
-}
+
 
 
 
