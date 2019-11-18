@@ -25,13 +25,6 @@ include 'fungsi/setting.php';             // Panggil data setting
   <!-- CSS Bootstrap -->
   <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?php echo $base_url ?>template/css/custom.css" rel="stylesheet">
-  <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css" type="text/css">
   <!-- Favicon -->
   <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon" />
 </head>
@@ -63,19 +56,19 @@ include 'navbar.php';
             <div class="row">
                 <div class="col-md-4">
                     <div class="header-item">
-                        <img src="img/icons/delivery.png" alt="">
+                        <img src="<?php echo $base_url ?>template/Design/icons/delivery.png" alt="">
                         <p>Free shipping on orders over $30 in USA</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-left text-lg-center">
                     <div class="header-item">
-                        <img src="img/icons/voucher.png" alt="">
+                        <img src="<?php echo $base_url ?>template/Design/icons/voucher.png" alt="">
                         <p>20% Student Discount</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-left text-xl-right">
                     <div class="header-item">
-                        <img src="img/icons/sales.png" alt="">
+                        <img src="<?php echo $base_url ?>template/Design/icons/sales.png" alt="">
                         <p>30% off on dresses. Use code: 30OFF</p>
                     </div>
                 </div>
@@ -100,21 +93,21 @@ include 'navbar.php';
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="single-features-ads first">
-                            <img src="img/icons/f-delivery.png" alt="">
+                            <img src="<?php echo $base_url ?>template/Design/icons/f-delivery.png" alt="">
                             <h4>Free shipping</h4>
                             <p> </p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="single-features-ads second">
-                            <img src="img/icons/coin.png" alt="">
+                            <img src="<?php echo $base_url ?>template/Design/icons/coin.png" alt="">
                             <h4>100% Money back </h4>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="single-features-ads">
-                            <img src="img/icons/chat.png" alt="">
+                            <img src="<?php echo $base_url ?>template/Design/icons/chat.png" alt="">
                             <h4>Online support 24/7</h4>
                             <p></p>
                         </div>
@@ -130,7 +123,7 @@ include 'navbar.php';
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="single-box-item first-box">
-                                    <img src="img/f-box-1.jpg" alt="">
+                                    <img src="<?php echo $base_url ?>images/produk/Baju TIdur.png" style ="height:300px;" alt="">
                                     <div class="box-text">
                                         <span class="trend-year">2019</span>
                                         <h2>Jewelry</h2>
@@ -141,7 +134,7 @@ include 'navbar.php';
                             </div>
                             <div class="col-lg-12">
                                 <div class="single-box-item second-box">
-                                    <img src="img/f-box-2.jpg" alt="">
+                                    <img src="<?php echo $base_url ?>images/produk/Baju TIdur.jpg" style ="height:300px;" alt="">
                                     <div class="box-text">
                                         <span class="trend-year">2019 Trend</span>
                                         <h2>Footwear</h2>
@@ -153,7 +146,7 @@ include 'navbar.php';
                     </div>
                     <div class="col-lg-6">
                         <div class="single-box-item large-box">
-                            <img src="img/f-box-3.jpg" alt="">
+                            <img src="<?php echo $base_url ?>images/produk/lensa-tele-zoom-12x.jpg" alt="">
                             <div class="box-text">
                                 <span class="trend-year">2019</span>
                                 <h2>Collection</h2>
@@ -294,7 +287,7 @@ include 'navbar.php';
                 <div class="col-lg-4 offset-lg-1">
                     <div class="lookbok-left">
                         <div class="section-title">
-                            <h2>2019 <br />#Fashion</h2>
+                            <h2>2019 <br />Fashion</h2>
                         </div>
                         <p></p>
                         <a href="#" class="primary-btn look-btn">See More</a>
@@ -315,19 +308,19 @@ include 'navbar.php';
     <div class="logo-section spad">
         <div class="logo-items owl-carousel">
             <div class="logo-item">
-                <img src="img/logos/logo-1.png" alt="">
+                <img src="<?php echo $base_url ?>template/Design/logos/logo-1.png" alt="">
             </div>
             <div class="logo-item">
-                <img src="img/logos/logo-2.png" alt="">
+                <img src="<?php echo $base_url ?>template/Design/logos/logo-2.png" alt="">
             </div>
             <div class="logo-item">
-                <img src="img/logos/logo-3.png" alt="">
+                <img src="<?php echo $base_url ?>template/Design/logos/logo-3.png" alt="">
             </div>
             <div class="logo-item">
-                <img src="img/logos/logo-4.png" alt="">
+                <img src="<?php echo $base_url ?>template/Design/logos/logo-4.png" alt="">
             </div>
             <div class="logo-item">
-                <img src="img/logos/logo-5.png" alt="">
+                <img src="<?php echo $base_url ?>template/Design/logos/logo-5.png" alt="">
             </div>
         </div>
     </div>
@@ -433,6 +426,4 @@ include 'footer.php';
     <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
     <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
 </body>
-  
-
 </html>

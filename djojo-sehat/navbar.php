@@ -2,6 +2,13 @@
       include 'login_form.php';
       //include 'register_form.php';
 ?>
+<link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css" type="text/css">
     <header class="header-section">
         <div class="container-fluid">
             <div class="inner-header">
