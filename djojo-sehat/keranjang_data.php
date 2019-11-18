@@ -4,7 +4,7 @@
 		// Panggil data faktur
 		include 'faktur.php';
 		// Membuat join query 3 tabel: transaksi, transaksi_detail dan produk
-		$cek_invoice = 	mysqli_query($conn,"SELECT transaksi.notransaksi,transaksi.username,transaksi.status,
+		$cek_invoice = 	mysqli_query($koneksi,"SELECT transaksi.notransaksi,transaksi.username,transaksi.status,
 										produk.id_produk,produk.nama_produk,produk.judul_seo,
 										transaksi_detail.berat,transaksi_detail.harga_diskon,transaksi_detail.jumlah,
 										transaksi_detail.jumlah_berat,transaksi_detail.subtotal
@@ -78,7 +78,7 @@
 
 	<?php
 	include 'keranjang_total_berat.php';
-	$keranjang = 	mysqli_query($conn,"SELECT produk.id_produk,produk.nama_produk,produk.judul_seo,
+	$keranjang = 	mysqli_query($koneksi,"SELECT produk.id_produk,produk.nama_produk,produk.judul_seo,
 	              transaksi.notransaksi,transaksi.username,transaksi.status,
 	              transaksi_detail.berat,transaksi_detail.harga_diskon,transaksi_detail.jumlah,transaksi_detail.jumlah_berat,transaksi_detail.subtotal,
 	              customer.username,customer.nama,customer.telepon,customer.alamat,customer.kopos,customer.kecamatan,customer.kota,customer.provinsi,kec.nama_kec,
@@ -149,7 +149,7 @@
 														WHERE transaksi_detail.notransaksi = '$faktur'
 														AND transaksi_detail.username = '$sesen_username'
 														AND transaksi.status = 0 ";
-						$hasil 				= mysqli_query($conn,$query);
+						$hasil 				= mysqli_query($koneksi,$query);
 						$data 				= mysqli_fetch_assoc($hasil);
 						$subtotal 		= $data['subtotal'];
 						$grand_total 	= $totalongkir + $subtotal;
@@ -197,7 +197,7 @@
 		// Panggil data faktur
 		include 'faktur.php';
 		// Membuat join query 3 tabel: transaksi, transaksi_detail dan produk
-		$cek_invoice = 	mysqli_query($conn,"SELECT transaksi.notransaksi,transaksi.username,transaksi.status,
+		$cek_invoice = 	mysqli_query($koneksi,"SELECT transaksi.notransaksi,transaksi.username,transaksi.status,
 										produk.id_produk,produk.nama_produk,produk.judul_seo,
 										transaksi_detail.berat,transaksi_detail.harga_diskon,transaksi_detail.jumlah,
 										transaksi_detail.jumlah_berat,transaksi_detail.subtotal
@@ -271,7 +271,7 @@
 
 	<?php
 	include 'keranjang_total_berat.php';
-	$keranjang = 	mysqli_query($conn,"SELECT produk.id_produk,produk.nama_produk,produk.judul_seo,
+	$keranjang = 	mysqli_query($koneksi,"SELECT produk.id_produk,produk.nama_produk,produk.judul_seo,
 	              transaksi.notransaksi,transaksi.username,transaksi.status,
 	              transaksi_detail.berat,transaksi_detail.harga_diskon,transaksi_detail.jumlah,transaksi_detail.jumlah_berat,transaksi_detail.subtotal,
 	              customer.username,customer.nama,customer.telepon,customer.alamat,customer.kopos,customer.kecamatan,customer.kota,customer.provinsi,kec.nama_kec,
@@ -342,7 +342,7 @@
 														WHERE transaksi_detail.notransaksi = '$faktur'
 														AND transaksi_detail.username = '$sesen_username'
 														AND transaksi.status = 0 ";
-						$hasil 				= mysqli_query($conn,$query);
+						$hasil 				= mysqli_query($koneksi,$query);
 						$data 				= mysqli_fetch_assoc($hasil);
 						$subtotal 		= $data['subtotal'];
 						$grand_total 	= $totalongkir + $subtotal;

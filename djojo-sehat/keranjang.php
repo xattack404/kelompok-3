@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php session_start();                    // Memulai session
 include 'config/koneksi.php';                     // Panggil koneksi ke database
 include 'fungsi/base_url.php';            // Panggil fungsi base_url
@@ -65,7 +65,7 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
     <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
   </body>
 </html>
-=======
+
 <?php session_start();                    // Memulai session
 include 'config/koneksi.php';                     // Panggil koneksi ke database
 include 'fungsi/base_url.php';            // Panggil fungsi base_url
@@ -132,4 +132,3 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
     <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
   </body>
 </html>
->>>>>>> 8a6ab1dfc88400f226ffd5443d2f94609fbde01f
