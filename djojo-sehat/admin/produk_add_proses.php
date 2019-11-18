@@ -20,6 +20,8 @@ if(isset($_POST['submit']))
   $harga_beli     = mysqli_real_escape_string($koneksi, $_POST['hrg_beli']);
   $harga_jual     = mysqli_real_escape_string($koneksi, $_POST['hrg_jual']);
   $kategori       = mysqli_real_escape_string($koneksi, $_POST['kategori']);
+  $supplier       = mysqli_real_escape_string($koneksi, $_POST['supplier']);
+
 
 
   $cekdata = "SELECT nama_barang FROM tb_barang WHERE nama_barang = '$nama' ";
@@ -54,7 +56,8 @@ if(isset($_POST['submit']))
                                       harga_beli,
                                       harga_jual,
                                       foto_barang,
-                                      kategori)
+                                      kategori,
+                                      id_supplier)
                             VALUES ('',
                                     '$nama',
                                     '$judul',
@@ -66,7 +69,8 @@ if(isset($_POST['submit']))
                                     '$harga_beli',
                                     '$harga_jual',
                                     '$img',
-                                    '$kategori')";
+                                    '$kategori',
+                                    '$supplier')";
         if(mysqli_query($koneksi, $sql))
         {
            echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('produk_list.php')</script>";

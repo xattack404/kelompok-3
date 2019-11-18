@@ -1,12 +1,12 @@
 <?php session_start(); 
-include "config.php"; 
+include "config/koneksi.php"; 
 include "faktur.php"; 
 include "fungsi/base_url.php"; 
 include "fungsi/cek_session_public.php"; 
 include "fungsi/cek_login_public.php"; 
 
-$cek		= "SELECT * FROM transaksi WHERE username = '$sesen_username' AND status ='0'";
-$hasil 	= mysqli_query($conn,$cek);
+$cek		= "SELECT * FROM tb_keranjang WHERE id_member = '$sesen_id'";
+$hasil 	= mysqli_query($koneksi,$cek);
 $data 	= mysqli_fetch_array($hasil);
 
 if(mysqli_num_rows($hasil) == 0)
@@ -15,17 +15,17 @@ if(mysqli_num_rows($hasil) == 0)
 }
 else
 {
-	$faktur 		= $data['notransaksi'];
+	$faktur = $data['id_keranjang'];
 
-	$query = "DELETE FROM transaksi_detail WHERE notransaksi = '$faktur' ";
+	$query  = "DELETE FROM tb_keranjang WHERE id_keranjang = '$faktur' ";
 	
-	if(mysqli_query($conn, $query)) 
+	if(mysqli_query($koneksi, $query)) 
   {
   	echo "<script>alert('Keranjang berhasil dikosongkan');location.replace('keranjang.html')</script>";
   }  
   	else
   	{
-  		echo "Error updating record: " . mysqli_error($conn);
+  		echo "Error updating record: " . mysqli_error($koneksi);
   	}
 }
 ?>

@@ -72,6 +72,17 @@
                 ?>
               </select>
             </div>
+            <div class="col-xs-4"><label>Nama Supplier</label>
+              <br />
+              <select name="supplier" id="supplier" class="form-control" required>
+                <option value="">--Pilih Supplier--</option>
+                <?php
+                $query = "SELECT * FROM tb_supplier ORDER BY nama_supplier";
+                $sql = mysqli_query($koneksi, $query);
+                while($data = mysqli_fetch_array($sql)){echo '<option value="'.$data['id_supplier'].'">'.$data['nama_supplier'].'</option>';}
+                ?>
+              </select>
+            </div>
           </div><br />
           <div class="form-group"><label>* Foto Baru</label><br />
             <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')" required />

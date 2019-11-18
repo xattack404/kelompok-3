@@ -1,11 +1,11 @@
 <?php session_start();                    // Memulai session
-include 'config/koneksi.php';                     // Panggil koneksi ke database
+include 'config/koneksi.php';             // Panggil koneksi ke database
 include 'fungsi/base_url.php';            // Panggil fungsi base_url
 include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
 include 'fungsi/navigasi.php';            // Panggil data navigasi
 include 'fungsi/setting.php';             // Panggil data setting
 
-$id_nav = mysqli_real_escape_string($koneksi,$_GET['id_navigasi']);
+$id_nav = mysqli_real_escape_string($koneksi,$_GET['id_nav']);
 $sql    = "SELECT * FROM tb_navigasi WHERE judul_seo = '$id_nav' ";
 $result = mysqli_query($koneksi,$sql);
 $page   = mysqli_fetch_array($result);
@@ -19,7 +19,7 @@ $page   = mysqli_fetch_array($result);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="<?php echo $page['seo_deskripsi'] ?>" />
-  <meta name="keywords" content="<?php echo $page['seo_keywords'] ?>" />
+  <meta name="keyword" content="<?php echo $page['seo_keyword'] ?>" />
   <meta name="author" content="<?php echo $author ?>" />
   <!-- CSS Bootstrap -->
   <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">

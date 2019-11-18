@@ -15,8 +15,8 @@
               <!-- general form elements -->
               <div class="box box-primary">
                 <div class="box-body">
-                  <div class="form-group has-feedback"><label>Username</label>
-                    <input class="form-control" name="username" type="text" id="user" placeholder="Username or Email..."
+                  <div class="form-group has-feedback"><label>Email</label> 
+                    <input class="form-control" name="email" type="text" id="email" placeholder="Username or Email..."
                       required />
                     <span class="glyphicon glyphicon-envelope form-control-feedback">
                     </span>
@@ -45,7 +45,6 @@
     </div>
   </div>
 </div>
-
 <script>
   $(document).ready(function(){
       if ($('#form-login').size()) {
