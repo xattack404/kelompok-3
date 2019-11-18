@@ -29,6 +29,9 @@ else
   		echo "Error updating record: " . mysqli_error($koneksi);
   	}
 }
+?>
+
+
 <?php session_start(); 
 include "config/koneksi.php"; 
 include "faktur.php"; 

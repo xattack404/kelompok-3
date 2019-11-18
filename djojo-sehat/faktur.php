@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php 
 include "fungsi/cek_session_public.php"; 
 include "fungsi/cek_login_public.php"; 
@@ -25,8 +25,7 @@ if($hasil > 0)
 			$faktur = $hasil['id_keranjang'];
 		}
 }
-=======
-<?php 
+
 include "fungsi/cek_session_public.php"; 
 include "fungsi/cek_login_public.php"; 
 
@@ -52,5 +51,5 @@ if($hasil > 0)
 			$faktur = $hasil['id_keranjang'];
 		}
 }
->>>>>>> 8a6ab1dfc88400f226ffd5443d2f94609fbde01f
+
 ?>

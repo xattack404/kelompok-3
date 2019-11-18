@@ -30,10 +30,10 @@ if(isset($_POST['submit']))
   if (mysqli_num_rows($result) == 0)
   {
   	echo "<script>alert('Email yang Anda masukkan tidak terdaftar!');history.go(-1)</script>";
-  }
-  elseif($data['status'] == 0)
-  {
-  	echo "<script>alert('Akun Anda belum diverifikasi, silahkan verifikasi via email dahulu!');history.go(-1)</script>";
+  //}
+  //elseif($data['status'] == 0)
+  //{
+ // 	echo "<script>alert('Akun Anda belum diverifikasi, silahkan verifikasi via email dahulu!');history.go(-1)</script>";
 	}
 		else
 		{
