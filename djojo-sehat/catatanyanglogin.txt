@@ -1,0 +1,4 @@
+19-11-18 12:46:04 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
+19-11-18 12:47:25 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
+19-11-18 12:53:26 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
+19-11-18 12:54:36 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login

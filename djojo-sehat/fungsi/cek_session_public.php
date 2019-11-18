@@ -1,7 +1,7 @@
 <?php
-if(isset($_SESSION['username']))
+if(isset($_SESSION['email']))
 {
-  $sesen_id         = $_SESSION['id_customer'];
+  $sesen_id         = $_SESSION['id_member'];
   $sesen_email      = $_SESSION['email'];
   $sesen_nama       = $_SESSION['nama'];
   $sesen_kecamatan  = $_SESSION['kecamatan'];

@@ -189,12 +189,12 @@
       <ul class="nav navbar-nav navbar-right">
 
         <?php
-      if(!empty($_SESSION['username']) && empty($_SESSION['usertype']))
+      if(!empty($_SESSION['email']))
       {
         echo "
         <li class='dropdown'>
           <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
-            <span class='glyphicon glyphicon-user' aria-hidden='true'></span> Hai, ".$sesen_username." <span class='caret'></span>
+            <span class='glyphicon glyphicon-user' aria-hidden='true'></span> Hai, ".$sesen_nama." <span class='caret'></span>
           </a>
           <ul class='dropdown-menu'>
             <li>
