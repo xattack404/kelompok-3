@@ -45,7 +45,6 @@
     </div>
   </div>
 </div>
-
 <script>
   $(document).ready(function(){
       if ($('#form-login').size()) {

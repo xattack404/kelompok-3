@@ -5,7 +5,6 @@ include "fungsi/base_url.php";
 include "fungsi/cek_session_public.php"; 
 include "fungsi/cek_login_public.php"; 
 
-
 $cek		= "SELECT * FROM transaksi WHERE username = '$sesen_username' AND status ='0'";
 $hasil 	= mysqli_query($conn,$cek);
 $data 	= mysqli_fetch_array($hasil);
