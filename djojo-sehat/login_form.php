@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="reset" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         <h3 class="modal-title" id="login_modal"><p class="text-center">Login</p></h3>
@@ -24,6 +24,7 @@
                   <div class="form-group has-feedback"><label>Password</label>
                     <input class="form-control" name="password" type="password" id="password" placeholder="Password..."
                       required />
+                    <a href="">lupa password</a>
                     <span class="glyphicon glyphicon-lock form-control-feedback">
                     </span>
                   </div>
@@ -31,13 +32,13 @@
               </div> <!-- /.box -->
             </div>
           </div>
+          
+          <button type="submit" style ="padding-right:115px;padding-left:115px;" name="submit" class="btn btn-success">Login</button>
+          <button type="reset" name="reset" class="btn btn-danger">Reset</button>
+        </br>
         </div>
         <div class="modal-footer">
          <!--  <button type="submit" name="submit" class="btn btn-secondary">Lupa Password</button> -->
-          <button type="submit" name="submit" class="btn btn-success">Submit</button>
-          <button type="reset" name="reset" class="btn btn-danger">Reset</button>
-          <a href="">lupa password</a>
-        </br>
       <label class="text-left">belum punya akun ? <a href="register.php">Klik disini</a></label>
         </div>
       </form>
