@@ -2,12 +2,12 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="reset" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="close" class="close" onclick="document.getElementById('password').value = '';document.getElementById('user').value = ''" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         <h3 class="modal-title" id="login_modal"><p class="text-center">Login</p></h3>
       </div>
-      <form method="post" id="form-login" class="form-contrainer" action="login.php">
+      <form method="post" id="form-login" class="form-contrainer" action="login.php" >
         <div class="modal-body">
           <div class="row">
             <!-- left column -->
@@ -34,12 +34,12 @@
           </div>
           
           <button type="submit" style ="padding-right:115px;padding-left:115px;" name="submit" class="btn btn-success">Login</button>
-          <button type="reset" name="reset" class="btn btn-danger">Reset</button>
         </br>
         </div>
         <div class="modal-footer">
          <!--  <button type="submit" name="submit" class="btn btn-secondary">Lupa Password</button> -->
       <label class="text-left">belum punya akun ? <a href="register.php">Klik disini</a></label>
+      </div>
         </div>
       </form>
     </div>
