@@ -41,9 +41,6 @@ if(isset($_SESSION['username']))
       <div class="col-sm-9 col-sm-push-3">
             <!-- <h3><?php echo $register['judul']; ?></h3> -->            
           </div>
-      <?php
-       include 'sidebar.php';
-       ?>
     
   
         
