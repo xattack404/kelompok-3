@@ -64,17 +64,15 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
-    width: 50px;
+    left: -10px;
+    width: 30px;
     height: 50px;
     outline: none;
     border: none;
     background: white;
     color: black;
-    padding: 0 80px 0 20px;
+    padding: 0 30px 0 20px;
     border-radius: 30px;
-    box-shadow: 0 0 25px 0 crimson,
-                0 20px 25px 0 rgba(0, 0, 0, 0.2);
     transition: all 1s;
     opacity: 0;
     z-index: 5;
@@ -91,7 +89,7 @@
       cursor: text;
 }
 .search input:focus ~ .search-box{
-      background: black;
+      background: red;
       z-index: 6;
       margin-left:970px;
 }

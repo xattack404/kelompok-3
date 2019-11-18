@@ -18,6 +18,7 @@ if(isset($_POST['submit']))
   $harga_beli     = mysqli_real_escape_string($koneksi, $_POST['hrg_beli']);
   $harga_jual     = mysqli_real_escape_string($koneksi, $_POST['hrg_jual']);
   $kategori       = mysqli_real_escape_string($koneksi, $_POST['kategori']);
+  $supplier       = mysqli_real_escape_string($koneksi, $_POST['supplier']);
 
   $allowed_ext    = array('jpg', 'jpeg', 'png', 'gif');
   $file_name      = $_FILES['img']['name']; // File adalah name dari tombol input pada form
@@ -61,7 +62,8 @@ if(isset($_POST['submit']))
                               harga_beli   = '$harga_beli',
                               harga_jual   = '$harga_jual',
                              foto_barang   = '$img',
-                                kategori   = '$kategori'
+                                kategori   = '$kategori',
+                             id_supplier   = '$supplier'
                          WHERE id_barang   = '$id' ";
 
 

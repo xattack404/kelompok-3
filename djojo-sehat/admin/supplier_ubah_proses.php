@@ -9,23 +9,19 @@ if(isset($_POST['submit']))
 {
   $id    = mysqli_real_escape_string($koneksi,$_POST['id']);
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
-  $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
+  $alamat       = mysqli_real_escape_string($koneksi,$_POST['alamat']);
   $no_hp      = mysqli_real_escape_string($koneksi,$_POST['no_hp']);
-  $tipe       = mysqli_real_escape_string($koneksi,$_POST['tipe']);
-  $access     = mysqli_real_escape_string($koneksi,$_POST['access']);
+ 
   
   // Proses update data dari form ke db
-  $sql = "UPDATE tb_login SET id_login    = '$id',
-                              nama        = '$nama',
-                              username    = '$username',
-                              id_posisi   = '$tipe',
-                              akses       = '$access',
+  $sql = "UPDATE tb_supplier SET nama_supplier   = '$nama',
+                              alamat      = '$alamat',
                               no_hp       = '$no_hp'
-                        WHERE id_login    = '$id'";
+                        WHERE id_supplier   = '$id'";
 
   if(mysqli_query($koneksi, $sql)) 
   {
-   echo "<script>alert('Update data berhasil! Klik ok untuk melanjutkan');location.replace('user_list.php')</script>";
+   echo "<script>alert('Update data berhasil! Klik ok untuk melanjutkan');location.replace('supplier_list.php')</script>";
   } 
     else 
     {

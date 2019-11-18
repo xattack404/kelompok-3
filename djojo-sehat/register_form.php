@@ -15,6 +15,7 @@
 </style>
 <div class="split right">
 <form method="post" id="form-register" action="register_proses.php">
+  <div class="container">
       <div class=" col-lg-8">
           <div class="row">
             <div class="col-md-12">

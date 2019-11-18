@@ -5,16 +5,16 @@ include 'fungsi/base_url.php';
 if(isset($_POST['submit']))
 {
   $errors     = array();
-  $username   = mysqli_real_escape_string($koneksi, $_POST['username']);
+  $email   = mysqli_real_escape_string($koneksi, $_POST['email']);
   $pass       = mysqli_real_escape_string($koneksi, $_POST['password']);
 
-  if (empty($username) && empty($pass))
+  if (empty($email) && empty($pass))
   {
-    echo "<script language='javascript'>alert('Isikan USERNAME dan PASSWORD'); history.go(-1)</script>";
+    echo "<script language='javascript'>alert('Isikan EMAIL dan PASSWORD'); history.go(-1)</script>";
   }
-  elseif (empty($username))
+  elseif (empty($email))
   {
-    echo "<script language='javascript'>alert('Isikan USERNAME'); history.go(-1)</script>";
+    echo "<script language='javascript'>alert('Isikan EMAIL'); history.go(-1)</script>";
   }
   elseif (empty($pass))
   {
@@ -22,13 +22,16 @@ if(isset($_POST['submit']))
   }
 
   // cek data ke db
-  $sql    = "SELECT * FROM tb_member WHERE nama = '$username' ";
-  $result = mysqli_query($conn, $sql);
+
+  $sql    = "SELECT * FROM tb_member WHERE email = '$email' ";
+
+
+  $result = mysqli_query($koneksi, $sql);
   $data   = mysqli_fetch_array($result);
 
   if (mysqli_num_rows($result) == 0)
   {
-  	echo "<script>alert('Username yang Anda masukkan tidak terdaftar!');history.go(-1)</script>";
+  	echo "<script>alert('Email yang Anda masukkan tidak terdaftar!');history.go(-1)</script>";
   }
   elseif($data['status'] == 0)
   {
@@ -40,12 +43,12 @@ if(isset($_POST['submit']))
 	    {
 	      if(empty($errors))
 	      {
-	        $_SESSION['id_customer']= $data['id_customer'];
-	        $_SESSION['user']   = $data['user'];
-	        $_SESSION['nama']       = $data['nama'];
-	        $_SESSION['kecamatan']  = $data['kecamatan'];
-	        $_SESSION['kota']       = $data['kota'];
-	        $_SESSION['provinsi']   = $data['provinsi'];
+	        $_SESSION['id_member']         = $data['id_member'];
+	        $_SESSION['email']             = $data['email'];
+	        $_SESSION['nama']              = $data['nama'];
+	        $_SESSION['kecamatan']         = $data['kecamatan'];
+	        $_SESSION['kabupaten_kota']    = $data['kabupaten_kota'];
+	        $_SESSION['provinsi']          = $data['provinsi'];
 
 	        echo "<script language='javascript'>alert('Anda berhasil Login'); location.replace('$base_url')</script>";
           tulis("Berhasil Login");
@@ -69,5 +72,4 @@ if(isset($_POST['submit']))
     fwrite($fp, $time.' : '.$ip.' '.$nama.' : '.$aktivitas."\n");
     fclose($fp);
   }
-
 ?>

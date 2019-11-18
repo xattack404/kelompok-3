@@ -80,7 +80,21 @@ $data             = mysqli_fetch_array($result);
                 $result         = mysqli_query($koneksi, $kat);
                 while($datakat  = mysqli_fetch_array($result))
                 {
-                  echo "<option value='$datakat[id_kategori]'".($data['kategori']==$datakat['id_kategori']?' selected':'').">$datakat[nama_kategori]</option>\n";
+                  echo "<option value='$datakat[id_kategori]'".($data['id_kategori']==$datasup['id_kategori']?' selected':'').">$datakat[nama_kategori]</option>\n";
+                }
+                ?>
+              </select>
+            </div>
+            <div class="col-xs-4"><label>Nama Supplier</label>
+              <br />
+              <select name="supplier" id="supplier" class="form-control" required>
+                <option value="">--Pilih Supplier--</option>
+                <?php
+                $sup            = "SELECT * FROM tb_supplier ORDER BY nama_supplier ASC";
+                $result         = mysqli_query($koneksi, $sup);
+                while($datasup  = mysqli_fetch_array($result))
+                {
+                  echo "<option value='$datasup[id_supplier]'".($data['id_supplier']==$datasup['id_supplier']?' selected':'').">$datasup[nama_supplier]</option>\n";
                 }
                 ?>
               </select>
