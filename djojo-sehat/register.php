@@ -23,7 +23,6 @@ if(isset($_SESSION['username']))
   <meta name="author" content="<?php echo $author ?>" />
   <!-- CSS Bootstrap -->
   <link href="<?php echo $base_url ?>template/css/bootstrap.css" rel="stylesheet">
-  <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
   <!-- JS -->
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <!-- Favicon -->
@@ -38,7 +37,9 @@ if(isset($_SESSION['username']))
     
        <?php include 'register_form.php'; ?>     
       <div class="col-sm-9 col-sm-push-3">
-            <!-- <h3><?php echo $register['judul']; ?></h3> -->            
+            <!-- <h3><?php 
+            //echo $register['judul']; 
+            ?>          
           </div>
     
   
