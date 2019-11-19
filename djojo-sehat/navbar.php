@@ -2,6 +2,9 @@
       include 'login_form.php';
       //include 'register_form.php';
 ?>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+  rel="stylesheet">
 <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/nice-select.css" type="text/css">
@@ -112,5 +115,11 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/owl.carousel.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
   
