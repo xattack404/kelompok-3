@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/header.css" type="text/css">
     <header style ="background-image:url(<?php echo $base_url ?>template/Design/ecommerce.jpg)" class="header-section">
         <div class="container-fluid">
             <div class="inner-header">
@@ -32,11 +33,12 @@
                         <li><a href="./index.html">Home</a></li>
                         <li><a href="./katalog.html">Katalog</a>
                             <ul class="sub-menu">
-                                <li><a href="katalog.html">Product Page</a></li>
-                                <li><a href="keranjang.html">Shopping Card</a></li>
+                                <li><a href="katalog.html">Produk</a></li>
+                                <li><a href="keranjang.html">Keranjang</a></li>
+                                <li><a href="keranjang.html">Konfirmasi</a></li>
                             </ul>
                         </li>
-                        <li><a href="./konfirmasi.html">Konfirmasi</a></li>
+                        
                         <li><a href="./konsultasi.html">Konsultasi</a></li>
                         <li><a href="#"> Tentang Kami</a>
                             <ul class="sub-menu">
@@ -65,6 +67,7 @@
                 </nav>
             </div>
         </div>
+</header>
         <?php
       if(!empty($_SESSION['email']))
       {
@@ -86,23 +89,22 @@
         {
         }
       ?>
-</header>
 <div class="header-info">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-sm-4">
           <div class="header-item">
-            <img src="<?php echo $base_url ?>template/Design/icons/delivery.png" alt="">
+           <img src="<?php echo $base_url ?>template/Design/icons/delivery.png" alt="">
             <p>Free shipping on orders over $30 in USA</p>
           </div>
         </div>
-        <div class="col-md-4 text-left text-lg-center">
+        <div class="col-sm-4 text-left text-lg-center">
           <div class="header-item">
             <img src="<?php echo $base_url ?>template/Design/icons/voucher.png" alt="">
             <p>20% Student Discount</p>
           </div>
         </div>
-        <div class="col-md-4 text-left text-xl-right">
+        <div class="col-sm-4 text-left text-lg-right">
           <div class="header-item">
             <img src="<?php echo $base_url ?>template/Design/icons/sales.png" alt="">
             <p>30% off on dresses. Use code: 30OFF</p>
@@ -111,3 +113,4 @@
       </div>
     </div>
   </div>
+  
