@@ -189,7 +189,7 @@
       <ul class="nav navbar-nav navbar-right">
 
         <?php
-      if(!empty($_SESSION['email']))
+      if(!empty($_SESSION['username']) && empty($_SESSION['akses']))
       {
         echo "
         <li class='dropdown'>

@@ -1,12 +1,10 @@
 <?php session_start();
 include "config/koneksi.php";
-include "faktur.php";
 include "fungsi/base_url.php";
 include "fungsi/cek_login_public.php";
 include "fungsi/cek_session_public.php";
 
 $id_barang = mysqli_real_escape_string($koneksi,$_GET['id_barang']);
-
 $cari_barang  = "SELECT * FROM tb_barang WHERE id_barang = '$id_barang' ";
 $hasil_barang = mysqli_query($koneksi, $cari_barang);
 $data_barang  = mysqli_fetch_array($hasil_barang);
@@ -14,7 +12,7 @@ $data_barang  = mysqli_fetch_array($hasil_barang);
 $nama_barang  = $data_barang['nama_barang'];
 $berat        = $data_barang['berat'];
 $harga        = $data_barang['harga_jual'];
-$stok         = $data_barang['stok'];
+$stok         = $data_barang['jumlah'];
 
 if(mysqli_num_rows($hasil_barang) > 0)
 {
@@ -23,10 +21,19 @@ if(mysqli_num_rows($hasil_barang) > 0)
   {
     echo "<script>alert('Mohon maaf, stok sedang kosong');location.replace('$base_url')</script>";
   }
+  $cari  = "SELECT * FROM tb_keranjang WHERE id_member = '$sesen_id' ORDER BY id_keranjang DESC";
+$query = mysqli_query($koneksi,$cari);
+$hasil = mysqli_fetch_array($query);
+
+if($hasil > 0)
+{
+	$id_cart = $hasil['id_keranjang'];
+}
     else
     {
+
       $cari_cart   = "SELECT * FROM tb_keranjang WHERE id_member = '$sesen_id'
-                          AND id_barang = '$id_barang' AND id_keranjang = '$faktur' ";
+                          AND id_barang = '$id_barang' AND id_keranjang = '$id_cart' ";
       $hasil_cart  = mysqli_query($koneksi,$cari_cart);
       $data_cart   = mysqli_fetch_array($hasil_cart);
 
@@ -37,7 +44,7 @@ if(mysqli_num_rows($hasil_barang) > 0)
                                                 id_barang,
                                                 jumlah,
                                                 subtotal)
-                                        VALUES ('$faktur',
+                                        VALUES ('$id_cart',
                                                 '$sesen_id',
                                                 '$id_barang',
                                                 '1',
@@ -63,7 +70,7 @@ if(mysqli_num_rows($hasil_barang) > 0)
 
           $query = "UPDATE tb_keranjang SET jumlah            = '$jmltambah',
                                                 subtotal      = '$subtotaltambah'
-                                          WHERE id_keranjang  = '$faktur' AND id_barang = '$id_barang'";
+                                          WHERE id_keranjang  = '$id_cart' AND id_barang = '$id_barang'";
 
           if(mysqli_query($koneksi, $query))
           {
