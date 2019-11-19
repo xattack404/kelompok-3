@@ -34,7 +34,6 @@ if(isset($_SESSION['username']))
   <?php include 'navbar.php'; ?>
 
   <!-- Awal Konten Utama -->
-  <div class="container">
 
     
        <?php include 'register_form.php'; ?>     
