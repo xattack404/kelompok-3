@@ -28,10 +28,6 @@ include 'fungsi/setting.php';             // Panggil data setting
 
 <body> 
   <!-- Page Preloder -->
-  <div id="preloder">
-    <div class="loader"></div>
-  </div>
-
   <!-- Search model -->
   <div class="search-model">
     <div class="h-100 d-flex align-items-center justify-content-center">
@@ -399,6 +395,7 @@ include 'footer.php';
   <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
+  
 </body>
 
 </html>

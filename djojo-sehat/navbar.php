@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/header.css" type="text/css">
     <header style ="background-image:url(<?php echo $base_url ?>template/Design/ecommerce.jpg)" class="header-section">
-        <div class="container-fluid">
+    <div id="preloder">
+    <div class="loader"></div>
+  </div>    
+    <div class="container-fluid">
             <div class="inner-header">
                 <div class="logo">
                     <a href="./index.html"><img src="<?php echo $base_url ?>template/Design/logo.png" alt=""></a>

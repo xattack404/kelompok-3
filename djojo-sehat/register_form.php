@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $base_url ?>template/Register/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 	<!-- Main Style Css -->
 	<link rel="stylesheet" href="<?php echo $base_url ?>template/Register/css/style.css"/>
+	<link rel="stylesheet" href="<?php echo $base_url ?>template/Register/css/loginsingnup.css"/>
+	<script src="<?php echo $base_url ?>template/Register/js/animated.js"></script>
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Register/css/radio.css"/>
 </head>
 <body class="form-v10">
