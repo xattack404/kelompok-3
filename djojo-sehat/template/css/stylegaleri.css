@@ -361,8 +361,8 @@ margin-top:10px;
   width: 200px;
   padding-left: 2px;
   height: 320px;
-  display: inline-block;
-  text-align: center;
+  display: relative;
+
 }
 .profile .image {
   position: relative;
@@ -371,7 +371,7 @@ margin-top:10px;
   margin: 38px auto 0 auto;
 }
 .profile .image .circle-1, .profile .image .circle-2 {
-  position: absolute;
+  position: relative;
   box-sizing: border-box;
   width: 106px;
   height: 106px;
@@ -392,7 +392,7 @@ margin-top:10px;
   border-color: #158383 transparent #158383 #158383;
 }
 .profile .image img {
-  display: block;
+  display: relative;
   border-radius: 50%;
   background: #F5E8DF;
 }

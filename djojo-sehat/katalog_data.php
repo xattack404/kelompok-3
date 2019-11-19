@@ -36,12 +36,12 @@ if($numrows > 0)
     $harga_normal = number_format($row['harga_jual'], 0, ',', '.').",-";
 ?>
 
- <!-- <?php foreach ($data as $row) : ?> -->
+  <?php 
+  //foreach ($data as $row) : 
+  ?> 
           <div class="profile" >
-            <div class="form-group">
               <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="title">
                 <h1><?php echo $row['judul']; ?></h1></a>
-            </div>
             <div class="image-thumbnail">
               <img src="<?=$base_url; ?>images/produk/<?= $row['foto_barang'] ?>"  width ="200px"alt="<?= $row['nama_barang'] ?>">
             </div>
@@ -80,7 +80,9 @@ if($numrows > 0)
             </table>
           </div>
         </div>
-      <!-- <?php endforeach; ?> -->
+      <?php 
+    //endforeach; 
+    ?> 
 
   <div class="col-md-4">
     <div class="thumbnail">

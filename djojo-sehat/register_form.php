@@ -13,7 +13,6 @@
     right: 0;
   }
 </style>
-<div class="split right">
 <form method="post" id="form-register" action="register_proses.php">
   <div class="container">
       <div class=" col-lg-8">
@@ -25,8 +24,6 @@
                   <div class="form-group"><label>Nama Lengkap</label>
                     <input class="form-control" name="nama" type="text" id="nama" size="30" required />
                   </div>
-
-                  <input class="form-control" name="nama" rows="1" type="text" id="nama" size="30" required />
                 </div>
                 <div class="form-group"><label>Alamat</label>
                   <textarea class="form-control" name="alamat" id="alamat" required></textarea>
@@ -97,4 +94,3 @@
       </div>
     </div>
 </form>
-  </div>

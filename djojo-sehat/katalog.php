@@ -19,7 +19,7 @@ include 'fungsi/setting.php';             // Panggil data setting
     <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo $base_url ?>template/css/stylegaleri.css" rel="stylesheet">
     <link href="<?php echo $base_url ?>template/fonts/font-awesome4.3.0/css/font-awesome.css" rel="stylesheet">
-    <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
+    <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet"><link rel="stylesheet">
     <!-- Favicon -->
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
   </head>

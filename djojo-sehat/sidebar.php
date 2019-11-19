@@ -1,4 +1,4 @@
-<div class="col-sm-3 col-sm-pull-9">
+<div class="col-sm-3 col-sm-pull-9" style="margin-top:60px;">
   <?php include "modul/mod_cart.php" ?>
   <hr/>
 	<?php include "modul/mod_bseller.php" ?>
