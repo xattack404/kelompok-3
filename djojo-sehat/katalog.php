@@ -85,5 +85,13 @@ include 'fungsi/setting.php';             // Panggil data setting
          
     });
   </script>
+  <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/owl.carousel.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
+  
   </body>
 </html>

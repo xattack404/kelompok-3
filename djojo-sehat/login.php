@@ -2,7 +2,7 @@
 include 'config/koneksi.php';
 include 'fungsi/base_url.php';
 // jika tombol submit ditekan
-if(isset($_POST['submit']))
+if(isset($_POST['Login']))
 {
   $errors     = array();
   $email   = mysqli_real_escape_string($koneksi, $_POST['email']);

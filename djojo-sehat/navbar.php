@@ -1,7 +1,3 @@
-<?php
-      include 'login_form.php';
-      //include 'register_form.php';
-?>
 <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
   rel="stylesheet">
@@ -24,15 +20,30 @@
                 </div>
                 <div class="header-right">
                     <img src="<?php echo $base_url ?>template/Design/icons/search.png" alt="" class="search-trigger">
-                    <img src="<?php echo $base_url ?>template/Design/icons/man.png" alt="">
-                    <a href="#">
-                        <img src="<?php echo $base_url ?>template/Design/icons/bag.png" alt="">
-                        <span>2</span>
-                    </a>
                 </div>
                 <div class="user-access">
-                    <a href="register_form.php">Register</a>
-                    <a href="#" class="in">Sign in</a>
+                <?php
+      if(!empty($_SESSION['nama']) && empty($_SESSION['email']))
+      {
+        echo "
+        <li>
+          <a href='#'> Hai, '.$sesen_nama.' 
+          </a>
+          <ul class='sub-menu'>
+            <li>
+              <a href='$base_url'.'logout'>Logout</a>
+            </li>
+          </ul>
+        </li>";
+      }
+        else
+        {
+          echo"
+          <a href='register_form.php'>Register</a>
+                    <a href='login_form.php' class='in' style='color:black;'>Sign in</a>";
+        }
+      ?>
+                    
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
@@ -75,10 +86,10 @@
         </div>
 </header>
         <?php
-      if(!empty($_SESSION['username']) && empty($_SESSION['akses']))
+      /*if(!empty($_SESSION['username']) && empty($_SESSION['akses']))
       {
         echo "
-        <li class='dropdown'>
+        <li>
           <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
             <span class='glyphicon glyphicon-user' aria-hidden='true'></span> Hai, ".$sesen_nama." <span class='caret'></span>
           </a>
@@ -93,7 +104,7 @@
       }
         else
         {
-        }
+        }*/
       ?>
 <div class="header-info">
     <div class="container-fluid">
@@ -118,11 +129,5 @@
         </div>
       </div>
     </div>
-  </div> <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/owl.carousel.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
+  </div>
   
