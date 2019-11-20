@@ -25,7 +25,9 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
   </head>
   <body>
-    <?php include 'navbar.php'; ?>
+    <?php 
+    //include 'navbar.php'; 
+    ?>
 
     <div class="container">
       <div class="row">
