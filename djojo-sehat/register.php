@@ -1,11 +1,12 @@
 <?php session_start();          // Memulai session
 include 'config/koneksi.php';           // Panggil koneksi ke database
 include 'fungsi/base_url.php';  // Panggil fungsi base_url
+include 'fungsi/cek_session_public.php';
 include 'fungsi/navigasi.php';  // Panggil data navigasi
 include 'fungsi/setting.php';   // Panggil data author
 
 // pengecekan session
-if(isset($_SESSION['username']))
+if(isset($_SESSION['nama']))
 {
   // Jika user telah login dan ingin masuk ke halaman ini kembali, maka akan diarahkan ke halaman index/ home
   die ("<script>alert('Anda telah login'); location.replace('$base_url')</script>");

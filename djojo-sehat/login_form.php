@@ -33,4 +33,3 @@ include 'navbar.php';
   <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
-  <script src="<?php echo $base_url ?>template/Register/js/login.js"></script>
