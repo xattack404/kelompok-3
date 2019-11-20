@@ -28,9 +28,16 @@
 19-11-20 02:17:44 : ::1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 : Berhasil Login
 19-11-20 02:57:42 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
 19-11-20 03:05:14 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
+<<<<<<< HEAD
 19-11-20 11:49:46 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
 19-11-20 12:16:31 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
 19-11-20 13:35:03 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
 19-11-20 17:04:53 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
 19-11-20 17:15:41 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
 19-11-20 17:57:42 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
+=======
+19-11-20 06:59:46 : ::1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 : Berhasil Login
+19-11-20 07:06:01 : ::1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 : Berhasil Login
+>>>>>>> 491bc7e4bd207fe52843cbc8ad1c322613ce6328
+19-11-20 18:09:56 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login
+19-11-20 18:11:34 : 127.0.0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0 : Berhasil Login

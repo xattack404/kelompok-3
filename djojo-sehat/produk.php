@@ -6,12 +6,12 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
 include 'fungsi/setting.php';             // Panggil data setting
 
 // Mengambil nilai berdasarkan id_produk dengan metode GET
-$id_produk = mysqli_real_escape_string($conn,$_GET['id_produk']);
+$id_produk = mysqli_real_escape_string($koneksi,$_GET['id_barang']);
 
-$query        = "SELECT * FROM tabel JOIN tabel2  WHERE field = '$id_produk'";
-$hasil        = mysqli_query($conn,$query);
+$query        = "SELECT * FROM tb_barang  WHERE id_barang = '$id_produk'";
+$hasil        = mysqli_query($koneksi,$query);
 $produk       = mysqli_fetch_array($hasil);
-$harga_normal = number_format($produk['harga'], 0, ',', '.').",-";
+$harga_normal = number_format($produk['harga_jual'], 0, ',', '.').",-";
 
 // Jika data tidak ditemukan maka akan muncul alert belum ada data
 if(mysqli_num_rows($hasil) == 0)

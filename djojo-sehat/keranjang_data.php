@@ -11,10 +11,11 @@
 													FROM tb_keranjang
 													LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
 													WHERE tb_keranjang.id_keranjang = '$faktur'
-													AND tb_keranjang.id_keranjang = '$sesen_id'");
+													AND tb_keranjang.id_member = '$sesen_id'");
 
 		if(mysqli_num_rows($cek_keranjang) == 0)
 		{echo "<center><h4>Keranjang belanja anda masih kosong</h4></center>";}
+
 		else
 		{
 			echo "
@@ -48,7 +49,7 @@
 				    <td data-title='Jumlah Berat' align='center'>$data_keranjang[berat]</td>
 				    <td data-title='Qty' align='center'>
 				      <input type='hidden' name='id".$i."' value='$data_keranjang[id_barang]'/>
-				      <input type='text' name='jumlah".$i."' value='$data_keranjang[jumlah]' size='3' onkeypress='return isNumberKey(event)'/>
+				      <input type='text' name='jmlh".$i."' value='$data_keranjang[jumlah]' size='3' onkeypress='return isNumberKey(event)'/>
 				    </td>
 				    <td data-title='Aksi' align='center'>
 				      <a href='keranjang_update.php?id=$data_keranjang[id_barang]'>

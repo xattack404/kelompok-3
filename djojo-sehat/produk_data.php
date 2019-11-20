@@ -6,19 +6,19 @@
         <hr/>
       </div>
       <div class="col-md-4">
-        <a href="<?php echo $base_url ?>images/produk/<?php echo $produk['img']; ?>" title="<?php echo $produk['nama_produk']; ?>" id="fancybox" class="thumbnail" data-fancybox-group="group1">
-          <img class="img-responsive" src="<?php echo $base_url ?>images/produk/<?php echo $produk['img']; ?>" alt="<?php echo $produk['nama_produk']; ?>"/>
+        <a href="<?php echo $base_url ?>images/produk/<?php echo $produk['foto_barang']; ?>" title="<?php echo $produk['nama_barang']; ?>" id="fancybox" class="thumbnail" data-fancybox-group="group1">
+          <img class="img-responsive" src="<?php echo $base_url ?>images/produk/<?php echo $produk['foto_barang']; ?>" alt="<?php echo $produk['nama_barang']; ?>"/>
         </a>
       </div>
       <div class="caption-full">
         <b>Kategori</b>: <a href="<?php echo $base_url ?>kategori/<?php echo $produk['kategori_seo']; ?>"> <?php echo $produk['judul_supersubkat']; ?></a><br/>
         <b>Berat</b>: <?php echo $produk['berat']; ?><br/>
-        <b>Stok</b>: <?php echo $produk['stok']; ?><br/><br/>
+        <b>Stok</b>: <?php echo $produk['jumlah']; ?><br/><br/>
         Harga Normal: <strike>Rp <?php echo $harga_normal ?></strike>
         <h4>
 
         </h4><br/>
-        <a href="<?php echo $base_url ?>beli/<?php echo $produk['id_produk']; ?>">
+        <a href="<?php echo $base_url ?>beli/<?php echo $produk['id_barang']; ?>">
           <button type="submit" name="submit" class="btn btn-primary">Beli</button>
         </a>
       </div>
@@ -33,7 +33,9 @@
 
     <h3>Produk Terkait</h3>
     <hr/>
-    <?php include "related.php";?>
+    <?php 
+    include "related.php";
+    ?>
 
   </div>
 

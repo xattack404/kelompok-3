@@ -14,6 +14,9 @@ include 'fungsi/setting.php';             // Panggil data setting
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?php echo $katalog['seo_deskripsi'] ?>" />
     <meta name="keywords" content="<?php echo $katalog['seo_keywords'] ?>" />
+    
+    <link href="<?php echo $base_url ?>template/css/custom.css" rel="stylesheet">
+    <link href="<?php echo $base_url ?>template/css/jquery.fancybox.css" rel="stylesheet"/>
     <meta name="author" content="<?php echo $author ?>" />    
     <!-- CSS Bootstrap -->
     <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">

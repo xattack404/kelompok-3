@@ -1,4 +1,3 @@
-
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" style="width:1150px;height:600px;">
         <?php

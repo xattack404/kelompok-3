@@ -3,7 +3,7 @@ include "config/koneksi.php";
 include "faktur.php"; 
 include "fungsi/base_url.php"; 
 include "fungsi/cek_session_public.php"; 
-include "fungsi/cek_login_public.php"; 
+//include "fungsi/cek_login_public.php"; 
 
 $cek		= "SELECT * FROM tb_keranjang WHERE id_member = '$sesen_id'";
 $hasil 	= mysqli_query($koneksi,$cek);
