@@ -23,7 +23,7 @@
                 </div>
                 <div class="user-access">
                 <?php
-      if(!empty($_SESSION['nama']) && empty($_SESSION['email']))
+      if(!empty($_SESSION['username']) && empty($_SESSION['akses']))
       {
         echo "
         <li>
@@ -40,7 +40,7 @@
         {
           echo"
           <a href='register_form.php'>Register</a>
-                    <a href='login_form.php' class='in' style='color:black;'>Sign in</a>";
+                    <a href='$base_url"."login_form.html' class='in' style='color:black;'>Sign in</a>";
         }
       ?>
                     

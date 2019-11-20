@@ -15,9 +15,9 @@ include 'navbar.php';
     <input type="password" name="password" id="password" placeholder="Password" />
     <i class="fa fa-key"></i>
     <a href="#">Forgot your password?</a>
-    <button type="submit" name="Login" value="Login">
-      <i class="spinner" name="Login"></i>
-      <span class="state" name="Login">Log in</span>
+    <button type="submit" name="submit" >
+      <i class="spinner" name="submit"></i>
+      <span class="state" name="submit">Log in</span>
     </button>
   </form>
   </p>
@@ -33,4 +33,4 @@ include 'navbar.php';
   <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
-  <script src="<?php echo $base_url ?>template/Register/js/login.js"></script>
+ 
