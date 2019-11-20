@@ -1,6 +1,6 @@
 
 <?php session_start();                    // Memulai session
-include 'config/koneksi.php';                     // Panggil koneksi ke database
+include 'config/koneksi.php';             // Panggil koneksi ke database
 include 'fungsi/base_url.php';            // Panggil fungsi base_url
 include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
 include 'fungsi/tgl_indo.php';            // Panggil fungsi tanggal indonesia
