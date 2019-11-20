@@ -79,8 +79,8 @@
 	<?php
 	include 'keranjang_total_berat.php';
 	$keranjang = 	mysqli_query($koneksi,"SELECT tb_barang.id_barang,tb_barang.nama_barang,tb_barang.judul,
-				  tb_barang.berat,tb_barang.harga,tb_member.id_member,tb_member.nama,tb_member.no_hp,
-				  tb_member.alamat,tb_member.kode_pos,tb_member.kecamatan,tb_member.kota,tb_member.provinsi,
+				  tb_barang.berat,tb_barang.harga_jual,tb_member.id_member,tb_member.nama,tb_member.alamat,
+				  tb_member.kecamatan,tb_member.kabupaten_kota,tb_member.provinsi,tb_member.kode_pos,tb_member.no_hp,
 				  tb_keranjang.id_keranjang, tb_keranjang.id_member, tb_keranjang.id_barang,
 				  tb_keranjang.jumlah, tb_keranjang.subtotal,
 				  kec.nama_kec,kabkot.nama_kabkot,kabkot.jne_reg,prov.nama_prov
