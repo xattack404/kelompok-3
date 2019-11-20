@@ -7,7 +7,7 @@ include '../fungsi/cek_hal_superadmin.php'; // Panggil fungsi hanya superadmin y
 
 if(isset($_POST['submit']))
 {
-  $uuid = Uuid::uuid4()->toString();
+  //$uuid = Uuid::uuid4()->toString();
   $username   = mysqli_real_escape_string($koneksi,$_POST['username']);
   $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
   $no_Hp      = mysqli_real_escape_string($koneksi,$_POST['hp']);
