@@ -7,8 +7,13 @@ $sql    		= "SELECT judul,isi,seo_deskripsi,seo_keyword FROM tb_navigasi WHERE i
 $result 		= mysqli_query($koneksi,$sql);
 $katalog        = mysqli_fetch_array($result);
 
+$sql    		= "SELECT judul,isi,seo_deskripsi,seo_keyword FROM tb_navigasi WHERE id_navigasi = 7 ";
+$result 		= mysqli_query($koneksi,$sql);
+$keranjang   	= mysqli_fetch_array($result);
+
 $sql    		= "SELECT judul,isi,seo_deskripsi,seo_keyword FROM tb_navigasi WHERE id_navigasi = 9 ";
 $result 		= mysqli_query($koneksi,$sql);
 $register   	= mysqli_fetch_array($result);
+
 
 ?>

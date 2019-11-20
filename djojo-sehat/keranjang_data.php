@@ -4,16 +4,17 @@
 		// Panggil data faktur
 		include 'faktur.php';
 		// Membuat join query 2 tabel: transaksi, transaksi_detail dan produk
-		$cek_invoice = 	mysqli_query($koneksi,"SELECT tb_keranjang.id_keranjang, tb_keranjang.id_member, tb_keranjang.id_barang,
+		$cek_keranjang = 	mysqli_query($koneksi,"SELECT tb_keranjang.id_keranjang, tb_keranjang.id_member, tb_keranjang.id_barang,
 													  tb_keranjang.jumlah, tb_keranjang.subtotal,
 													  tb_barang.id_barang, tb_barang.nama_barang, tb_barang.judul,
 													  tb_barang.harga_jual, tb_barang.berat
 										
 										FROM tb_keranjang
 										LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
-										WHERE transaksi.notransaksi = '$faktur'
-										AND tb_keranjang.username = '$sesen_email'
-		if(mysqli_num_rows($cek_invoice) == 0)
+										WHERE tb_keranjang.id_keranjang = '$faktur'
+										AND tb_keranjang.id_keranjang = '$sesen_id'");
+
+		if(mysqli_num_rows($cek_keranjang) == 0)
 		{echo "<center><h4>Keranjang belanja anda masih kosong</h4></center>";}
 		else
 		{
@@ -33,30 +34,30 @@
 				</thead>";
 			$i = 1;
 
-			while($data_keranjang = mysqli_fetch_array($cek_invoice))
+			while($data_keranjang = mysqli_fetch_array($cek_keranjang))
 			{
-				$harga_diskon = number_format($data_keranjang['harga_diskon'], 0, ',', '.');
+				$harga = number_format($data_keranjang['harga_jual'], 0, ',', '.');
 				$subtotal 		= number_format($data_keranjang['subtotal'], 0, ',', '.');
 
 				echo "
 				<tbody>
 					<tr>
 						<td data-title='No.' align='center'>$i</td>
-			    	<td data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_keranjang[judul_seo].html'>$data_keranjang[nama_produk]</a></td>
-				    <td data-title='Harga Diskon' align='right'>$harga_diskon,-</td>
+			    	<td data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_keranjang[judul].html'>$data_keranjang[nama_barang]</a></td>
+				    <td data-title='Harga ' align='right'>$harga,-</td>
 				    <td data-title='Berat' align='center'>$data_keranjang[berat]</td>
-				    <td data-title='Jumlah Berat' align='center'>$data_keranjang[jumlah_berat]</td>
+				    <td data-title='Jumlah Berat' align='center'>$data_keranjang[berat]</td>
 				    <td data-title='Qty' align='center'>
-				      <input type='hidden' name='id".$i."' value='$data_keranjang[id_produk]'/>
+				      <input type='hidden' name='id".$i."' value='$data_keranjang[id_barang]'/>
 				      <input type='text' name='jumlah".$i."' value='$data_keranjang[jumlah]' size='3' onkeypress='return isNumberKey(event)'/>
 				    </td>
 				    <td data-title='Aksi' align='center'>
-				      <a href='keranjang_update.php?id=$data_keranjang[id_produk]'>
+				      <a href='keranjang_update.php?id=$data_keranjang[id_barang]'>
 				      	<button name='update' type='submit' class='btn btn-warning' aria-label='Left Align' title='Update'>
 								  <span class='glyphicon glyphicon-refresh' aria-hidden='true'></span>
 								</button>
 				      </a>
-				      <a href='keranjang_hapus.php?id=$data_keranjang[id_produk]'>
+				      <a href='keranjang_hapus.php?id=$data_keranjang[id_barang]'>
 				      	<button name='hapus' type='button' class='btn btn-danger' aria-label='Left Align' title='Hapus' OnClick=\"return confirm('Apakah Anda yakin?');\">
 								  <span class='glyphicon glyphicon-remove' aria-hidden='true'></span>
 								</button>
@@ -77,23 +78,22 @@
 
 	<?php
 	include 'keranjang_total_berat.php';
-	$keranjang = 	mysqli_query($conn,"SELECT produk.id_produk,produk.nama_produk,produk.judul_seo,
-	              transaksi.notransaksi,transaksi.username,transaksi.status,
-	              transaksi_detail.berat,transaksi_detail.harga_diskon,transaksi_detail.jumlah,transaksi_detail.jumlah_berat,transaksi_detail.subtotal,
-	              customer.username,customer.nama,customer.telepon,customer.alamat,customer.kopos,customer.kecamatan,customer.kota,customer.provinsi,kec.nama_kec,
-	              kabkot.nama_kabkot,kabkot.jne_reg,prov.nama_prov
-	              FROM transaksi_detail
-	              LEFT JOIN transaksi ON transaksi.notransaksi = transaksi_detail.notransaksi
-	              LEFT JOIN produk ON produk.id_produk = transaksi_detail.id_produk
-	              LEFT JOIN customer ON customer.username = transaksi_detail.username
-	              LEFT JOIN kec ON kec.id_kec = customer.kecamatan
-	              LEFT JOIN kabkot ON kabkot.id_kabkot = kec.id_kabkot AND kabkot.id_kabkot = customer.kota
-	              LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = customer.provinsi
-	              WHERE transaksi.notransaksi = '$faktur'
-	                AND transaksi.username = '$sesen_username'
-	                AND transaksi.status = 0 ");
+	$keranjang = 	mysqli_query($koneksi,"SELECT tb_barang.id_barang,tb_barang.nama_barang,tb_barang.judul,
+				  tb_barang.berat,tb_barang.harga,tb_member.id_member,tb_member.nama,tb_member.no_hp,
+				  tb_member.alamat,tb_member.kode_pos,tb_member.kecamatan,tb_member.kota,tb_member.provinsi,
+				  tb_keranjang.id_keranjang, tb_keranjang.id_member, tb_keranjang.id_barang,
+				  tb_keranjang.jumlah, tb_keranjang.subtotal,
+				  kec.nama_kec,kabkot.nama_kabkot,kabkot.jne_reg,prov.nama_prov
+	              FROM tb_keranjang
+	              LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
+	              LEFT JOIN tb_member ON tb_member.id_member = tb_keranjang.id_member
+	              LEFT JOIN kec ON kec.id_kec = tb_member.kecamatan
+	              LEFT JOIN kabkot ON kabkot.id_kabkot = kec.id_kabkot AND kabkot.id_kabkot = tb_member.kabupaten_kota
+	              LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = tb_member.provinsi
+	              WHERE tb_keranjang.id_keranjang = '$faktur'
+	                AND tb_keranjang.id_member = '$sesen_id' ");
 	$array        = mysqli_fetch_array($keranjang);
-	$ongkir 			= $array['jne_reg'];
+	$ongkir       = $array['jne_reg'];
 	$nama_kota_kec= $array['nama_kabkot'].', '.$array['nama_kec'];
 	if(mysqli_num_rows($keranjang) > 0)
 	{
@@ -142,13 +142,11 @@
 		      <td align="right">
 		      <b>
 		      	<?php
-		      	$query 				= "SELECT sum(subtotal) AS subtotal FROM transaksi_detail
-														INNER JOIN produk ON produk.id_produk = transaksi_detail.id_produk
-														INNER JOIN transaksi ON transaksi.notransaksi = transaksi_detail.notransaksi
-														WHERE transaksi_detail.notransaksi = '$faktur'
-														AND transaksi_detail.username = '$sesen_username'
-														AND transaksi.status = 0 ";
-						$hasil 				= mysqli_query($conn,$query);
+		      	$query 				= "SELECT sum(subtotal) AS subtotal FROM tb_keranjang
+														INNER JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
+														WHERE tb_keranjang.id_keranjang = '$faktur'
+														AND tb_keranjang.id_member = '$sesen_username'";
+						$hasil 				= mysqli_query($koneksi,$query);
 						$data 				= mysqli_fetch_assoc($hasil);
 						$subtotal 		= $data['subtotal'];
 						$grand_total 	= $totalongkir + $subtotal;

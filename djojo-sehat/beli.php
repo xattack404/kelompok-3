@@ -27,13 +27,9 @@ $hasil = mysqli_fetch_array($query);
 
 if($hasil > 0)
 {
-	$id_cart = $hasil['id_keranjang'];
-}
-    else
-    {
-
-      $cari_cart   = "SELECT * FROM tb_keranjang WHERE id_member = '$sesen_id'
-                          AND id_barang = '$id_barang' AND id_keranjang = '$id_cart' ";
+	    $id_cart = $hasil['id_keranjang'];
+      $cari_cart   = "SELECT * FROM tb_keranjang WHERE 'id_member = '$sesen_id'
+                    AND id_barang = '$id_barang AND id_keranjang = '$id_cart'";
       $hasil_cart  = mysqli_query($koneksi,$cari_cart);
       $data_cart   = mysqli_fetch_array($hasil_cart);
 
@@ -44,7 +40,7 @@ if($hasil > 0)
                                                 id_barang,
                                                 jumlah,
                                                 subtotal)
-                                        VALUES ('$id_cart',
+                                        VALUES ('',
                                                 '$sesen_id',
                                                 '$id_barang',
                                                 '1',
@@ -81,7 +77,7 @@ if($hasil > 0)
               echo "Error updating record: " . mysqli_error($koneksi);
             }
         }
-    }
+      }
 }
   else
   {

@@ -15,7 +15,7 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?php echo $keranjang['seo_deskripsi'] ?>" />
-    <meta name="keywords" content="<?php echo $keranjang['seo_keywords'] ?>" />
+    <meta name="keywords" content="<?php echo $keranjang['seo_keyword'] ?>" />
     <meta name="author" content="<?php echo $author ?>" />
     <!-- CSS Bootstrap -->
     <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
