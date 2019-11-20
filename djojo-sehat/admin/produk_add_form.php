@@ -24,25 +24,14 @@
       <div class="box box-primary">
         <div class="box-body">
           <div class="row">
-            <div class="col-xs-4"><label>Kategori</label>
-              <br />
-              <select name="kategori" id="kategori" class="form-control" required>
-                <option value="">--Pilih Kategori--</option>
-                <?php
-                $query = "SELECT * FROM tb_kategori ORDER BY nama_kategori";
-                $sql = mysqli_query($koneksi, $query);
-                while($data = mysqli_fetch_array($sql)){echo '<option value="'.$data['id_kategori'].'">'.$data['nama_kategori'].'</option>';}
-                ?>
-              </select>
-            </div>
-            <!-- <div class="col-xs-4"><label>Jenis Barang</label>
+            <div class="col-xs-4"><label>Jenis Barang</label>
               <br />
               <select name="jenis_brg" id="jenis_brg" class="form-control" required>
                 <option value="">--Pilih Jenis--</option>
                 <option value="obat">Obat</option>
                 <option value="fashion">Fashion</option>
               </select>
-            </div> -->
+            </div>
             <div class="col-xs-4"><label>Satuan</label>
               <br />
               <select name="satuan_brg" id="satuan_brg" class="form-control" required>
@@ -72,7 +61,18 @@
               <input class="form-control" name="hrg_jual" type="number" id="hrg_jual" size="30"
                 placeholder="Angka saja" />
             </div>
-            <div class="col-xs-3"><label>Supplier</label>
+            <div class="col-xs-4"><label>Kategori</label>
+              <br />
+              <select name="kategori" id="kategori" class="form-control" required>
+                <option value="">--Pilih Kategori--</option>
+                <?php
+                $query = "SELECT * FROM tb_kategori ORDER BY nama_kategori";
+                $sql = mysqli_query($koneksi, $query);
+                while($data = mysqli_fetch_array($sql)){echo '<option value="'.$data['id_kategori'].'">'.$data['nama_kategori'].'</option>';}
+                ?>
+              </select>
+            </div>
+            <div class="col-xs-4"><label>Nama Supplier</label>
               <br />
               <select name="supplier" id="supplier" class="form-control" required>
                 <option value="">--Pilih Supplier--</option>

@@ -1,20 +1,3 @@
-<?php
-// include 'config/koneksi.php';           // Panggil koneksi ke database
-// include 'fungsi/base_url.php';  // Panggil fungsi base_url
-// include 'fungsi/navigasi.php';  // Panggil data navigasi
-// include 'fungsi/setting.php'; 
-if (isset($_POST['register'])) {
-	if (register($_POST) > 0) {
-		echo "<script>
-				alert ('pendaftaran anda berhasil');
-				</script>
-				";
-	}else{
-		echo mysqli_error($koneksi);
-	}
-}
-
- ?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -33,11 +16,11 @@ if (isset($_POST['register'])) {
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="" method="post" id="form-register">
+			<form class="form-detail" action="register_proses.php" method="post" id="form-register">
 				<div class="form-left">
 					<h2>Daftar Akun Baru</h2>
 							<div class="form-row">
-								<input type="text" name="nama" id="nama" size="30" class="company" placeholder="Nama Lengkap" required>
+								<input type="text" name="nama" id="nama" size="30" class="company" placeholder="Username" required>
 							</div>
 							<div class="form-row">
 								<label>Jenis Kelamin</label>
@@ -45,12 +28,12 @@ if (isset($_POST['register'])) {
 							<div class="form-group">
 							<div class="form-row form-row-1" >
 								<label class="container">Laki-Laki
-									<input type="radio" name="jenis_kelamin" value="Laki-laki">
+									<input type="radio" name="jenis_kelamin">
 									<span class="checkmark"></span>
 								  </label>
 								</div>
 								<div class="form-row form-row-2">
-								  <label class="container">Perempuan<input type="radio" name="jenis_kelamin" value="Perempuan" checked="checked">
+								  <label class="container">Perempuan<input type="radio" name="jenis_kelamin" checked="checked">
 									<span class="checkmark"></span>
 								  </label>
 								</div>
@@ -60,7 +43,7 @@ if (isset($_POST['register'])) {
 							<input type="password" name="password" id="password" class="input-text" placeholder="Password" required>
 						</div>
 						<div class="form-row form-row-2">
-							<input type="password" name="password2" id="cek()" class="input-text" placeholder="Confirm Password" required>
+							<input type="password2" name="password2" id="password2" class="input-text" placeholder="Confirm Password" required>
 						</div>
 					</div>
 				</div>
@@ -133,71 +116,4 @@ if (isset($_POST['register'])) {
 			</form>
 		</div>
 	</div>
-</body>
-<?php 
-include 'config/koneksi.php';
-function register($data){
-  $nama   = mysqli_real_escape_string($koneksi, $data['nama']);
-  $email   = mysqli_real_escape_string($koneksi, $data['email']);
-  $jenis_kelamin   = mysqli_real_escape_string($koneksi, $data['jenis_kelamin']);
-  $password = mysqli_real_escape_string($koneksi, $data['password']);
-  $password2 = mysqli_real_escape_string($koneksi, $data['password2']);
-  $alamat = mysqli_real_escape_string($koneksi, $data['alamat']);
-  $provinsi = mysqli_real_escape_string($koneksi, $data['provinsi']);
-  $kota = mysqli_real_escape_string($koneksi, $data['kota']);
-  $kec = mysqli_real_escape_string($koneksi, $data['kec']);
-  $kode_pos = mysqli_real_escape_string($koneksi, $data['kode_pos']);
-  $no_hp = mysqli_real_escape_string($koneksi, $data['no_hp']);
-  $email = mysqli_real_escape_string($koneksi, $data['email']);
-
-  $result = mysqli_query($koneksi, "SELECT email FROM tb_member WHERE email = '$email'");
-  if (mysqli_fetch_assoc($result)) {
-    echo "
-        <script>
-        alert ('mohon maaf email yang anda masukan sudah terdaftar!')
-        </script>";
-    return false;
-  }
-  //cek passqord sama dengan konfirmasinya
-
-  if ($password !== $password2) {
-    echo "
-        <script>
-        alert ('konfirmasi password tidak sesuai');
-        </script>
-        ";
-    return false;
-  }
-  $password = password_hash($password, PASSWORD_DEFAULT);
-  $status = 0;
-  $sql = "INSERT INTO tb_member (id_member,
-                                             nama,
-                                             alamat,
-                                             jenis_kelamin,
-                                             kecamatan,
-                                             kabupaten_kota,
-                                             provinsi,
-                                             kode_pos,
-                                             email,
-                                             no_hp,
-                                             password,
-                                             status)
-                                    VALUES('',
-                                          '$nama',
-                                          '$alamat',
-                                          '$jenis_kelamin',
-                                          '$kec',
-                                          '$kota',
-                                          '$provinsi',
-                                          '$kode_pos',
-                                          '$email',
-                                          '$no_hp',
-                                          '$password',
-                                          '$status') ";
-  mysqli_query($koneksi, $sql);
-  return mysqli_affected_rows($koneksi);
-  // tulis ('behasil daftar');
-}
- ?>
 </html>
-

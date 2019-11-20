@@ -52,10 +52,9 @@
       <nav class="main-menu mobile-menu">
         <ul>
           <li><a href="./index.html">Home</a></li>
-          <li><a href="./produk.html">Produk</a>
+          <li><a href="./katalog.html">Produk</a>
           </li>
           <li><a href="keranjang.html">Konfirmasi</a></li>
-          <li><a href="konsultasi.html">Konsultasi</a></li>
           <li><a href="#"> Tentang Kami</a>
             <ul class="sub-menu">
               <li>
@@ -85,7 +84,7 @@
   </div>
 </header>
 <?php
-      if(!empty($_SESSION['username']) && empty($_SESSION['akses']))
+      /*if(!empty($_SESSION['username']) && empty($_SESSION['akses']))
       {
         echo "
         <li>
@@ -103,7 +102,7 @@
       }
         else
         {
-        }
+        }*/
       ?>
 <div class="header-info">
   <div class="container-fluid">
