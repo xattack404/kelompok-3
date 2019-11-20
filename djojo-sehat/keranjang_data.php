@@ -8,11 +8,10 @@
 													  tb_keranjang.jumlah, tb_keranjang.subtotal,
 													  tb_barang.id_barang, tb_barang.nama_barang, tb_barang.judul,
 													  tb_barang.harga_jual, tb_barang.berat
-										
-										FROM tb_keranjang
-										LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
-										WHERE tb_keranjang.id_keranjang = '$faktur'
-										AND tb_keranjang.id_keranjang = '$sesen_id'");
+													FROM tb_keranjang
+													LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
+													WHERE tb_keranjang.id_keranjang = '$faktur'
+													AND tb_keranjang.id_keranjang = '$sesen_id'");
 
 		if(mysqli_num_rows($cek_keranjang) == 0)
 		{echo "<center><h4>Keranjang belanja anda masih kosong</h4></center>";}
@@ -145,7 +144,7 @@
 		      	$query 				= "SELECT sum(subtotal) AS subtotal FROM tb_keranjang
 														INNER JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
 														WHERE tb_keranjang.id_keranjang = '$faktur'
-														AND tb_keranjang.id_member = '$sesen_username'";
+														AND tb_keranjang.id_member = '$sesen_id'";
 						$hasil 				= mysqli_query($koneksi,$query);
 						$data 				= mysqli_fetch_assoc($hasil);
 						$subtotal 		= $data['subtotal'];
