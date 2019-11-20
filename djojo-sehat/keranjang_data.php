@@ -12,9 +12,10 @@
 										FROM tb_keranjang
 										LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
 										WHERE transaksi.notransaksi = '$faktur'
-										AND tb_keranjang.username = '$sesen_email'
-		if(mysqli_num_rows($cek_invoice) == 0)
-		{echo "<center><h4>Keranjang belanja anda masih kosong</h4></center>";}
+										AND tb_keranjang.username = '$sesen_email'");
+		if(mysqli_num_rows($cek_invoice) == 0){
+			echo "<center><h4>Keranjang belanja anda masih kosong</h4></center>";
+		}
 		else
 		{
 			echo "

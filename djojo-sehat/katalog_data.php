@@ -37,13 +37,13 @@ if($numrows > 0)
 ?>
 
   <?php 
-  //foreach ($data as $row) : 
+  //foreach ($data as $row) : <div class="col-md-4">
   ?> 
-          <div class="profile" >
-              <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="title">
+          <div class="col-md-4" >
+              <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="thumbnail">
                 <h1><?php echo $row['judul']; ?></h1></a>
             <div class="image-thumbnail">
-              <img src="<?=$base_url; ?>images/produk/<?= $row['foto_barang'] ?>"  width ="200px"alt="<?= $row['nama_barang'] ?>">
+              <img src="<?=$base_url; ?>images/produk/<?= $row['foto_barang'] ?>" class="img-responsive"  width ="200px"alt="<?= $row['nama_barang'] ?>">
             </div>
             
             <div class="name"><?= $harga_normal ?></div>          
