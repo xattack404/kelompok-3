@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/header.css" type="text/css">
     <header style ="background-image:url(<?php echo $base_url ?>template/Design/ecommerce.jpg)" class="header-section">
     <div id="preloder">
     <div class="loader"></div>
@@ -23,15 +22,16 @@
                 </div>
                 <div class="user-access">
                 <?php
+
       if(!empty($_SESSION['username']) && empty($_SESSION['akses']))
       {
         echo "
         <li>
-          <a href='#'> Hai, '.$sesen_nama.' 
+          <a href='#'> Hai, ".$sesen_nama." 
           </a>
           <ul class='sub-menu'>
             <li>
-              <a href='$base_url'.'logout'>Logout</a>
+              <a href='$base_url"."logout'>Logout</a>
             </li>
           </ul>
         </li>";
