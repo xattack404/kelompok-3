@@ -20,7 +20,7 @@
       <div class="header-right">
         <img src="<?php echo $base_url ?>template/Design/icons/search.png" alt="" class="search-trigger">
         <a href="keranjang.php">
-        <img src="<?php echo $base_url ?>template/Design/icons/man.png"  alt=""></a>
+        <img src="<?php echo $base_url ?>template/Design/icons/cart-1.png"  alt=""></a>
       </div>
       <?php
                 include 'fungsi/cek_session_public.php';
