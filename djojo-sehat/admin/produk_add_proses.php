@@ -23,7 +23,6 @@ if(isset($_POST['submit']))
   $supplier       = mysqli_real_escape_string($koneksi, $_POST['supplier']);
 
 
-
   $cekdata = "SELECT nama_barang FROM tb_barang WHERE nama_barang = '$nama' ";
   $ada     = mysqli_query($koneksi, $cekdata);
   if(mysqli_num_rows($ada) > 0)
