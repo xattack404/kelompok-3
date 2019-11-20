@@ -3,17 +3,16 @@
 		<?php
 		// Panggil data faktur
 		include 'faktur.php';
-		// Membuat join query 3 tabel: transaksi, transaksi_detail dan produk
-		$cek_invoice = 	mysqli_query($conn,"SELECT transaksi.notransaksi,transaksi.username,transaksi.status,
-										produk.id_produk,produk.nama_produk,produk.judul_seo,
-										transaksi_detail.berat,transaksi_detail.harga_diskon,transaksi_detail.jumlah,
-										transaksi_detail.jumlah_berat,transaksi_detail.subtotal
-										FROM transaksi_detail
-										LEFT JOIN transaksi ON transaksi.notransaksi = transaksi_detail.notransaksi
-										LEFT JOIN produk ON produk.id_produk = transaksi_detail.id_produk
+		// Membuat join query 2 tabel: transaksi, transaksi_detail dan produk
+		$cek_invoice = 	mysqli_query($koneksi,"SELECT tb_keranjang.id_keranjang, tb_keranjang.id_member, tb_keranjang.id_barang,
+													  tb_keranjang.jumlah, tb_keranjang.subtotal,
+													  tb_barang.id_barang, tb_barang.nama_barang, tb_barang.judul,
+													  tb_barang.harga_jual, tb_barang.berat
+										
+										FROM tb_keranjang
+										LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
 										WHERE transaksi.notransaksi = '$faktur'
-										AND transaksi.username = '$sesen_username'
-										AND transaksi.status = 0");
+										AND tb_keranjang.username = '$sesen_email'
 		if(mysqli_num_rows($cek_invoice) == 0)
 		{echo "<center><h4>Keranjang belanja anda masih kosong</h4></center>";}
 		else
