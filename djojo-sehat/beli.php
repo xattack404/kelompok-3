@@ -28,9 +28,6 @@ if(mysqli_num_rows($hasil_barang) > 0)
     
   }
 
-if($hasil > 0)
-{
-	    
       $cari_cart   = "SELECT * FROM tb_keranjang WHERE 'id_member = '$sesen_id'
                     AND id_barang = '$id_barang' AND id_keranjang = '$id_cart'";
       $hasil_cart  = mysqli_query($koneksi,$cari_cart);
@@ -80,7 +77,7 @@ if($hasil > 0)
               echo "Error updating record: " . mysqli_error($koneksi);
             }
         }
-      }
+      
 }
   else
   {
