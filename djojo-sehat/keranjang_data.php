@@ -165,7 +165,7 @@
 				  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Kosongkan Keranjang Belanja
 				</button>
 			</a>
-			<a href="<?php echo $base_url ?>">
+			<a href="./katalog.html">
 				<button name="hapus" type="button" class="btn btn-primary" aria-label="Left Align" title="Lanjut Belanja">
 				  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Lanjut Belanja
 				</button>
