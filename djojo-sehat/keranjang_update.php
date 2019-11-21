@@ -8,7 +8,6 @@ include "fungsi/cek_login_public.php";
 $cek    = "SELECT * FROM tb_keranjang WHERE id_member = '$sesen_id' ";
 $hasil  = mysqli_query($koneksi,$cek);
 $data   = mysqli_fetch_array($hasil);
-
 $n      = $_POST['n'];
 
 if(isset($_POST['update']))

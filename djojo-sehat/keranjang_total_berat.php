@@ -1,4 +1,5 @@
 <?php
+
 $sql_total_berat 		= mysqli_query($koneksi,"SELECT sum(berat) AS berat FROM tb_barang 
 						          INNER JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
 						          WHERE tb_keranjang.id_member = '$sesen_id'

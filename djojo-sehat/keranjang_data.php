@@ -1,5 +1,6 @@
 <div id="no-more-tables">
 	<form method="post" id="form1" action="keranjang_update.php">
+	
 		<?php
 		// Panggil data faktur
 		include 'faktur.php';
