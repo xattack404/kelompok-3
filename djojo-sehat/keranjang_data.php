@@ -11,8 +11,7 @@
 													  tb_barang.harga_jual, tb_barang.berat
 													FROM tb_keranjang
 													LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
-													WHERE tb_keranjang.id_keranjang = '$faktur'
-													AND tb_keranjang.id_member = '$sesen_id'");
+													WHERE tb_keranjang.id_member = '$sesen_id'");
 
 		if(mysqli_num_rows($cek_keranjang) == 0)
 		{echo "<center><h4>Keranjang belanja anda masih kosong</h4></center>";}
