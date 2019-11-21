@@ -1,6 +1,6 @@
 <div id="no-more-tables">
 	<form method="post" id="form1" action="keranjang_update.php">
-	
+
 		<?php
 		// Panggil data faktur
 		include 'faktur.php';
@@ -96,6 +96,7 @@
 	$array        = mysqli_fetch_array($keranjang);
 	$ongkir       = $array['jne_reg'];
 	$nama_kota_kec= $array['nama_kabkot'].', '.$array['nama_kec'];
+	//$ongkir 		= number_format($array['jne_reg'], 0, ',', '.');
 	if(mysqli_num_rows($keranjang) > 0)
 	{
 	?>
