@@ -34,9 +34,9 @@
 				</thead>";
 			$i = 1;
 
-			while($data_keranjang = mysqli_fetch_array($cek_keranjang))
+			while ($data_keranjang = mysqli_fetch_array($cek_keranjang))
 			{
-				$harga = number_format($data_keranjang['harga_jual'], 0, ',', '.');
+				$harga 			= number_format($data_keranjang['harga_jual'], 0, ',', '.');
 				$subtotal 		= number_format($data_keranjang['subtotal'], 0, ',', '.');
 
 				echo "

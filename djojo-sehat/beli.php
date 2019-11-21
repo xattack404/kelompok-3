@@ -1,9 +1,8 @@
 <?php session_start();
 include "config/koneksi.php";
 include "fungsi/base_url.php";
-//include "fungsi/cek_login_public.php";
 include "fungsi/cek_session_public.php";
-
+include "fungsi/cek_login_public.php";
 //ambil data barang sesuai ID
 $id_barang = mysqli_real_escape_string($koneksi,$_GET['id_barang']);
 $cari_barang  = "SELECT * FROM tb_barang WHERE id_barang = '$id_barang' ";
