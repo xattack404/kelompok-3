@@ -32,20 +32,17 @@ if(isset($_POST['update']))
       if(mysqli_num_rows($hasil2) > 0)
       {
         $jmlubah  = $_POST['jmlh'.$i];
-        $beratnew = $jmlubah * $data2['berat'];
+       // $beratnew = $jmlubah * $data2['berat'];
         $totubah  = $jmlubah * $harga;
 
-        if($jmlubah > $data2['jumlah'])
+        if($jmlubah > $data['jumlah'])
         {
-          header("location:keranjang.html");
-        }
-          else
-          {
-            $query = "UPDATE tb_keranjang SET jumlah            = '$jmlubah',,
-                                                  subtotal      = '$totubah'
+          //$id = $_GET['id'];
+            $query = "UPDATE tb_keranjang SET jumlah            = '$jmlubah',
+                                              subtotal          = '$totubah'
                                             WHERE id_keranjang  = '$faktur'
-                                            AND   id_member      = '$sesen_id'
-                                            AND   id_barang     = '$id_barang' ";
+                                            AND   id_member     = '$sesen_id'
+                                            AND   id_barang     = '$id_barang'";
 
             if(mysqli_query($koneksi, $query))
             {

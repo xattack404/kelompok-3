@@ -1,4 +1,5 @@
 <?php 
+
 if($_SESSION['akses'] == 'admin')
 {
   echo "Admin Area | $namatoko";
