@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
     if(in_array($file_ext, $allowed_ext) === true)
     {
       //Hapus photo yang lama jika ada
-      $del  = "SELECT gambar FROM tb_slider WHERE id_slider = '$id_slider' LIMIT 1";
+      $del  = "SELECT gambar FROM tb_slider WHERE id_slider = '$id_slider' ";
       $res  = mysqli_query($koneksi, $del);
       $d    = mysqli_fetch_object($res);
       if(file_exists($d->img))

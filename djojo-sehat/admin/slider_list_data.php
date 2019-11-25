@@ -28,7 +28,7 @@
                   <td style='text-align: center'>".$data['active']."</td>
                   <td style='text-align: center'>
                     <a href='slider_ubah.php?id_slider=$data[id_slider]'>
-                      <button type='submit' class='btn btn-primary'>Ubah</button>
+                      
                     </a>
                     <a href='slider_hapus.php?id_slider=$data[id_slider]'>
                       <button type='submit' class='btn btn-danger' OnClick=\"return confirm('Apakah Anda yakin?');\">Hapus</button>
