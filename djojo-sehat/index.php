@@ -4,6 +4,7 @@ include 'fungsi/base_url.php';            // Panggil fungsi base_url
 include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
 include 'fungsi/navigasi.php';            // Panggil data navigasi
 include 'fungsi/setting.php';             // Panggil data setting
+include 'record_keranjang.php';
 //pengunjung();
 ?>
 

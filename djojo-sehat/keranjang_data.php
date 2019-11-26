@@ -57,7 +57,7 @@
 								  <span class='glyphicon glyphicon-refresh' aria-hidden='true'></span>
 								</button>
 				      </a>
-				      <a href='keranjang_hapus.php?id=$data_keranjang[id_barang]'>
+				      <a href='keranjang_hapus.php?id=$data_keranjang[id_keranjang]'>
 				      	<button name='hapus' type='button' class='btn btn-danger' aria-label='Left Align' title='Hapus' OnClick=\"return confirm('Apakah Anda yakin?');\">
 								  <span class='glyphicon glyphicon-remove' aria-hidden='true'></span>
 								</button>

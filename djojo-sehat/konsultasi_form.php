@@ -28,7 +28,7 @@
                   <td valign="top" align="center"><?= $no; ?></td>
                   <td style="text-align: left"><?= $data['topik'] ?></td>
                   <td><?= $data['isi_konsultasi'] ?></td>
-                  <td><?= $data['balasan'] ?></td>
+                  <td><?= $data['balas_konsultasi'] ?></td>
                   <td style="text-align: center">
                     <a href="konsultasi_balas.php?id_konsultasi=<?= $data['id_konsultasi']?>" title="Balas" class="btn btn-warning btn-xs"><i
                 class="glyphicon glyphicon-pencil"></i>

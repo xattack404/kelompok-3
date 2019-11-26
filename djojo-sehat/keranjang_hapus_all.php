@@ -15,9 +15,10 @@ if(mysqli_num_rows($hasil) == 0)
 }
 else
 {
-	$faktur = $data['id_keranjang'];
+	$faktur = $data['id_member'];
+	
 
-	$query  = "DELETE FROM tb_keranjang WHERE id_keranjang = '$faktur' ";
+	$query  = "DELETE FROM tb_keranjang WHERE id_member = '$faktur' ";
 	
 	if(mysqli_query($koneksi, $query)) 
   {
