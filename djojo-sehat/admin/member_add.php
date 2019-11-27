@@ -71,15 +71,14 @@ include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tambah data at
             }
         });
       });
-      // $(':input:not([type="submit"])').each(function() {
-      //     $(this).focus(function() {
-      //     $(this).addClass('hilite');
-      //     }).blur(function() {
-      //     $(this).removeClass('hilite');});
-      //   });
+      $(':input:not([type="submit"])').each(function() {
+          $(this).focus(function() {
+          $(this).addClass('hilite');
+          }).blur(function() {
+          $(this).removeClass('hilite');});
+        });
       }); 
     </script>
-
-</body>
+   </body>
 
 </html>
