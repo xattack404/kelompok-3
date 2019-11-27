@@ -1,6 +1,5 @@
 <h3>Kategori</h3>
 <hr/>
-<div style="overflow:auto;height:250px;padding:1px;margin:10px auto;border:1px solid #eee">
   <?php
   // kategori
   $sql = "SELECT * FROM kategori ORDER BY judul_kat ASC"; // Memanggil kategori/ top kategori
@@ -37,4 +36,3 @@
     echo '</ul>';
   }
   ?>
-</div>
