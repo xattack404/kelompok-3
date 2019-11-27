@@ -40,7 +40,7 @@ if($numrows > 0)
       <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="title">
         <h4><?php echo $row['nama_barang']; ?></h4>
       </a>
-      <img width="200" height="200" alt="<?php echo $row['nama_barang']; ?>" src="<?php echo $base_url ?>images/produk/<?php echo $row['foto_barang']; ?>"/>
+      <img alt="<?php echo $row['nama_barang']; ?>" src="<?php echo $base_url ?>images/produk/<?php echo $row['foto_barang']; ?>" style="width: 200px;"/>
       <div class="caption">
         <h4>Rp <?php echo $harga_normal ?></h4>
         <a href="<?php echo $base_url ?>beli/<?php echo $row['id_barang']; ?>" class="btn btn-primary">Beli</a>

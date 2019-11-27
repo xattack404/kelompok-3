@@ -14,26 +14,47 @@
             <?php include "../fungsi/time.php"; ?>
           </a>
         </li>
-        <style>
-          .avatar .message-preview{ float:left; margin-right: 15px; display: block;}
-          .name{font-weight: bold;display: block;}
-          .message .time{font-size: 12px; display: block;float: left;}
-        </style>
-        <li class="dropdown messages-dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Konsultasi <span class="badge">7</span> <b class="caret"></b></a>
-          <ul class="dropdown-menu" style="min-width: 400px; margin-right: 20px;">
-            <li class="dropdown-header" width="225" >7 New Messages</li>
-                <li class="message-preview">
-                  <a href="#" style="white-space: normal; width: 400px">
-                    <span class="avatar" style="float:left;"><img src="http://placehold.it/50x50"></span>
-                    <span class="name">John Smith:</span>
-                    <span class="message">coba cobaa</span>
-                  </a>
-                  <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
-                </li>
-                <li class="divider"></li>
-          </ul>
-        </li>
+        <?php
+        $kon = "SELECT * FROM tb_konsultasi a 
+                LEFT JOIN tb_member b on b.id_member = a.id_member
+                LEFT JOIN tb_topik d on d.id_topik = a.id_topik WHERE balas_konsultasi=''"; 
+        $kons = mysqli_query($koneksi, $kon);
+        $kons_jum = mysqli_num_rows($kons);
+        ?>
+        <!-- untuk message -->
+        <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success"><?= $kons_jum ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">kamu punya <?= $kons_jum ?> konsultasi</li>
+              
+              <li>
+                
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li><!-- start message -->
+                    <?php while ($konsultasi = mysqli_fetch_array($kons)) { ?>
+                    <a href="konsultasi_balas.php?id_konsultasi=<?=$konsultasi['id_konsultasi'];?>">
+                      <div class="pull-left">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        <?= $konsultasi['email']; ?>
+                      </h4>
+                      <p><?= $konsultasi['isi_konsultasi'];?></p>
+                    </a>
+                    <?php }//endforeach; ?>
+                  </li>
+                  <!-- end message -->
+                
+                </ul>
+              </li>
+              <li class="footer"><a href="konsultasi_list.php">See All Messages</a></li>
+            </ul>
+          </li>
+        <!-- tutup message -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="../images/admin.png" width="160px" height="160px" class="user-image" alt="User Image" />

@@ -33,7 +33,7 @@
           <td style="text-align: center"><?= $data['nama_admin'] ?></td>
           <td style="text-align: center">
             <a href="konsultasi_balas.php?id_konsultasi=<?=$data['id_konsultasi'];?>" title="ubah Data" class="btn btn-primary btn-xs"><i
-                class="glyphicon glyphicon-pencil">&nbsp;<b>Balas</b> </i></a>
+                class="fa fa-comments">&nbsp;<b>Balas</b> </i></a>
             <a href="konsultasi_hapus.php?id_konsultasi=<?=$data['id_konsultasi'];?>" title="Hapus Data" class="btn btn-danger btn-xs"
               OnClick="return confirm('Apakah Anda yakin?');"><i class="glyphicon glyphicon-trash">&nbsp;<b>Hapus</b></i></a>
           </td>
