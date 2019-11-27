@@ -145,8 +145,7 @@
 		      	<?php
 		      	$query 				= "SELECT sum(subtotal) AS subtotal FROM tb_keranjang
 														INNER JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
-														WHERE tb_keranjang.id_keranjang = '$faktur'
-														AND tb_keranjang.id_member = '$sesen_id'";
+														WHERE tb_keranjang.id_member = '$sesen_id'";
 						$hasil 				= mysqli_query($koneksi,$query);
 						$data 				= mysqli_fetch_assoc($hasil);
 						$subtotal 		= $data['subtotal'];
