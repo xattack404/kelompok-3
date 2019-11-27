@@ -1,6 +1,7 @@
 <?php 
 include "fungsi/cek_session_public.php"; 
 include "fungsi/cek_login_public.php"; 
+error_reporting(0);
 
 $cari  = "SELECT * FROM tb_keranjang WHERE id_member = '$sesen_id' ORDER BY id_keranjang DESC";
 $query = mysqli_query($koneksi,$cari);
