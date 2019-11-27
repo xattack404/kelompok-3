@@ -155,95 +155,123 @@ include 'navbar.php';
         <div class="col-lg-3 col-sm-6 mix all dresses bags">
           <div class="single-product-item">
             <figure>
-              <a href="#"><img src="img/products/img-1.jpg" alt=""></a>
-              <div class="p-status">new</div>
-            </figure>
+            <marquee direction="up" height="175" width="160" scrollamount="3" scrolldelay="1" onMouseOut="this.start()" onMouseOver="this.stop()">
+            <?php
+    include 'config/koneksi.php';
+    $sql    = "SELECT * FROM bseller JOIN produk ON bseller.judul_bs = produk.id_produk ORDER BY no_urut ASC LIMIT 8";
+    $result = mysqli_query($koneksi, $sql);
+    $no = 1;
+    if (mysqli_num_rows($result) > 0)
+    {
+      while ($data = mysqli_fetch_array($result)) // Ganti id_barang apabila ingin merubah menjadi seo url ke judul_seo
+      {
+        echo "<b><font face='arial' size='2' color=red'>".$data['no_urut']."</font></b>
+              <a href='$base_url"."produk/".$data['judul_seo'].".html' class='info'>
+                <br><font color='blue'>".$data['nama_produk']."</font><br>
+                <img id='image' src='$base_url"."images/produk/".$data['img']." ' title='".$data['nama_produk']."' alt='".$data['nama_produk']."' style='width:150px; height:150px;' valign='top'/>
+              </a>
+              <br/>
+              <br/>
+              <br/>
+              ";
+          $no++;
+      }
+    }
+    else
+    {
+      echo "<div id='description'>Belum ada data.</div>";
+    }
+    ?>
+    </p>
+            </marquee>
             <div class="product-text">
-              <h6>Green Dress with details</h6>
-              <p>$22.90</p>
+              <h6></h6>
+              <p></p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 mix all dresses bags">
           <div class="single-product-item">
             <figure>
-              <a href="#"><img src="img/products/img-2.jpg" alt=""></a>
-              <div class="p-status sale">sale</div>
+            <?php
+  // kategori
+  $sql = "SELECT * FROM kategori ORDER BY judul_kat ASC"; // Memanggil kategori/ top kategori
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) > 0)
+  {
+    echo '<ul class="list-group">';
+    while ($row = mysqli_fetch_assoc($result))
+    {
+      $id_kat = $row['id_kat'];
+      // subkat
+      $sql2 = "SELECT * FROM subkat WHERE id_kat='$id_kat'"; // Memanggil subkategori/ middle kategori
+      $result2 = mysqli_query($koneksi, $sql2);
+      echo '<li class="list-group-item"><b>'.$row['judul_kat'].'</b>';
+        echo '<ul class="list-group">';
+          while($row2 = mysqli_fetch_assoc($result2))
+          {
+            $id_subkat = $row2['id_subkat'];
+            // supersubkat
+            $sql3 = "SELECT * FROM supersubkat WHERE id_subkat ='$id_subkat'"; // Memanggil supersubkategori/ bottom kategori
+            $result3 = mysqli_query($koneksi, $sql3);
+            echo '<li class="list-group-item">'.$row2['judul_subkat'];
+                echo '<ul class="list-group">';
+                  while($row3 = mysqli_fetch_assoc($result3))
+                  {
+                    echo "<li class='list-group-item'><a href='$base_url"."kategori/$row3[kategori_seo]'>".$row3['judul_supersubkat']."</a></li>";
+                  }
+                echo '</ul>';
+            echo '</li>';
+          }
+        echo '</ul>';
+      echo '</li>';
+    }
+    echo '</ul>';
+  }
+  ?>
+
             </figure>
             <div class="product-text">
-              <h6>Yellow Maxi Dress</h6>
-              <p>$25.90</p>
+              <h6></h6>
+              <p></p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 mix all shoes accesories">
           <div class="single-product-item">
             <figure>
-              <a href="#"><img src="img/products/img-3.jpg" alt=""></a>
-              <div class="p-status">new</div>
+            <?php
+  $query = "SELECT isi FROM navigasi WHERE id_nav = 4 ";
+  $hasil = mysqli_query($koneksi, $query);
+  $data  = mysqli_fetch_array($hasil);
+  if(mysqli_num_rows($hasil) > 0)
+  {
+    echo $data['isi'];
+  }
+  else{echo "Belum ada data";}
+?>
             </figure>
             <div class="product-text">
-              <h6>One piece bodysuit</h6>
-              <p>$19.90</p>
+              <h6></h6>
+              <p></p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 mix all shoes accesories">
           <div class="single-product-item">
             <figure>
-              <a href="#"><img src="img/products/img-4.jpg" alt=""></a>
-              <div class="p-status popular">popular</div>
+            <?php 
+$query = "SELECT isi FROM navigasi WHERE id_nav = 6";
+$hasil = mysqli_query($koneksi, $query);
+$data  = mysqli_fetch_array($hasil);
+if(mysqli_num_rows($hasil) > 0)
+{echo $data['isi'];}
+else{echo "Belum ada data";}
+?>
             </figure>
             <div class="product-text">
-              <h6>Blue Dress with details</h6>
-              <p>$35.50</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 mix all dresses shoes">
-          <div class="single-product-item">
-            <figure>
-              <a href="#"><img src="img/products/img-5.jpg" alt=""></a>
-              <div class="p-status">new</div>
-            </figure>
-            <div class="product-text">
-              <h6>Green Dress with details</h6>
-              <p>$22.90</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 mix all accesories bags">
-          <div class="single-product-item">
-            <figure>
-              <a href="#"><img src="img/products/img-6.jpg" alt=""></a>
-              <div class="p-status sale">sale</div>
-            </figure>
-            <div class="product-text">
-              <h6>Yellow Maxi Dress</h6>
-              <p>$25.90</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 mix all dresses bags">
-          <div class="single-product-item">
-            <figure>
-              <a href="#"><img src="img/products/img-7.jpg" alt=""></a>
-            </figure>
-            <div class="product-text">
-              <h6>One piece bodysuit</h6>
-              <p>$19.90</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 mix all accesories bags">
-          <div class="single-product-item">
-            <figure>
-              <a href="#"><img src="img/products/img-8.jpg" alt=""></a>
-              <div class="p-status popular">popular</div>
-            </figure>
-            <div class="product-text">
-              <h6>Blue Dress with details</h6>
-              <p>$35.50</p>
+              <h6></h6>
+              <p></p>
             </div>
           </div>
         </div>
@@ -253,27 +281,6 @@ include 'navbar.php';
   <!-- Latest Product End -->
 
   <!-- Lookbok Section Begin -->
-  <section class="lookbok-section">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-4 offset-lg-1">
-          <div class="lookbok-left">
-            <div class="section-title">
-              <h2>2019 <br />Fashion</h2>
-            </div>
-            <p></p>
-            <a href="#" class="primary-btn look-btn">See More</a>
-          </div>
-        </div>
-        <div class="col-lg-5 offset-lg-1">
-          <div class="lookbok-pic">
-            <img src="img/lookbok.jpg" alt="">
-            <div class="pic-text">Fashion</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- Lookbok Section End -->
 
   <!-- Logo Section Begin -->

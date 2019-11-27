@@ -4,8 +4,9 @@
   <marquee direction="up" height="175" width="160" scrollamount="3" scrolldelay="1" onMouseOut="this.start()" onMouseOver="this.stop()">
     <p align="center">
     <?php
+    include 'config/koneksi.php';
     $sql    = "SELECT * FROM bseller JOIN produk ON bseller.judul_bs = produk.id_produk ORDER BY no_urut ASC LIMIT 8";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($koneksi, $sql);
     $no = 1;
     if (mysqli_num_rows($result) > 0)
     {
