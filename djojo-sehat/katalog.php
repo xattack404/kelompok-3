@@ -14,17 +14,14 @@ include 'fungsi/setting.php';             // Panggil data setting
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?php echo $katalog['seo_deskripsi'] ?>" />
     <meta name="keywords" content="<?php echo $katalog['seo_keywords'] ?>" />
-    
-    <link href="<?php echo $base_url ?>template/css/custom.css" rel="stylesheet">
-    <link href="<?php echo $base_url ?>template/css/jquery.fancybox.css" rel="stylesheet"/>
     <meta name="author" content="<?php echo $author ?>" />    
     <!-- CSS Bootstrap -->
-    <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo $base_url ?>template/css/stylegaleri.css" rel="stylesheet">
-    <link href="<?php echo $base_url ?>template/fonts/font-awesome4.3.0/css/font-awesome.css" rel="stylesheet">
-    <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet"><link rel="stylesheet">
-    <!-- Favicon -->
-    <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="<?php echo $base_url ?>template/css/bootstrap.min.css" type="text/css">
+  <!-- Favicon -->
+  <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon" />
   </head>
   <body>
     <?php include 'navbar.php'; ?>
@@ -42,18 +39,12 @@ include 'fungsi/setting.php';             // Panggil data setting
                 <?php include 'katalog_data.php'; ?>
               </div>
             </div>
-            <?php $data     = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang DESC LIMIT $start, $per_halaman");
-              // $numrows  = mysqli_num_rows($data); ?>
-                <div class="text-center" id="w<?= $row['id_barang'] ?>">
-         
           </div>
-
         </div>
-
 
         <?php include 'sidebar.php'; ?>
 
-
+      </div>
       
       <hr/>
 
@@ -62,32 +53,9 @@ include 'fungsi/setting.php';             // Panggil data setting
     </div>
     
     <!-- Memanggil file JS -->
-    <script src="<?php echo $base_url ?>template/js/jquery2.js"></script>
-    <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $(".tmb").click(function() {
-        var id = $(this).attr('id'); // $(this) refers to button that was clicked
-        var tableid = "#t"+id;
-        var tombolid = "#"+id;
-        var wadahid = "#w"+id;
-        $(tableid).toggle(
-          function(){
-          if($(tableid).is(":visible")){
-            $(tableid).show();
-            $(tombolid).html("<i class='fa fa-eye-slash'></i> Sembunyikan Detail");
-            $(wadahid).css('transition','0.5s');
-            $(wadahid).css('width','600px');
-          } else {
-            
-            $(tombolid).html("<i class='fa fa-eye'></i> Detail");
-            $(wadahid).css('width','200px');
-            $(tableid).hide();
-          }
-        }
-        );
-         
-    });
-  </script>
+    <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
+  <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
+  <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
@@ -95,6 +63,5 @@ include 'fungsi/setting.php';             // Panggil data setting
   <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
-  
   </body>
 </html>

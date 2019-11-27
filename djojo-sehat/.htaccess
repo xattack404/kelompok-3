@@ -2,7 +2,7 @@ RewriteEngine On
 RewriteRule ^beli/([^/]*)$ beli.php?id_barang=$1 [L]
 RewriteRule ^kategori/([^/]*)$ kategori.php?id_supersubkat=$1 [QSA]
 RewriteRule ^page/([^/]*)\.html page.php?id_nav=$1 [QSA]
-RewriteRule ^produk/([^/]*)\.html produk.php?id_produk=$1 [QSA]
+RewriteRule ^katalog/([^/]*)\.html katalog.php?id_produk=$1 [QSA]
 
 RewriteRule ^invoice/([^/]*)$ invoice.php?notransaksi=$1 [L]
 RewriteRule ^katalog/halaman/([^/]*)/$ katalog.php?halaman=$1 [L]
