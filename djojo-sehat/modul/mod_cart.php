@@ -2,22 +2,24 @@
 <hr/>
 <table width="100%" align="center" cellpadding="3">
 	<?php
-	if(isset($sesen_username))
+	if(isset($sesen_id))
 	{
-		$query 		= "SELECT * FROM transaksi_detail
-								INNER JOIN produk ON produk.id_produk = transaksi_detail.id_produk
-								INNER JOIN transaksi ON transaksi.notransaksi = transaksi_detail.notransaksi
-								WHERE transaksi_detail.username = '$sesen_username' AND transaksi.status = '0' LIMIT 3";
-		$hasil 		= mysqli_query($conn,$query);
+		$query 		= "SELECT tb_keranjang.id_keranjang, tb_keranjang.id_member,
+		 tb_keranjang.id_barang,tb_keranjang.subtotal,tb_keranjang.jumlah,tb_barang.id_barang, 
+		 tb_barang.nama_barang,  tb_barang.judul,tb_barang.harga_jual
+						    FROM tb_keranjang
+							LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
+							WHERE tb_keranjang.id_member = '$sesen_id'";
+		$hasil 		= mysqli_query($koneksi,$query);
 		if (mysqli_num_rows($hasil) > 0)
 		{
 			while ($data = mysqli_fetch_array($hasil))
 			{
 				echo "
 							<tr>
-								<td><a href='$base_url"."produk/$data[judul_seo].html'/><b>".$data['nama_produk']."</b></a>
+								<td><a href='$base_url"."produk/$data[judul].html'/><b>".$data['nama_barang']."</b></a>
 								<br>
-								Rp ".number_format($data['harga_diskon'], 0, ',', '.')." x ".$data['jumlah']." = Rp ".number_format($data['subtotal'], 0, ',', '.')."
+								Rp ".number_format($data['harga_jual'], 0, ',', '.')." x ".$data['jumlah']." = Rp ".number_format($data['subtotal'], 0, ',', '.')."
 								<br><br>
 								</td>
 							</tr>";

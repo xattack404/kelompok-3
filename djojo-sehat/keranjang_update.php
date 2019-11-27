@@ -42,6 +42,7 @@ if(isset($_POST['update']))
    //apabila jumlah ubah lebih besar/kecil dari pada data jumlah yang ada di TBkeranjang maka update
         if($jmlubah != $data['jumlah'])
         {
+          
           //$id = $_GET['id'];
             $query = "UPDATE tb_keranjang SET jumlah            = '$jmlubah',
                                               subtotal          = '$totubah'
