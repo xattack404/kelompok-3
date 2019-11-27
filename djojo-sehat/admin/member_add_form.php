@@ -69,7 +69,7 @@
               </div>
               <div class="col-xs-6">
                 <div class="form-group"><label>No HP</label>
-                  <input type="number" name="no_hp" class="form-control" placeholder="angka saja" required />
+                  <input type="number" name="no_hp" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="angka saja" required />
                 </div>
               </div>
           </div><!-- tutup row-->
