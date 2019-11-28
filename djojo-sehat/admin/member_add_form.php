@@ -64,12 +64,12 @@
           <div class="row">
               <div class="col-xs-6">
                 <div class="form-group"><label>Email</label>
-                  <input type="text" name="email" class="form-control" placeholder="@gmail/ @ apa saja" required />
+                  <input type="text" name="email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="@gmail/ @ apa saja" required />
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="form-group"><label>No HP</label>
-                  <input type="number" name="no_hp" class="form-control" placeholder="angka saja" required />
+                  <input type="number" name="no_hp" class="form-control"  placeholder="angka saja" />
                 </div>
               </div>
           </div><!-- tutup row-->

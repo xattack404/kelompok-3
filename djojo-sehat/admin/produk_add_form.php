@@ -24,15 +24,25 @@
       <div class="box box-primary">
         <div class="box-body">
           <div class="row">
-            <div class="col-xs-4"><label>Jenis Barang</label>
-              <br />
-              <select name="jenis_brg" id="jenis_brg" class="form-control" required>
-                <option value="">--Pilih Jenis--</option>
-                <option value="obat">Obat</option>
-                <option value="fashion">Fashion</option>
-              </select>
+            <div class="col-xs-4"><label>Harga Beli</label>
+              <input class="form-control" name="hrg_beli" type="number" id="hrg_beli" size="30"
+                placeholder="Angka saja" />
             </div>
-            <div class="col-xs-4"><label>Satuan</label>
+            <div class="col-xs-4"><label>Harga Jual</label>
+              <input class="form-control" name="hrg_jual" type="number" id="hrg_jual" size="30"
+                placeholder="Angka saja" />
+            </div>
+          </div><br />
+          <div class="row">
+            <div class="col-xs-3"><label>Jumlah Barang</label>
+              <input class="form-control" name="jumlah_brg" type="number" id="b" size="30" placeholder="Isi angka saja"
+                onkeyup="hitung();" />
+            </div>
+            <div class="col-xs-3"><label>Berat</label>
+              <input class="form-control" name="berat_brg" type="number" id="berat_brg" size="30"
+                placeholder="Per Gram" />
+            </div>
+             <div class="col-xs-4"><label>Satuan</label>
               <br />
               <select name="satuan_brg" id="satuan_brg" class="form-control" required>
                 <option value="">--Pilih Satuan--</option>
@@ -42,24 +52,6 @@
                 while($data = mysqli_fetch_array($sql)){echo '<option value="'.$data['id_satuan'].'">'.$data['nama_satuan'].'</option>';}
                 ?>
               </select>
-            </div>
-            <div class="col-xs-4"><label>Jumlah Barang</label>
-              <input class="form-control" name="jumlah_brg" type="number" id="b" size="30" placeholder="Isi angka saja"
-                onkeyup="hitung();" />
-            </div>
-          </div><br />
-          <div class="row">
-            <div class="col-xs-3"><label>Berat</label>
-              <input class="form-control" name="berat_brg" type="number" id="berat_brg" size="30"
-                placeholder="Per Gram" />
-            </div>
-            <div class="col-xs-3"><label>Harga Beli</label>
-              <input class="form-control" name="hrg_beli" type="number" id="hrg_beli" size="30"
-                placeholder="Angka saja" />
-            </div>
-            <div class="col-xs-3"><label>Harga Jual</label>
-              <input class="form-control" name="hrg_jual" type="number" id="hrg_jual" size="30"
-                placeholder="Angka saja" />
             </div>
             <div class="col-xs-4"><label>Kategori</label>
               <br />

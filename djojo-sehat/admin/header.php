@@ -14,6 +14,26 @@
             <?php include "../fungsi/time.php"; ?>
           </a>
         </li>
+        <style>
+          .avatar .message-preview{ float:left; margin-right: 15px; display: block;}
+          .name{font-weight: bold;display: block;}
+          .message .time{font-size: 12px; display: block;float: left;}
+        </style>
+        <li class="dropdown messages-dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Konsultasi <span class="badge">7</span> <b class="caret"></b></a>
+          <ul class="dropdown-menu" style="min-width: 400px; margin-right: 20px;">
+            <li class="dropdown-header" width="225" >7 New Messages</li>
+                <li class="message-preview">
+                  <a href="#" style="white-space: normal; width: 400px">
+                    <span class="avatar" style="float:left;"><img src="http://placehold.it/50x50"></span>
+                    <span class="name">John Smith:</span>
+                    <span class="message">coba cobaa</span>
+                  </a>
+                  <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
+                </li>
+                <li class="divider"></li>
+          </ul>
+        </li>
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="../images/admin.png" width="160px" height="160px" class="user-image" alt="User Image" />
