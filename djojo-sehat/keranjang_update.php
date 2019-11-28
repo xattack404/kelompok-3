@@ -36,7 +36,7 @@ if(isset($_POST['update']))
       {
         //maka hitung berat baru dan subtotal ubah setiap barang
         $jmlubah  = $_POST['jmlh'.$i];
-       // $beratnew = $jmlubah * $data2['berat'];
+        $beratnew = $jmlubah * $data2['berat'];
         $totubah  = $jmlubah * $harga;
         
    //apabila jumlah ubah lebih besar/kecil dari pada data jumlah yang ada di TBkeranjang maka update
@@ -45,8 +45,9 @@ if(isset($_POST['update']))
           
           //$id = $_GET['id'];
             $query = "UPDATE tb_keranjang SET jumlah            = '$jmlubah',
+                                              berat             = '$beratnew',
                                               subtotal          = '$totubah'
-                                            WHERE   id_member     = '$sesen_id'
+                                            WHERE   id_member   = '$sesen_id'
                                             AND   id_barang     = '$id_barang'";
 
             if(mysqli_query($koneksi, $query))

@@ -39,11 +39,13 @@ if(mysqli_num_rows($hasil_barang) > 0)
                                                 id_member,
                                                 id_barang,
                                                 jumlah,
+                                                berat,
                                                 subtotal)
                                         VALUES ('',
                                                 '$sesen_id',
                                                 '$id_barang',
                                                 '1',
+                                                '$berat',
                                                 '$harga')";
 
         if(mysqli_query($koneksi, $query1))

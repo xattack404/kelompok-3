@@ -1,7 +1,6 @@
 <?php
 
-$sql_total_berat 		= mysqli_query($koneksi,"SELECT sum(berat) AS berat FROM tb_barang 
-												 INNER JOIN tb_keranjang ON tb_keranjang.id_barang = tb_barang.id_barang
+$sql_total_berat 		= mysqli_query($koneksi,"SELECT sum(berat) AS berat FROM tb_keranjang 
 												 WHERE tb_keranjang.id_member = '$sesen_id' ");
 $data 							= mysqli_fetch_array($sql_total_berat);
 $jumlah_berat 		= $data['berat'];
