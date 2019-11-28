@@ -28,8 +28,7 @@ if(mysqli_num_rows($hasil_barang) > 0)
     
   }
 
-      $cari_cart   = "SELECT * FROM tb_keranjang WHERE 'id_member = '$sesen_id'
-                    AND id_barang = '$id_barang' AND id_keranjang = '$id_cart'";
+      $cari_cart   = "SELECT * FROM tb_keranjang WHERE  id_barang = '$id_barang'";
       $hasil_cart  = mysqli_query($koneksi,$cari_cart);
       $data_cart   = mysqli_fetch_array($hasil_cart);
 
@@ -67,8 +66,9 @@ if(mysqli_num_rows($hasil_barang) > 0)
           $jmlberattambah   = $jmlberatlama * $jmltambah;
 
           $query = "UPDATE tb_keranjang SET jumlah            = '$jmltambah',
+                                            berat             = '$jmlberattambah',
                                             subtotal          = '$subtotaltambah'
-                                          WHERE id_keranjang  = '$id_cart' AND id_barang = '$id_barang'";
+                                          WHERE  id_barang = '$id_barang'";
 
           if(mysqli_query($koneksi, $query))
           {
