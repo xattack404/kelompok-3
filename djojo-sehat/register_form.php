@@ -16,7 +16,7 @@
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="register_proses.php" method="post" id="form-register">
+			<form class="form-detail" action="send.php" method="post" id="form-register">
 				<div class="form-left">
 					<h2>Daftar Akun Baru</h2>
 							<div class="form-row">
@@ -52,7 +52,7 @@
 				<div class="form-right">
 					<h2>Detail Alamat</h2>
 					<div class="form-row">
-						<input type="text" name="alamat" class="street" id="alamat" placeholder="Alamat" required>
+						<input type="text" name="alamat" class="street" id="alamat"  placeholder="Alamat" required>
 						<p class="alamat" style="color: red;"></p>
 					</div>
 					<div class="form-row form-row-2">
@@ -101,7 +101,7 @@
 								<p class="kopos" style="color: red;"></p>
 							</div>
 						<div class="form-row form-row-2">
-							<input type="number" name="telepon" class="phone" id="telepon" placeholder="No Telepon" pattern ="{12}" required>
+							<input type="number" name="telepon" class="phone" id="telepon" size="12" placeholder="No Telepon" pattern ="{12}" required>
 							<p class="telepon" style="color: red;"></p>
 						</div>
 					</div>
@@ -112,7 +112,7 @@
 					<div class="form-checkbox">
 					</div>
 					<div class="form-row-last">
-						<input type="submit" name="register" class="register" value="Register">
+						<input type="submit" id = "submit" name="submit" class="register" value="Register">
 					</div>
 				</div>
 			</form>
@@ -156,12 +156,50 @@
 </script>
 <script>
 	// validasi nomor telepon
+$('#telepon').on('keypress',function(){
+	if (this.value.length == 12){
+		return false;
+	}
+});
 	$('#telepon').on('keyup', function(){
-				var regex = /^([0-9])+$/;
+				var regex = /^[0-9]$/;
 				if (regex.test(this.value) !== true) {
 				this.value = this.value.replace(/[^0-9]+/, '');
-				}else{
+				}
+				else{
 				$('.telepon').text('');
+				}
+				});
+</script>
+<script>
+	// validasi kode pos
+$('#kopos').on('keypress',function(){
+	if (this.value.length == 5){
+		return false;
+	}
+});
+	$('#kopos').on('keyup',function(){
+		var regex = /^[0-9]$/;
+		if (regex.test(this.value) !==true){
+			this.value = this.value.replace(/^[0-9]$/, '');
+		}else{
+			$('.kopos').text('');
+		}
+	});
+</script>
+<script>
+$('#alamat').on('keypress',function(){
+	if (this.value.length == 50){
+		return false;
+	}
+});
+$('#alamat').on('keyup', function(){
+				var regex = /^[., a-zA-Z0-9]$/;
+				if (regex.test(this.value) !== true) {
+				this.value = this.value.replace(/[^., a-zA-Z0-9]+/, '');
+				}
+				else{
+				$('.alamat').text('');
 				}
 				});
 </script>
