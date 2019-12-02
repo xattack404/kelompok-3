@@ -38,7 +38,7 @@ if(mysqli_num_rows($hasil_barang) > 0)
                                                 id_member,
                                                 id_barang,
                                                 jumlah,
-                                                berat,
+                                                jumlah_berat,
                                                 subtotal)
                                         VALUES ('',
                                                 '$sesen_id',
@@ -62,11 +62,11 @@ if(mysqli_num_rows($hasil_barang) > 0)
           $jmltambah        = $jmllama + 1;
           $subtotaltambah   = $jmltambah * $harga;
 
-          $jmlberatlama     = $data_barang ['berat'];
+          $jmlberatlama     = $data_barang ['jumlah_berat'];
           $jmlberattambah   = $jmlberatlama * $jmltambah;
 
           $query = "UPDATE tb_keranjang SET jumlah            = '$jmltambah',
-                                            berat             = '$jmlberattambah',
+                                            jumlah_berat             = '$jmlberattambah',
                                             subtotal          = '$subtotaltambah'
                                           WHERE  id_barang = '$id_barang'";
 

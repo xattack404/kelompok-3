@@ -11,7 +11,7 @@ RewriteRule ^testimoni/halaman/([^/]*)/$ testimoni.php?halaman=$1 [L]
 
 RewriteRule ^index.html index.php [NC,L]
 RewriteRule ^keranjang.html keranjang.php [NC,L]
-RewriteRule ^checkout.html checkout.php [NC,L]
+
 RewriteRule ^end_transaction.html end_transaction.php [NC,L]
 RewriteRule ^katalog.html katalog.php [NC,L]
 RewriteRule ^konsultasi.html konsultasi.php [NC,L]

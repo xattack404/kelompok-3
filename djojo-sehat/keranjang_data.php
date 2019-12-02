@@ -6,7 +6,7 @@
 		include 'faktur.php';
 		// Membuat join query 2 tabel: transaksi, transaksi_detail dan produk
 		$cek_keranjang = 	mysqli_query($koneksi,"SELECT tb_keranjang.id_keranjang, tb_keranjang.id_member, tb_keranjang.id_barang,
-													  tb_keranjang.jumlah, tb_keranjang.subtotal,
+													  tb_keranjang.jumlah,tb_keranjang.jumlah_berat, tb_keranjang.subtotal,
 													  tb_barang.id_barang, tb_barang.nama_barang, tb_barang.judul,
 													  tb_barang.harga_jual, tb_barang.berat
 													FROM tb_keranjang
@@ -44,7 +44,7 @@
 						<td data-title='No.' align='center'>$i</td>
 			    	<td data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_keranjang[judul].html'>$data_keranjang[nama_barang]</a></td>
 				    <td data-title='Harga ' align='right'>$harga,-</td>
-				    <td data-title='Berat' align='center'>$data_keranjang[berat]</td>
+				    <td data-title='Berat' align='center'>$data_keranjang[jumlah_berat]</td>
 				    <td data-title='Qty' align='center'>
 				      <input type='hidden' name='id".$i."' value='$data_keranjang[id_barang]'/>
 				      <input type='text' name='jmlh".$i."' value='$data_keranjang[jumlah]' size='3' onkeypress='return isNumberKey(event)'/>
@@ -171,7 +171,7 @@
 			if(mysqli_num_rows($keranjang) > 0)
 			{
 				echo "
-				<a href='checkout.html'>
+				<a href='checkout.php'>
 					<button name='selesaikan' type='button' class='btn btn-success' aria-label='Left Align' title='Selesaikan Belanja' OnClick=\"return confirm('Apakah Anda yakin?');\">
 					  <span class='glyphicon glyphicon-check' aria-hidden='true'></span> Selesaikan Belanja
 					</button>
