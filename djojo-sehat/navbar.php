@@ -109,20 +109,14 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="header-item">
-          <img src="<?php echo $base_url ?>template/Design/icons/delivery.png" alt="">
-          <p>Free shipping on orders over $30 in USA</p>
         </div>
       </div>
       <div class="col-sm-4 text-left text-lg-center">
         <div class="header-item">
-          <img src="<?php echo $base_url ?>template/Design/icons/voucher.png" alt="">
-          <p>20% Student Discount</p>
         </div>
       </div>
       <div class="col-sm-4 text-left text-lg-right">
         <div class="header-item">
-          <img src="<?php echo $base_url ?>template/Design/icons/sales.png" alt="">
-          <p>30% off on dresses. Use code: 30OFF</p>
         </div>
       </div>
     </div>

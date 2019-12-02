@@ -25,7 +25,7 @@ include 'fungsi/setting.php';             // Panggil data setting
   </head>
   <body>
     <?php include 'navbar.php'; ?>
-
+<div style="margin-top:20px;"></div>
     <div class="container">
       <div class="row">
         <div class="col-sm-9 col-sm-push-3">

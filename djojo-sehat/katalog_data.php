@@ -36,11 +36,11 @@ if($numrows > 0)
     $harga_normal = number_format($row['harga_jual'], 0, ',', '.').",-";
 ?>
   <div class="col-md-4">
-    <div class="thumbnail">
+    <div class="thumbnail" style ="margin-left:14px;">
       <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="title">
         <h4><?php echo $row['nama_barang']; ?></h4>
       </a>
-      <img alt="<?php echo $row['nama_barang']; ?>" src="<?php echo $base_url ?>images/produk/<?php echo $row['foto_barang']; ?>" style="width: 200px;"/>
+      <img style ="max-height:200px;" alt="<?php echo $row['nama_barang']; ?>" src="<?php echo $base_url ?>images/produk/<?php echo $row['foto_barang']; ?>" style="width: 200px;"/>
       <div class="caption">
         <h4>Rp <?php echo $harga_normal ?></h4>
         <a href="<?php echo $base_url ?>beli/<?php echo $row['id_barang']; ?>" class="btn btn-primary">Beli</a>
