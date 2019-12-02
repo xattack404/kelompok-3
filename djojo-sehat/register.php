@@ -98,11 +98,18 @@ if(isset($_SESSION['nama']))
           $(this).removeClass('hilite');});
         });
       }); 
+
+      $(document).ready(function(){
+        $('#nama').on('keyup',function(){
+          console.log($(this).val());
+        });
+      });
+
     </script>
       <!-- Memanggil file JS -->
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
+  <script src="<?php echo $base_url ?>template/js/jquery-3.4.1.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
