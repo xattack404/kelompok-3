@@ -93,13 +93,13 @@ if(mysqli_num_rows($cek_barang) == 0)
         }
 	  }
      }
+	 		
+          $query3 = "UPDATE tb_barang SET jumlah = WHERE id_member = '$sesen_id' ";
+       if(mysqli_query($koneksi,$query3))
+      {
+          echo "<script>alert('Mohon maaf, Transaksi gagal. Mohon ulangi kembali');location.replace('keranjang.html')</script>";
  
-    //      $query3 = "DELETE FROM tb_keranjang WHERE id_member = '$sesen_id' ";
-    //   if(mysqli_query($koneksi,$query3))
-    //  {
-    //      //echo "<script>alert('Mohon maaf, Transaksi gagal. Mohon ulangi kembali');location.replace('keranjang.html')</script>";
- 
-    //  }
+      }
     //      // Jika gagal, maka akan muncul alert
     //      else
     //      {
