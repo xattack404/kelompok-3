@@ -12,8 +12,10 @@ include 'navbar.php';
     <p class="title">Log in</p>
     <input placeholder="Email" type="email" name="email" id="email" autofocus/>
     <i class="fa fa-user"></i>
+    <p class ="email" style="color:red;"></p>
     <input type="password" name="password" id="password" placeholder="Password" />
     <i class="fa fa-key"></i>
+    <p class ="pass" style="color:red;"></p>
     <a href="#">Forgot your password?</a>
     <button type="submit" name="submit" >
       <i class="spinner" name="submit"></i>
@@ -25,7 +27,7 @@ include 'navbar.php';
   <!-- Memanggil file JS -->
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
+  <script src="<?php echo $base_url ?>template/js/jquery-3.4.1.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
@@ -33,3 +35,36 @@ include 'navbar.php';
   <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
+  <script>
+
+//validasi email
+var email;
+$('#email').on('keyup', function(){
+  var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (valid.test(this.value) !== true){
+    $('.email').text('Isi Email Dengan Benar !');
+    email = false;
+  }
+  else if (valid.test(this.value) == true){
+    $('.email').text('');
+    email = true;
+  }
+  if ($(this).val().length == 0){
+    $('.email').text('');
+  }
+});
+</script>
+<script>
+$('#password').on('keypress',function(){
+	if(this.value.length < 5){
+		$('.pass').text('Password Harus terdiri dari Minimal 6 karakter !');
+	}else{
+		$('.pass').text('');
+	}
+});
+  $('#password').on('keyup',function(){
+    if ($(this).val().length == 0){
+    $('.pass').text('');
+    }
+  });
+</script>
