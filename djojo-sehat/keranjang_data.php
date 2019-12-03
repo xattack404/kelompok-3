@@ -44,7 +44,7 @@
 						<td data-title='No.' align='center'>$i</td>
 			    	<td data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_keranjang[judul].html'>$data_keranjang[nama_barang]</a></td>
 				    <td data-title='Harga ' align='right'>$harga,-</td>
-				    <td data-title='Berat' align='center'>$data_keranjang[jumlah_berat]</td>
+				    <td data-title='Berat' align='center'>$data_keranjang[berat]</td>
 				    <td data-title='Qty' align='center'>
 				      <input type='hidden' name='id".$i."' value='$data_keranjang[id_barang]'/>
 				      <input type='text' name='jmlh".$i."' value='$data_keranjang[jumlah]' size='3' onkeypress='return isNumberKey(event)'/>
