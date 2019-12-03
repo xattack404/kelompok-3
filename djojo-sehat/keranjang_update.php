@@ -45,7 +45,7 @@ if(isset($_POST['update']))
           
           //$id = $_GET['id'];
             $query = "UPDATE tb_keranjang SET jumlah            = '$jmlubah',
-                                              berat             = '$beratnew',
+                                              jumlah_berat      = '$beratnew',
                                               subtotal          = '$totubah'
                                             WHERE   id_member   = '$sesen_id'
                                             AND   id_barang     = '$id_barang'";
