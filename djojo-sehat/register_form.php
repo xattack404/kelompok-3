@@ -42,10 +42,11 @@
 					<div class="form-group">
 						<div class="form-row form-row-1">
 							<input type="password" name="password" id="password" class="input-text" placeholder="Password" required>
-							<p class="password" style="color: red;"></p>
+							<p class="pass" style="color: red;"></p>
 						</div>
 						<div class="form-row form-row-2">
-							<input type="password2" name="password2" id="password2" class="input-text" placeholder="Confirm Password" required><p class="password1" style="color: red;"></p>
+							<input type="password" name="password2" id="password2" class="input-text" placeholder="Confirm Password" required><p class="password1" style="color: red;"></p>
+							<p class="pass2" style="color:red;"></p>
 						</div>
 					</div>
 				</div>
@@ -157,7 +158,7 @@
 <script>
 	// validasi nomor telepon
 $('#telepon').on('keypress',function(){
-	if (this.value.length == 12){
+	if (this.value.length == 13){
 		return false;
 	}
 });
@@ -194,12 +195,36 @@ $('#alamat').on('keypress',function(){
 	}
 });
 $('#alamat').on('keyup', function(){
-				var regex = /^[., a-zA-Z0-9]$/;
+				var regex = /^[@., a-zA-Z0-9]$/;
 				if (regex.test(this.value) !== true) {
-				this.value = this.value.replace(/[^., a-zA-Z0-9]+/, '');
+				this.value = this.value.replace(/[^@., a-zA-Z0-9]+/, '');
 				}
 				else{
 				$('.alamat').text('');
 				}
 				});
+</script>
+<script>
+var pass;
+$('#password').on('keypress',function(){
+	if(this.value.length < 5){
+		$('.pass').text('Password Harus terdiri dari Minimal 6 karakter !');
+		pass =false;
+	}else{
+		$('.pass').text('');
+		pass =true;
+	}
+});
+</script>
+<script>
+var passvalid;
+$('#password2').on('keyup',function(){
+	if ($(this).val() != $('#password').val()){
+		$('.pass2').text('Password Tidak Sama !');
+		passvalid = false;
+	}else{
+		$('.pass2').text('');
+		passvalid =true;
+	}
+});
 </script>
