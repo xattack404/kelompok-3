@@ -5,21 +5,20 @@ include 'fungsi/base_url.php';
 
 if(isset($_POST['submit']))
 {
-  $nama       = mysqli_real_escape_string($conn,$_POST['nama']);
-  $username   = mysqli_real_escape_string($conn,$_POST['username']);
-  $email      = mysqli_real_escape_string($conn,$_POST['email']);
-  $jkl      = mysqli_real_escape_string($conn,$_POST['jenis']);
+  $nama       = mysqli_real_escape_string($koneksi,$_POST['nama']);
+  $email      = mysqli_real_escape_string($koneksi,$_POST['email']);
+  $jkl      = mysqli_real_escape_string($koneksi,$_POST['jenis_kelamin']);
   $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
-  $telepon    = mysqli_real_escape_string($conn,$_POST['telepon']);
-  $alamat     = mysqli_real_escape_string($conn,$_POST['alamat']);
-  $kopos      = mysqli_real_escape_string($conn,$_POST['kopos']);
-  $prov       = mysqli_real_escape_string($conn,$_POST['prov']);
-  $kot        = mysqli_real_escape_string($conn,$_POST['kot']);
-  $kec        = mysqli_real_escape_string($conn,$_POST['kec']);
+  $telepon    = mysqli_real_escape_string($koneksi,$_POST['telepon']);
+  $alamat     = mysqli_real_escape_string($koneksi,$_POST['alamat']);
+  $kopos      = mysqli_real_escape_string($koneksi,$_POST['kopos']);
+  $prov       = mysqli_real_escape_string($koneksi,$_POST['prov']);
+  $kot        = mysqli_real_escape_string($koneksi,$_POST['kot']);
+  $kec        = mysqli_real_escape_string($koneksi,$_POST['kec']);
 
   // cek data
-  $sql        = "SELECT email, status FROM tb_member WHERE email = '$email' and status = 1 ";
-  $cek_email  = mysqli_query($conn,$sql);
+  $sql        = "SELECT email FROM tb_member WHERE email = '$email'";
+  $cek_email  = mysqli_query($koneksi,$sql);
   if(mysqli_num_rows($cek_email) > 0)
   {
     // Alert/ pemberitahuan email yang dipakai telah ada/ tidak
@@ -30,10 +29,6 @@ if(isset($_POST['submit']))
     if(empty($nama))
     {
       echo "<script>alert('Nama harus diisi!');history.go(-1)</script>";
-    }
-    elseif(empty($username))
-    {
-      echo "<script>alert('Username harus diisi!');history.go(-1)</script>";
     }
     elseif(empty($email))
     {
@@ -53,24 +48,24 @@ if(isset($_POST['submit']))
         $hash = md5(uniqid(rand(), true));
 
         // url: Membuat teks yang apabila di klik oleh user, maka akan masuk ke halaman aktivasi akun pada website
-        $url      = $base_url.'activation.php?email='.urlencode($email)."&hash=$hash";
+//        $url      = $base_url.'activation.php?email='.urlencode($email)."&hash=$hash";
 
-        $mail = new PHPMailer;
+       // $mail = new PHPMailer;
 
         // Konfigurasi SMTP
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'emailyangdijadikansmtp@gmail.com';
-        $mail->Password   = 'password';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port       = 587;
+       // $mail->isSMTP();
+       // $mail->Host       = 'smtp.gmail.com';
+        //$mail->SMTPAuth   = true;
+        //$mail->Username   = 'emailyangdijadikansmtp@gmail.com';
+       // $mail->Password   = 'password';
+        //$mail->SMTPSecure = 'tls';
+        //$mail->Port       = 587;
 
-        $mail->setFrom('dariSiapaEmailIniDikirim@gmail.com', 'namanya siapa');
-        $mail->addReplyTo('emailTujuanKetikaInginMembalasEmailYangDidapat@gmail.com', 'namanya siapa');
+        //$mail->setFrom('dariSiapaEmailIniDikirim@gmail.com', 'namanya siapa');
+        //$mail->addReplyTo('emailTujuanKetikaInginMembalasEmailYangDidapat@gmail.com', 'namanya siapa');
 
         // Menambahkan penerima
-        $mail->addAddress($email);
+        //$mail->addAddress($email);
 
         // Menambahkan beberapa penerima
         // $mail->addAddress('penerima2@contoh.com');
@@ -81,61 +76,55 @@ if(isset($_POST['submit']))
         // $mail->addBCC('bcc@contoh.com');
 
         // Subjek email
-        $mail->Subject = 'Aktivasi Akun Anda di namawebanda.com';
+       // $mail->Subject = 'Aktivasi Akun Anda di namawebanda.com';
 
         // Mengatur format email ke HTML
-        $mail->isHTML(true);
+       // $mail->isHTML(true);
 
         // Konten/isi email
-        $mailContent = "
-          <h1>Terima kasih telah mendaftar di website kami, ".$nama.".</h1>
-          <p>Terima kasih telah mendaftar di website kami, silahkan klik link berikut ini untuk memverifikasi akun Anda ".$url."</p>";
-        $mail->Body = $mailContent;
+        //$mailContent = "
+          //<h1>Terima kasih telah mendaftar di website kami, ".$nama.".</h1>
+          //<p>Terima kasih telah mendaftar di website kami, silahkan klik link berikut ini untuk memverifikasi akun Anda ".$url."</p>";
+        //$mail->Body = $mailContent;
 
         // Menambahakn lampiran
         // $mail->addAttachment('lmp/file1.pdf');
         // $mail->addAttachment('lmp/file2.png', 'nama-baru-file2.png'); //atur nama baru
 
         // Kirim email
-        if(!$mail->send())
-        {
-          echo "<script>alert('Registrasi gagal, silahkan coba lagi');history.go(-1)</script>";
+        //if(!$mail->send())
+        //{
+          //echo "<script>alert('Registrasi gagal, silahkan coba lagi');history.go(-1)</script>";
           // echo 'Mailer Error: ' . $mail->ErrorInfo;
-        }
-        else
-        {
+        //}
+        //else
+        //{
           // Proses insert data customer
-          $create = mysqli_query($conn, "INSERT INTO tb_member (
+          $create = mysqli_query($koneksi, "INSERT INTO tb_member (
                                             nama,
-                                            username,
                                             email,
-                                            jenis,
+                                            jenis_kelamin,
                                             password,
                                             telepon,
                                             alamat,
                                             kopos,
-                                            provinsi,
-                                            kota,
-                                            kecamatan,
-                                            hash,
-                                            status)
+                                            prov,
+                                            kot,
+                                            kec)
                                     VALUES ('$nama',
-                                            '$username',
                                             '$email',
                                             '$jlk',
-                                            '$password',
+                                            '$hash',
                                             '$telepon',
                                             '$alamat',
                                             '$kopos',
                                             '$prov',
                                             '$kot',
-                                            '$kec',
-                                            '$hash',
-                                            '0')");
+                                            '$kec')");
 
-          echo "<script>alert('Registrasi berhasil, silahkan cek email Anda untuk aktivasi.');history.go(-1)</script>";
+          echo "<script>alert('Registrasi berhasil, silahkan cek email Anda untuk aktivasi.');location.replace('$base_url')</script>";
         }
       }
   }
-}
+//}
 ?>
