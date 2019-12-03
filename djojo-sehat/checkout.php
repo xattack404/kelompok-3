@@ -72,31 +72,34 @@ if(mysqli_num_rows($cek_barang) == 0)
 	 	// Jika berhasil, maka akan diarahkan ke halaman transaksi selesai
 	 	if(mysqli_query($koneksi,$query)) 
 	   {
+		$id_trans = $koneksi->insert_id;
 		$id_barang=[]; $jumlah=[]; $subtotal=[];
-	$num = mysqli_num_rows($cek_barang);
+	$cek_keranjang = mysqli_query($koneksi,"SELECT * FROM tb_keranjang where id_member='$sesen_id'");
+	$ambil_data = mysqli_fetch_array($cek_keranjang);
+	$num = mysqli_num_rows($cek_keranjang);
 	for ($i=0; $i<$num; $i++){
 		//$id_keranjang[$i] = $cek_barang['id_kerajang'];
-		$id_barang[$i] = $data_barang['id_barang'];
-		$jumlah[$i] = $data_barang['jumlah'];
-		$subtotal[$i] = $data_barang['subtotal'];
+		$id_barang[$i] = $ambil_data['id_barang'];
+		$jumlah[$i] = $ambil_data['jumlah'];
+		$subtotal[$i] = $ambil_data['subtotal'];
 	}
 	for ($n=0; $n<$num; $n++){
 		$query2 = "INSERT INTO detail_jual (id_trans,
 											id_barang,
 											jumlah,
 											subtotal)
-								VALUES		('1', 
+								VALUES		('$id_trans',
 											 '$id_barang[$n]', 
 											 '$jumlah[$n]', 
 											 '$subtotal[$n]' )";
 		mysqli_query($koneksi, $query2);
-		
+		// var_dump($query2. " - ");
 	}
 	//   	//header("location:$base_url"."trns.html");
 }
 	 }
 
-	//   	$query3 = "DELETE FROM tb_keranjang WHERE id_member = '$sesen_id' ";
+	//   	$query3 = "UPDATE tb_barang set jumlah='$jumlah[$n] where id_barang='$id_barang[$n]' ";
 	// 	 if(mysqli_query($koneksi,$query3))
 	// 	{
 	// 		//echo "<script>alert('Mohon maaf, Transaksi gagal. Mohon ulangi kembali');location.replace('keranjang.html')</script>";
