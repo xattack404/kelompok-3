@@ -3,12 +3,12 @@ if(isset($_SESSION['id_member']))
 {
 	$id_member = $_SESSION['id_member'];
 
-	$cari 	= "SELECT * FROM tb_keranjang WHERE id_member = '$id_member' ORDER BY id_keranjang DESC";
+	$cari 	= "SELECT * FROM trans_jual WHERE id_member = '$id_member' ORDER BY id_trans DESC";
 	$query 	= mysqli_query($koneksi,$cari);
 	$hasil 	= mysqli_fetch_array($query);
 	if($hasil > 0)
 	{
-		$faktur = $hasil['id_keranjang'];
+		$faktur_selesai = $hasil['id_trans'];
 	}
 }
 ?>
