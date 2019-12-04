@@ -1,14 +1,4 @@
-<?php session_start();
-include 'config/koneksi.php';              // Panggil koneksi ke database
-include 'faktur.php';                      
-include 'faktur_selesai.php';             // Panggil data faktur yang telah selesai
-include 'fungsi/base_url.php';            // Panggil fungsi base_url
-include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
-include 'fungsi/cek_login_public.php';    // Panggil fungsi cek login public
-include 'fungsi/navigasi.php';            // Panggil data navigasi
-include 'fungsi/setting.php';             // Panggil data setting
-include 'fungsi/tgl_indo.php';            // Panggil fungsi tanggal indonesia
-?>
+
 <h4>NO. INVOICE: #<?php echo $faktur_selesai ?></h4>
 
 <p align="right">
