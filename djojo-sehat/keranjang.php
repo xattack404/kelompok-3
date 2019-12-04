@@ -80,7 +80,7 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <a href="keranjang_update_alamat.php"><button type="button" name ="save" class="btn btn-primary">Save changes</button></a>
       </div>
     </div>
   </div>

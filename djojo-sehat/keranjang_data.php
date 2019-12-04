@@ -189,7 +189,4 @@
 		<p>* Total berat akan dibulatkan ke atas dikarenakan sesuai dengan peraturan JNE</p>
 
 	<?php } ?>
-	<script>
-	
-	</script>
 	
