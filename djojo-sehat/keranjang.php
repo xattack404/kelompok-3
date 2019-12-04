@@ -20,10 +20,71 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
     <!-- CSS Bootstrap -->
     <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo $base_url ?>template/css/nomoretable.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo $base_url ?>template/Register/css/style.css"/>
+    <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
+    <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
     <!-- Favicon -->
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
   </head>
   <body>
+	<div class="modal" id ="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Alamat Lain</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="form-group">
+							<select name="prov" class="form-control" id="prov">
+							    <option value="">Provinsi</option>
+							    <?php
+                $prov = "SELECT * FROM prov ORDER BY nama_prov";
+                $result = mysqli_query($koneksi, $prov);
+                if (mysqli_num_rows($result) > 0)
+                {
+                  while ($data = mysqli_fetch_array($result))
+                  {
+                    echo "<option value='$data[id_prov]'>$data[nama_prov]</option>\n";
+                  }
+                }
+                  else
+                  {
+                    echo "Belum ada data";
+                  }
+                ?>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+						</div>
+							<div class="form-group">
+									<select name="kot" class="form-control" id="kot">
+											<option value="">Kabupaten / Kota</option>
+										</select>
+										<span class="select-btn">
+											  <i class="zmdi zmdi-chevron-down"></i>
+										</span>
+							</div>
+					<div class="form-group">
+						<select name="kec" class="form-control" id="kec">
+						    <option value="country">Kecamatan</option>
+						</select>
+						<span class="select-btn">
+						  	<i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div>
+					
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     <?php 
     include 'navbar.php'; 
     ?>
@@ -66,7 +127,7 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
     <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
+  <script src="<?php echo $base_url ?>template/js/jquery-3.4.1.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
@@ -74,5 +135,47 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
   <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      //apabila terjadi event onchange terhadap object <select id=propinsi>
+      $("#prov").change(function(){
+        var prov = $("#prov").val();
+        $.ajax({
+            url: "fungsi/ambilkota.php",
+            data: "prov="+prov,
+            cache: false,
+            success: function(msg){
+                //jika data sukses diambil dari server kita tampilkan
+                //di <select id=kota>
+                $("#kot").html(msg);
+            }
+        });
+      });
+      $("#kot").change(function(){
+        var kot = $("#kot").val();
+        $.ajax({
+            url: "fungsi/ambilkecamatan.php",
+            data: "kot="+kot,
+            cache: false,
+            success: function(msg){
+                $("#kec").html(msg);
+            }
+        });
+      });
+      $(':input:not([type="submit"])').each(function() {
+          $(this).focus(function() {
+          $(this).addClass('hilite');
+          }).blur(function() {
+          $(this).removeClass('hilite');});
+        });
+      }); 
+
+      $(document).ready(function(){
+        $('#nama').on('keyup',function(){
+          console.log($(this).val());
+        });
+      });
+
+    </script>
   </body>
 </html>
