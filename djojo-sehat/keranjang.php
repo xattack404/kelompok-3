@@ -38,8 +38,12 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
       </div>
       <div class="modal-body">
       <div class="form-group">
-							<select name="prov" class="form-control" id="prov">
-							    <option value="">Provinsi</option>
+      <select name="prov" class="form-control" id="prov">
+    <?  $prov = "SELECT * FROM prov ORDER BY nama_prov";
+                $result = mysqli_query($koneksi, $prov);
+                $data = mysqli_num_rows($result);
+                $arr = mysqli_fetch_array($data);
+							   echo "<option value='$sesen_provinsi'>$data[nama_prov]</option>\n";?>
 							    <?php
                 $prov = "SELECT * FROM prov ORDER BY nama_prov";
                 $result = mysqli_query($koneksi, $prov);
