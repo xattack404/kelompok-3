@@ -9,13 +9,13 @@
 
   // membaca judul produk dari ID tertentu (ID barang acuan)
   // judul ini nanti akan dicek kemiripannya dengan produk yang lain
-  $query = "SELECT nama_barang,harga,foto_barang FROM tb_barang WHERE judul = '$id_produk'";
+  $query = "SELECT nama_barang,harga_jual,foto_barang FROM tb_barang WHERE judul = '$judul'";
   $hasil = mysqli_query($koneksi,$query);
   $data  = mysqli_fetch_array($hasil);
   $nama_barang = $data['nama_barang'];
 
   // membaca semua data produk selain ID produk acuan
-  $query = "SELECT id_barang, nama_barang, judul, foto_barang FROM tb_barang WHERE id_barang <> '$id_produk'";
+  $query = "SELECT id_barang, nama_barang, judul, foto_barang FROM tb_barang WHERE id_barang <> '$id_barang'";
   $hasil = mysqli_query($koneksi,$query);
   while ($data = mysqli_fetch_array($hasil))
   {

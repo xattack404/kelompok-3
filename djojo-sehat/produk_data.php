@@ -7,23 +7,18 @@
       </div>
       <div class="col-md-4">
         <a href="<?php echo $base_url ?>images/produk/<?php echo $produk['foto_gambar']; ?>" title="<?php echo $produk['nama_barang']; ?>" id="fancybox" class="thumbnail" data-fancybox-group="group1">
-          <img class="img-responsive" src="<?php echo $base_url ?>images/produk/<?php echo $produk['foto_gambar']; ?>" alt="<?php echo $produk['nama_barang']; ?>"/>
+          <img class="img-responsive" src="<?php echo $base_url ?>images/produk/<?php echo $produk['foto_barang']; ?>" alt="<?php echo $produk['nama_barang']; ?>"/>
         </a>
       </div>
       <div class="caption-full">
-        <b>Kategori</b>: <a href="<?php echo $base_url ?>kategori/<?php echo $produk['kategori_seo']; ?>"> <?php echo $produk['judul_supersubkat']; ?></a><br/>
+        <h5><b>Kategori</b>: <a href="<?php echo $base_url ?>kategori/<?php echo $produk['kategori']; ?>"> <?php echo $produk['kategori']; ?></a><br/>
         <b>Berat</b>: <?php echo $produk['berat']; ?><br/>
-        <b>Garansi</b>: <?php echo $produk['garansi']; ?><br/>
-        <b>Warna</b>: <?php echo $produk['warna']; ?><br/>
-        <b>Stok</b>: <?php echo $produk['stok']; ?><br/><br/>
-        Harga Normal: <strike>Rp <?php echo $harga_normal ?></strike>
-        <h4>
-          <strong>
-            <font color="red">HARGA PROMO: Rp <?php echo $harga_diskon ?>
-            </font>
-          </strong>
-        </h4><br/>
-        <a href="<?php echo $base_url ?>beli/<?php echo $produk['id_produk']; ?>">
+
+        <b>Stok</b>: <?php echo $produk['jumlah']; ?><br/><br/>
+        Harga Normal: Rp <?php echo $harga ?>
+        
+        </h5><br/>
+        <a href="<?php echo $base_url ?>beli/<?php echo $produk['id_barang']; ?>">
           <button type="submit" name="submit" class="btn btn-primary">Beli</button>
         </a>
       </div>
@@ -31,8 +26,8 @@
       <br/><br/>
 
       <div class="caption-full">
-        <b>Deskripsi</b>:<br/>
-        <?php echo $produk['deskripsi']; ?>
+        <h6><b>Deskripsi</b>:<br/>
+        <?php echo $produk['deskripsi']; ?> </h6>
       </div>
     </div>
 

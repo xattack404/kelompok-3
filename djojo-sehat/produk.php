@@ -6,12 +6,13 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
 include 'fungsi/setting.php';             // Panggil data setting
 
 // Mengambil nilai berdasarkan id_barang dengan metode GET
-$judul = mysqli_real_escape_string($koneksi,$_GET['id_produk']);
+$judul = mysqli_real_escape_string($koneksi,$_GET['id_barang']);
 
 $query        = "SELECT * FROM tb_barang WHERE judul='$judul'";
 $hasil        = mysqli_query($koneksi,$query);
 $produk       = mysqli_fetch_array($hasil);
-$harga_normal = number_format($produk['harga_jual'], 0, ',', '.').",-";
+$harga = number_format($produk['harga_jual'], 0, ',', '.').",-";
+$id_barang = $produk['id_barang'];
 
 // Jika data tidak ditemukan maka akan muncul alert belum ada data
 if(mysqli_num_rows($hasil) == 0)
@@ -24,8 +25,7 @@ if(mysqli_num_rows($hasil) == 0)
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<?php echo $katalog['seo_deskripsi'] ?>" />
-    <meta name="keywords" content="<?php echo $katalog['seo_keywords'] ?>" />
+    <meta name="description" content="<?php echo $katalog['deskripsi'] ?>" />
     <meta name="author" content="<?php echo $namatoko ?>" />
     <!-- Facebook SEO -->
     <meta property="og:title" content="<?php echo $produk['nama_barang']; ?> | <?php echo $namatoko ?>" />
