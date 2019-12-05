@@ -27,6 +27,7 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
   </head>
   <body>
+  <form action="keranjang_update_alamat.php">
 	<div class="modal" id ="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -84,11 +85,12 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a href="keranjang_update_alamat.php"><button type="button" name ="save" class="btn btn-primary">Save changes</button></a>
+        <a href="keranjang_update_alamat.php"><button type="button" id = "save" name ="save" class="btn btn-primary">Save changes</button></a>
       </div>
     </div>
   </div>
 </div>
+</form>
     <?php 
     include 'navbar.php'; 
     ?>

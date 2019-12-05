@@ -112,6 +112,10 @@
 		      <th scope="row">Ongkos Kirim</th>
 		      <td align="right">Via JNE REG</td>
 		      <td><?php echo $nama_kota_kec ?>
+			  
+			  <button style="margin-left:160px;" name='Tambah Alamat' id="tambah_alamat" type='button' class='btn btn-warning' data-toggle="modal" data-target="#modal" aria-label='Left Align' title='Tambah Alamat'>
+								  <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>Tambah Alamat
+								</button>
 		      </td>
 			  <td align="right">Rp</td>
 		      <td align="right"><?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
@@ -179,7 +183,7 @@
 				</a>";
 			}
 			?>
-			<button name='Ganti Alamat' id="ganti_alamat" type='button' class='btn btn-warning' data-toggle="modal" data-target="#modal" aria-label='Left Align' title='Ganti Alamat'>
+			<button name='Ganti Alamat' id="ganti_alamat" type='button' class='btn btn-warning' data-toggle="" data-target="#" aria-label='Left Align' title='Ganti Alamat'>
 								  <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>Ganti Alamat
 								</button>
 		</p>
