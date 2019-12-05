@@ -27,21 +27,26 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
   </head>
   <body>
-  <form action="keranjang_update_alamat.php" method="POST">
-	<div class="modal" id ="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content"> 
-      <div class="modal-header">
-        <h5 class="modal-title">Alamat Lain</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+    <?php 
+    include 'navbar.php'; 
+    ?>
+  <div style ="padding:20px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-sm-push-3">
+          <div class="thumbnail">
+            <div class="col-md-12">
+              <h3><?php echo $keranjang['judul']; ?></h3>
+              <hr/>
+            </div>
+            <div class="caption-full">
+              <?php include 'keranjang_data.php'; ?>
+              
+  <form action="keranjang_update_alamat.php" id ="form" method="POST" style="display:none;">
       <div class="form-group">
-      <input type="text" id ="id" value="<?= $sesen_id;?>" hidden>
+      <input type="text" name = "id" id ="id" value="<?= $sesen_id;?>" hidden>
         <div class ="col-md-4" style="margin-left:-15px;">
-          <input name="nama" class="form-control" id="nama" placeholder="Username" value ="<?= $sesen_nama; ?>"disabled>
+          <input type="text"  name="nama" class="form-control" id="nama" placeholder="Username" value ="<?= $sesen_nama; ?>" hidden>
         </div>
         <div class ="col-xs-8" style="margin-left:-19px;">
           <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Alamat..." required>
@@ -109,29 +114,12 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
 						</span>
 					</div>
 					
+      <div class="footer">
+        <button type="button" class="btn btn-secondary" id="close"data-dismiss="modal">Close</button>
+        <button type="submit" id = "save" name ="save" class="btn btn-primary">Save changes</button>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a href="keranjang_update_alamat.php"><button type="button" id = "save" name ="save" class="btn btn-primary">Save changes</button></a>
       </div>
-    </div>
-  </div>
-</div>
 </form>
-    <?php 
-    include 'navbar.php'; 
-    ?>
-  <div style ="padding:20px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-sm-push-3">
-          <div class="thumbnail">
-            <div class="col-md-12">
-              <h3><?php echo $keranjang['judul']; ?></h3>
-              <hr/>
-            </div>
-            <div class="caption-full">
-              <?php include 'keranjang_data.php'; ?>
             </div>
           </div>
         </div>
@@ -210,5 +198,13 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
       });
 
     </script>   
+    <script>
+    $('#tambah_alamat').click(function(){
+      document.getElementById("form").style.display="block";
+      });
+    $('#close').click(function(){
+      document.getElementById("form").style.display="none";
+      });
+    </script>
   </body>
 </html>

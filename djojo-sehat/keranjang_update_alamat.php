@@ -2,7 +2,7 @@
 include 'config/koneksi.php';
 include 'fungsi/cek_session_public.php';
 
-if(isset($_SESSION['save']))
+if(isset($_POST['save']))
 {
   $id      = mysqli_real_escape_string($koneksi,$_POST['id']);
   $nama      = mysqli_real_escape_string($koneksi,$_POST['nama']);
@@ -16,25 +16,24 @@ if(isset($_SESSION['save']))
 
     $create = mysqli_query($koneksi, "INSERT INTO detail_member (
         id_member,
-        nama,
         judul_alamat,
-        alamat,
-        kodepos,
-        no_hp,
-        Provinsi,
+        nama,
+        alamat, 
+        kecamatan,
         kabupaten_kota,
-        kecamatan)
+        Provinsi,
+        kodepos,
+        no_hp)
 VALUES ('$id',
-        '$nama',
         '$judul',
+        '$nama',
         '$alamat',
-        '$kopos',
-        '$telepon',
-        '$prov',
+        '$kec',
         '$kot',
-        '$kec')");
+        '$prov',
+        '$kopos',
+        '$hp')");
 
-        echo "<script language='javascript'>alert('Update berhasil');location.replace('./keranjang.html')</script>";
  }
 
 ?>
