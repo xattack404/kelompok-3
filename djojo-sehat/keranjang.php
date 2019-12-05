@@ -27,10 +27,10 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
   </head>
   <body>
-  <form action="keranjang_update_alamat.php">
+  <form action="keranjang_update_alamat.php" method="POST">
 	<div class="modal" id ="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content"> 
       <div class="modal-header">
         <h5 class="modal-title">Alamat Lain</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -39,12 +39,39 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
       </div>
       <div class="modal-body">
       <div class="form-group">
-      <select name="prov" class="form-control" id="prov">
+      <input type="text" id ="id" value="<?= $sesen_id;?>" hidden>
+        <div class ="col-md-4" style="margin-left:-15px;">
+          <input name="nama" class="form-control" id="nama" placeholder="Username" value ="<?= $sesen_nama; ?>"disabled>
+        </div>
+        <div class ="col-xs-8" style="margin-left:-19px;">
+          <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Alamat..." required>
+        </div>
+      </div>
+      <br>
+      <br>
+					<div class="form-group">
+						<input type="text" name="alamat" class="form-control" id="alamat"  placeholder="Alamat" required style="width:90%;">
+            <p class="alamat" style="color: red;"></p>
+            </div>
+            <div class="form-group">
+							<div class="col-md-4" style="margin-left:-15px;">
+								<input type="number" name="kopos" class="form-control" id="kopos" size="30" placeholder="Kode Pos" required>
+								<p class="kopos" style="color: red;"></p>
+							</div>
+						<div class="col-md-8" style="margin-left:-19px;">
+							<input type="number" name="telepon" class="form-control" id="telepon" size="12" placeholder="No Telepon" pattern ="{12}" required>
+							<p class="telepon" style="color: red;"></p>
+						</div>
+          </div>
+          <br>
+          <br>
+      <div class="form-group">
+      <select name="prov" class="form-control" id="prov" style="width:90%;">
     <?  $prov = "SELECT * FROM prov ORDER BY nama_prov";
                 $result = mysqli_query($koneksi, $prov);
                 $data = mysqli_num_rows($result);
                 $arr = mysqli_fetch_array($data);
-							   echo "<option value='$sesen_provinsi'>$data[nama_prov]</option>\n";?>
+                 echo "<option value='$sesen_provinsi'>$data[nama_prov]</option>\n";;?>
 							    <?php
                 $prov = "SELECT * FROM prov ORDER BY nama_prov";
                 $result = mysqli_query($koneksi, $prov);
@@ -66,7 +93,7 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
 							</span>
 						</div>
 							<div class="form-group">
-									<select name="kot" class="form-control" id="kot">
+									<select name="kot" class="form-control" id="kot" style="width:90%;">
 											<option value="">Kabupaten / Kota</option>
 										</select>
 										<span class="select-btn">
@@ -74,7 +101,7 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
 										</span>
 							</div>
 					<div class="form-group">
-						<select name="kec" class="form-control" id="kec">
+						<select name="kec" class="form-control" id="kec" style="width:90%;">
 						    <option value="country">Kecamatan</option>
 						</select>
 						<span class="select-btn">
@@ -182,6 +209,6 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
         });
       });
 
-    </script>
+    </script>   
   </body>
 </html>

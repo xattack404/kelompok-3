@@ -183,7 +183,7 @@
 				</a>";
 			}
 			?>
-			<button name='Ganti Alamat' id="ganti_alamat" type='button' class='btn btn-warning' data-toggle="" data-target="#" aria-label='Left Align' title='Ganti Alamat'>
+			<button name='Ganti Alamat' id="ganti_alamat" type='button' class='btn btn-warning' data-toggle="" data-target="#				" aria-label='Left Align' title='Ganti Alamat'>
 								  <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>Ganti Alamat
 								</button>
 		</p>

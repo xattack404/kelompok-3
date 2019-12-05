@@ -7,6 +7,5 @@ if(isset($_SESSION['email']))
   $sesen_kecamatan  = $_SESSION['kecamatan'];
   $sesen_kota       = $_SESSION['kabupaten_kota'];
   $sesen_provinsi   = $_SESSION['provinsi'];
-  
 }
 ?>
