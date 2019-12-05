@@ -11,7 +11,7 @@
     {
       $id_kat = $row['id_kategori'];
       
-                    echo "<li class='list-group-item'><a href='$base_url"."kategori/$row[nama_kategori]'>".$row['nama_kategori']."</a></li>";
+                    echo "<li class='list-group-item'><a href='$base_url"."kategori/$row[id_kategori]'>".$row['nama_kategori']."</a></li>";
                   }
                 echo '</ul>';
             echo '</li>';
