@@ -34,6 +34,7 @@
           </a>
           <ul class='sub-menu'>
             <li>
+              <a href='$base_url"."profile'>profile</a>
               <a href='$base_url"."logout'>Logout</a>
             </li>
           </ul>
