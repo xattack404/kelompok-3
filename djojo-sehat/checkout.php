@@ -15,7 +15,8 @@ $cek_barang     = mysqli_query($koneksi,"SELECT tb_barang.id_barang,tb_barang.na
                                                 tb_member.kode_pos,tb_member.no_hp,tb_keranjang.id_keranjang,
                                                 tb_keranjang.id_member, tb_keranjang.id_barang,
                                                 tb_keranjang.jumlah, tb_keranjang.subtotal,kec.nama_kec,
-                                                kabkot.nama_kabkot,kabkot.jne_reg,prov.nama_prov
+                                                kabkot.nama_kabkot
+                                                ,kabkot.jne_reg,prov.nama_prov
                             FROM tb_keranjang
                             LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
                             LEFT JOIN tb_member ON tb_member.id_member = tb_keranjang.id_member
