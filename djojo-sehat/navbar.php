@@ -44,7 +44,7 @@
         {
           echo"
           <div class='user-access'>
-          <a href='register_form.php'>Register</a>
+          <a href='login_form.php'>Register</a>
                     <a href='login_form.php' class='in' style='color:black;'>Sign in</a>
                     </div>";
         }
