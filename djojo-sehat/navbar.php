@@ -8,7 +8,14 @@
 <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css" type="text/css">
 <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css" type="text/css">
-<header style="background-image:url(<?php echo $base_url ?>template/Design/ecommerce.jpg)" class="header-section">
+<header style="background: rgba(224,239,249,1);
+background: -moz-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(224,239,249,1)), color-stop(21%, rgba(193,209,219,1)), color-stop(29%, rgba(181,198,208,1)), color-stop(72%, rgba(216,225,231,1)), color-stop(86%, rgba(229,236,240,1)), color-stop(100%, rgba(242,246,248,1)));
+background: -webkit-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+background: -o-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+background: -ms-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+background: linear-gradient(to right, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', endColorstr='#f2f6f8', GradientType=1 );" class="header-section">
   <div id="preloder">
     <div class="loader"></div>
   </div>
@@ -105,21 +112,24 @@
         {
         }*/
       ?>
-<div class="header-info">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="header-item">
-        </div>
-      </div>
-      <div class="col-sm-4 text-left text-lg-center">
-        <div class="header-item">
-        </div>
-      </div>
-      <div class="col-sm-4 text-left text-lg-right">
-        <div class="header-item">
-        </div>
-      </div>
+      <div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-switch">+</div>
+      <form class="search-model-form">
+        <input type="text" id="search-input" placeholder="Search here.....">
+      </form>
     </div>
   </div>
-</div>
+  <div class="header-info">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    </div>
+                </div>
+                <div class="col-md-4 text-left text-lg-center">
+                </div>
+                <div class="col-md-4 text-left text-xl-right">
+                </div>
+            </div>
+        </div>
+    </div>
