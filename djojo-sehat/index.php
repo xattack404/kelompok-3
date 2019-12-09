@@ -98,9 +98,9 @@ include 'navbar.php';
                   <img src="<?php echo $base_url ?>images/produk/Baju TIdur.png" style="height:300px;" alt="">
                   <div class="box-text">
                     <span class="trend-year">2019</span>
-                    <h2>Jewelry</h2>
-                    <span class="trend-alert">Trend Alert</span>
-                    <a href="#" class="primary-btn">See More</a>
+                    <h2>Produk</h2>
+                    <span class="trend-alert"></span>
+                    <a href="katalog.php" class="primary-btn">See More</a>
                   </div>
                 </div>
               </div>
@@ -108,9 +108,9 @@ include 'navbar.php';
                 <div class="single-box-item second-box">
                   <img src="<?php echo $base_url ?>images/produk/Baju TIdur.jpg" style="height:300px;" alt="">
                   <div class="box-text">
-                    <span class="trend-year">2019 Trend</span>
-                    <h2>Footwear</h2>
-                    <span class="trend-alert">Bold & Black</span>
+                    <span class="trend-year">2019</span>
+                    <h2>Fashion</h2>
+                    <span class="trend-alert"></span>
                   </div>
                 </div>
               </div>
@@ -121,8 +121,8 @@ include 'navbar.php';
               <img src="<?php echo $base_url ?>images/produk/lensa-tele-zoom-12x.jpg" alt="">
               <div class="box-text">
                 <span class="trend-year">2019</span>
-                <h2>Collection</h2>
-                <div class="trend-alert">Trend Alert</div>
+                <h2>Obat</h2>
+                <div class="trend-alert"></div>
               </div>
             </div>
           </div>

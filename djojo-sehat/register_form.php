@@ -14,7 +14,14 @@
 
 </head>
 <body class="form-v10">
-	<div class="page-content">
+	<div class="page-content" style="background: rgba(76,76,76,1);
+background: -moz-linear-gradient(-45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 8%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 23%, rgba(44,44,44,1) 40%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 62%, rgba(43,43,43,1) 79%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(8%, rgba(89,89,89,1)), color-stop(18%, rgba(102,102,102,1)), color-stop(23%, rgba(71,71,71,1)), color-stop(40%, rgba(44,44,44,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(62%, rgba(17,17,17,1)), color-stop(79%, rgba(43,43,43,1)), color-stop(91%, rgba(28,28,28,1)), color-stop(100%, rgba(19,19,19,1)));
+background: -webkit-linear-gradient(-45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 8%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 23%, rgba(44,44,44,1) 40%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 62%, rgba(43,43,43,1) 79%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 8%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 23%, rgba(44,44,44,1) 40%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 62%, rgba(43,43,43,1) 79%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 8%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 23%, rgba(44,44,44,1) 40%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 62%, rgba(43,43,43,1) 79%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+background: linear-gradient(135deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 8%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 23%, rgba(44,44,44,1) 40%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 62%, rgba(43,43,43,1) 79%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1 );">
 		<div class="form-v10-content">
 			<form class="form-detail" action="send.php" method="post" id="form-register">
 				<div class="form-left">
@@ -29,12 +36,12 @@
 							<div class="form-group">
 							<div class="form-row form-row-1" >
 								<label class="container">Laki-Laki
-									<input type="radio" name="jenis_kelamin">
+									<input type="radio" value ="Laki-Laki" name="jenis_kelamin">
 									<span class="checkmark"></span>
 								  </label>
 								</div>
 								<div class="form-row form-row-2">
-								  <label class="container">Perempuan<input type="radio" name="jenis_kelamin">
+								  <label class="container">Perempuan<input type="radio" value="Perempuan" name="jenis_kelamin">
 									<span class="checkmark"></span>
 								  </label>
 								</div>
@@ -50,7 +57,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-right">
+				<div class="form-right" style="background: rgba(179,220,237,1);
+background: -moz-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(41,184,229,1)), color-stop(100%, rgba(188,224,238,1)));
+background: -webkit-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+background: linear-gradient(135deg, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1 );">
 					<h2>Detail Alamat</h2>
 					<div class="form-row">
 						<input type="text" name="alamat" class="street" id="alamat"  placeholder="Alamat" required>

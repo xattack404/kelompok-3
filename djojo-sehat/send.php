@@ -15,7 +15,6 @@ if(isset($_POST['submit']))
   $prov       = mysqli_real_escape_string($koneksi,$_POST['prov']);
   $kot        = mysqli_real_escape_string($koneksi,$_POST['kot']);
   $kec        = mysqli_real_escape_string($koneksi,$_POST['kec']);
-
   // cek data
   $sql        = "SELECT email FROM tb_member WHERE email = '$email'";
   $cek_email  = mysqli_query($koneksi,$sql);
@@ -101,19 +100,21 @@ if(isset($_POST['submit']))
         //{
           // Proses insert data customer
           $create = mysqli_query($koneksi, "INSERT INTO tb_member (
+                                            id_member,
                                             nama,
                                             email,
                                             jenis_kelamin,
                                             password,
-                                            telepon,
+                                            no_hp,
                                             alamat,
-                                            kopos,
-                                            prov,
-                                            kot,
-                                            kec)
-                                    VALUES ('$nama',
+                                            kode_pos,
+                                            provinsi,
+                                            kabupaten_kota,
+                                            kecamatan)
+                                    VALUES ('',
+                                            '$nama',
                                             '$email',
-                                            '$jlk',
+                                            '$jkl',
                                             '$hash',
                                             '$telepon',
                                             '$alamat',
@@ -121,8 +122,8 @@ if(isset($_POST['submit']))
                                             '$prov',
                                             '$kot',
                                             '$kec')");
+          echo "<script>alert('Registrasi berhasil');location.replace('$base_url')</script>";
 
-          echo "<script>alert('Registrasi berhasil, silahkan cek email Anda untuk aktivasi.');location.replace('$base_url')</script>";
         }
       }
   }

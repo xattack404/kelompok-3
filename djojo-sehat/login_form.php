@@ -7,11 +7,18 @@ include 'fungsi/base_url.php';
 <?php 
 include 'navbar.php'; 
 ?>
-<div class="wrapper">
+<div class="wrapper" style="background: rgba(224,239,249,1);
+background: -moz-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(224,239,249,1)), color-stop(21%, rgba(193,209,219,1)), color-stop(29%, rgba(181,198,208,1)), color-stop(72%, rgba(216,225,231,1)), color-stop(86%, rgba(229,236,240,1)), color-stop(100%, rgba(242,246,248,1)));
+background: -webkit-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+background: -o-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+background: -ms-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+background: linear-gradient(to right, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', endColorstr='#f2f6f8', GradientType=1 );">
   <form class="login" action="login.php" method="post" id="form-login">
     <p class="title">Log in</p>
-    <input placeholder="Email" type="email" name="email" id="email" autofocus/>
-    <i class="fa fa-user"></i>
+    <input placeholder="Email" type="email" name="email" id="email" autofocus />
+    <i class="fa fa-user" ></i>
     <p class ="email" style="color:red;"></p>
     <input type="password" name="password" id="password" placeholder="Password" />
     <i class="fa fa-key"></i>
@@ -19,7 +26,7 @@ include 'navbar.php';
     <a href="#">Forgot your password?</a>
     <button type="submit" name="submit" >
       <i class="spinner" name="submit"></i>
-      <span class="state" name="submit">Log in</span>
+      <span class="state"  name="submit">Log in</span>
     </button>
   </form>
   </p>
