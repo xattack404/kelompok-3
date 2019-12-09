@@ -7,17 +7,20 @@
           <th style="text-align: center">Nama Pemesan</th>
           <th style="text-align: center">Alamat</th>
           <th style="text-align: center">No. Telpon</th>
+          <th style="text-align: center">Bukti Bayar</th>
+          <th style="text-align: center">Status</th>
           <th style="text-align: center">Aksi</th>
         </tr>
       </thead>
       <tbody>
       <?php
-      $sql = "SELECT detail_jual.id_trans, trans_jual.status, trans_jual.bukti_bayar, tb_member.id_member,
-                     tb_member.nama, tb_member.no_hp,tb_member.alamat
-      FROM detail_jual 
-      JOIN tb_member ON tb_member.id_member = detail_jual.id_member 
-      JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
-      WHERE trans_jual.status = '2'";
+      $sql = "SELECT trans_jual.id_trans, trans_jual.status, trans_jual.bukti_bayar, tb_member.id_member,
+                     tb_member.nama, tb_member.no_hp,tb_member.alamat,tb_status.id_status,tb_status.status_pesanan
+      FROM trans_jual
+      JOIN tb_member ON tb_member.id_member = trans_jual.id_member
+      JOIN tb_status ON tb_status.id_status = trans_jual.status
+
+      WHERE trans_jual.status = 2 ";
 
       $result = mysqli_query($koneksi, $sql);
       if (mysqli_num_rows($result) > 0)
@@ -30,8 +33,10 @@
             <td style='text-align: center'>".$data['nama']."</td>
             <td style='text-align: center'>".$data['alamat']."</td>
             <td style='text-align: center'>".$data['no_hp']."</td>
+            <td style='text-align: center'><img src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'></td>
+            <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
-              <a href='pesanan_detail.php?id_trans=$data[id_trans]'><button type='submit' class='btn btn-success'>Selengkapnya</button></a>
+              <a href='pesanan_detail.php?id_trans=$data[id_trans]'><button type='submit' class='btn btn-success'>Detail</button></a>
             </td>
           </tr>";
         }
