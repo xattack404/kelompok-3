@@ -63,7 +63,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
           <li><a href="./index.html">Home</a></li>
           <li><a href="./katalog.html">Produk</a>
           </li>
-          <li><a href="./katalog.html">Konsultasi</a>
           </li>
           <li><a href="keranjang.html">Konfirmasi</a></li>
           <li><a href="#"> Tentang Kami</a>
