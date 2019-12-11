@@ -43,8 +43,6 @@ if(isset($_POST['submit']))
     }
       else
       {
-        // Membuat kode unik untuk aktivasi akun dengan format md5
-        $hash = md5(uniqid(rand(), true));
 
         // url: Membuat teks yang apabila di klik oleh user, maka akan masuk ke halaman aktivasi akun pada website
 //        $url      = $base_url.'activation.php?email='.urlencode($email)."&hash=$hash";
@@ -115,7 +113,7 @@ if(isset($_POST['submit']))
                                             '$nama',
                                             '$email',
                                             '$jkl',
-                                            '$hash',
+                                            '$password',
                                             '$telepon',
                                             '$alamat',
                                             '$kopos',
