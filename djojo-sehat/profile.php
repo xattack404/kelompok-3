@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="topnav">
-	  <a  class="active" href="profile.php">biodata diri</a>
+	  <a  class="active" href="coba.php">biodata diri</a>
 	  <a href="profile_alamat.php">Daftar Alamat</a>
 	  <a href="notifikasi.php">Notifikasi</a>
 	  <a href="keamanan.php">Keamanan</a>
