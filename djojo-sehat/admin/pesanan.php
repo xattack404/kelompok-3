@@ -2,7 +2,8 @@
 include '../config/koneksi.php';                  // Panggil koneksi ke database
 include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
 include 'cek_session.php';      // Panggil fungsi cek session
-include '../fungsi/setting.php';          // Panggil data setting
+include '../fungsi/setting.php';          // Panggil data 
+include '../fungsi/base_url.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +19,8 @@ include '../fungsi/setting.php';          // Panggil data setting
     <link href="template/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/>
     <script src="template/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="template/plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?php echo $base_url ?>template/js/jquery-3.4.1.min.js"></script>
+    <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
     <!-- Skrip Datatables -->
     <script type="text/javascript">
     $(document).ready( function () {

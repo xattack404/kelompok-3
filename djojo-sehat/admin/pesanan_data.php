@@ -1,3 +1,24 @@
+<style>
+@keyframes blowUpModal {
+  0% {
+    transform:scale(0);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+@keyframes blowUpModalTwo {
+  0% {
+    transform:scale(1);
+    opacity:1;
+  }
+  100% {
+    transform:scale(0);
+    opacity:0;
+  }
+}
+</style>
+
 <div class="box">
   <div class="box-body table-responsive padding">
     <table id="example1" class="table table-bordered table-striped">
@@ -33,7 +54,7 @@
             <td style='text-align: center'>".$data['nama']."</td>
             <td style='text-align: center'>".$data['alamat']."</td>
             <td style='text-align: center'>".$data['no_hp']."</td>
-            <td style='text-align: center'><img src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'></td>
+            <td style='text-align: center'><img data-toggle='modal' data-target='#exampleModal' id='bukti_bayar' src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'></td>
             <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
               <a href='pesanan_detail.php?id_trans=$data[id_trans]'><button type='submit' class='btn btn-success'>Detail</button></a>
@@ -47,3 +68,25 @@
   </table>
   </div>
 </div>
+<div class="modal" id="myModal" tabindex="-1" style="animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Bukti Bayar</h5>
+        </button>
+      </div>
+      <div class="modal-body">
+      <?= "<img style='margin-left:20px;margin-top:10px;' src='../images/slider/".$data['bukti_bayar']."' width='500px' height='500px'>"?>
+      </div>
+      <div class="modal-footer">
+      <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal" >Close
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$("#bukti_bayar").click(function(){
+    $("#myModal").modal();
+  });
+</script>
