@@ -21,8 +21,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
   </div>
   <div class="container-fluid">
     <div class="inner-header">
-      <div class="logo">
-        <a href="./index.html"><img src="<?php echo $base_url ?>template/Design/logo.png" alt=""></a>
+      <div class="logo" style="margin-top:10px;">
+        <a href="./index.html"><h5>Djojo Sehat</a>
       </div>
       <div class="header-right">
         <img src="<?php echo $base_url ?>template/Design/icons/search.png" alt="" class="search-trigger">
@@ -34,7 +34,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
       if(!empty($_SESSION['nama']) && (!empty($_SESSION['email'])))
       {
         echo "
-        <nav class='main-menu mobile-menu'>
+        <nav class='main-menu mobile-menu' style='margin-top:-1px;'>
         <ul>
         <li>
           <a href='#'> Hai, ".$sesen_nama." 
