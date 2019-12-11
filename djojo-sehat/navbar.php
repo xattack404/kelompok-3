@@ -42,6 +42,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
           <ul class='sub-menu'>
             <li>
               <a href='$base_url"."profile'>profile</a>
+              <a href='$base_url"."konsultasi.php'>Konsultasi</a>
               <a href='$base_url"."logout'>Logout</a>
             </li>
           </ul>
@@ -61,6 +62,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
         <ul>
           <li><a href="./index.html">Home</a></li>
           <li><a href="./katalog.html">Produk</a>
+          </li>
+          <li><a href="./katalog.html">Konsultasi</a>
           </li>
           <li><a href="keranjang.html">Konfirmasi</a></li>
           <li><a href="#"> Tentang Kami</a>

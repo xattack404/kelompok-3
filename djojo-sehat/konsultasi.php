@@ -25,15 +25,16 @@ include 'fungsi/setting.php';             // Panggil data setting
     <meta property="og:image" content="<?php echo $base_url; echo "images/produk/"; echo $konsultasi['img']; ?>" />
     <meta property="og:description" content="Dapatkan <?php echo $konsultasi['nama_produk']; ?> dan barang lainnya dengan harga yang terjangkau, berkualitas, dan bergaransi hanya di <?php echo $namatoko ?>" />
     <!-- CSS Bootstrap -->
-    <link href="<?php echo $base_url ?>template/css/custom.css" rel="stylesheet">
     <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
     <link href="<?php echo $base_url ?>template/css/jquery.fancybox.css" rel="stylesheet"/>
     <!-- Favicon -->
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
   </head>
   <body>
     <?php include 'navbar.php'; ?>
+<br>
+<br>
+<br>
 
     <div class="container">
       <?php include 'konsultasi_form.php'; ?>
