@@ -31,6 +31,14 @@ include 'record_keranjang.php';
 <body> 
   <!-- Page Preloder -->
   <!-- Search model -->
+  <div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-switch">+</div>
+      <form class="search-model-form">
+        <input type="text" id="search-input" placeholder="Search here.....">
+      </form>
+    </div>
+  </div>
   <!-- Search model end -->
 
   <!-- Header Section Begin -->
@@ -51,252 +59,332 @@ include 'navbar.php';
   <!-- Hero Slider End -->
 
   <!-- Features Section Begin -->
-  <section class="ftco-section ftco-no-pt ftco-no-pb">
-			<div class="container">
-				<div class="row no-gutters ftco-services">
-          <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services p-4 py-md-5">
-              <div class="icon d-flex justify-content-center align-items-center mb-4">
-            		<span class="flaticon-bag"></span>
-              </div>
-              <div class="media-body">
-                <h3 class="heading">Free Shipping</h3>
-              </div>
-            </div>      
+  <section class="features-section spad">
+    <div class="features-ads">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="single-features-ads first">
+              <img src="<?php echo $base_url ?>template/Design/icons/f-delivery.png" alt="">
+              <h4>Free shipping</h4>
+              <p> </p>
+            </div>
           </div>
-          <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services p-4 py-md-5">
-              <div class="icon d-flex justify-content-center align-items-center mb-4">
-            		<span class="flaticon-customer-service"></span>
-              </div>
-              <div class="media-body">
-                <h3 class="heading">Support Customer</h3>
-              </div>
-            </div>    
+          <div class="col-lg-4">
+            <div class="single-features-ads second">
+              <img src="<?php echo $base_url ?>template/Design/icons/coin.png" alt="">
+              <h4>100% Money back </h4>
+              <p></p>
+            </div>
           </div>
-          <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services p-4 py-md-5">
-              <div class="icon d-flex justify-content-center align-items-center mb-4">
-            		<span class="flaticon-payment-security"></span>
-              </div>
-              <div class="media-body">
-                <h3 class="heading">Secure Payments</h3>
-              </div>
-            </div>      
+          <div class="col-lg-4">
+            <div class="single-features-ads">
+              <img src="<?php echo $base_url ?>template/Design/icons/chat.png" alt="">
+              <h4>Online support 24/7</h4>
+              <p></p>
+            </div>
           </div>
         </div>
-			</div>
-		</section>
+      </div>
+    </div>
+    <!-- Features Box -->
+    <div class="features-box">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="single-box-item first-box">
+                  <img src="<?php echo $base_url ?>images/produk/Baju TIdur.png" style="height:300px;" alt="">
+                  <div class="box-text">
+                    <span class="trend-year">2019</span>
+                    <h2>Produk</h2>
+                    <span class="trend-alert"></span>
+                    <a href="katalog.php" class="primary-btn">See More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="single-box-item second-box">
+                  <img src="<?php echo $base_url ?>images/produk/Baju TIdur.jpg" style="height:300px;" alt="">
+                  <div class="box-text">
+                    <span class="trend-year">2019</span>
+                    <h2>Fashion</h2>
+                    <span class="trend-alert"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="single-box-item large-box">
+              <img src="<?php echo $base_url ?>images/produk/lensa-tele-zoom-12x.jpg" alt="">
+              <div class="box-text">
+                <span class="trend-year">2019</span>
+                <h2>Obat</h2>
+                <div class="trend-alert"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- Features Section End -->
 
   <!-- Latest Product Begin -->
-
-  <section class="ftco-section bg-light">
-    	<div class="container">
-				<div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Produk Terbaru</h2>
+  <section class="latest-products spad">
+    <div class="container">
+      <div class="product-filter">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <div class="section-title">
+              <h2>Latest Products</h2>
+            </div>
+            <ul class="product-controls">
+              <li data-filter="*">All</li>
+              <li data-filter=".dresses">Dresses</li>
+              <li data-filter=".bags">Bags</li>
+              <li data-filter=".shoes">Shoes</li>
+              <li data-filter=".accesories">Accesories</li>
+            </ul>
           </div>
-        </div>   		
-    	</div>
-    	<div class="container">
-    		<div class="row">
-          
-<?php
-$data     = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang DESC LIMIT 8");
-$numrows  = mysqli_num_rows($data);
-// Jika data ketemu, maka akan ditampilkan dengan While
-if($numrows > 0)
-{
-  while($row = mysqli_fetch_assoc($data))
-  {
-    $harga_normal = number_format($row['harga_jual'], 0, ',', '.').",-";
-?>
-    			<div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
-    				<div class="product d-flex flex-column">
-    					<a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" style ="height:200px;width: 200px;" class="img-prod"><img class="img-fluid" src="<?php echo $base_url ?>images/produk/<?php echo $row['foto_barang']; ?>" alt="">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3">
-    						<div class="d-flex">
-    							<div class="cat">
-		    						<span>Fashion</span>
-		    					</div>
-		    					<div class="rating">
-	    							<p class="text-right mb-0">
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    							</p>
-	    						</div>
-	    					</div>
-    						<a href="#"<h4><?php echo $row['nama_barang']; ?></h4></a>
-    						<div class="pricing">
-	    						<p class="price"><span>Rp <?php echo $harga_normal ?></span></p>
-	    					</div>
-	    					<p class="bottom-area d-flex px-3">
-    							<a href="<?php echo $base_url ?>beli/<?php echo $row['id_barang']; ?>" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-    							<a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="buy-now text-center py-2">Details<span><i class="ion-ios-cart ml-1"></i></span></a>
-    						</p>
-    					</div>
-    				</div>
-          </div>
-  <?php }} ?>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-
-
-    <section class="ftco-section ftco-choose ftco-no-pb ftco-no-pt">
-    	<div class="container">
-				<div class="row no-gutters">
-					<div class="col-lg-4">
-						<div class="choose-wrap divider-one img p-5 d-flex align-items-end" style="background-image: url(images/choose-1.jpg);background-color:grey">
-
-    					<div class="text text-center text-white px-2">
-								<span class="subheading">Obat</span>
-    						<p></p>
-    						<p><a href="katalog.php" class="btn btn-black px-3 py-2">Shop now</a></p>
-    					</div>
-    				</div>
-					</div>
-					<div class="col-lg-8">
-    				<div class="row no-gutters choose-wrap divider-two align-items-stretch">
-    					<div class="col-md-12">
-	    					<div class="choose-wrap full-wrap img align-self-stretch d-flex align-item-center justify-content-end" style="background-image: url(images/choose-2.jpg);background-color:lightgrey">
-	    						<div class="col-md-7 d-flex align-items-center">
-	    							<div class="text text-white px-5">
-	    								<span class="subheading">Fashion</span>
-			    						<p></p>
-			    						<p><a href="katalog.php" class="btn btn-black px-3 py-2">Shop now</a></p>
-			    					</div>
-	    						</div>
-	    					</div>
-	    				</div>
-    					<div class="col-md-12">
-    						<div class="row no-gutters">
-    							<div class="col-md-6">
-		    						<div class="choose-wrap wrap img align-self-stretch bg-light d-flex align-items-center">
-		    							<div class="text text-center px-5">
-		    								<span class="subheading">Discont</span>
-				    						<h2>Extra 50% Off</h2>
-				    					</div>
-		    						</div>
-	    						</div>
-	    						<div class="col-md-6">
-		    						<div class="choose-wrap wrap img align-self-stretch d-flex align-items-center" style="background-color:grey;background-image: url(images/choose-3.jpg);">
-		    							<div class="text text-center text-white px-5">
-		    								<span class="subheading">Fashion</span>
-				    						<h2>Best Sellers</h2>
-				    					</div>
-		    						</div>
-	    						</div>
-	    					</div>
-    					</div>
-    				</div>
-    			</div>
-  			</div>
-    	</div>
-    </section>
-    <br><br>
-
-    <section class="ftco-section ftco-deal bg-primary">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-6">
-    				<img src="images/prod-1.png" class="img-fluid" alt="">
-    			</div>
-    			<div class="col-md-6">
-    				<div class="heading-section heading-section-white">
-    					<span class="subheading"><h2>Produk Terlaris</span>
-	          </div>
-    				<div id="timer" class="d-flex mb-4">
-						  <div class="time" id="days"></div>
-						  <div class="time pl-4" id="hours"></div>
-						  <div class="time pl-4" id="minutes"></div>
-						  <div class="time pl-4" id="seconds"></div>
-						</div>
-						<div class="text-deal">
-							<h2><a href="#"></a></h2>
-							<p class="price"><span class="mr-2 price-dc"></span><span class="price-sale"></span></p>
-							<ul class="thumb-deal d-flex mt-4">
-								<li class="img" style="background-image: url(images/product-6.png);"></li>
-								<li class="img" style="background-image: url(images/product-2.png);"></li>
-								<li class="img" style="background-image: url(images/product-4.png);"></li>
-							</ul>
-						</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-<br>
-
-    <section class="ftco-gallery">
-    	<div class="container">
-    		<div class="row justify-content-center">
-    			<div class="col-md-8 heading-section text-center mb-4 ftco-animate">
-            <h2 class="mb-4">Follow Us On Instagram</h2>
-            <p></p>
-          </div>
-    		</div>
-    	</div>
-    	<div class="container-fluid px-0">
-    		<div class="row no-gutters">
-					<div class="col-md-4 col-lg-2 ftco-animate">
-						<a href="<?php echo $base_url ?>images/admin.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo $base_url ?>images/admin.png);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-4 col-lg-2 ftco-animate">
-						<a href="<?php echo $base_url ?>images/admin.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo $base_url ?>images/admin.png);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-4 col-lg-2 ftco-animate">
-						<a href="<?php echo $base_url ?>images/admin.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo $base_url ?>images/admin.png);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-4 col-lg-2 ftco-animate">
-						<a href="<?php echo $base_url ?>images/admin.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo $base_url ?>images/admin.png);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-4 col-lg-2 ftco-animate">
-						<a href="<?php echo $base_url ?>images/admin.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo $base_url ?>images/admin.png);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-4 col-lg-2 ftco-animate">
-						<a href="<?php echo $base_url ?>images/admin.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo $base_url ?>images/admin.png);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
         </div>
-    	</div>
-    </section>
-    
+      </div>
+      <div class="row" id="product-list">
+        <div class="col-lg-3 col-sm-6 mix all dresses bags">
+          <div class="single-product-item">
+            <figure>
+            <marquee direction="up" height="175" width="160" scrollamount="3" scrolldelay="1" onMouseOut="this.start()" onMouseOver="this.stop()">
+            <?php
+    include 'config/koneksi.php';
+    $sql    = "SELECT * FROM bseller JOIN produk ON bseller.judul_bs = produk.id_produk ORDER BY no_urut ASC LIMIT 8";
+    $result = mysqli_query($koneksi, $sql);
+    $no = 1;
+    if (mysqli_num_rows($result) > 0)
+    {
+      while ($data = mysqli_fetch_array($result)) // Ganti id_barang apabila ingin merubah menjadi seo url ke judul_seo
+      {
+        echo "<b><font face='arial' size='2' color=red'>".$data['no_urut']."</font></b>
+              <a href='$base_url"."produk/".$data['judul_seo'].".html' class='info'>
+                <br><font color='blue'>".$data['nama_produk']."</font><br>
+                <img id='image' src='$base_url"."images/produk/".$data['img']." ' title='".$data['nama_produk']."' alt='".$data['nama_produk']."' style='width:150px; height:150px;' valign='top'/>
+              </a>
+              <br/>
+              <br/>
+              <br/>
+              ";
+          $no++;
+      }
+    }
+    else
+    {
+      echo "<div id='description'>Belum ada data.</div>";
+    }
+    ?>
+    </p>
+            </marquee>
+            <div class="product-text">
+              <h6></h6>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mix all dresses bags">
+          <div class="single-product-item">
+            <figure>
+            <?php
+  // kategori
+  $sql = "SELECT * FROM kategori ORDER BY judul_kat ASC"; // Memanggil kategori/ top kategori
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) > 0)
+  {
+    echo '<ul class="list-group">';
+    while ($row = mysqli_fetch_assoc($result))
+    {
+      $id_kat = $row['id_kat'];
+      // subkat
+      $sql2 = "SELECT * FROM subkat WHERE id_kat='$id_kat'"; // Memanggil subkategori/ middle kategori
+      $result2 = mysqli_query($koneksi, $sql2);
+      echo '<li class="list-group-item"><b>'.$row['judul_kat'].'</b>';
+        echo '<ul class="list-group">';
+          while($row2 = mysqli_fetch_assoc($result2))
+          {
+            $id_subkat = $row2['id_subkat'];
+            // supersubkat
+            $sql3 = "SELECT * FROM supersubkat WHERE id_subkat ='$id_subkat'"; // Memanggil supersubkategori/ bottom kategori
+            $result3 = mysqli_query($koneksi, $sql3);
+            echo '<li class="list-group-item">'.$row2['judul_subkat'];
+                echo '<ul class="list-group">';
+                  while($row3 = mysqli_fetch_assoc($result3))
+                  {
+                    echo "<li class='list-group-item'><a href='$base_url"."kategori/$row3[kategori_seo]'>".$row3['judul_supersubkat']."</a></li>";
+                  }
+                echo '</ul>';
+            echo '</li>';
+          }
+        echo '</ul>';
+      echo '</li>';
+    }
+    echo '</ul>';
+  }
+  ?>
+
+            </figure>
+            <div class="product-text">
+              <h6></h6>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mix all shoes accesories">
+          <div class="single-product-item">
+            <figure>
+            <?php
+  $query = "SELECT isi FROM navigasi WHERE id_nav = 4 ";
+  $hasil = mysqli_query($koneksi, $query);
+  $data  = mysqli_fetch_array($hasil);
+  if(mysqli_num_rows($hasil) > 0)
+  {
+    echo $data['isi'];
+  }
+  else{echo "Belum ada data";}
+?>
+            </figure>
+            <div class="product-text">
+              <h6></h6>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mix all shoes accesories">
+          <div class="single-product-item">
+            <figure>
+            <?php 
+$query = "SELECT isi FROM navigasi WHERE id_nav = 6";
+$hasil = mysqli_query($koneksi, $query);
+$data  = mysqli_fetch_array($hasil);
+if(mysqli_num_rows($hasil) > 0)
+{echo $data['isi'];}
+else{echo "Belum ada data";}
+?>
+            </figure>
+            <div class="product-text">
+              <h6></h6>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Latest Product End -->
+
+  <!-- Lookbok Section Begin -->
+  <!-- Lookbok Section End -->
+
+  <!-- Logo Section Begin -->
+  <div class="logo-section spad">
+    <div class="logo-items owl-carousel">
+      <div class="logo-item">
+        <img src="<?php echo $base_url ?>template/Design/logos/logo-1.png" alt="">
+      </div>
+      <div class="logo-item">
+        <img src="<?php echo $base_url ?>template/Design/logos/logo-2.png" alt="">
+      </div>
+      <div class="logo-item">
+        <img src="<?php echo $base_url ?>template/Design/logos/logo-3.png" alt="">
+      </div>
+      <div class="logo-item">
+        <img src="<?php echo $base_url ?>template/Design/logos/logo-4.png" alt="">
+      </div>
+      <div class="logo-item">
+        <img src="<?php echo $base_url ?>template/Design/logos/logo-5.png" alt="">
+      </div>
+    </div>
+  </div>
+  <!-- Logo Section End -->
+
+  <!-- Footer Section Begin -->
+  <footer class="footer-section spad">
+    <div class="container">
+      <div class="newslatter-form">
+        <div class="row">
+          <div class="col-lg-12">
+            <form action="#">
+              <input type="text" placeholder="Your email address">
+              <button type="submit">Subscribe to our newsletter</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-widget">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-footer-widget">
+              <h4>About us</h4>
+              <ul>
+                <li>About Us</li>
+                <li>Community</li>
+                <li>Jobs</li>
+                <li>Shipping</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-footer-widget">
+              <h4>Customer Care</h4>
+              <ul>
+                <li>Search</li>
+                <li>Privacy Policy</li>
+                <li>2019 Lookbook</li>
+                <li>Shipping & Delivery</li>
+                <li>Gallery</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-footer-widget">
+              <h4>Our Services</h4>
+              <ul>
+                <li>Free Shipping</li>
+                <li>Free Returnes</li>
+                <li>Our Franchising</li>
+                <li>Terms and conditions</li>
+                <li>Privacy Policy</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-footer-widget">
+              <h4>Information</h4>
+              <ul>
+                <li>Payment methods</li>
+                <li>Times and shipping costs</li>
+                <li>Product Returns</li>
+                <li>Shipping methods</li>
+                <li>Conformity of the products</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social-links-warp">
+      <div class="container">
+        <div class="social-links">
+          <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+          <a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+          <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+          <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+          <a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+          <a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+        </div>
+      </div>
       <?php
 include 'footer.php';
 ?>
-
 
     </div>
 
@@ -317,23 +405,6 @@ include 'footer.php';
   <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
   
-  
-  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/popper.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.easing.1.3.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.waypoints.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.stellar.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/owl.carousel.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.magnific-popup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/aos.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.animateNumber.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/bootstrap-datepicker.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/scrollax.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/google-map.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/Design/js/main.js"></script>
 </body>
 
 </html>
