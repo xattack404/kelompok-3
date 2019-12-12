@@ -1,134 +1,113 @@
-<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
-  rel="stylesheet">
-<link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css" type="text/css">
-<link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css" type="text/css">
-<header style="background: rgba(224,239,249,1);
-background: -moz-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(224,239,249,1)), color-stop(21%, rgba(193,209,219,1)), color-stop(29%, rgba(181,198,208,1)), color-stop(72%, rgba(216,225,231,1)), color-stop(86%, rgba(229,236,240,1)), color-stop(100%, rgba(242,246,248,1)));
-background: -webkit-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
-background: -o-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
-background: -ms-linear-gradient(left, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
-background: linear-gradient(to right, rgba(224,239,249,1) 0%, rgba(193,209,219,1) 21%, rgba(181,198,208,1) 29%, rgba(216,225,231,1) 72%, rgba(229,236,240,1) 86%, rgba(242,246,248,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', endColorstr='#f2f6f8', GradientType=1 );" class="header-section">
-  <div id="preloder">
-    <div class="loader"></div>
-  </div>
-  <div class="container-fluid">
-    <div class="inner-header">
-      <div class="logo" style="margin-top:10px;">
-        <a href="./index.html"><h5>Djojo Sehat</a>
-      </div>
-      <div class="header-right">
-        <img src="<?php echo $base_url ?>template/Design/icons/search.png" alt="" class="search-trigger">
-        <a href="keranjang.php">
-        <img src="<?php echo $base_url ?>template/Design/icons/cart-1.png"  alt=""><?php $Keranjang ?></a>
-      </div>
-      <?php
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/animate.css">
+    
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/aos.css">
+
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/flaticon.css">
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/icomoon.css">
+    <link rel="stylesheet" href="<?= $base_url ?>template/Design/Design/css/style.css">
+  <div class="goto-here">
+		<div class="py-1 bg-black">
+    	<div class="container">
+    		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+	    		<div class="col-lg-12 d-block">
+		    		<div class="row d-flex">
+		    			<div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+						    <span class="text">+6200 0000 0000</span>
+					    </div>
+                <?php
                 include 'fungsi/cek_session_public.php';
       if(!empty($_SESSION['nama']) && (!empty($_SESSION['email'])))
       {
         echo "
-        <nav class='main-menu mobile-menu' style='margin-top:-1px;'>
-        <ul>
-        <li>
-          <a href='#'> Hai, ".$sesen_nama." 
-          </a>
-          <ul class='sub-menu'>
-            <li>
-              <a href='$base_url"."profile'>profile</a>
-              <a href='$base_url"."konsultasi.php'>Konsultasi</a>
-              <a href='$base_url"."logout'>Logout</a>
-            </li>
-          </ul>
-        </li></ul></nav>";
+        <div class='col-md pr-4 d-flex topper align-items-center'>
+					    	<div class='icon mr-2 d-flex justify-content-center align-items-center'><span class='icon-paper-plane'></span></div>
+                <span class='text'>$sesen_email</span>
+        ";
       }
         else
         {
           echo"
-          <div class='user-access'>
-          <a href='register_form.php'>Register</a>
-                    <a href='login_form.php' class='in' style='color:black;'>Sign in</a>
-                    </div>";
+          <div class='col-md pr-4 d-flex topper align-items-center'>
+					    	<div class='icon mr-2 d-flex justify-content-center align-items-center'><span class='icon-paper-plane'></span></div>
+                <span class='text'>Default@gmail.com</span>";
         }
       ?>
 
-      <nav class="main-menu mobile-menu">
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./katalog.html">Produk</a>
-          </li>
-          </li>
-          <li><a href="keranjang.html">Konfirmasi</a></li>
-          <li><a href="#"> Tentang Kami</a>
-            <ul class="sub-menu">
-              <li>
-                <a href='page/cara_order.html'> Cara Order
-                </a>
-              </li>
-              <li>
-                <a href='page/ketentuan.html'>
-                  Ketentuan Belanja
-                </a>
-              </li>
-              <li>
-                <a href='page/kontak.html'>
-                  Kontak
-                </a>
-              </li>
-              <li>
-                <a href='page/profil.html'>
-                  Profil
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+					    </div>
+					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+						    <span class="text">JNE &amp; JNT DELIVERY </span>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+		  </div>
     </div>
-  </div>
-</header>
-<?php
-      /*if(!empty($_SESSION['username']) && empty($_SESSION['akses']))
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Djojo Sehat</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+			  <li class="nav-item active"><a href="./index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="./katalog.html" class="nav-link">Produk</a></li>
+            <li class="nav-item"><a href="./keranjang.html" class="nav-link">Konfirmasi</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tentang Kami</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="page/cara_order.html">Cara Order</a>
+                <a class="dropdown-item" href="page/ketentuan.html">Ketentuan Belanja</a>
+                <a class="dropdown-item" href="page/kontak.html">Kontak</a>
+                <a class="dropdown-item" href="page/profile.html">Profile</a>
+              </div></li>
+
+
+              <?php
+                include 'fungsi/cek_session_public.php';
+      if(!empty($_SESSION['nama']) && (!empty($_SESSION['email'])))
       {
         echo "
-        <li>
-          <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
-            <span class='glyphicon glyphicon-user' aria-hidden='true'></span> Hai, ".$sesen_nama." <span class='caret'></span>
+        <li class= 'nav-item dropdown'>
+          <a href='#' class ='nav-link dropdown-toggle' id='dropdown04' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> Hai, ".$sesen_nama." 
           </a>
-          <ul class='dropdown-menu'>
-            <li>
-              <a href='$base_url"."logout'>
-                <span class='glyphicon glyphicon-log-out' aria-hidden='true'></span> Logout
-              </a>
-            </li>
-          </ul>
-        </li>";
+          <div class='dropdown-menu' aria-labelledby='dropdown04'>
+              <a class='dropdown-item' href='$base_url"."profile'>profile</a>
+              <a class='dropdown-item' href='$base_url"."konsultasi.php'>Konsultasi</a>
+              <a class='dropdown-item' href='$base_url"."logout'>Logout</a>
+            </div></li>";
       }
         else
         {
-        }*/
+          echo"
+          <li class='nav-item'>
+          <a href='register_form.php' class='nav-link'>Register</a></li>
+          <li class='nav-item'>
+                    <a href='login_form.php' class='nav-link'>Sign in</a></li>";
+        }
       ?>
-<div class="header-info">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="header-item">
-        </div>
-      </div>
-      <div class="col-sm-4 text-left text-lg-center">
-        <div class="header-item">
-        </div>
-      </div>
-      <div class="col-sm-4 text-left text-lg-right">
-        <div class="header-item">
-        </div>
-      </div>
-    </div>
-  </div>
+	          <li class="nav-item cta cta-colored"><a href="./keranjang.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+	        </ul>
+	      </div>
+	    </div>
+    </nav>
 </div>
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+    
+
+

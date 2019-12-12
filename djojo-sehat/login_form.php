@@ -42,6 +42,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
   <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
   <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
+  
+  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/popper.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/bootstrap.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.easing.1.3.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.waypoints.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.stellar.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/owl.carousel.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.magnific-popup.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/aos.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/jquery.animateNumber.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/bootstrap-datepicker.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/scrollax.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/google-map.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/Design/js/main.js"></script>
   <script>
 
 //validasi email
