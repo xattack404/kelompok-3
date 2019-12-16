@@ -24,15 +24,24 @@
       <div class="box box-primary">
         <div class="box-body">
           <div class="row">
-            <div class="col-xs-4"><label>Harga Beli</label>
-              <input class="form-control" name="hrg_beli" type="number" id="hrg_beli" size="30"
+            <div class="col-xs-3"><label>Harga Beli</label>
+              <input class="form-control" name="hrg_beli" type="number" id="hrg_beli" onkeyup="sum();"size="30"
                 placeholder="Angka saja" />
             </div>
-            <div class="col-xs-4"><label>Harga Jual</label>
-              <input class="form-control" name="hrg_jual" type="number" id="hrg_jual" size="30"
+            <div class="col-xs-3"><label>Laba </label>
+              <input class="form-control" name="laba" type="number" id="laba" onkeyup="sum();" size="30"
+                placeholder="Angka saja persen" />
+            </div>
+            <div class="col-xs-3"><label>Harga Jual</label>
+              <input class="form-control" name="hrg_jual" type="number" readonly  id="hrg_jual" size="30"
                 placeholder="Angka saja" />
             </div>
           </div><br />
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="bg-danger text-center">laba = (jumlah laba/100) X harga beli ||| harga jual = harga beli + laba</p>
+            </div>
+          </div>
           <div class="row">
             <div class="col-xs-3"><label>Jumlah Barang</label>
               <input class="form-control" name="jumlah_brg" type="number" id="b" size="30" placeholder="Isi angka saja"
@@ -91,7 +100,18 @@
     </div>
   </div>
 </form>
-
+<script src="../template/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+  function sum() {
+      var harga_beli = document.getElementById('hrg_beli').value;
+      var laba = document.getElementById('laba').value;
+      var labae= (parseInt(harga_beli)/100) * parseInt(laba);
+      var result = parseInt(labae) + parseInt(harga_beli);
+      if (!isNaN(result)) {
+         document.getElementById('hrg_jual').value = result;
+      }
+}
+</script>
 <?php
 include "../fungsi/imgpreview.php"; // Preview gambar yang akan diupload
 include "../fungsi/tinymce.php";    // Editor teks Tinymce + Ajax File/ Photo Manager
