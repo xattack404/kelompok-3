@@ -115,10 +115,10 @@ if(mysqli_num_rows($cek_barang) == 0)
      {
         header("location: $base_url"."transaksi_selesai.html"); 
      }
-          // Jika gagal, maka akan muncul alert
-          else
-          {
-              echo "<script>alert('Mohon maaf, Transaksi gagal. Mohon ulangi kembali');location.replace('keranjang.html')</script>";
-          }
+	// Jika gagal, maka akan muncul alert
+	else
+	{
+		echo "<script>alert('Mohon maaf, Transaksi gagal. Mohon ulangi kembali');location.replace('keranjang.html')</script>";
+	}
      
 ?>
