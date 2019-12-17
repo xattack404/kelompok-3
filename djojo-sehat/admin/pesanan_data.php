@@ -52,12 +52,28 @@
             <td style='text-align: center'>".$data['nama']."</td>
             <td style='text-align: center'>".$data['alamat']."</td>
             <td style='text-align: center'>".$data['no_hp']."</td>
-            <td style='text-align: center'><img data-toggle='modal' data-target='#exampleModal' id='bukti_bayar' src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'></td>
+            <td style='text-align: center'><button data-toggle='modal' data-target='#myModal'><img data-toggle='modal' data-target='#myModal' id='bukti_bayar' src='../images/bukti_bayar/".$data['bukti_bayar']."' width='100px' height='50px'></td>
             <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
              <a class='btn btn-success btn-s' title='DETAIL pesanan' href='pesanan_detail.php?id_trans=$data[id_trans]'><i class='glyphicon glyphicon-list'></i></a>
             </td>
-          </tr>";
+          </tr>
+          <div class='modal' id='myModal' tabindex='-1' style='animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;' role='dialog'>
+  <div class='modal-dialog' role='document'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title'>Bukti Bayar</h5>
+        </button>
+      </div>
+      <div class='modal-body'>
+      <img style='margin-left:20px;margin-top:10px;width:500px; height:500px' src='../images/bukti_bayar/". $data['bukti_bayar']."'>
+      </div>
+      <div class='modal-footer'>
+      <button type='button' id='close' class='btn btn-secondary' data-dismiss='modal' >Close
+      </div>
+    </div>
+  </div>
+</div>";
           }
           if ($data['status'] == 2 ) {
             echo "
@@ -66,7 +82,7 @@
             <td style='text-align: center'>".$data['nama']."</td>
             <td style='text-align: center'>".$data['alamat']."</td>
             <td style='text-align: center'>".$data['no_hp']."</td>
-            <td style='text-align: center'><img data-toggle='modal' data-target='#exampleModal' id='bukti_bayar' src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'></td>
+            <td style='text-align: center'><button data-toggle='modal' data-target='#myModal'><img id='bukti_bayar' src='../images/bukti_bayar/".$data['bukti_bayar']."' width='100px' height='50px'></td>
             <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
               <a class='btn btn-danger btn-s' title='TOLAK pesanan' href='pesanan_tolak.php?id_trans=$data[id_trans]'><i class='glyphicon glyphicon-remove'></i></a>
@@ -82,7 +98,7 @@
             <td style='text-align: center'>".$data['nama']."</td>
             <td style='text-align: center'>".$data['alamat']."</td>
             <td style='text-align: center'>".$data['no_hp']."</td>
-            <td style='text-align: center'><img data-toggle='modal' data-target='#exampleModal' id='bukti_bayar' src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'></td>
+            <td style='text-align: center'><button data-toggle='modal' data-target='#myModal'><img data-toggle='modal' data-target='#myModal' id='bukti_bayar' src='../images/bukti_bayar/".$data['bukti_bayar']."' width='100px' height='50px'></td>
             <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
               <a class='btn btn-primary btn-s' href='pesanan_kirim.php?id_trans=$data[id_trans]' title='Kirim '><i class='glyphicon glyphicon-send'></i></a>
@@ -97,7 +113,7 @@
             <td style='text-align: center'>".$data['nama']."</td>
             <td style='text-align: center'>".$data['alamat']."</td>
             <td style='text-align: center'>".$data['no_hp']."</td>
-            <td style='text-align: center'><img data-toggle='modal' data-target='#exampleModal' id='bukti_bayar' src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'></td>
+            <td style='text-align: center'><button data-toggle='modal' data-target='#myModal'><img data-toggle='modal' data-target='#myModal' id='bukti_bayar' src='../images/bukti_bayar/".$data['bukti_bayar']."' width='100px' height='50px'></td>
             <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
               <a href='pesanan_detail.php?id_trans=$data[id_trans]'><button type='submit' class='btn btn-success'>Detail</button></a>
@@ -115,27 +131,10 @@
   </table>
   </div>
 </div>
-<div class="modal" id="myModal" tabindex="-1" style="animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Bukti Bayar</h5>
-        </button>
-      </div>
-      <div class="modal-body">
-      <?= "<img style='margin-left:20px;margin-top:10px;' src='../images/slider/".$data['bukti_bayar']."' width='500px' height='500px'>"?>
-      </div>
-      <div class="modal-footer">
-      <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal" >Close
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <script>
 $("#bukti_bayar").click(function(){
     $("#myModal").modal();
   });
 </script>
-
-<img data-toggle='modal' data-target='#exampleModal' id='bukti_bayar' src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'>
