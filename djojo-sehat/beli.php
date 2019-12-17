@@ -22,16 +22,16 @@ if(mysqli_num_rows($hasil_barang) > 0)
     echo "<script>alert('Mohon maaf, stok sedang kosong');location.replace('$base_url')</script>";
   }
   else {
-    $cari  = "SELECT * FROM tb_keranjang WHERE id_member = '$sesen_id' ORDER BY id_keranjang DESC";
-    $query = mysqli_query($koneksi,$cari);
-    $hasil = mysqli_fetch_array($query);
+    // $cari  = "SELECT * FROM tb_keranjang WHERE id_member = '$sesen_id' ORDER BY id_keranjang DESC";
+    // $query = mysqli_query($koneksi,$cari);
+    // $hasil = mysqli_fetch_array($query);
     
-  }
+  
 
       $cari_cart   = "SELECT * FROM tb_keranjang WHERE  id_barang = '$id_barang'";
       $hasil_cart  = mysqli_query($koneksi,$cari_cart);
       $data_cart   = mysqli_fetch_array($hasil_cart);
-
+  
       if(mysqli_num_rows($hasil_cart) == 0)
       {
         $query1 = "INSERT INTO tb_keranjang (id_keranjang,
@@ -55,6 +55,7 @@ if(mysqli_num_rows($hasil_barang) > 0)
           {
             echo "Error updating record: " . mysqli_error($koneksi);
           }
+          
       }
         else
         {
@@ -78,11 +79,8 @@ if(mysqli_num_rows($hasil_barang) > 0)
             {
               echo "Error updating record: " . mysqli_error($koneksi);
             }
+          }
         }
       
 }
-  else
-  {
-    echo "<script>alert('Barang yang ingin Anda beli tidak ada');location.replace('$base_url')</script>";
-  }
 ?>

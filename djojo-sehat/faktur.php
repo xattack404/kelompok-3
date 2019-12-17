@@ -13,8 +13,8 @@ if($hasil > 0)
 }
 	else
 	{
-		$query 	= "INSERT INTO tb_keranjang (id_member,id_barang,jumlah,subtotal) VALUES ('$sesen_id','$id_barang','1','$harga')";
-		$result = mysqli_query($koneksi,$query);
+		// $query 	= "INSERT INTO tb_keranjang (id_member,id_barang,jumlah,subtotal) VALUES ('$sesen_id','$id_barang','1','$harga')";
+		// $result = mysqli_query($koneksi,$query);
 
 		$cari 	= "SELECT * FROM tb_keranjang ORDER BY id_keranjang DESC";
 		$query 	= mysqli_query($koneksi,$cari);

@@ -25,7 +25,7 @@ $cek_barang     = mysqli_query($koneksi,"SELECT tb_barang.id_barang,tb_barang.na
                             LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = tb_member.provinsi
                         WHERE  tb_keranjang.id_member = '$sesen_id'");
    
- 
+ //mengambil data yang di perlukan kedalam Variable
 $data_barang    = mysqli_fetch_array($cek_barang);
 $id             =   $data_barang['id_barang'];
 $jmlh           =   $data_barang['jumlah'];
@@ -44,7 +44,7 @@ $sub_query      = "SELECT sum(subtotal) AS subtotal FROM tb_keranjang
                         $subtotal       = $data['subtotal'];
                         $grand_total    = $totalongkir + $subtotal;
  
-// Jika tidak ditemukan maka akan muncul alert/ pemberitahuan
+// Jika tidak ditemukan maka akan kembali ke halaman awal
 if(mysqli_num_rows($cek_barang) == 0)
 {
     header("location:keranjang.html");
@@ -78,6 +78,7 @@ if(mysqli_num_rows($cek_barang) == 0)
         // Jika berhasil, maka akan Masukan data ke detail jual
         if(mysqli_query($koneksi,$query))
        {
+        //metode INSERT_ID digunakan untuk menagkap id yang sama karena tabel terelasi dengan tbl lain
         $id_trans = $koneksi->insert_id;
         $cek_cart =mysqli_query($koneksi, "SELECT * FROM tb_keranjang where id_member='$sesen_id'");
        
