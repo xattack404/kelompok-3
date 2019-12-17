@@ -10,25 +10,24 @@ if (mysqli_query($koneksi, $sql))
 {
   
   $cek =mysqli_query($koneksi, "SELECT * FROM detail_jual where id_trans='$no_id'");
-  $row1 = mysqli_fetch_array($cek);
-  $id_brg= $row1['id_barang'];
 
-  $cek_stok =mysqli_query($koneksi, "SELECT * FROM tb_barang Where id_barang='$id_brg'");
-  $hasil = mysqli_fetch_array($cek_stok);
-  $stok = $hasil['jumlah'];
+
   while($row = mysqli_fetch_array($cek)){
-      $id_barang= $row['id_barang'];
-      $id_member = $row['id_member'];
-      $jumlah_asal = $hasil['jumlah'] + $row['jumlah'];
+    $id_barang= $row['id_barang'];
+      $cek_stok =mysqli_query($koneksi, "SELECT * FROM tb_barang Where id_barang='$id_barang'");
+      $hasil = mysqli_fetch_array($cek_stok);
+      $stok = $hasil['jumlah'];
+
+      $jumlah_asal = $stok + $row['jumlah'];
 
       $query2 = $query2 = "UPDATE tb_barang SET jumlah ='$jumlah_asal' WHERE id_barang = '$id_barang'";
 
       //Kurangi Stok pada tabel barang, bedasarkan id barang di keranjang
       mysqli_query($koneksi, $query2);
-
+  }
       echo "<script>alert('Update data berhasil! Klik ok untuk melanjutkan');location.replace('pesanan.php')</script>"; 
 
-  }
+  
 }
   else 
   {
