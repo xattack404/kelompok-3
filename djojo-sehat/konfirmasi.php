@@ -5,6 +5,8 @@ include 'fungsi/setting.php';             // Panggil data Nama Toko Online
 include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
 include "fungsi/imgpreview.php"; // Preview gambar yang akan diupload
 include "fungsi/tinymce.php";    // Editor teks Tinymce + Ajax File/ Photo Manager
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,10 +59,10 @@ include "fungsi/tinymce.php";    // Editor teks Tinymce + Ajax File/ Photo Manag
                       <div class="box-body">
                         <div class="row">
                         <div class="col-xs-4"><label>No. Invoice</label>
-                         <select name="kategori" id="kategori" class="form-control" required>
+                         <select name="no" id="no" class="form-control" required>
                             <option value="">--Pilih No. Invoice--</option>
                             <?php
-                            $query = "SELECT id_trans FROM trans_jual WHERE id_member ='$sesen_id' AND status= 2 ORDER BY id_trans ASC ";
+                            $query = "SELECT id_trans, total_bayar FROM trans_jual WHERE id_member ='$sesen_id' AND status= 2 ORDER BY id_trans ASC ";
                             $sql = mysqli_query($koneksi, $query);
                             while($data = mysqli_fetch_array($sql)){
                               echo '<option value="'.$data['id_trans'].'">'.$data['id_trans'].'</option>';
@@ -69,28 +71,32 @@ include "fungsi/tinymce.php";    // Editor teks Tinymce + Ajax File/ Photo Manag
                         </select>
                         </div>
                           <div class="col-xs-5"><label>Nama Pengirim</label>
-                            <input class="form-control" name="nama_pengirim" type="text" id="nama_pengirim" required/>
+                            <input class="form-control" value="<?= $sesen_nama ?>" name="nama_pengirim" type="text" id="nama_pengirim" readonly required/>
                           </div>
                         </div><br/>
+                        <?php 
+                              $query3 =mysqli_query($koneksi, "SELECT * FROM tb_setting WHERE id_setting ='6'");
+                              $hasild = mysqli_fetch_array($query3);
+                             ?>
                         <div class="row">
                           <div class="col-xs-3"><label>Transfer Ke</label>
-                            <input class="form-control" name="transfer_ke" type="text" id="transfer_ke" placeholder="" required/>
+                            <input class="form-control" name="transfer_ke" type="text" id="transfer_ke" placeholder="" value="<?= $hasild['isi_setting'] ?>" readonly required/>
                           </div>
                           <div class="col-xs-5"><label>Jumlah Transfer</label>
-                            <input class="form-control" name="jml_transfer" type="text" id="jml_transfer" placeholder="Isikan angka saja" onkeypress='return isNumberKey(event)' required/>
+                            <input class="form-control" name="jml_transfer" type="text" id="jml_transfer" placeholder="Isikan angka saja" value="<?= $data['total_bayar'] ?>" required/>
                           </div>
                           <div class="col-xs-4"><label>Tanggal Transfer</label>
-                            <input class="form-control" name="tgl_transfer" type="text" id="tgl_transfer"/>
+                            <input class="form-control" name="tgl_transfer" type="date" id="tgl_transfer"/>
                           </div>
                         </div><br/>
                         <div class="form-group"><label>Catatan</label>
                           <textarea class="form-control" name="catatan" id="catatan" placeholder="Tidak wajib diisi"></textarea>
                         </div>
-                        <div class="form-group"><label>* Foto Bukti Transfer</label><br />
-                             <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')" required />
-                            <br><b>Preview Gambar</b><br>
-                            <img id="preview" src="" alt="" width="35%" />
-                      </div>
+                        <div class="form-group"><label>* Foto Baru</label><br />
+                          <input type="file" name="img" id="img" onchange="tampilkanPreview(this,'preview')" required />
+                          <br><b>Preview Gambar</b><br>
+                          <img id="preview" src="" alt="" width="35%" />
+                        </div>
                       </div><!-- /.box-body -->
                       <div class="box-footer">
                         <button type="submit" name="submit" class="btn btn-success">Submit</button>
@@ -113,8 +119,12 @@ include "fungsi/tinymce.php";    // Editor teks Tinymce + Ajax File/ Photo Manag
       <?php include 'footer.php'; ?>
 
     </div>
+    <?php
+    include "fungsi/imgpreview.php"; // Preview gambar yang akan diupload
+    include "fungsi/tinymce.php";    // Editor teks Tinymce + Ajax File/ Photo Manager
+    ?>
 
-    <script type="text/javascript">
+   <!--  <script type="text/javascript">
     <!-- Fungsi JS untuk membuat form hanya bisa diisi oleh angka saja -->
     <script type="text/javascript">
     function isNumberKey(evt)
@@ -125,6 +135,7 @@ include "fungsi/tinymce.php";    // Editor teks Tinymce + Ajax File/ Photo Manag
       return false;
       return true;
     }
-    </script>
+    </script> -->
+
   </body>
 </html>
