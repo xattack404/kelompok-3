@@ -23,7 +23,6 @@ $page   = mysqli_fetch_array($result);
   <meta name="author" content="<?php echo $author ?>" />
   <!-- CSS Bootstrap -->
   <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
   <!-- Favicon -->
   <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon" />
 </head>
@@ -67,4 +66,15 @@ $page   = mysqli_fetch_array($result);
   <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
 </body>
 
+  <!-- Memanggil file JS -->
+  <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
+  <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
+  <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/owl.carousel.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
+  <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
 </html>
