@@ -1,8 +1,16 @@
-<?php 
-    include 'config/koneksi.php';
-    include 'fungsi/base_url.php';
-    include 'navbar.php';
-?>
+<?php session_start();
+include 'config/koneksi.php';              // Panggil koneksi ke database
+include 'faktur.php';                      
+include 'faktur_selesai.php';             // Panggil data faktur yang telah selesai
+include 'fungsi/base_url.php';            // Panggil fungsi base_url
+include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
+include 'fungsi/cek_login_public.php';    // Panggil fungsi cek login public
+include 'fungsi/navigasi.php';            // Panggil data navigasi
+include 'fungsi/setting.php';             // Panggil data setting
+include 'fungsi/tgl_indo.php';            // Panggil fungsi tanggal indonesia
+include 'navbar.php';
+
+    ?>
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 <style>
@@ -249,21 +257,40 @@
     <br>
     <br>
     <br>
-    
+    <?php
+    $ambil =  mysqli_query($koneksi," SELECT tb_barang.id_barang,tb_barang.nama_barang,tb_barang.judul,
+                                          tb_barang.berat,tb_barang.harga_jual,tb_member.id_member,
+                                          tb_member.nama,tb_member.alamat,tb_member.kecamatan,
+                                          tb_member.kabupaten_kota,tb_member.provinsi,tb_member.kode_pos,
+                                          tb_member.no_hp,tb_pengiriman.metode_pengiriman,detail_pengiriman.no_resi_pengiriman,
+                                          trans_jual.id_trans,trans_jual.id_member,trans_jual.status,trans_jual.total_bayar,
+                                          tb_status.status_pesanan,
+                                          kec.nama_kec,
+                                          kabkot.nama_kabkot,kabkot.jne_reg,
+                                          prov.nama_prov
+              FROM trans_jual
+              LEFT JOIN tb_pengiriman ON tb_pengiriman.id_pengiriman = trans_jual.id_pengiriman
+              LEFT JOIN detail_pengiriman ON detail_pengiriman.id_trans = trans_jual.id_trans
+              LEFT JOIN tb_status ON tb_status.id_status = trans_jual.status
+              LEFT JOIN tb_barang ON tb_barang.id_barang  = trans_jual.id_barang
+              LEFT JOIN tb_member ON tb_member.id_member  = trans_jual.id_member
+              LEFT JOIN kec ON kec.id_kec = tb_member.kecamatan
+              LEFT JOIN kabkot ON kabkot.id_kabkot = kec.id_kabkot 
+                        AND kabkot.id_kabkot = tb_member.kabupaten_kota
+              LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = tb_member.provinsi
+                AND trans_jual.id_member= '$sesen_id'");
+
+if(mysqli_num_rows($ambil) > 0)
+{
+    while($hasil        = mysqli_fetch_array($ambil)){
+    ?>
 <div class="main-container">
     <section class="pricing-2">
         <div class="container">
             <div class="row pricing-tables">
                 <div class="col-md-3 no-pad-right hidden-sm">
                     <div class="pricing-table feature-list">
-                        <ul class="features">
-                            <li><strong>&nbsp;</strong></li>
-                            <li><strong>No </strong></li>
-                            <li><strong>Nama</strong></li>
-                            <li><strong>Alamat</strong></li>
-                            <li><strong>Nomer Handphone</strong></li>
-                            <li><strong>Metode Pengiriman</strong></li>
-                        </ul>
+                     
                     </div>
                 </div>
                 <div class="col-md-2 no-pad hidden-sm">
@@ -271,20 +298,22 @@
                         <ul class="features">
                             <li><strong>No Invoice</strong></li>
                             <li><strong>Nama</strong></li>
-                            <li><strong>Alamat</strong></li>
-                            <li><strong>Nomer Handphone</strong></li>
+                            <li><strong>Total Harga</strong></li>
                             <li><strong>Metode Pengiriman</strong></li>
+                            <li><strong>Status Transaksi</strong></li>
+                            <li><strong>No Resi Pengiriman</strong></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-2 no-pad hidden-sm">
                     <div class="pricing-table">
                         <ul class="features">
-                            <li><strong>31</strong></li>
-                            <li><strong>VinaChan</strong></li>
-                            <li><strong>Bondowoso</strong></li>
-                            <li><strong>08121638225</strong></li>
-                            <li><strong>Rp.50000,-</strong></li>
+                            <li><strong><?php echo $hasil['id_trans']; ?></strong></li>
+                            <li><strong><?php echo $hasil['nama']; ?></strong></li>
+                            <li><strong>Rp <?php echo number_format($hasil['total_bayar'], 0, ',', '.').',-';  ?>-</strong></li>
+                            <li><strong><?php echo $hasil['metode_pengiriman']; ?></strong></li>
+                            <li><strong><?php echo $hasil['status_pesanan']; ?></strong></li>
+                            <li><strong><?php echo $hasil['no_resi_pengiriman']; ?></strong></li>
                         </ul>
                     </div>
                 </div>
@@ -292,7 +321,7 @@
         </div>
     </section>
 </div>
-
+<?php }} ?>
   <!-- Memanggil file JS -->
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>

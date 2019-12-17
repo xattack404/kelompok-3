@@ -27,7 +27,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
       <div class="header-right">
         <img src="<?php echo $base_url ?>template/Design/icons/search.png" alt="" class="search-trigger">
         <a href="keranjang.php">
-        <img src="<?php echo $base_url ?>template/Design/icons/cart-1.png"  alt=""><?php $Keranjang ?></a>
+        <img src="<?php echo $base_url ?>template/Design/icons/cart-1.png"  alt=" Keranjang Belanja "><?php $Keranjang ?></a>
+        <a href="histori_transaksi.php">
+        <img src="<?php echo $base_url ?>template/Design/icons/bag.png"  alt="Histori Transaksi"></a>
       </div>
       <?php
                 include 'fungsi/cek_session_public.php';
@@ -64,7 +66,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
           <li><a href="./katalog.html">Produk</a>
           </li>
           </li>
-          <li><a href="keranjang.html">Konfirmasi</a></li>
+          <li><a href="konfirmasi.html">Konfirmasi</a></li>
           <li><a href="#"> Tentang Kami</a>
             <ul class="sub-menu">
               <li>

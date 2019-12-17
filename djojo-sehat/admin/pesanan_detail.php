@@ -13,7 +13,7 @@ $sql_pesanan  = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_bar
                                             tb_member.nama,tb_member.alamat,tb_member.kecamatan,
                                             tb_member.kabupaten_kota,tb_member.provinsi,
                                             tb_member.kode_pos,tb_member.no_hp,trans_jual.id_trans,
-                                            trans_jual.id_member,trans_jual.status,trans_jual.tanggal,
+                                            trans_jual.id_member,trans_jual.tanggal,
                                             detail_jual.id_trans,detail_jual.id_member,detail_jual.id_barang,
                                             detail_jual.jumlah,detail_jual.jumlah_berat,detail_jual.subtotal,
                                             tb_barang.nama_barang,tb_barang.judul,
@@ -29,7 +29,7 @@ $sql_pesanan  = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_bar
                                   INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
                                   WHERE trans_jual.id_trans = '$notransaksi'
                                   AND trans_jual.id_member = tb_member.id_member
-                                  AND trans_jual.status = 2 ");
+                                   ");
 
 $array        = mysqli_fetch_array($sql_pesanan);
 
@@ -136,7 +136,7 @@ $sql_pesanan = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_bara
                                           tb_member.nama,tb_member.alamat,tb_member.kecamatan,
                                           tb_member.kabupaten_kota,tb_member.provinsi,
                                           tb_member.kode_pos,tb_member.no_hp,trans_jual.id_trans,
-                                          trans_jual.id_member,trans_jual.status,trans_jual.tanggal,
+                                          trans_jual.id_member,trans_jual.tanggal,
                                           detail_jual.id_trans,detail_jual.id_member,detail_jual.id_barang,
                                           detail_jual.jumlah as jumlah_jual,detail_jual.jumlah_berat,detail_jual.subtotal,
                                           tb_barang.nama_barang,tb_barang.judul,
@@ -151,8 +151,8 @@ $sql_pesanan = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_bara
                               LEFT JOIN detail_jual ON trans_jual.id_trans = detail_jual.id_trans
                               INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
                               WHERE trans_jual.id_trans = '$notransaksi'
-                              AND trans_jual.id_member = tb_member.id_member
-                              AND trans_jual.status = 2 ORDER BY tb_barang.nama_barang ASC");
+                              
+                               ORDER BY tb_barang.nama_barang ASC");
 $numrows  = mysqli_num_rows($sql_pesanan);
           $no = 1;
           // Jika data ketemu, maka akan ditampilkan dengan While
@@ -209,7 +209,7 @@ $numrows  = mysqli_num_rows($sql_pesanan);
                                 INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
                                 WHERE trans_jual.id_trans = '$notransaksi'
                                   AND detail_jual.id_member = '$id_member'
-                                  AND trans_jual.status = 2 ";
+                                   ";
                       $hasil = mysqli_query($koneksi,$query1);
                       $data3 = mysqli_fetch_array($hasil);
                       $jumlah_berat = $data3['jumlah_berat'];
@@ -226,7 +226,7 @@ $numrows  = mysqli_num_rows($sql_pesanan);
                       INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
                       WHERE detail_jual.id_member = '$id_member'
                         AND trans_jual.id_trans = '$notransaksi'
-                        AND trans_jual.status = 2 ";
+                         ";
                       $hasil = mysqli_query($koneksi,$query);
                       $data4 = mysqli_fetch_assoc($hasil);
                       $jumlah_berat = $data4['jumlah_berat'];
@@ -254,7 +254,7 @@ $numrows  = mysqli_num_rows($sql_pesanan);
                                   INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
                                   WHERE detail_jual.id_trans = '$notransaksi'
                                     AND detail_jual.id_member = '$id_member'
-                                    AND trans_jual.status = 2 ";
+                                    ";
                         $hasil  = mysqli_query($koneksi,$query);
                         $data5   = mysqli_fetch_assoc($hasil);
                         $subtotal = $data5['total'];
