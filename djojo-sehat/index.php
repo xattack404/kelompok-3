@@ -195,30 +195,16 @@ include 'navbar.php';
             <figure>
             <?php
   // kategori
-  $sql = "SELECT * FROM kategori ORDER BY judul_kat ASC"; // Memanggil kategori/ top kategori
-  $result = mysqli_query($conn, $sql);
+  $sql = "SELECT * FROM tb_kategori ORDER BY nama_kategori ASC"; // Memanggil kategori/ top kategori
+  $result = mysqli_query($koneksi, $sql);
   if (mysqli_num_rows($result) > 0)
   {
     echo '<ul class="list-group">';
     while ($row = mysqli_fetch_assoc($result))
     {
-      $id_kat = $row['id_kat'];
-      // subkat
-      $sql2 = "SELECT * FROM subkat WHERE id_kat='$id_kat'"; // Memanggil subkategori/ middle kategori
-      $result2 = mysqli_query($koneksi, $sql2);
-      echo '<li class="list-group-item"><b>'.$row['judul_kat'].'</b>';
-        echo '<ul class="list-group">';
-          while($row2 = mysqli_fetch_assoc($result2))
-          {
-            $id_subkat = $row2['id_subkat'];
-            // supersubkat
-            $sql3 = "SELECT * FROM supersubkat WHERE id_subkat ='$id_subkat'"; // Memanggil supersubkategori/ bottom kategori
-            $result3 = mysqli_query($koneksi, $sql3);
-            echo '<li class="list-group-item">'.$row2['judul_subkat'];
-                echo '<ul class="list-group">';
-                  while($row3 = mysqli_fetch_assoc($result3))
+
                   {
-                    echo "<li class='list-group-item'><a href='$base_url"."kategori/$row3[kategori_seo]'>".$row3['judul_supersubkat']."</a></li>";
+                    echo "<li class='list-group-item'><a href='$base_url"."kategori/$row[id_kategori]'>".$row['nama_kategori']."</a></li>";
                   }
                 echo '</ul>';
             echo '</li>';
@@ -226,8 +212,7 @@ include 'navbar.php';
         echo '</ul>';
       echo '</li>';
     }
-    echo '</ul>';
-  }
+ 
   ?>
 
             </figure>
@@ -241,7 +226,7 @@ include 'navbar.php';
           <div class="single-product-item">
             <figure>
             <?php
-  $query = "SELECT isi FROM navigasi WHERE id_nav = 4 ";
+  $query = "SELECT isi FROM tb_navigasi WHERE id_navigasi = 4 ";
   $hasil = mysqli_query($koneksi, $query);
   $data  = mysqli_fetch_array($hasil);
   if(mysqli_num_rows($hasil) > 0)
@@ -261,7 +246,7 @@ include 'navbar.php';
           <div class="single-product-item">
             <figure>
             <?php 
-$query = "SELECT isi FROM navigasi WHERE id_nav = 6";
+$query = "SELECT isi FROM tb_navigasi WHERE id_navigasi = 6";
 $hasil = mysqli_query($koneksi, $query);
 $data  = mysqli_fetch_array($hasil);
 if(mysqli_num_rows($hasil) > 0)

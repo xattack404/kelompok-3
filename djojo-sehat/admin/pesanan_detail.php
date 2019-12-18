@@ -152,7 +152,7 @@ $sql_pesanan = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_bara
                               INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
                               WHERE trans_jual.id_trans = '$notransaksi'
                               
-                               ORDER BY tb_barang.nama_barang ASC");
+                               GROUP BY tb_barang.nama_barang ASC");
 $numrows  = mysqli_num_rows($sql_pesanan);
           $no = 1;
           // Jika data ketemu, maka akan ditampilkan dengan While

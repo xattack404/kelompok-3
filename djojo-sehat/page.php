@@ -18,8 +18,8 @@ $page   = mysqli_fetch_array($result);
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="<?php echo $page['seo_deskripsi'] ?>" />
-  <meta name="keyword" content="<?php echo $page['seo_keyword'] ?>" />
+  <meta name="description" content="<?php echo $page['deskripsi'] ?>" />
+  <meta name="keyword" content="<?php echo $page['judul'] ?>" />
   <meta name="author" content="<?php echo $author ?>" />
   <!-- CSS Bootstrap -->
   <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
