@@ -16,7 +16,7 @@ $id_barang = $produk['id_barang'];
 
 // Jika data tidak ditemukan maka akan muncul alert belum ada data
 if(mysqli_num_rows($hasil) == 0)
-{echo "<script>alert('Belum ada data');location.replace('$base_url')</script>";}
+{echo "<script>location.replace('$base_url')</script>";}
 ?>
 <!DOCTYPE html>
 <html lang="en">

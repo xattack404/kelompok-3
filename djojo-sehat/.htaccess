@@ -7,8 +7,7 @@ RewriteRule ^produk/([^/]*)\.html produk.php?id_barang=$1 [QSA]
 
 RewriteRule ^invoice/([^/]*)$ invoice.php?id_trans=$1 [L]
 RewriteRule ^katalog/halaman/([^/]*)/$ katalog.php?halaman=$1 [L]
-RewriteRule ^resi/halaman/([^/]*)/$ resi.php?halaman=$1 [L]
-RewriteRule ^testimoni/halaman/([^/]*)/$ testimoni.php?halaman=$1 [L]
+
 
 RewriteRule ^index.html index.php [NC,L]
 RewriteRule ^keranjang.html keranjang.php [NC,L]

@@ -2,10 +2,11 @@
 include 'config/koneksi.php';                     // Panggil koneksi ke database
 include 'fungsi/base_url.php';            // Panggil fungsi base_url
 include 'fungsi/setting.php';             // Panggil data Nama Toko Online
+include "fungsi/cek_login_public.php";
 include 'fungsi/cek_session_public.php';  // Panggil fungsi cek session public
 include "fungsi/imgpreview.php"; // Preview gambar yang akan diupload
 include "fungsi/tinymce.php";    // Editor teks Tinymce + Ajax File/ Photo Manager
-
+error_reporting(0);
 
 ?>
 <!DOCTYPE html>
