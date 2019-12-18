@@ -12,7 +12,7 @@
 			{
 				echo "
 							<tr>
-								<td><a href='transaksi_selesai.php?id_trans=$data['id_trans']'/><b>".$data['nama_barang']."</b></a>
+								<td><a href='transaksi_selesai.php?id_trans=".$data['id_trans']."/><b>".$data['nama_barang']."'</b></a>
 								<br>
 								Rp ".number_format($data['total_bayar'], 0, ',', '.')."
 								<br><br>

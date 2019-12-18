@@ -18,7 +18,6 @@
   }
 }
 </style>
-
 <div class="box">
   <div class="box-body table-responsive padding">
     <table id="example1" class="table table-bordered table-striped">
@@ -85,7 +84,7 @@
             <td style='text-align: center'><img data-toggle='modal' data-target='#exampleModal' id='bukti_bayar' src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'></td>
             <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
-              <a class='btn btn-primary btn-s' href='pesanan_kirim.php?id_trans=$data[id_trans]' title='Kirim '><i class='glyphicon glyphicon-send'></i></a>
+              <a class='btn btn-primary btn-s' href='pesanan_kirim.php?id_trans=$data[id_trans]&no_hp=$data[no_hp]&alamat=$data[alamat]&id_member=$data[id_member]' id='kirim' title='Kirim '><i class='glyphicon glyphicon-send'></i></a>
               <a class='btn btn-success btn-s' title='DETAIL pesanan' href='pesanan_detail.php?id_trans=$data[id_trans]'><i class='glyphicon glyphicon-list'></i></a>
             </td>
           </tr>";
@@ -132,10 +131,9 @@
   </div>
 </div>
 
+
 <script>
 $("#bukti_bayar").click(function(){
     $("#myModal").modal();
   });
 </script>
-
-<img data-toggle='modal' data-target='#exampleModal' id='bukti_bayar' src='../images/slider/".$data['bukti_bayar']."' width='100px' height='50px'>

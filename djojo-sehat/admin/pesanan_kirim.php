@@ -1,188 +1,137 @@
-<style>
-    html {
-        background: radial-gradient(#fff176, #f57f17);
-        min-height: 100%;
-        font-family: "Roboto", sans-serif;
-    }
+<?php session_start();
+include '../config/koneksi.php';                  // Panggil koneksi ke database
+include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
+include 'cek_session.php';      // Panggil fungsi cek session
+include '../fungsi/setting.php';          // Panggil data 
+include '../fungsi/base_url.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pesanan Barang Baru | <?php include "title.php" ?></title>
+  <script src="../template/js/jquery-3.4.1.min.js"></script>
+    <style>
+* {
+  box-sizing: border-box;
+  color: #fff;
+  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana,
+    "sans-serif";
+}
 
-    .title {
-        text-transform: uppercase;
-        text-align: center;
-        margin-bottom: 30px;
-        color: #FF8F00;
-        font-weight: 300;
-        font-size: 24px;
-        letter-spacing: 1px;
-    }
 
-    .description {
-        text-align: center;
-        color: #666;
-        margin-bottom: 30px;
-    }
+.wrapper {
+  margin: 100px auto 0;
+  width: 100%;
+  max-width: 1100px;
+  margin-top:50px;
+  display: flex;
+  justify-content: center;
+}
 
-    input[type="text"],
-    input[type="number"],
-    select,
-    input[type="email"] {
-        padding: 10px 20px;
-        border: 1px solid #999;
-        border-radius: 3px;
-        display: block;
-        width: 100%;
-        margin-bottom: 20px;
-        box-sizing: border-box;
-        outline: none;
-    }
+form {
+  width: 100%;
+  margin: 0;
+}
 
-    input[type="text"]:focus,
-    input[type="number"]:focus,
-    select:focus,
-    input[type="email"]:focus {
-        border-color: #FF6F00;
-    }
+form * {
+  font-size: 20px;
+  letter-spacing: 0.075em;
+  font-weight: 300;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
 
-    input[type="radio"] {
-        margin-right: 10px;
-    }
+form .field {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
 
-    label {
-        margin-bottom: 20px;
-        display: block;
-        font-size: 18px;
-        color: #666;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        padding: 20px 0;
-        cursor: pointer;
-    }
+form .field label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(72,73,74);
+  background: radial-gradient(circle, rgba(72,73,74,1) 39%, rgba(72,73,74,1) 74%);
+  width: 100%;
+  height: 64px;
+  transition: width 333ms ease-in-out;
+  text-align: center;
+  padding: 18px 0;
+}
 
-    label:first-child {
-        margin-bottom: 0;
-        border-bottom: none;
-    }
+form .field input[type="text"],
+form .field input[type="number"],
+form .field select,
+form .field textarea {
+  border: none;
+  width: 100%;
+  height: 64px;
+  margin: 0;
+  padding-left: 19.5%;
+  color: #313a3d;
+}
 
-    .button,
-    .rerun-button {
-        padding: 10px 20px;
-        border-radius: 3px;
-        background: #FF6F00;
-        color: white;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: inline-block;
-        cursor: pointer;
-    }
+form #msg {
+  height: 64px;
+  resize: none;
+  transition: all 333ms ease-in-out;
+  padding-top: 18px;
+}
+form textarea:focus#msg,
+form textarea:not(:placeholder-shown)#msg {
+  height: 166px;
+}
+form input[type="text"]:focus + label,
+form input[type="number"]:focus + label,
+form select:focus + label,
+form input[type="text"]:not(:placeholder-shown) + label,
+form input[type="number"]:not(:placeholder-shown) + label,
+form select:not(:placeholder-shown) + label,
+form textarea:focus + label,
+form textarea:not(:placeholder-shown) + label,
+form .field:hover label {
+  width: 18%;
+}
+form input[type="submit"] {
+  background: rgb(72,73,74);
+  background: radial-gradient(circle, rgba(72,73,74,1) 39%, rgba(72,73,74,1) 74%);
+  -webkit-appearance: none;
+  border: none;
+  position: relative;
+  padding: 20px 50px;
+  transition: all 0.3s ease-in-out;
+  width:100%
+}
+form input[type="submit"]:hover,
+form input[type="submit"]:focus {
+  background: green;  
+}
+    </style>
+    
+    <?php include 'js.php'; ?>
+    <!-- Data Tables -->
+    <link href="template/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/>
+    <script src="template/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="template/plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
+  <script src="../template/js/jquery-3.4.1.min.js"></script>
+    <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
+</head>
+<body class="skin-blue sidebar-mini">
+<?php include 'header.php'; ?>
 
-    .button:hover,
-    .rerun-button:hover {
-        background: #e66400;
-    }
-
-    .button.rerun-button,
-    .rerun-button.rerun-button {
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        margin-bottom: 50px;
-        box-shadow: 0px 10px 15px -6px rgba(0, 0, 0, 0.2);
-        display: none;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    .modal-wrap {
-        max-width: 600px;
-        margin: 50px auto;
-        transition: transform 300ms ease-in-out;
-    }
-
-    .modal-header {
-        height: 45px;
-        background: white;
-        border-bottom: 1px solid #ccc;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .modal-header span {
-        display: block;
-        height: 12px;
-        width: 12px;
-        margin: 5px;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.2);
-    }
-
-    .modal-header span.is-active {
-        background: rgba(0, 0, 0, 0.4);
-        background: #FF8F00;
-    }
-
-    .modal-bodies {
-        position: relative;
-        perspective: 1000px;
-    }
-
-    .modal-body {
-        background: white;
-        padding: 40px 100px;
-        box-shadow: 0px 50px 30px -30px rgba(0, 0, 0, 0.3);
-        margin-bottom: 50px;
-        position: absolute;
-        top: 0;
-        display: none;
-        box-sizing: border-box;
-        width: 100%;
-        transform-origin: top left;
-    }
-
-    .modal-body.is-showing {
-        display: block;
-    }
-
-    .animate-out {
-        animation: out 300ms ease-in-out forwards;
-    }
-
-    .animate-in {
-        animation: in 300ms ease-in-out forwards;
-        display: block;
-        /*transform-origin: top left; */
-    }
-
-    .animate-up {
-        transform: translateY(-500px);
-        /*animation: up 300ms ease-in-out forwards;*/
-    }
-
-    @keyframes out {
-        0% {
-            transform: translateY(0px) rotate(0deg);
-        }
-
-        60% {
-            transform: rotate(60deg);
-        }
-
-        100% {
-            transform: translateY(800px) rotate(10deg);
-        }
-    }
-
-    @keyframes in {
-        0% {
-            transform: rotateX(-90deg);
-            /*transform: rotateY(90deg);*/
-        }
-
-        100% {
-            transform: rotateX(0deg);
-            /*transform: rotateY(0deg);*/
-        }
-    }
-</style>
+      <div class="content-wrapper" style="background:grey">
+        <section class="content-header">
+          <h1>Daftar Pesanan Barang</h1>
+          <ol class="breadcrumb">
+            <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active"><a href="pesanan.php">Daftar Pesanan Barang</a></li>
+          </ol>
+        </section>
 <?php 
 include '../config/koneksi.php';
 $id= $_GET['id_trans'];
@@ -191,39 +140,33 @@ $no = $_GET['no_hp'];
 $id_mum = $_GET['id_member'];
 $sql= mysqli_query($koneksi,"SELECT tb_member.nama from trans_jual left join tb_member on tb_member.id_member = trans_jual.id_member where id_trans= '$id'");
 $array = mysqli_fetch_array($sql);
+$nama = $array['nama'];
 ?>
-
-<body>
-    <form method="post" action="pesanan_kirim_proses.php">
-        <div class="modal-wrap">
-            <div class="modal-header"><span class="is-active"></span><span></span><span></span></div>
-            <div class="modal-bodies">
-                <div class="modal-body modal-body-step-1 is-showing">
-                    <div class="title">Step 1</div>
-                    <div class="description"></div>
-
-                    <input type="hidden" name="member" value="<?= $id_mum?>">
-                    <input type="text" name="no_invoice" placeholder="No Invoice" value="<?= $id?>" readonly>
-                    <input type="email" name="nama" placeholder="Nama" value="<?= $array['nama'] ?>">
-                    <div class="text-center">
-                        <div class="button">Next</div>
-                    </div>
-                </div>
-                <div class="modal-body modal-body-step-2">
-                    <div class="title">Step 2</div>
-                    <div class="description"></div>
-                    <input type="text" name="alamat" placeholder="Alamat" value="<?= $add ?>" readonly>
-                    <input type="number" name="no_hp" placeholder="Nomer Hp" value="<?= $no ?>" readonly>
-                    <div class="text-center fade-in">
-                        <div class="button">Next</div>
-                    </div>
-                </div>
-                <div class="modal-body modal-body-step-3">
-                    <div class="title">Step 3</div>
-                    <div class="description"></div>
-                    <div class="text-center">
-                        <select name="metode" id="mtd">
-                            <option value="">Metode Pengiriman</option>
+<div class="wrapper">
+  <form action="pesanan_kirim_proses.php" method="post">
+    <div class="field">
+      <input type="hidden" id="name" name="member" value="<?= $id_mum?>" placeholder="<?= $id_mum?>" />
+    </div>
+    <div class="field">
+      <input type="text" id="no1" name="no_invoice" value="" placeholder="<?= $id ?>" />
+      <label id="no" for="name">No Invoice</label>
+    </div>
+    <div class="field">
+      <input type="text" id="nama1" name="nama" value="" placeholder="<?= $nama ?>"  />
+      <label id="nama">Nama</label>
+    </div>
+    <div class="field">
+      <input type="text" id="alamat1" name="alamat" value="" placeholder="<?= $add ?>" />
+      <label id="alamat">Alamat</label>
+    </div>
+    <div class="field">
+      <input type="Number" id="no_hp1" value="" name="no_hp" placeholder="<?= $no ?>" />
+      <label id="no_hp">Nomer Hp</label>
+    </div>
+    <div class="field">
+    <label di="mtd">Metode Pengiriman</label>
+      <Select name="metode" id="mtd1" autofocus>
+      <option style="color:black;" value="">Metode Pengiriman</option>
                             <?php
                 $metode = "SELECT * FROM tb_pengiriman ORDER BY metode_pengiriman";
                 $result = mysqli_query($koneksi, $metode);
@@ -231,7 +174,7 @@ $array = mysqli_fetch_array($sql);
                 {
                   while ($data = mysqli_fetch_array($result))
                   {
-                    echo "<option value='$data[id_pengiriman]'>$data[metode_pengiriman]</option>\n";
+                    echo "<option style='color:black;' value='$data[id_pengiriman]'>$data[metode_pengiriman]</option>\n";
                   }
                 }
                   else
@@ -239,75 +182,33 @@ $array = mysqli_fetch_array($sql);
                     echo "Belum ada data";
                   }
                 ?>
-                        </select>
-                        <input type="text" name="resi" id="resi" placeholder="Nomer Resi">
-                        <input class="button" type="submit" name="submit" value="Done!">
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </form>
+      </select>
+    </div>
+    <div class="field">
+      <input type="text" id="resi1" name="resi" id="resi" placeholder="Resi" autofocus/>
+      <label id="resi">Resi</label>
+    </div>
+    <input class="button" name="submit" value="Done!" type="submit" value="Send" />
+  </form>
+
+</div>
 </body>
-
-<script>
-    // $('#resi').on('keyup', function () {
-    //     var regex = /^[a-z A-Z 0-9]+$/;
-    //     if (regex.test(this.value) !== true) {
-    //         this.value = this.value.replace(/[^a-zA-Z0-9]+/, '');
-    //     }
-    // });
-</script>
-
-<script
-    src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js">
-</script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</html>
 
 
 <script>
-    $('.button').click(function () {
-        var $btn = $(this),
-            $step = $btn.parents('.modal-body'),
-            stepIndex = $step.index(),
-            $pag = $('.modal-header span').eq(stepIndex);
-
-        if (stepIndex === 0 || stepIndex === 1) {
-            step1($step, $pag);
-        } else {
-            step3($step, $pag);
+    $('#resi1').on('keyup', function () {
+        var regex = /^[a-z A-Z 0-9]+$/;
+        if (regex.test(this.value) !== true) {
+            this.value = this.value.replace(/[^a-zA-Z0-9]+/, '');
         }
-
     });
-
-
-    function step1($step, $pag) {
-        console.log('step1');
-        // animate the step out
-        $step.addClass('animate-out');
-
-        // animate the step in
-        setTimeout(function () {
-            $step.removeClass('animate-out is-showing')
-                .next().addClass('animate-in');
-            $pag.removeClass('is-active')
-                .next().addClass('is-active');
-        }, 600);
-
-        // after the animation, adjust the classes
-        setTimeout(function () {
-            $step.next().removeClass('animate-in')
-                .addClass('is-showing');
-
-        }, 1200);
-    }
-
-
-    function step3($step, $pag) {
-        console.log('3');
-
-        // animate the step out
-        $step.parents('.modal-wrap').addClass('animate-up');
-
-    }
+</script>
+<script>
+        $('#no1').on('click',function(){
+            $('#no1').val(<?= "$id" ?>);
+            $('#nama1').val("<?=$nama?>");
+            $('#alamat1').val("<?= $add ?>");
+            $('#no_hp1').val(<?= "$no" ?>);
+        });
 </script>
