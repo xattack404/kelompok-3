@@ -100,7 +100,7 @@
             <td style='text-align: center'><button data-toggle='modal' data-target='#myModal'><img data-toggle='modal' data-target='#myModal' id='bukti_bayar' src='../images/bukti_bayar/".$data['bukti_bayar']."' width='100px' height='50px'></td>
             <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
-              <a class='btn btn-primary btn-s' href='pesanan_kirim.php?id_trans=$data[id_trans]&no_hp=$data[no_hp]&alamat=$data[alamat]&id_member=$data[id_member]' id='kirim' title='Kirim '><i class='glyphicon glyphicon-send'></i></a>
+              <a class='btn btn-primary btn-s' href='pesanan_kirim.php?id_trans=$data[id_trans]&no_hp=$data[no_hp]&alamat=$data[alamat]&id_member=$data[id_member]&nama=$data[nama]' id='kirim' title='Kirim '><i class='glyphicon glyphicon-send'></i></a>
               <a class='btn btn-success btn-s' title='DETAIL pesanan' href='pesanan_detail.php?id_trans=$data[id_trans]'><i class='glyphicon glyphicon-list'></i></a>
             </td>
           </tr>";
@@ -116,8 +116,6 @@
             <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
               <a href='pesanan_detail.php?id_trans=$data[id_trans]'><button type='submit' class='btn btn-success'>Detail</button></a>
-              <a href='pesanan_kirim.php?id_trans=$data[id_trans]'><button type='submit' class='btn btn-primary' >Kirim</button></a>
-            </td>
           </tr>";
           }
 

@@ -50,7 +50,4 @@ include '../fungsi/base_url.php';
 
   </body>
 </html>
-
-
-</form>
 </body>
