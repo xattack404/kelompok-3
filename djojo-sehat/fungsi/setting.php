@@ -25,4 +25,9 @@ $query_footer 		= "SELECT isi_setting FROM tb_setting WHERE id_setting = 5 ";
 $hasil_footer 		= mysqli_query($koneksi,$query_footer); 
 $data_footer   		= mysqli_fetch_array($hasil_footer);
 $footer 			= $data_footer['isi_setting'];
+
+$query_footer 		= "SELECT isi_setting FROM tb_setting WHERE id_setting = 6 ";
+$hasil_footer 		= mysqli_query($koneksi,$query_footer); 
+$data_footer   		= mysqli_fetch_array($hasil_footer);
+$footer 			= $data_footer['isi_setting'];
 ?>
