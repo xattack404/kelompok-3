@@ -38,9 +38,9 @@ $id_member    = $array['id_member'];
 $notransaksi  = $array['id_trans'];
 $tgl_checkout = tgl_indo($array['tanggal']);
 $alamat       = $array['alamat'];
-$kecamatan    = $array['kecamatan'];
-$kota         = $array['kabupaten_kota'];
-$provinsi     = $array['provinsi'];
+$kecamatan    = $array['nama_kec'];
+$kota         = $array['nama_kabkot'];
+$provinsi     = $array['nama_prov'];
 $kopos        = $array['kode_pos'];
 ?>
 <!DOCTYPE html>
