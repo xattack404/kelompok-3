@@ -37,15 +37,14 @@ body {
   background-image: radial-gradient(circle at top, #53455b 0%, #201e22 70%);
   color: #fff;
   font-family: 'Lato', sans-serif;
-  font-size: 100%;
+  font-size: 80%;
   min-height: 100%;
   line-height: 1.5;
-  padding: 2.5em 0;
 }
 
 .container {
-  margin: 0 auto;
-  width: 90%;
+  margin:auto;
+  width: 100%;
   max-width: 1200px;
 }
 
@@ -57,7 +56,7 @@ body {
 
 .grid-1-5 {
   border: 2px solid #5d4e65;
-  min-height: 400px;
+  min-height: 300px;
   padding: 1.25em;
   position: relative;
   text-align: center;
