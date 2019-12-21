@@ -226,7 +226,7 @@ sup, .small {
               LEFT JOIN kabkot ON kabkot.id_kabkot = kec.id_kabkot 
                         AND kabkot.id_kabkot = tb_member.kabupaten_kota
               LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = tb_member.provinsi
-                AND trans_jual.id_member= '$sesen_id'");
+                AND trans_jual.id_member= '$sesen_id' WHERE trans_jual.id_member= '$sesen_id'");
 
 if(mysqli_num_rows($ambil) > 0)
 {
@@ -253,7 +253,7 @@ if(mysqli_num_rows($ambil) > 0)
         <li>Status Pemesanan : <script>document.write(status_pesanan)</script></li>
         <li>No Resi : <script>document.write(no_resi_pengiriman)</script></li>
     </ul>
-    <a href="" class="button">Details</a>
+    <a href="histori_transaksi_detail.php?id_trans=<?= $hasil['id_trans']?>" class="button">Details</a>
     </div>
 
 
