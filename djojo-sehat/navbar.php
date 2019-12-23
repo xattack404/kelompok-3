@@ -32,7 +32,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
         <img src="<?php echo $base_url ?>template/Design/icons/bag.png"  alt="Histori Transaksi"></a>
       </div>
       <?php
-                include 'fungsi/cek_session_public.php';
+      include 'fungsi/cek_session_public.php';
       if(!empty($_SESSION['nama']) && (!empty($_SESSION['email'])))
       {
         echo "
@@ -62,29 +62,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
 
       <nav class="main-menu mobile-menu">
         <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./katalog.html">Produk</a>
+          <li><a href="<?php echo $base_url ?>index.html">Home</a></li>
+          <li><a href="<?php echo $base_url ?>katalog.html">Produk</a>
           </li>
           </li>
-          <li><a href="konfirmasi.html">Konfirmasi</a></li>
+          <li><a href="<?php echo $base_url ?>konfirmasi.html">Konfirmasi</a></li>
           <li><a href="#"> Tentang Kami</a>
             <ul class="sub-menu">
               <li>
-                <a href='page/cara_order.html'> Cara Order
+                <a href='<?php echo $base_url ?>page/cara_order.html'> Cara Order
                 </a>
               </li>
               <li>
-                <a href='page/ketentuan.html'>
+                <a href='<?php echo $base_url ?>page/ketentuan.html'>
                   Ketentuan Belanja
                 </a>
               </li>
               <li>
-                <a href='page/kontak.html'>
+                <a href='<?php echo $base_url ?>page/kontak.html'>
                   Kontak
                 </a>
               </li>
               <li>
-                <a href='page/profil.html'>
+                <a href='<?php echo $base_url ?>page/profil.html'>
                   Profil
                 </a>
               </li>

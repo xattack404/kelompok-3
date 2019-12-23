@@ -19,6 +19,6 @@ include '../config/koneksi.php';
                                         '$metode',
                                         '$id_member',
                                         '$resi')");
- $Update = mysqli_query($koneksi,"UPDATE trans_jual SET status = 4 where id_trans='$no_id' ");
+ $Update = mysqli_query($koneksi,"UPDATE trans_jual SET status = 5 where id_trans='$no_id' ");
      echo "<script>alert('Insert data berhasil! Klik ok untuk melanjutkan');location.replace('pesanan.php')</script>";
 }

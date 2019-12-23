@@ -81,7 +81,7 @@
             <td style='text-align: center'>".$data['nama']."</td>
             <td style='text-align: center'>".$data['alamat']."</td>
             <td style='text-align: center'>".$data['no_hp']."</td>
-            <td style='text-align: center'><button data-toggle='modal' data-target='#myModal'><img id='bukti_bayar' src='../images/bukti_bayar/".$data['bukti_bayar']."' width='100px' height='50px'></td>
+            <td style='text-align: center'><button data-toggle='modal' data-target='#myModal'><img id='bukti_bayar' src='../images/cart.png' width='100px' height='50px'></td>
             <td style='text-align: center'>".$data['status_pesanan']."</td>
             <td style='text-align: center'>
               <a class='btn btn-danger btn-s' title='TOLAK pesanan' href='pesanan_tolak.php?id_trans=$data[id_trans]'><i class='glyphicon glyphicon-remove'></i></a>

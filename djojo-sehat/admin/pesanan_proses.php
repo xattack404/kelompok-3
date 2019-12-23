@@ -5,7 +5,7 @@ include '../fungsi/cek_aksi_hapus.php';        	// Panggil fungsi boleh hapus da
 
 $no_id   = mysqli_real_escape_string($koneksi, $_GET['id_trans']);
 
-$sql = " UPDATE trans_jual SET status = 3 where id_trans='$no_id' ";
+$sql = " UPDATE trans_jual SET status = 4 where id_trans='$no_id' ";
 if (mysqli_query($koneksi, $sql)) 
 {
   echo "<script>alert('Update data berhasil! Klik ok untuk melanjutkan');location.replace('pesanan.php')</script>"; 

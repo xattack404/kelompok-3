@@ -7,7 +7,7 @@ $id    = mysqli_real_escape_string($koneksi, $_GET['id_slider']);
 
 $cekdata = "SELECT active FROM tb_slider WHERE active = 1 ";
 $ada     = mysqli_query($koneksi, $cekdata);
-if(mysqli_num_rows($ada) > 0)
+if(mysqli_num_rows($ada) >= 0)
 { 
   $sql = mysqli_query($koneksi,"UPDATE tb_slider SET active = 0 WHERE active = 1 ");
 

@@ -27,7 +27,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 				<div class="form-left">
 					<h2>Daftar Akun Baru</h2>
 							<div class="form-row">
-								<input type="text" name="nama" id="nama" size="30" class="company" placeholder="Username" required>
+								<input type="text" name="nama" id="nama" size="30" class="company" placeholder="Nama Lengkap" required>
 								<p class="nama" style="color: red;"></p>
 							</div>
 							<div class="form-row">
