@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
   if(in_array($file_ext, $allowed_ext) === true)
   {
     move_uploaded_file($file_tmp, $lokasi);
-        $query =  "UPDATE trans_jual SET bukti_bayar = '$img' status = 3 WHERE id_trans ='$no'";
+        $query =  "UPDATE trans_jual SET bukti_bayar = '$img', status=3 WHERE id_trans ='$no'";
         if (mysqli_query($koneksi, $query)) {
         	echo "<script>alert('Bukti bayar behasil diuppload ! Silahkan menunggu konfirmasi dari admin');location.replace('index.php')</script>";
         }else{

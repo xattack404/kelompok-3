@@ -62,7 +62,7 @@ error_reporting(0);
                          <select name="no" id="no" class="form-control" required>
                             <option value="">--Pilih No. Invoice--</option>
                             <?php
-                            $query = "SELECT id_trans FROM trans_jual WHERE id_member ='$sesen_id' AND status= 2 ORDER BY id_trans ASC ";
+                            $query = "SELECT id_trans FROM trans_jual WHERE id_member ='$sesen_id' AND status = 2 ORDER BY id_trans ASC ";
                             $sql = mysqli_query($koneksi, $query);
                             while($data = mysqli_fetch_array($sql)){
                               echo '<option value="'.$data['id_trans'].'">'.$data['id_trans'].'</option>';
