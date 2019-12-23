@@ -11,7 +11,7 @@
         </a>
       </div>
       <div class="caption-full">
-        <h5><b>Kategori</b>: <a href="<?php echo $base_url ?>kategori/<?php echo $produk['kategori']; ?>"> <?php echo $produk['kategori']; ?></a><br/>
+        <h5><b>Kategori</b>: <a href="<?php echo $base_url ?>kategori/<?php echo $produk['kategori']; ?>"> <?php echo $produk2['nama_kategori']; ?></a><br/>
         <b>Berat</b>: <?php echo $produk['berat']; ?><br/>
 
         <b>Stok</b>: <?php echo $produk['jumlah']; ?><br/><br/>

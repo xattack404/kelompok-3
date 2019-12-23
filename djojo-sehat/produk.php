@@ -11,6 +11,15 @@ $judul = mysqli_real_escape_string($koneksi,$_GET['id_barang']);
 $query        = "SELECT * FROM tb_barang WHERE judul='$judul'";
 $hasil        = mysqli_query($koneksi,$query);
 $produk       = mysqli_fetch_array($hasil);
+$query2        = "SELECT tb_barang.id_barang,
+                         tb_barang.kategori,
+                         tb_kategori.id_kategori,
+                         tb_kategori.nama_kategori
+                  FROM tb_barang 
+                  LEFT JOIN tb_kategori ON tb_kategori.id_kategori = tb_barang.kategori
+                  WHERE judul='$judul'";
+$hasil2        = mysqli_query($koneksi,$query2);
+$produk2       = mysqli_fetch_array($hasil2);
 $harga = number_format($produk['harga_jual'], 0, ',', '.').",-";
 $id_barang = $produk['id_barang'];
 
