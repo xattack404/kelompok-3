@@ -38,7 +38,8 @@
                      tb_member.nama, tb_member.no_hp,tb_member.alamat,tb_status.id_status,tb_status.status_pesanan
                 FROM trans_jual
                 JOIN tb_member ON tb_member.id_member = trans_jual.id_member
-                JOIN tb_status ON tb_status.id_status = trans_jual.status";
+                JOIN tb_status ON tb_status.id_status = trans_jual.status
+                ORDER BY trans_jual.id_trans DESC";
 
       $result = mysqli_query($koneksi, $sql);
       if (mysqli_num_rows($result) > 0)
