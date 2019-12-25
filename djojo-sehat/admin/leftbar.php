@@ -24,7 +24,7 @@
       <li><a href='produk_add.php'><i class='fa fa-circle-o'></i> Tambah Barang </a></li>
       <li><a href='produk_list.php'><i class='fa fa-circle-o'></i> Data Barang </a></li>
       <li><a href='satuan_list.php'><i class='fa fa-circle-o'></i> Satuan Barang </a></li>
-      <li><a href='barang_kurang.php'><i class='fa fa-circle-o'></i> Stok Barang < 50 </a></li>
+      <li><a href='produk_kurang.php'><i class='fa fa-circle-o'></i> Stok Barang < 10 </a></li>
     </ul>
   </li>
   <li class='treeview'>

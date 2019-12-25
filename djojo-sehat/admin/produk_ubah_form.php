@@ -31,14 +31,7 @@ $data             = mysqli_fetch_array($result);
       <div class="box box-primary">
         <div class="box-body">
           <div class="row">
-            <div class="col-xs-4"><label>Jenis Barang</label>
-              <br />
-              <select name="jenis_brg" id="jenis_brg" class="form-control" required>
-                <option value="<?php echo $data['jenis'] ?>">--Pilih Jenis--</option>
-                <option value="obat">Obat</option>
-                <option value="fashion">Fashion</option>
-              </select>
-            </div>
+            
             <div class="col-xs-4"><label>Satuan</label>
               <br />
               <select name="satuan_brg" id="satuan_brg" class="form-control" required>

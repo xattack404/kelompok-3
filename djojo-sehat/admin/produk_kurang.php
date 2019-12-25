@@ -89,12 +89,12 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
         </tr>
       </thead>
       <tbody>
-        <form action="" name="post">
+        <form action="produk_update_stok.php" name="post" enctype="multipart/form-data">
         <?php
       $sql = "SELECT a.id_barang, a.nama_barang, a.jumlah, a.harga_jual,
               b.nama_kategori as kategori 
               FROM tb_barang a 
-              LEFT JOIN tb_kategori b on b.id_kategori = a.kategori WHERE jumlah<=50
+              LEFT JOIN tb_kategori b on b.id_kategori = a.kategori WHERE jumlah <10
               ORDER BY a.id_barang ASC";
               
       $result = mysqli_query($koneksi, $sql);
@@ -129,7 +129,7 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
       </tbody>
     </table>
     <div class="box pull-right">
-      <button class="btn btn-success btn-sm" onclick="hapus()"><i class="glyphicon glyphicon-plus"></i>Tambah stok yang dipilih</button>
+    <button type="submit" name="submit" class="btn btn-success">Submit</button>
     </div>
     </form>
   </div>

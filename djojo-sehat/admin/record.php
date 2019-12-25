@@ -70,7 +70,7 @@ if ($sesen_akses == "admin")
         <div class="box-body">
           <div class="form-group"><label style="color: blue;">Stok barang Yang kurang dari 50</label><br>
             <?php
-            $sql  = "SELECT * FROM tb_barang WHERE jumlah <= 50";
+            $sql  = "SELECT * FROM tb_barang WHERE jumlah <10";
             $produk2  = mysqli_query($koneksi, $sql); 
             ?>
             <label>Namabarang</label>&nbsp;&nbsp;&nbsp;&nbsp;<label>Jumlah</label><br>
@@ -81,7 +81,7 @@ if ($sesen_akses == "admin")
           </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
-          <a href="topik_li.php" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="barang_kurang.php" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div><!-- /.box -->
     </div>
