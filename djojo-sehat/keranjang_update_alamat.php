@@ -7,7 +7,6 @@ include "fungsi/cek_login_public.php";
 
 if(isset($_POST['save']))
 {
-  $nama      = mysqli_real_escape_string($koneksi,$_POST['nama']);
   $judul       = mysqli_real_escape_string($koneksi,$_POST['judul']);
   $alamat       = mysqli_real_escape_string($koneksi,$_POST['alamat']);
   $kopos       = mysqli_real_escape_string($koneksi,$_POST['kopos']);
@@ -27,7 +26,7 @@ if(isset($_POST['save']))
                                                                   no_hp)
                                                           VALUES ('$sesen_id',
                                                                   '$judul',
-                                                                  '$nama',
+                                                                  '$sesen_nama',
                                                                   '$alamat',
                                                                   '$kec',
                                                                   '$kot',
