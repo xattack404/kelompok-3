@@ -81,7 +81,7 @@ if ($sesen_akses == "admin")
           </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
-          <a href="barang_kurang.php" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="produk_kurang.php" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div><!-- /.box -->
     </div>

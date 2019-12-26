@@ -29,7 +29,7 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
           {
             "searchable":false,
             "orderable":false,
-            "targets":[0, 5]//kayak aritmatika tapi array dari 0 itu kebawah 6 ke samping indeksnya maksudnya
+            "targets":[0, 4]//kayak aritmatika tapi array dari 0 itu kebawah 6 ke samping indeksnya maksudnya
           }
         ],
         "order": [1, "asc"]
@@ -75,12 +75,6 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
   <div class="box-body table-responsive padding">
     <table id="example1" class="table table-bordered table-striped">
       <thead>
-        <tr>
-          <th class="text-center">
-            <center>
-              <input type="checkbox" id="select_all" value="">
-            </center>
-          </th>
           <th style="text-align: center">No.</th>
           <th style="text-align: center">Nama Barang</th>
           <th style="text-align: center">Kategori</th>
@@ -107,9 +101,6 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
           $harga_jual  = number_format($data['harga_jual'], 0, ',', '.');
           echo "
           <tr>
-          <td align='center'>
-                    <input type='checkbox' name='checked[]' class='check'value='$data[id_barang]?>'>
-                  </td>
             <td valign='top' align='center'>".$no."</td>
             <td style='text-align: left'>".$data['nama_barang']."</td>
             <td style='text-align: center'>".$data['kategori']."</td>
