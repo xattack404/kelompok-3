@@ -34,7 +34,7 @@
             <a href="supplier_hapus.php?id=<?=$data['id_supplier']?>">
               <button type="submit" title="Hapus Data" class="btn btn-danger btn-xs"
                 OnClick="return confirm('Apakah Anda yakin?');"><i
-                class="glyphicon glyphicon-user"></i></button>
+                class="glyphicon glyphicon-trash"></i></button>
             </a>
           </td>
         </tr>

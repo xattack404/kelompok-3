@@ -1,5 +1,5 @@
 <?php 
-$koneksi = mysqli_connect("127.0.0.1","root","","djojo_sehat");
+$koneksi = mysqli_connect("127.0.0.1","root","","djojo_store");
  
 // Check connection
 if (mysqli_connect_error()){

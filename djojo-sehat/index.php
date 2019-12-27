@@ -121,7 +121,7 @@ include 'navbar.php';
               <img src="<?php echo $base_url ?>images/produk/lensa-tele-zoom-12x.jpg" alt="">
               <div class="box-text">
                 <span class="trend-year">2019</span>
-                <h2>Obat</h2>
+                
                 <div class="trend-alert"></div>
               </div>
             </div>

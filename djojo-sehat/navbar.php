@@ -22,7 +22,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', end
   <div class="container-fluid">
     <div class="inner-header">
       <div class="logo" style="margin-top:10px;">
-        <a href="./index.html"><h5>Djojo Sehat</a>
+        <a href="./index.html"><h5>Djojo Store</a>
       </div>
       <div class="header-right">
         <img src="<?php echo $base_url ?>template/Design/icons/search.png" alt="" class="search-trigger">

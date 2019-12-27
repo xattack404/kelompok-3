@@ -39,13 +39,13 @@
                 FROM trans_jual
                 JOIN tb_member ON tb_member.id_member = trans_jual.id_member
                 JOIN tb_status ON tb_status.id_status = trans_jual.status
-                ORDER BY trans_jual.id_trans DESC";
+                GROUP BY trans_jual.id_trans DESC";
 
       $result = mysqli_query($koneksi, $sql);
       if (mysqli_num_rows($result) > 0)
       {
         while ($data = mysqli_fetch_array($result))
-        { if ($data['status'] == 1 or $data['status'] == 5) {
+        { if ($data['status'] == 1 ) {
             echo "
           <tr>
             <td valign='top' align='center'>".$data['id_trans']."</td>
@@ -75,7 +75,7 @@
   </div>
 </div>";
           }
-          if ($data['status'] == 2 ) {
+          if ($data['status'] == 2) {
             echo "
           <tr>
             <td valign='top' align='center'>".$data['id_trans']."</td>
@@ -91,7 +91,24 @@
             </td>
           </tr>";
           }
-          if ($data['status'] == 3) {
+        
+        if ($data['status'] == 3 ) {
+          echo "
+        <tr>
+          <td valign='top' align='center'>".$data['id_trans']."</td>
+          <td style='text-align: center'>".$data['nama']."</td>
+          <td style='text-align: center'>".$data['alamat']."</td>
+          <td style='text-align: center'>".$data['no_hp']."</td>
+          <td style='text-align: center'><button data-toggle='modal' data-target='#myModal'><img data-toggle='modal' data-target='#myModal' id='bukti_bayar' src='../images/bukti_bayar/".$data['bukti_bayar']."' width='100px' height='50px'></td>
+          <td style='text-align: center'>".$data['status_pesanan']."</td>
+          <td style='text-align: center'>
+            <a class='btn btn-danger btn-s' title='TOLAK pesanan' href='pesanan_tolak.php?id_trans=$data[id_trans]'><i class='glyphicon glyphicon-remove'></i></a>
+            <a class='btn btn-warning btn-s' href='pesanan_proses.php?id_trans=$data[id_trans]' title='PROSES'><i class='glyphicon glyphicon-saved'></i></a>
+            <a class='btn btn-success btn-s' title='DETAIL pesanan' href='pesanan_detail.php?id_trans=$data[id_trans]'><i class='glyphicon glyphicon-list'></i></a>
+          </td>
+        </tr>";
+        }
+          if ($data['status'] == 4) {
             echo "
           <tr>
             <td valign='top' align='center'>".$data['id_trans']."</td>
@@ -106,7 +123,7 @@
             </td>
           </tr>";
           }
-          if ($data['status'] == 4) {
+          if ($data['status'] == 5) {
             echo "
           <tr>
             <td valign='top' align='center'>".$data['id_trans']."</td>
@@ -123,7 +140,9 @@
           
         }
       }
-      else {echo "Belum ada data";}
+      
+      else {echo "Belum ada data";
+      }
       ?>
     </tbody>
   </table>
