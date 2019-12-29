@@ -87,16 +87,6 @@ if (!isset($chk)) {
 						foreach ($chk as $id) {
 							$sql_poli = mysqli_query($koneksi, "SELECT * FROM tb_barang WHERE id_barang = '$id'") or die(mysqli_error($koneksi));
 							while ($data = mysqli_fetch_array($sql_poli)) {?>
-														<script type="text/javascript">
-							  function sum() {
-							      var harga_beli = document.getElementById('harga_beli[]').value;
-							      var jumlah = document.getElementById('jumlah[]').value;
-							      var result= parseInt(harga_beli) * parseInt(jumlah);
-							      if (!isNaN(result)) {
-							         document.getElementById('sub_total[]').value = result;
-							      }
-							}
-							</script>
 							<tr>
 								<td><?= $no++ ?></td>
 								<td>
@@ -104,35 +94,39 @@ if (!isset($chk)) {
 									<?= $data['nama_barang'] ?>
 								</td>
 								<td class="text-center">
-								<input type="text" id="harga_beli[]" name="harga_beli[]" value="<?= $data['harga_beli'] ?>" required>
-								</td>
-							<?php } ?>
-								<td>
-									<input type="text" id="jumlah[]" name="jumlah[]" onkeyup="sum()" required>
+								<input type="text" id="harga_beli<?= $data['id_barang']?>" name="harga_beli[]" value="<?= $data['harga_beli'] ?>" required>
 								</td>
 								<td>
-									<input type="text" readonly id="sub_total[]" name="sub_total[]" class="form-control" required>
+									<input type="text" id="jumlah<?= $data['id_barang']?>" name="jumlah[]" onkeyup="sum(<?= $data['id_barang']?>)" required>
+								</td>
+								<td>
+									<input type="text" readonly id="sub_total<?= $data['id_barang']?>" name="sub_total[]" class="form-control" required>
 								</td> 
 
 							</tr>
-							<script type="text/javascript">
-							  function sum() {
-							      var harga_beli = document.getElementById('harga_beli[]').value;
-							      var jumlah = document.getElementById('jumlah[]').value;
-							      var result= parseInt(harga_beli) * parseInt(jumlah);
-							      if (!isNaN(result)) {
-							         document.getElementById('sub_total[]').value = result;
-							      }
-							}
-							</script>
-						<?php
-							
+							<?php
+						}
 						}
 						?>
+							<script type="text/javascript">
+							  function sum(id_barang) {
+							      var harga_beli = document.getElementById('harga_beli'+id_barang).value;
+							      var jumlah = document.getElementById('jumlah'+id_barang).value;
+							      var result= parseInt(harga_beli) * parseInt(jumlah);
+							      if (!isNaN(result)) {
+							         document.getElementById('sub_total'+id_barang).value = result;
+									document.getElementById('total_jumlah').value += parseInt(jumlah);
+									document.getElementById('total_harga').value +=parseInt(result);
+							      }
+
+							}
+
+							</script>
+						
 						
 							<td colspan="3"><center>Total</center></td>
 							<td><input type="text" name="total_jumlah" class="form-control" style="width: 150px;" id="total_jumlah" readonly></td>
-							<td><input type="text" name="total_harga" id="total_harga" class="form-control" readonly></td>
+							<td><input type="text" name="total_harga" id="total_harga<?= $data['id_barang']?>" class="form-control" readonly></td>
 					
 						</tbody>
 					</table>
