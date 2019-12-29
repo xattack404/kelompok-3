@@ -82,6 +82,22 @@
     }
     ?>
   </li>
+  <li class='treeview'>
+    <?php
+    if ($sesen_akses == "admin")
+    {
+      echo "
+      <a href='#'><i class='fa fa-list'></i><span> Laporan </span><i class='fa fa-angle-left pull-right'></i></a>
+        <ul class='treeview-menu'>
+          <li><a href='laporan_pembelian.php'><i class='fa fa-circle-o'></i> Laporan Pembelian / nyetok </a></li>
+          <li><a href='laporan_penjualan.php'><i class='fa fa-circle-o'></i> Laporan Penjualan  </a></li>
+          <li><a href='laporan_labarugi.php'><i class='fa fa-circle-o'></i> Laporan Laba Rugi  </a></li>
+          <li><a href='laporan_barang_terlaris.php'><i class='fa fa-circle-o'></i> Laporan Barang Terlaris  </a></li>
+        </ul>
+      ";
+    }
+    ?>
+  </li>
   <li class="header">PENGATURAN</li>
   <li class='treeview'>
     <a href='#'><i class='fa fa-cogs'></i><span> Halaman </span><i class='fa fa-angle-left pull-right'></i></a>

@@ -6,6 +6,7 @@ include 'cek_session.php';      // Panggil fungsi cek session
 //include '../fungsi/setting.php';          // Panggil data setting
 //include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menjadi format seperti 2 Mei 2015
 $chk = $_POST['checked'];
+
 if (!isset($chk)) {
 	echo "<script>alert('Tidak ada data yang dipilih');window.location='produk_kurang.php';</script>";
 }else{
@@ -61,7 +62,7 @@ if (!isset($chk)) {
 		<div class="row">
 			<div class="col-lg-10 col-lg-offset-1">
 				
-					<input type="hidden" name="total" value="<?= $_POST['count_add'] ?>">
+					<input type="hidden" name="total" value="<?= $d = count($chk); ?>">
 					<div class="box">
 					<div class="box-body table-responsive padding">
 					<table class="table table-bordered ">
@@ -94,10 +95,10 @@ if (!isset($chk)) {
 									<?= $data['nama_barang'] ?>
 								</td>
 								<td class="text-center">
-								<input type="text" id="harga_beli<?= $data['id_barang']?>" name="harga_beli[]" value="<?= $data['harga_beli'] ?>" required>
+								<input type="text" id="harga_beli<?= $data['id_barang']?>" name="harga_beli[]" value="<?= $data['harga_beli'] ?>" onkeypress="return isNumberKey(event)" required>
 								</td>
 								<td>
-									<input type="text" id="jumlah<?= $data['id_barang']?>" name="jumlah[]" required>
+									<input type="text" id="jumlah<?= $data['id_barang']?>" name="jumlah[]" onkeypress="return isNumberKey(event)" required>
 								</td>
 								<td>
 									<input type="text" readonly id="sub_total<?= $data['id_barang']?>" name="sub_total[]" class="form-control" required>
@@ -162,7 +163,23 @@ if (!isset($chk)) {
   </div>
 
 </body>
+<!-- <script type="text/javascript" src="template/autoNumeric.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#harga_beli').autoNumeric('init');
+        $('#sub_total').autoNumeric('init');
+    });
+</script> -->
+<script>
 
+    function isNumberKey(evt)
+    {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57))
+      return false;
+      return true;
+    }
+    </script>
 </html>
 
 

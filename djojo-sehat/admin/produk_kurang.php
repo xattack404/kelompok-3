@@ -61,7 +61,7 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
 
     <div class="content-wrapper">
       <section class="content-header">
-        <h1>Daftar Produk < 50</h1>
+        <h1>Daftar Produk < 10</h1>
         <ol class="breadcrumb">
           <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
           <li>Produk</li>
@@ -105,7 +105,7 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
           $harga_jual  = number_format($data['harga_jual'], 0, ',', '.');?>
           
           <tr>
-            <input type="hidden" name="id_barang" value="<?= $data['id_barang'] ?>">
+            <input type="hidden" name="id_barang[]" value="<?= $data['id_barang'] ?>">
             <td align="center">
                     <input type="checkbox" name="checked[]" class="check" value="<?= $data['id_barang']?>">
                   </td>

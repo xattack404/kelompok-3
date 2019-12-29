@@ -37,7 +37,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 
       <form action="login.php" method="post">
         <div class="form-group has-feedback">
-          <input type="text" class="form-control" placeholder="Username" name="username" required />
+          <input type="text" class="form-control" placeholder="Username" name="username" autofocus required />
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
