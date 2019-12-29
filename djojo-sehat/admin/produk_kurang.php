@@ -23,17 +23,9 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
   <!-- Skrip Datatables -->
   <script type="text/javascript">
     $(document).ready(function () {
-      $('#example1').DataTable({
-        dom : 'Bfrtip',
-        columnDefs: [
-          {
-            "searchable":false,
-            "orderable":false,
-            "targets":[0, 4]//kayak aritmatika tapi array dari 0 itu kebawah 6 ke samping indeksnya maksudnya
-          }
-        ],
-        "order": [1, "asc"]
-      });
+      $(document).ready(function () {
+      $('#example1').DataTable();
+    });
       $('#select_all').on('click', function() {
         if (this.checked) {
           $('.check').each(function(){
@@ -53,6 +45,13 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
         }
       })
     });
+    function tambahstok(){
+      document.proses.action = 'produk_form_tambah_stok.php';
+      document.proses.submit();
+      // document.location.href = 'edit.php';
+      
+
+    }
   </script>
 </head>
 
@@ -73,17 +72,22 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
       <section class="content">
         <div class="box">
   <div class="box-body table-responsive padding">
+  <form name="proses" method="post">
     <table id="example1" class="table table-bordered table-striped">
       <thead>
+          <th>
+                <center>
+                  <input type="checkbox" id="select_all" value="">
+                </center>
+          </th>
           <th style="text-align: center">No.</th>
           <th style="text-align: center">Nama Barang</th>
           <th style="text-align: center">Kategori</th>
-          <th style="text-align: center">Harga</th>
+         <!--  <th style="text-align: center">Harga</th> -->
           <th style="text-align: center">Jumlah</th>
         </tr>
       </thead>
       <tbody>
-        <form action="produk_update_stok.php" name="post" enctype="multipart/form-data">
         <?php
       $sql = "SELECT a.id_barang, a.nama_barang, a.jumlah, a.harga_jual,
               b.nama_kategori as kategori 
@@ -98,18 +102,20 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
       {
         while ($data = mysqli_fetch_array($result))
         {
-          $harga_jual  = number_format($data['harga_jual'], 0, ',', '.');
-          echo "
+          $harga_jual  = number_format($data['harga_jual'], 0, ',', '.');?>
+          
           <tr>
-            <td valign='top' align='center'>".$no."</td>
-            <td style='text-align: left'>".$data['nama_barang']."</td>
-            <td style='text-align: center'>".$data['kategori']."</td>
-            <td style='text-align: center'>$harga_jual. </td>
-            <td data-title='Qty' align='center'>
-            <input type='hidden' name='id".$i."' value='$data[id_barang]'/>
-              <input type='text' name='jmlh".$i."' value='$data[jumlah]' size='3' onkeypress='return isNumberKey(event)'/>
-            </td>
-          </tr>";
+            <input type="hidden" name="id_barang" value="<?= $data['id_barang'] ?>">
+            <td align="center">
+                    <input type="checkbox" name="checked[]" class="check" value="<?= $data['id_barang']?>">
+                  </td>
+            <td valign="top" align="center"><?= $no ?></td>
+            <td class="text-left"><?= $data['nama_barang'] ?></td>
+            <td class="text-center"><?= $data['kategori'] ?></td>
+            <!-- <td class="text-right">Rp. <?= $harga_jual ?> </td> -->
+            <td class="text-center"><?= $data['jumlah'] ?> </td>
+          </tr>
+        <?php 
           $no++;
           $i++;
         }
@@ -120,7 +126,7 @@ include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menj
       </tbody>
     </table>
     <div class="box pull-right">
-    <button type="submit" name="submit" class="btn btn-success">Submit</button>
+    <button type="submit" onclick="tambahstok()" class="btn btn-success">Tambah stok sesuai yang dipilih!</button>
     </div>
     </form>
   </div>
