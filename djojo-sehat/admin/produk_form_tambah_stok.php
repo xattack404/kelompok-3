@@ -97,31 +97,45 @@ if (!isset($chk)) {
 								<input type="text" id="harga_beli<?= $data['id_barang']?>" name="harga_beli[]" value="<?= $data['harga_beli'] ?>" required>
 								</td>
 								<td>
-									<input type="text" id="jumlah<?= $data['id_barang']?>" name="jumlah[]" onkeyup="sum(<?= $data['id_barang']?>)" required>
+									<input type="text" id="jumlah<?= $data['id_barang']?>" name="jumlah[]" required>
 								</td>
 								<td>
 									<input type="text" readonly id="sub_total<?= $data['id_barang']?>" name="sub_total[]" class="form-control" required>
 								</td> 
 
+								<script>
+							$(document).ready(function(){
+								$('#jumlah<?= $data['id_barang']?>').keyup(function(){
+									const nilaiawal = $('#harga_beli<?= $data['id_barang']?>').val();
+									const myvalue = $(this).val();
+									$('#sub_total<?= $data['id_barang']?>').val(parseInt(nilaiawal) * parseInt(myvalue));
+									var count = $('#sub_total<?= $data['id_barang']?>').val();
+									if ($('#total_harga').val() == '') {
+										$('#total_harga').val(parseInt(count));
+									}else{
+										var myint = parseInt($('#total_harga').val());
+										$('#total_harga').val(parseInt(count) + myint);
+									}
+									
+									var countjml = $('#jumlah<?= $data['id_barang']?>').val();
+									if ($('#total_jumlah').val() == '') {
+										$('#total_jumlah').val(parseInt(countjml));
+									}else{
+										var myint2 = parseInt($('#total_jumlah').val());
+										$('#total_jumlah').val(parseInt(countjml) + myint2);
+									}				
+
+								});
+								
+							});
+							</script>
+								
 							</tr>
 							<?php
 						}
 						}
 						?>
-							<script type="text/javascript">
-							  function sum(id_barang) {
-							      var harga_beli = document.getElementById('harga_beli'+id_barang).value;
-							      var jumlah = document.getElementById('jumlah'+id_barang).value;
-							      var result= parseInt(harga_beli) * parseInt(jumlah);
-							      if (!isNaN(result)) {
-							         document.getElementById('sub_total'+id_barang).value = result;
-									document.getElementById('total_jumlah').value += parseInt(jumlah);
-									document.getElementById('total_harga').value +=parseInt(result);
-							      }
 
-							}
-
-							</script>
 						
 						
 							<td colspan="3"><center>Total</center></td>

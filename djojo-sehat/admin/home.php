@@ -36,9 +36,9 @@ include 'cek_session.php';  // Panggil fungsi cek session
       </section>
 
       <section class='content'>
-        <div class='row'>
+        
           <?php include 'record.php'; ?>
-        </div>
+       
       </section>
 
     </div>
@@ -49,3 +49,4 @@ include 'cek_session.php';  // Panggil fungsi cek session
 </body>
 
 </html>
+ 
