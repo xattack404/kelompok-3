@@ -5,14 +5,15 @@ include 'cek_login.php';
 
 if (isset($_POST['tambah'])) {
 	$supplier = mysqli_real_escape_string($koneksi, $_POST['supplier']);
-	 $tanggal = date('Y/m/d');
+	$tanggal = mysqli_real_escape_string($koneksi, $_POST['tanggal']);
+	// $tanggal = date('Y/m/d');
 	$grandtotal = mysqli_real_escape_string($koneksi,$_POST['total_harga']);
 	$total_jumlah = mysqli_real_escape_string($koneksi,$_POST['total_jumlah']);
 
 	// var_dump($grandtotal, $total_jumlah, $supplier);
 	 $query = "INSERT INTO trans_beli (id_beli,
                                         id_supplier,
-                                        jumlah,
+                                        jumlah_beli,
                                         total_bayar,
                                         tanggal)
                                 VALUES ('',

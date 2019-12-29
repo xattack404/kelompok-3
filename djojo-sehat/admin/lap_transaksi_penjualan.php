@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../config/koneksi.php';                  // Panggil koneksi ke database
+require '../config/koneksi.php';                  // Panggil koneksi ke database
 include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
 include 'cek_session.php'; 
 require('template/pdf/fpdf.php');

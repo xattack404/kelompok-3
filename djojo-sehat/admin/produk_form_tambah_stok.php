@@ -56,7 +56,7 @@ if (!isset($chk)) {
               </div>
               <div class="col-lg-3">
               	<label>Tanggal</label><br>
-      			<label style="background-color: white; padding: 4px;"><?= date('Y/m/d') ?></label>
+      			<label style="background-color: white; padding: 4px;"><input type="text" name="tanggal" value="<?= date('Y/m/d') ?>"></label>
               </div>
       	</div><br>
 		<div class="row">

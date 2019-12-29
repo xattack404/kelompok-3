@@ -9,7 +9,7 @@ include 'cek_session.php';      // Panggil fungsi cek session
 
 <head>
   <meta charset="UTF-8">
-  <title>Laporan Pembelian | <?php include "title.php" ?></title>
+  <title>Daftar Penjualan | <?php include "title.php" ?></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <!-- Favicon -->
   <link rel="shortcut icon" href="../images/fav.ico" />
@@ -33,11 +33,11 @@ include 'cek_session.php';      // Panggil fungsi cek session
 
     <div class="content-wrapper">
       <section class="content-header">
-        <h1>Laporan Pembelian </h1>
+        <h1>Laporan Penjualan </h1>
         <ol class="breadcrumb">
           <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
           <li>Laporan</li>
-          <li class="active"><a href="laporan_pembelian.php">Laporan Pembelian</a></li>
+          <li class="active"><a href="laporan_penjualan.php">Laporan Penjualan</a></li>
         </ol>
       </section>
 
@@ -45,7 +45,7 @@ include 'cek_session.php';      // Panggil fungsi cek session
         <div class="row">
           <div class="col-lg-8">
              <div class="table-responsive">
-                <form action="lap_transaksi_pembelian.php" method="post">
+                <form action="lap_transaksi_penjualan.php" method="post">
                      <table class="table table-bordered table-hover" >
                         <tr bgcolor="white">
                             <td width="50"><input required type="radio" name="cek" value="1" style="cursor: pointer;"></td>
