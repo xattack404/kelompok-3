@@ -10,13 +10,12 @@ include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tambah data at
 
 <head>
   <meta charset="UTF-8">
-  <title>Tambah Produk Baru | <?php include "title.php" ?></title>
+  <title>Tambah Barang Baru | <?php include "title.php" ?></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <!-- Favicon -->
   <link rel="shortcut icon" href="../images/fav.ico" />
   <!-- JS -->
   <?php include 'js.php'; ?>
-
 </head>
 
 <body class="skin-blue sidebar-mini">
@@ -25,11 +24,11 @@ include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tambah data at
 
     <div class="content-wrapper">
       <section class="content-header">
-        <h1>Form Entry Produk Baru</h1>
+        <h1>Form Entry Barang Baru</h1>
         <ol class="breadcrumb">
           <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li>Produk</li>
-          <li class="active"><a href="produk_add.php">Entry Produk Baru</a></li>
+          <li>Barang</li>
+          <li class="active"><a href="produk_add.php">Entry Barang Baru</a></li>
         </ol>
       </section>
 
@@ -37,7 +36,6 @@ include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tambah data at
         <?php include "produk_add_form.php" ?>
       </section>
     </div>
-
     <?php include "footer.php" ?>
 
   </div>

@@ -20,15 +20,15 @@ include '../fungsi/cek_aksi_tambah.php';  // Panggil fungsi boleh tambah data at
 
 <body class="skin-blue sidebar-mini">
   <div class="wrapper">
-    <?php include "header.php"; ?>
+    <?php include 'header.php'; ?>
 
     <div class="content-wrapper">
       <section class="content-header">
-        <h1>Form Entry Satuan Barang</h1>
+        <h1>Form Entry Kategori Barang</h1>
         <ol class="breadcrumb">
           <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
           <li>Kategori</li>
-          <li class="active"><a href="kategori_add.php">Entry Satuan Barang</a></li>
+          <li class="active"><a href="kategori_add.php">Entry Kateogi Barang</a></li>
         </ol>
       </section>
 
