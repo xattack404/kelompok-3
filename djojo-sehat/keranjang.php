@@ -42,7 +42,7 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
             <div class="caption-full">
               <?php include 'keranjang_data.php'; ?>
               
-  <form action="keranjang_update_alamat.php" id ="form" method="POST" style="display:none;">
+<!--   <form action="keranjang_update_alamat.php" id ="form" method="POST" style="display:none;">
       <div class="form-group">
       <input type="text" name = "id" id ="id" value="<?= $sesen_id;?>" hidden>
         <div class ="col-md-4" style="margin-left:-15px;">
@@ -119,7 +119,7 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
         <button type="submit" id = "save" name ="save" class="btn btn-primary">Save changes</button>
       </div>
       </div>
-</form>
+</form> -->
             </div>
           </div>
         </div>
@@ -144,18 +144,26 @@ include 'fungsi/navigasi.php';            // Panggil data navigasi
       return true;
     }
     </script>
-    <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
-    <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
+     <!-- Memanggil file JS -->
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>template/js/jquery-3.4.1.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/owl.carousel.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
+  <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/popper.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/bootstrap.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.easing.1.3.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.waypoints.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.stellar.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/owl.carousel.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/aos.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.animateNumber.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/bootstrap-datepicker.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="<?= $base_url ?>template/Design/js/google-map.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/main.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
       //apabila terjadi event onchange terhadap object <select id=propinsi>

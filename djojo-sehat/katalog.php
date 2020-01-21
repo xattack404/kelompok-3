@@ -52,16 +52,25 @@ include 'fungsi/setting.php';             // Panggil data setting
 
     </div>
     
-    <!-- Memanggil file JS -->
-    <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
+     <!-- Memanggil file JS -->
+  <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
   <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/owl.carousel.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/popper.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/bootstrap.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.easing.1.3.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.waypoints.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.stellar.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/owl.carousel.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/aos.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.animateNumber.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/bootstrap-datepicker.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="<?= $base_url ?>template/Design/js/google-map.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/main.js"></script>
   </body>
 </html>

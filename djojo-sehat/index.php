@@ -29,16 +29,6 @@ include 'record_keranjang.php';
 </head>
 
 <body> 
-  <!-- Page Preloder -->
-  <!-- Search model -->
-  <div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-      <div class="search-close-switch">+</div>
-      <form class="search-model-form">
-        <input type="text" id="search-input" placeholder="Search here.....">
-      </form>
-    </div>
-  </div>
   <!-- Search model end -->
 
   <!-- Header Section Begin -->
@@ -58,144 +48,104 @@ include 'navbar.php';
   </section>
   <!-- Hero Slider End -->
 
-  <!-- Features Section Begin -->
-  <section class="features-section spad">
-    <div class="features-ads">
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+      <div class="container">
+        <div class="row no-gutters ftco-services">
+          <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services p-4 py-md-5">
+              <div class="icon d-flex justify-content-center align-items-center mb-4">
+                <span class="flaticon-bag"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Free Shipping</h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services p-4 py-md-5">
+              <div class="icon d-flex justify-content-center align-items-center mb-4">
+                <span class="flaticon-customer-service"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Support Customer</h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services p-4 py-md-5">
+              <div class="icon d-flex justify-content-center align-items-center mb-4">
+                <span class="flaticon-payment-security"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Secure Payments</h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="mb-4">New Clothes Arrival</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+          </div>
+        </div>      
+      </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
-            <div class="single-features-ads first">
-              <img src="<?php echo $base_url ?>template/Design/icons/f-delivery.png" alt="">
-              <h4>Free shipping</h4>
-              <p> </p>
+<?php 
+    $data     = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang DESC LIMIT 10");
+$numrows  = mysqli_num_rows($data);
+?>
+<?php
+// Jika data ketemu, maka akan ditampilkan dengan While
+if($numrows > 0)
+{
+  while($row = mysqli_fetch_assoc($data))
+  {
+    $harga_normal = number_format($row['harga_jual'], 0, ',', '.').",-";
+?>
+          <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
+            <div class="product d-flex flex-column">
+              <a href="#" class="img-prod" style="margin:auto;">
+                <img class="img-fluid" src="<?php echo $base_url ?>images/produk/<?php echo $row['foto_barang']; ?>" alt="<?php echo $row['nama_barang']; ?>" style="max-width:200px;max-height:200px;">
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 pb-4 px-3">
+                <div class="d-flex">
+                  <div class="cat">
+                    <span>Lifestyle</span>
+                  </div>
+                  <div class="rating">
+                    <p class="text-right mb-0">
+                      <a href="#"><span class="ion-ios-star"></span></a>
+                      <a href="#"><span class="ion-ios-star"></span></a>
+                      <a href="#"><span class="ion-ios-star"></span></a>
+                      <a href="#"><span class="ion-ios-star"></span></a>
+                      <a href="#"><span class="ion-ios-star-half"></span></a>
+                    </p>
+                  </div>
+                </div>
+                <h3><a href="#"><?php echo $row['nama_barang']; ?></a></h3>
+                <div class="pricing">
+                  <p class="price"><span>Rp <?php echo $harga_normal ?></span></p>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="single-features-ads second">
-              <img src="<?php echo $base_url ?>template/Design/icons/coin.png" alt="">
-              <h4>100% Money back </h4>
-              <p></p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="single-features-ads">
-              <img src="<?php echo $base_url ?>template/Design/icons/chat.png" alt="">
-              <h4>Online support 24/7</h4>
-              <p></p>
-            </div>
-          </div>
-        </div>
+        <?php } }?>
       </div>
-    </div>
-    <!-- Features Box -->
-    
-
-  
-      
-  <!-- Latest Product End -->
-
-  <!-- Lookbok Section Begin -->
-  <!-- Lookbok Section End -->
-
-  <!-- Logo Section Begin -->
-  <div class="logo-section spad">
-    <div class="logo-items owl-carousel">
-      <div class="logo-item">
-        <img src="<?php echo $base_url ?>template/Design/logos/logo-1.png" alt="">
-      </div>
-      <div class="logo-item">
-        <img src="<?php echo $base_url ?>template/Design/logos/logo-2.png" alt="">
-      </div>
-      <div class="logo-item">
-        <img src="<?php echo $base_url ?>template/Design/logos/logo-3.png" alt="">
-      </div>
-      <div class="logo-item">
-        <img src="<?php echo $base_url ?>template/Design/logos/logo-4.png" alt="">
-      </div>
-      <div class="logo-item">
-        <img src="<?php echo $base_url ?>template/Design/logos/logo-5.png" alt="">
-      </div>
-    </div>
-  </div>
-  <!-- Logo Section End -->
-
-  <!-- Footer Section Begin -->
-  <footer class="footer-section spad">
-    <div class="container">
-      <div class="newslatter-form">
-        <div class="row">
-          <div class="col-lg-12">
-            <form action="#">
-              <input type="text" placeholder="Your email address">
-              <button type="submit">Subscribe to our newsletter</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="footer-widget">
-        <div class="row">
-          <div class="col-lg-3 col-sm-6">
-            <div class="single-footer-widget">
-              <h4>About us</h4>
-              <ul>
-                <li>About Us</li>
-                <li>Community</li>
-                <li>Jobs</li>
-                <li>Shipping</li>
-                <li>Contact Us</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="single-footer-widget">
-              <h4>Customer Care</h4>
-              <ul>
-                <li>Search</li>
-                <li>Privacy Policy</li>
-                <li>2019 Lookbook</li>
-                <li>Shipping & Delivery</li>
-                <li>Gallery</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="single-footer-widget">
-              <h4>Our Services</h4>
-              <ul>
-                <li>Free Shipping</li>
-                <li>Free Returnes</li>
-                <li>Our Franchising</li>
-                <li>Terms and conditions</li>
-                <li>Privacy Policy</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="single-footer-widget">
-              <h4>Information</h4>
-              <ul>
-                <li>Payment methods</li>
-                <li>Times and shipping costs</li>
-                <li>Product Returns</li>
-                <li>Shipping methods</li>
-                <li>Conformity of the products</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="social-links-warp">
-      <div class="container">
-        <div class="social-links">
-          <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
-          <a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
-          <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
-          <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
-          <a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
-          <a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
-        </div>
-      </div>
+<footer>
       <?php
 include 'footer.php';
 ?>
@@ -211,13 +161,22 @@ include 'footer.php';
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
   <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/owl.carousel.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/popper.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/bootstrap.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.easing.1.3.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.waypoints.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.stellar.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/owl.carousel.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/aos.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.animateNumber.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/bootstrap-datepicker.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="<?= $base_url ?>template/Design/js/google-map.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/main.js"></script>
   
 </body>
 
