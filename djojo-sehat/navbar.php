@@ -112,6 +112,7 @@
       ?>
             <li class="nav-item cta cta-colored"><a href="keranjang.php" class="nav-link"><span class="icon-shopping_cart"></span>
             <?php
+            if(!empty($_SESSION['nama']) && (!empty($_SESSION['email']))){
             $cek_keranjang =  mysqli_query($koneksi,"SELECT tb_keranjang.id_keranjang, tb_keranjang.id_member, tb_keranjang.id_barang,
                             tb_keranjang.jumlah,tb_keranjang.jumlah_berat, tb_keranjang.subtotal,
                             tb_barang.id_barang, tb_barang.nama_barang, tb_barang.judul,
@@ -121,7 +122,11 @@
                           WHERE tb_keranjang.id_member = '$sesen_id'");
 
             $jumlah = mysqli_num_rows($cek_keranjang);
-            echo"[$jumlah]";
+            echo"[$jumlah]";  
+          }else{
+            echo "[0]";
+          }
+            
             ?></a></li>
           </ul>
         </div>
