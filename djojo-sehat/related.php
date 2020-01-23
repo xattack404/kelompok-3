@@ -1,3 +1,4 @@
+
 <?php
   // batas threshold 75%
   $threshold = 75;
@@ -28,17 +29,32 @@
       {
         // jika jumlah produk belum sampai batas maksimum, tambahkan ke dalam array
         $listProduk[] =
-        "<div class='col-md-4 col-sm-6'>
-          <div class='thumbnail'>
-            <a href='$base_url"."produk/$data[judul].html' class='title'>
+        "<div class='col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex'>
+        <div class='product d-flex flex-column' style='height: 354.98px;width: 236.65px'>
+            <a href='$base_url"."produk/$data[judul].html' class='img-prod'>
               <h4 align='center'>$data[nama_barang]</h4>
             </a>
-            <img alt='$data[nama_barang]' src='$base_url"."images/produk/$data[foto_barang]'/>
-            <div class='caption' align='center'>
-              <a href='$base_url"."beli/$data[id_barang]' class='btn btn-primary'>Beli</a>
-              <a href='$base_url"."produk/$data[judul].html' class='btn btn-default'>Detail</a>
-            </div>
-          </div>
+            <img alt='$data[nama_barang]'align='' class='img-fluid'src='$base_url"."images/produk/$data[foto_barang]'/>
+             <div class='text py-3 pb-4 px-3'>
+                    <div class='d-flex'>
+                      <div class='cat'>
+                        <span>Lifestyle</span>
+                      </div>
+                      <div class='rating'>
+                        <p class='text-right mb-0'>
+                          <a href='#'><span class='ion-ios-star-outline'></span></a>
+                          <a href='#'><span class='ion-ios-star-outline'></span></a>
+                          <a href='#'><span class='ion-ios-star-outline'></span></a>
+                          <a href='#'><span class='ion-ios-star-outline'></span></a>
+                          <a href='#'><span class='ion-ios-star-outline'></span></a>
+                        </p>
+                      </div>
+                    </div>
+                    </div>
+            <p class='bottom-area d-flex px-3' align='center'>
+              <a href='$base_url"."beli/$data[id_barang]' class='add-to-cart text-center py-2 mr-1'>Beli</a>
+              <a href='$base_url"."produk/$data[judul].html' class='buy-now text-center py-2'>Detail</a>
+            </p>
         </div>";
       }
     }
