@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/animate.css">
-    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css">
@@ -20,7 +20,7 @@
 
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-<div class="goto-here">
+<div class="goto-here" style="margin-bottom:50px">
     <div class="py-1 bg-black">
       <div class="container">
         <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">

@@ -48,7 +48,7 @@ if(isset($_SESSION['nama']))
       
 
 
-      <!-- Awal Footer -->
+       Awal Footer -->
       <?php include 'footer.php'; ?>
       <!-- Akhir Footer -->
 
@@ -56,8 +56,6 @@ if(isset($_SESSION['nama']))
     </div>
     <!-- Akhir Konten Utama -->
 
-  </div>
-  </div>
   <!-- Akhir Konten Utama -->
 
 

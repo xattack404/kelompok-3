@@ -137,8 +137,8 @@ if($numrows > 0)
                   <p class="price"><span>Rp <?php echo $harga_normal ?></span></p>
                 </div>
                 <p class="bottom-area d-flex px-3">
-                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                  <a href="#" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                  <a href="<?php echo $base_url ?>beli/<?php echo $row['id_barang']; ?>" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="buy-now text-center py-2">Details<span><i class="ion-ios-cart ml-1"></i></span></a>
                 </p>
               </div>
             </div>

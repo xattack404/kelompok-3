@@ -7,7 +7,7 @@
         {
           echo '
           <div class="item '; if($row['active'] == 1){ echo 'active'; } echo '">
-            <img class="img-fluid" alt="Cinque Terre" src="'.$base_url.'images/slider/'.$row['gambar'].'" title="'.$row['judul_slider'].'" alt="'.$row['judul_slider'].'" width="100%" />
+            <img class="img-fluid" style="margin-left:auto;margin-right:auto" alt="Cinque Terre" src="'.$base_url.'images/slider/'.$row['gambar'].'" title="'.$row['judul_slider'].'" alt="'.$row['judul_slider'].'" />
             <div class="carousel-caption">
               <h1 class="carousel-caption-header"></h1>
               <p class="carousel-caption-text hidden-sm hidden-xs"></p>

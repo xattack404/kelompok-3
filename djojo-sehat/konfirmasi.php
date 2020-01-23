@@ -26,18 +26,6 @@ error_reporting(0);
     <!-- Favicon -->
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
 
-        <!-- Memanggil file JS -->
-        <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
-  <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.slicknav.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/owl.carousel.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/jquery.nice-select.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/mixitup.min.js"></script>
-  <script src="<?php echo $base_url ?>template/Design/js/main.js"></script>
-    <!-- Fungsi JS untuk membuat form hanya bisa diisi oleh angka saja -->
 
   </head>
   <body>
