@@ -97,6 +97,7 @@
           <div class='dropdown-menu' aria-labelledby='dropdown04'>
               <a href='$base_url"."profile' class='dropdown-item'>profile</a>
               <a href='$base_url"."konsultasi.php'class='dropdown-item'>Konsultasi</a>
+              <a href='$base_url"."histori_transaksi.php'class='dropdown-item'>Histori Transaksi</a>
               <a href='$base_url"."logout'class='dropdown-item'>Logout</a>
               </div></li>";
       }

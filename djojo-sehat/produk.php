@@ -42,18 +42,30 @@ if(mysqli_num_rows($hasil) == 0)
     <meta property="og:image" content="<?php echo $base_url; echo "images/produk/"; echo $produk['foto_gambar']; ?>" />
     <meta property="og:description" content="Dapatkan <?php echo $katalog['nama_barang']; ?> dan barang lainnya dengan harga yang terjangkau, berkualitas, dan bergaransi hanya di <?php echo $namatoko ?>" />
     <!-- CSS Bootstrap -->
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
-    rel="stylesheet">
-<link rel="stylesheet" href="<?php echo $base_url ?>template/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/aos.css">
+
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/flaticon.css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/icomoon.css">
+    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css">
   <!-- Favicon -->
   <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon" />
   </head>
   <body>
     <?php include 'navbar.php'; ?>
-    <div class="container">
       <?php include 'produk_data.php'; ?>
-
       <hr/>
 
       <?php include 'footer.php'; ?>
@@ -81,6 +93,37 @@ if(mysqli_num_rows($hasil) == 0)
   <script src="<?= $base_url ?>template/Design/js/google-map.js"></script>
   <script src="<?= $base_url ?>template/Design/js/main.js"></script>
     <script type="text/javascript">
+      $(document).ready(function(){
+      var quantitiy=0;
+      $('.quantity-right-plus').click(function(e){
+      
+      // Stop acting like a button
+      e.preventDefault();
+      // Get the field name
+      var quantity = parseInt($('#quantity').val());
+      
+      // If is not undefined
+      
+      $('#quantity').val(quantity + 1);
+      
+      // Increment
+      
+      });
+      $('.quantity-left-minus').click(function(e){
+      // Stop acting like a button
+      e.preventDefault();
+      // Get the field name
+      var quantity = parseInt($('#quantity').val());
+      
+      // If is not undefined
+      
+      // Increment
+      if(quantity>0){
+      $('#quantity').val(quantity - 1);
+      }
+      });
+      
+      });
       $(document).ready(function() {
         $("#fancybox").fancybox();
       });
