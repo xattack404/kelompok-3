@@ -68,7 +68,7 @@ if ($sesen_akses == "admin")
     <div class="col-lg-3 col-xs-6">
       <div class="box box-primary">
         <div class="box-body">
-          <div class="form-group"><label style="color: blue;">Stok barang Yang kurang dari 50</label><br>
+          <div class="form-group"><label style="color: blue;">Stok barang Yang kurang dari 10</label><br>
             <?php
             $sql  = "SELECT * FROM tb_barang WHERE jumlah <10";
             $produk2  = mysqli_query($koneksi, $sql); 

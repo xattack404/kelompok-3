@@ -28,7 +28,7 @@
               <input class="form-control" name="hrg_beli" type="number" id="hrg_beli" onkeyup="sum();"size="30"
                 placeholder="Angka saja" />
             </div>
-            <div class="col-xs-3"><label>Laba </label>
+            <div class="col-xs-3"><label>Laba %</label>
               <input class="form-control" name="laba" type="number" id="laba" onkeyup="sum();" size="30"
                 placeholder="Angka saja persen" />
             </div>
