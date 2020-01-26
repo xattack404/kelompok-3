@@ -76,7 +76,7 @@
         <div class="row mt-5">
           <div class="col-md-12 nav-link-wrap">
             <div class="nav nav-pills d-flex text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link ftco-animate active mr-lg-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Descripsi</a>
+              <a class="nav-link ftco-animate active mr-lg-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Deskripsi</a>
               <a class="nav-link ftco-animate mr-lg-1" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Manufacturer</a>
               <a class="nav-link ftco-animate" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Reviews</a>
             </div>
@@ -97,11 +97,9 @@
                 </div>
               </div>
               <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-day-3-tab">
-                <div class="row p-4">
-                  <div class="col-md-7">
+                <div class="p-4">
                    <?php include "related.php";?>
                  </div>
-               </div>
              </div>
                       
 <!-- <div class="row">

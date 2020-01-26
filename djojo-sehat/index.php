@@ -48,45 +48,63 @@ include 'navbar.php';
   </section>
   <!-- Hero Slider End -->
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <section class="ftco-section bg-light">
       <div class="container">
-        <div class="row no-gutters ftco-services">
-          <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services p-4 py-md-5">
-              <div class="icon d-flex justify-content-center align-items-center mb-4">
-                <span class="flaticon-bag"></span>
-              </div>
-              <div class="media-body">
-                <h3 class="heading">Free Shipping</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>      
+        <div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="mb-4">Trending</h2>
+            <p></p>
           </div>
-          <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services p-4 py-md-5">
-              <div class="icon d-flex justify-content-center align-items-center mb-4">
-                <span class="flaticon-customer-service"></span>
-              </div>
-              <div class="media-body">
-                <h3 class="heading">Support Customer</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services p-4 py-md-5">
-              <div class="icon d-flex justify-content-center align-items-center mb-4">
-                <span class="flaticon-payment-security"></span>
-              </div>
-              <div class="media-body">
-                <h3 class="heading">Secure Payments</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>      
-          </div>
-        </div>
+        </div>      
       </div>
-    </section>
+      <div class="container">
+        <div class="row">
+<?php 
+    $data     = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang DESC LIMIT 10");
+$numrows  = mysqli_num_rows($data);
+?>
+<?php
+// Jika data ketemu, maka akan ditampilkan dengan While
+if($numrows > 0)
+{
+  while($row = mysqli_fetch_assoc($data))
+  {
+    $harga_normal = number_format($row['harga_jual'], 0, ',', '.').",-";
+?>
+          <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
+            <div class="product d-flex flex-column">
+              <a href="#" class="img-prod" style="margin:auto;">
+                <img class="img-fluid" src="<?php echo $base_url ?>images/produk/<?php echo $row['foto_barang']; ?>" alt="<?php echo $row['nama_barang']; ?>" style="max-width:200px;max-height:200px;">
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 pb-4 px-3">
+                <div class="d-flex">
+                  <div class="cat">
+                    <span>Lifestyle</span>
+                  </div>
+                  <div class="rating">
+                    <p class="text-right mb-0">
+                      <a href="#"><span class="ion-ios-star"></span></a>
+                      <a href="#"><span class="ion-ios-star"></span></a>
+                      <a href="#"><span class="ion-ios-star"></span></a>
+                      <a href="#"><span class="ion-ios-star"></span></a>
+                      <a href="#"><span class="ion-ios-star-half"></span></a>
+                    </p>
+                  </div>
+                </div>
+                <h3><a href="#"><?php echo $row['nama_barang']; ?></a></h3>
+                <div class="pricing">
+                  <p class="price"><span>Rp <?php echo $harga_normal ?></span></p>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="<?php echo $base_url ?>beli/<?php echo $row['id_barang']; ?>" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>.html" class="buy-now text-center py-2">Details<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        <?php } }?>
+      </div>
 
     <section class="ftco-section bg-light">
       <div class="container">

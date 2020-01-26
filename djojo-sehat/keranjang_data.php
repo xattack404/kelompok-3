@@ -72,7 +72,6 @@
 	</table>
 </div>
 
-	<hr/>
 
 	<?php
 	include 'keranjang_total_berat.php';
@@ -96,54 +95,35 @@
 	//$ongkir 		= number_format($array['jne_reg'], 0, ',', '.');
 	if(mysqli_num_rows($keranjang) > 0)
 	{
-	?>
-		<table class="table">
+	?><br><br>
+		<table style="margin-top:10px;margin-bottom: 10px" class='col-xs-12 table-bordered table-striped table-condensed cf'>
 		  <thead>
 		    <tr>
-		      <th></th>
-		      <th></th>
-		      <th></th>
-		      <th></th>
-		      <th></th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		    <tr>
-		      <th scope="row">Ongkos Kirim</th>
-		      <td align="right">Via JNE REG</td>
-		      <td><?php echo $nama_kota_kec ?>
-			  
-			  <button style="margin-left:160px;" name='Tambah Alamat' id="tambah_alamat" type='button' class='btn btn-warning' data-toggle="modal" data-target="#modal" aria-label='Left Align' title='Tambah Alamat'>
-								  <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>Tambah Alamat
-								</button>
-		      </td>
-			  <td align="right">Rp</td>
-		      <td align="right"><?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
+		      <th>Ongkos Kirim</th>
+		      <td><?php echo $nama_kota_kec ?></td>
+		      <td>Rp.<?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
 		    </tr>
 		    <tr>
-		      <th scope="row">Total Berat</th>
-		      <td></td>
-		      <td></td>
-		      <td></td>
-		      <td align="right"><?php echo $total_berat ?> kg</td>
+		      <th>Total Berat</th>
+		      <td><?php echo $total_berat ?> kg</td>
 		    </tr>
 		    <tr>
-		      <th scope="row">Total Ongkos Kirim</th>
-		      <td align="right"><?php echo $total_berat_genap ?> kg</td>
+		      <th>Total Ongkos Kirim</th>
 		      <td>x Rp <?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
-		      <td align="right">Rp</td>
-		      <td align="right">
+		      <td>Rp.
 			      <?php $totalongkir = $total_berat_genap * $ongkir;
 						echo number_format($totalongkir, 0, ',', '.').',-';
 						?>
 					</td>
 		    </tr>
 		    <tr>
-		      <th scope="row">Grand Total</th>
-		      <td></td>
-		      <td></td>
-		      <td align="right">Rp</td>
-		      <td align="right">
+		      <th>Grand Total</th>
+		      <td>Rp</td>
+		      <td>
 		      <b>
 		      	<?php
 		      	$query 				= "SELECT sum(subtotal) AS subtotal FROM tb_keranjang
@@ -183,9 +163,9 @@
 				</a>";
 			}
 			?>
-			<button name='Ganti Alamat' id="ganti_alamat" type='button' class='btn btn-warning' data-toggle="" data-target="#				" aria-label='Left Align' title='Ganti Alamat'>
+			<!-- <button name='Ganti Alamat' id="ganti_alamat" type='button' class='btn btn-warning' data-toggle="" data-target="#				" aria-label='Left Align' title='Ganti Alamat'>
 								  <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>Ganti Alamat
-								</button>
+								</button> -->
 		</p>
 		<hr/>
 
