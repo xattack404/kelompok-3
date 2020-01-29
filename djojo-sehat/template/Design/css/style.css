@@ -2488,6 +2488,7 @@ fieldset:disabled a.btn {
     margin-top: 0.5rem; }
 
 input[type="submit"].btn-block,
+input[type="file"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%; }

@@ -20,6 +20,7 @@ include 'fungsi/setting.php';             // Panggil data setting
     <meta name="keywords" content="<?php echo $konsultasi['seo_keyword'] ?>" />
     <meta name="author" content="<?php echo $namatoko ?>" />
     <!-- Facebook SEO -->
+    <script src="Konsul.js"></script>
     <meta property="og:title" content="<?php echo $konsultasi['nama_produk']; ?> | <?php echo $namatoko ?>" />
     <meta property="og:url" content="<?php echo $base_url; echo "produk/"; echo $konsultasi['judul_seo']; echo ".html" ?>" />
     <meta property="og:image" content="<?php echo $base_url; echo "images/produk/"; echo $konsultasi['img']; ?>" />
@@ -29,21 +30,20 @@ include 'fungsi/setting.php';             // Panggil data setting
     <link href="<?php echo $base_url ?>template/css/jquery.fancybox.css" rel="stylesheet"/>
     <!-- Favicon -->
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
+    <script src="<?=$base_url?>/node_modules/react/cjs/react.development.js" crossorigin></script>
+<script src="<?=$base_url?>/node_modules/react/cjs/react.production.min.js" crossorigin></script>
+<script src="Konsul.js"></script> 
   </head>
   <body>
     <?php include 'navbar.php'; ?>
-<br>
-<br>
-<br>
+    <div id="Header"></div>
 
-    <div class="container">
       <?php include 'konsultasi_form.php'; ?>
 
       <hr/>
 
       <?php include 'footer.php'; ?>
 
-    </div>
 
     <!-- Memanggil file JS -->
     <script src="<?php echo $base_url ?>template/js/jquery.js"></script>

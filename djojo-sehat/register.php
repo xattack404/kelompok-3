@@ -31,7 +31,7 @@ if(isset($_SESSION['nama']))
 </head>
 
 <body>
-  <?php include 'navbar.php'; ?>
+  
 
   <!-- Awal Konten Utama -->
 

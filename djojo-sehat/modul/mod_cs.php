@@ -6,7 +6,7 @@
   $data  = mysqli_fetch_array($hasil);
   if(mysqli_num_rows($hasil) > 0)
   {
-    echo $data['isi'];
+    echo "<a href=''>".$data['isi']."</a>" ;
   }
   else{echo "Belum ada data";}
 ?>

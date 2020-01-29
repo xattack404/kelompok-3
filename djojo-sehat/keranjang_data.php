@@ -1,14 +1,18 @@
-<div id="no-more-tables">
+<section class="ftco-section ftco-cart">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 ftco-animate">
+				<div class="cart-list">
+					
 	<form method="post" id="form1" action="keranjang_update.php">
+<div id="no-more-tables">
 
 		<?php
 		// Panggil data faktur
 		include 'faktur.php';
 		// Membuat join query 2 tabel: transaksi, transaksi_detail dan produk
 		$cek_keranjang = 	mysqli_query($koneksi,"SELECT tb_keranjang.id_keranjang, tb_keranjang.id_member, tb_keranjang.id_barang,
-													  tb_keranjang.jumlah,tb_keranjang.jumlah_berat, tb_keranjang.subtotal,
-													  tb_barang.id_barang, tb_barang.nama_barang, tb_barang.judul,
-													  tb_barang.harga_jual, tb_barang.berat
+													  tb_keranjang.jumlah,tb_keranjang.jumlah_berat, tb_keranjang.subtotal,tb_barang.id_barang, tb_barang.nama_barang, tb_barang.judul,tb_barang.foto_barang,tb_barang.harga_jual, tb_barang.berat
 													FROM tb_keranjang
 													LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
 													WHERE tb_keranjang.id_member = '$sesen_id'");
@@ -19,16 +23,16 @@
 		else
 		{
 			echo "
-			<table class='col-md-12 table-bordered table-striped table-condensed cf'>
-				<thead class='cf'>
-					<tr>
-					  <th>No.</th>
-					  <th>Nama Produk</th>
+			<table class='table'>
+				<thead class='thead-primary'>
+					<tr class='text-center'>
+					  <th>&nbsp;</th>
+					  <th>&nbsp;</th>
+					  <th>Nama Product</th>
 					  <th>Harga</th>
 					  <th>Berat</th>
 					  <th>Qty</th>
 					  <th>Aksi</th>
-					  <th>Sub Total</th>
 					</tr>
 				</thead>";
 			$i = 1;
@@ -40,28 +44,26 @@
 
 				echo "
 				<tbody>
-					<tr>
-						<td data-title='No.' align='center'>$i</td>
-			    	<td data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_keranjang[judul].html'>$data_keranjang[nama_barang]</a></td>
-				    <td data-title='Harga ' align='right'>$harga,-</td>
-				    <td data-title='Berat' align='center'>$data_keranjang[berat]</td>
-				    <td data-title='Qty' align='center'>
+					<tr class='text-center'>
+					<td class='product-remove' data-title='Aksi'><a href='keranjang_hapus.php?id=$data_keranjang[id_keranjang]'OnClick=\"return confirm('Apakah Anda yakin?');\"><span class='ion-ios-close'></span><button name='hapus' type='button' class='btn btn-primary py-3 px-4' aria-label='Left Align' title='Hapus' hidden></button></a></td>
+					<td class='image-prod'>
+					<img class='img' src='$base_url"."images/produk/"."$data_keranjang[foto_barang]'>
+					</td>
+			    	<td class='product-name' data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_keranjang[judul].html'>$data_keranjang[nama_barang]</a></td>
+				    <td data-title='Harga ' class='price' align='right'>$harga,-</td>
+				    <td data-title='Berat' class='quantity' align='center'>$data_keranjang[berat]</td>
+				    <td data-title='Qty' class='quantity' align='center'>
+				    <div class='input-group mb-3'>
 				      <input type='hidden' name='id".$i."' value='$data_keranjang[id_barang]'/>
-				      <input type='text' name='jmlh".$i."' value='$data_keranjang[jumlah]' size='3' onkeypress='return isNumberKey(event)'/>
+				      <input type='text' class='quantity form-control input-number' name='jmlh".$i."' value='$data_keranjang[jumlah]' size='3' onkeypress='return isNumberKey(event)'/></div>
 				    </td>
-				    <td data-title='Aksi' align='center'>
-				      <a href='keranjang_update.php?id=$data_keranjang[id_barang]'>
-				      	<button name='update' type='submit' class='btn btn-warning' aria-label='Left Align' title='Update'>
-								  <span class='glyphicon glyphicon-refresh' aria-hidden='true'></span>
-								</button>
-				      </a>
-				      <a href='keranjang_hapus.php?id=$data_keranjang[id_keranjang]'>
-				      	<button name='hapus' type='button' class='btn btn-danger' aria-label='Left Align' title='Hapus' OnClick=\"return confirm('Apakah Anda yakin?');\">
-								  <span class='glyphicon glyphicon-remove' aria-hidden='true'></span>
+				    <td data-title='Aksi' class ='product-remove' align='center'>
+				      <a href='keranjang_update.php?id=$data_keranjang[id_barang]' alt='Update'><span class='ion-ios-disc'></span>
+				      	<button name='update' alt='update' hidden type='submit' class='btn btn-warning' aria-label='Left Align' title='Update'>
+								  
 								</button>
 				      </a>
 				    </td>
-				    <td data-title='Sub Total' align='right'>$subtotal,-</td>
 				  </tr>";
 				$i++;
 			}
@@ -95,36 +97,28 @@
 	//$ongkir 		= number_format($array['jne_reg'], 0, ',', '.');
 	if(mysqli_num_rows($keranjang) > 0)
 	{
-	?><br><br>
-		<table style="margin-top:10px;margin-bottom: 10px" class='col-xs-12 table-bordered table-striped table-condensed cf'>
-		  <thead>
-		    <tr>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <th>Ongkos Kirim</th>
-		      <td><?php echo $nama_kota_kec ?></td>
-		      <td>Rp.<?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
-		    </tr>
-		    <tr>
-		      <th>Total Berat</th>
-		      <td><?php echo $total_berat ?> kg</td>
-		    </tr>
-		    <tr>
-		      <th>Total Ongkos Kirim</th>
-		      <td>x Rp <?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
-		      <td>Rp.
-			      <?php $totalongkir = $total_berat_genap * $ongkir;
-						echo number_format($totalongkir, 0, ',', '.').',-';
-						?>
-					</td>
-		    </tr>
-		    <tr>
-		      <th>Grand Total</th>
-		      <td>Rp</td>
-		      <td>
-		      <b>
+	?>
+
+<div class="row justify-content-start">
+    			<div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+    				<div class="cart-total mb-3">
+    					<h3>Total</h3>
+    					<p class="d-flex">
+    						<span>Ongkos Kirim</span>
+    						<span>Rp.<?= number_format($ongkir, 0, ',', '.').',-' ?></span>
+    					</p>
+    					<p class="d-flex">
+    						<span>Alamat</span>
+    						<span><?php echo $nama_kota_kec ?></span>
+    					</p>
+    					<p class="d-flex">
+    						<span>Total Berat</span>
+    						<span><?= $total_berat ?> kg</span>
+    					</p>
+    					<hr>
+    					<p class="d-flex total-price">
+    						<span>Total</span>
+    						<span>Rp.
 		      	<?php
 		      	$query 				= "SELECT sum(subtotal) AS subtotal FROM tb_keranjang
 														INNER JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
@@ -134,21 +128,18 @@
 						$subtotal 		= $data['subtotal'];
 						$grand_total 	= $totalongkir + $subtotal;
 		      	echo number_format($grand_total, 0, ',', '.').',-';
-		      	?>
-		      </b></td>
-		    </tr>
-		  </tbody>
-	 	</table>
-	</form>
-
-	 	<p>
-	 		<a href="keranjang_hapus_all.php">
-				<button name="hapus" type="button" class="btn btn-danger" aria-label="Left Align" title="Kosongkan Keranjang Belanja" OnClick="return confirm('Apakah Anda yakin?');">
+		      	?></span>
+    					</p>
+    				</div>
+    			</div>
+    				<p style="margin-top:250px;margin-left: 20px" class="text-center">
+    					<a href="keranjang_hapus_all.php">
+				<button name="hapus" type="button" class="btn btn-primary py-3 px-4" aria-label="Left Align" title="Kosongkan Keranjang Belanja" OnClick="return confirm('Apakah Anda yakin?');">
 				  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Kosongkan Keranjang Belanja
 				</button>
 			</a>
-			<a href="./katalog.html">
-				<button name="hapus" type="button" class="btn btn-primary" aria-label="Left Align" title="Lanjut Belanja">
+				<a href="./katalog.html">
+				<button name="hapus" type="button" class="btn btn-primary py-3 px-4" aria-label="Left Align" title="Lanjut Belanja">
 				  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Lanjut Belanja
 				</button>
 			</a>
@@ -157,20 +148,36 @@
 			{
 				echo "
 				<a href='checkout.php'>
-					<button name='selesaikan' type='button' class='btn btn-success' aria-label='Left Align' title='Selesaikan Belanja' OnClick=\"return confirm('Apakah Anda yakin?');\">
+					<button name='selesaikan' type='button' class='btn btn-primary py-3 px-4' aria-label='Left Align' title='Selesaikan Belanja' OnClick=\"return confirm('Apakah Anda yakin?');\">
 					  <span class='glyphicon glyphicon-check' aria-hidden='true'></span> Selesaikan Belanja
 					</button>
 				</a>";
 			}
 			?>
-			<!-- <button name='Ganti Alamat' id="ganti_alamat" type='button' class='btn btn-warning' data-toggle="" data-target="#				" aria-label='Left Align' title='Ganti Alamat'>
-								  <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>Ganti Alamat
-								</button> -->
 		</p>
-		<hr/>
+    		</div>
+			</div>
+		  </tbody>
+	 	</table>
+	</form>
+
+	 <!-- 	<p>
+	 		
+			
+			<button name='Ganti Alamat' id="ganti_alamat" type='button' class='btn btn-warning' data-toggle="" data-target="#				" aria-label='Left Align' title='Ganti Alamat'>
+								  <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>Ganti Alamat
+								</button>
+		</p>
+		<hr/> -->
 
 		<p><strong>CATATAN</strong></p>
 		<p>* Total berat akan dibulatkan ke atas dikarenakan sesuai dengan peraturan JNE</p>
 
 	<?php } ?>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 	
