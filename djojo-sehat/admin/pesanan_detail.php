@@ -10,9 +10,9 @@ $notransaksi  = mysqli_real_escape_string($koneksi, $_GET['id_trans']);
 $sql_pesanan  = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_barang.id_barang,kec.id_kec,
                                             kec.nama_kec,kabkot.id_kabkot,kabkot.nama_kabkot,
                                             kabkot.jne_reg,kec.id_prov,kec.id_kabkot,tb_member.id_member,
-                                            tb_member.nama,tb_member.alamat,tb_member.kecamatan,
-                                            tb_member.kabupaten_kota,tb_member.provinsi,
-                                            tb_member.kode_pos,tb_member.no_hp,trans_jual.id_trans,
+                                            tb_member.nama,tb_alamat.alamat,tb_alamat.kecamatan,
+                                            tb_alamat.kabupaten_kota,tb_alamat.provinsi,
+                                            tb_alamat.kode_pos,tb_alamat.no_hp,trans_jual.id_trans,
                                             trans_jual.id_member,trans_jual.tanggal,
                                             detail_jual.id_trans,detail_jual.id_member,detail_jual.id_barang,
                                             detail_jual.jumlah,detail_jual.jumlah_berat,detail_jual.subtotal,
@@ -21,13 +21,15 @@ $sql_pesanan  = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_bar
                                   FROM kabkot
                                   LEFT JOIN kec ON kabkot.id_kabkot = kec.id_kabkot
                                   INNER JOIN prov ON prov.id_prov = kec.id_prov
-                                  INNER JOIN tb_member ON tb_member.kabupaten_kota = kec.id_kabkot
-                                  AND tb_member.kecamatan = kec.id_kec
-                                  AND tb_member.provinsi = kec.id_prov,
+                                  INNER JOIN tb_member ON tb_member.id_member = trans_jual.id_member
+                                  INNER JOIN tb_alamat ON tb_alamat.id_member = tb_member.id_member
+                                  INNER JOIN tb_alamat ON tb_alamat.kabupaten_kota = kec.id_kabkot
+                                  AND tb_alamat.kecamatan = kec.id_kec
+                                  AND tb_alamat.provinsi = kec.id_prov,
                                   trans_jual
                                   LEFT JOIN detail_jual ON trans_jual.id_trans = detail_jual.id_trans
                                   INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
-                                  WHERE trans_jual.id_trans = '$notransaksi'
+                                  WHERE trans_jual.id_trans = '$notransaksi' AND tb_alamat.aktif = 1
                                   AND trans_jual.id_member = tb_member.id_member
                                    ");
 
@@ -133,9 +135,9 @@ $kopos        = $array['kode_pos'];
 $sql_pesanan = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_barang.id_barang,kec.id_kec,
                                           kec.nama_kec,kabkot.id_kabkot,kabkot.nama_kabkot,
                                           kabkot.jne_reg,kec.id_prov,kec.id_kabkot,tb_member.id_member,
-                                          tb_member.nama,tb_member.alamat,tb_member.kecamatan,
-                                          tb_member.kabupaten_kota,tb_member.provinsi,
-                                          tb_member.kode_pos,tb_member.no_hp,trans_jual.id_trans,
+                                          tb_member.nama,tb_alamat.alamat,tb_alamat.kecamatan,
+                                          tb_alamat.kabupaten_kota,tb_alamat.provinsi,
+                                          tb_alamat.kode_pos,tb_alamat.no_hp,trans_jual.id_trans,
                                           trans_jual.id_member,trans_jual.tanggal,
                                           detail_jual.id_trans,detail_jual.id_member,detail_jual.id_barang,
                                           detail_jual.jumlah as jumlah_jual,detail_jual.jumlah_berat,detail_jual.subtotal,
@@ -144,13 +146,15 @@ $sql_pesanan = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_bara
                               FROM kabkot
                               LEFT JOIN kec ON kabkot.id_kabkot = kec.id_kabkot
                               INNER JOIN prov ON prov.id_prov = kec.id_prov
-                              INNER JOIN tb_member ON tb_member.kabupaten_kota = kec.id_kabkot
-                              AND tb_member.kecamatan = kec.id_kec
-                              AND tb_member.provinsi = kec.id_prov,
+                              INNER JOIN tb_member ON tb_member.id_member = trans_jual.id_member
+                              JOIN tb_alamat ON tb_alamat.id_member = tb_member.id_member
+                              INNER JOIN tb_alamat ON tb_alamat.kabupaten_kota = kec.id_kabkot
+                              AND tb_alamat.kecamatan = kec.id_kec
+                              AND tb_alamat.provinsi = kec.id_prov,
                               trans_jual
                               LEFT JOIN detail_jual ON trans_jual.id_trans = detail_jual.id_trans
                               INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
-                              WHERE trans_jual.id_trans = '$notransaksi'
+                              WHERE trans_jual.id_trans = '$notransaksi' AND tb_alamat.aktif = 1
                               
                                GROUP BY tb_barang.nama_barang ASC");
 $numrows  = mysqli_num_rows($sql_pesanan);
@@ -189,8 +193,8 @@ $numrows  = mysqli_num_rows($sql_pesanan);
                       <td align="right">
                       <?php
                       $keranjang_ongkir   = "SELECT * FROM kabkot 
-                                            INNER JOIN tb_member on tb_member.kabupaten_kota = kabkot.id_kabkot
-                                            WHERE tb_member.id_member = '$id_member' ";
+                                            INNER JOIN tb_alamat on tb_alamat.kabupaten_kota = kabkot.id_kabkot
+                                            WHERE tb_alamat.id_member = '$id_member' ";
                       $hasil  = mysqli_query($koneksi,$keranjang_ongkir);
                       $data2   = mysqli_fetch_array($hasil);
                       $jne_reg = number_format($data2['jne_reg'], 0, ',', '.');

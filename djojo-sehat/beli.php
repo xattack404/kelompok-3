@@ -4,6 +4,14 @@ include "fungsi/base_url.php";
 include "fungsi/cek_session_public.php";
 include "fungsi/cek_login_public.php";
 
+//cek alamat
+$sql_cek = "SELECT * FROM tb_alamat WHERE id_member = $sesen_id AND aktif = 1";
+$hasil_sql = mysqli_query($koneksi,$sql_cek);
+if(mysqli_num_rows($hasil_sql) == 0) {
+  die ("<script>alert('HARAP LENGKAPI ALAMAT DULU'); location.replace('$base_url"."tambah_alamat.php')</script>");
+} else 
+  {
+
 //ambil data barang sesuai ID
 $id_barang = mysqli_real_escape_string($koneksi,$_GET['id_barang']);
 $cari_barang  = "SELECT * FROM tb_barang WHERE id_barang = '$id_barang' ";
@@ -81,6 +89,6 @@ if(mysqli_num_rows($hasil_barang) > 0)
             }
           }
         }
-      
+      }  
 }
 ?>

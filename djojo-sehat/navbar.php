@@ -34,7 +34,7 @@
                       <span class='text'>Anda Belum login</span>
                     ";
                   }else{
-                     $sql    = "SELECT * FROM tb_member WHERE email = '$_SESSION[email]' ";
+                     $sql    = "SELECT * FROM tb_alamat WHERE id_member = '$_SESSION[id_member]' ";
                      $result = mysqli_query($koneksi, $sql);
                      $data   = mysqli_fetch_array($result);
                      echo "

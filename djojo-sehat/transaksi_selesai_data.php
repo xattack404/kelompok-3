@@ -72,9 +72,9 @@
 include 'keranjang_total_berat_selesai.php';
 $ambil =  mysqli_query($koneksi," SELECT tb_barang.id_barang,tb_barang.nama_barang,tb_barang.judul,
                                           tb_barang.berat,tb_barang.harga_jual,tb_member.id_member,
-                                          tb_member.nama,tb_member.alamat,tb_member.kecamatan,
-                                          tb_member.kabupaten_kota,tb_member.provinsi,tb_member.kode_pos,
-                                          tb_member.no_hp,
+                                          tb_member.nama,tb_alamat.alamat,tb_alamat.kecamatan,
+                                          tb_alamat.kabupaten_kota,tb_alamat.provinsi,tb_alamat.kode_pos,
+                                          tb_alamat.no_hp,
                                           trans_jual.id_trans,trans_jual.id_member,trans_jual.status,
                                           detail_jual.jumlah,detail_jual.jumlah_berat,detail_jual.subtotal,
                                           kec.nama_kec,
@@ -84,11 +84,10 @@ $ambil =  mysqli_query($koneksi," SELECT tb_barang.id_barang,tb_barang.nama_bara
               LEFT JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
               LEFT JOIN tb_barang ON tb_barang.id_barang  = detail_jual.id_barang
               LEFT JOIN tb_member ON tb_member.id_member  = trans_jual.id_member
-              LEFT JOIN kec ON kec.id_kec = tb_member.kecamatan
-              LEFT JOIN kabkot ON kabkot.id_kabkot = kec.id_kabkot 
-                        AND kabkot.id_kabkot = tb_member.kabupaten_kota
-              LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = tb_member.provinsi
-                AND trans_jual.id_member= '$sesen_id'
+              LEFT JOIN tb_alamat ON tb_alamat.id_member = tb_member.id_member
+              LEFT JOIN kec ON kec.id_kec = tb_alamat.kecamatan
+              LEFT JOIN kabkot ON kabkot.id_kabkot = kec.id_kabkot AND kabkot.id_kabkot = tb_alamat.kabupaten_kota
+              LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = tb_alamat.provinsi
                 AND trans_jual.status = 2");
 $array        = mysqli_fetch_array($ambil);
 $ongkir       = $array['jne_reg'];
