@@ -77,17 +77,18 @@
 	<?php
 	include 'keranjang_total_berat.php';
 	$keranjang = 	mysqli_query($koneksi,"SELECT tb_barang.id_barang,tb_barang.nama_barang,tb_barang.judul,
-				  tb_barang.berat,tb_barang.harga_jual,tb_member.id_member,tb_member.nama,tb_member.alamat,
-				  tb_member.kecamatan,tb_member.kabupaten_kota,tb_member.provinsi,tb_member.kode_pos,tb_member.no_hp,
+				  tb_barang.berat,tb_barang.harga_jual,tb_member.id_member,tb_member.nama,tb_alamat.alamat,
+				  tb_alamat.kecamatan,tb_alamat.kabupaten_kota,tb_alamat.provinsi,tb_alamat.kode_pos,tb_alamat.no_hp,
 				  tb_keranjang.id_keranjang, tb_keranjang.id_member, tb_keranjang.id_barang,
 				  tb_keranjang.jumlah, tb_keranjang.subtotal,
 				  kec.nama_kec,kabkot.nama_kabkot,kabkot.jne_reg,prov.nama_prov
 	              FROM tb_keranjang
 	              LEFT JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
 	              LEFT JOIN tb_member ON tb_member.id_member = tb_keranjang.id_member
-	              LEFT JOIN kec ON kec.id_kec = tb_member.kecamatan
-	              LEFT JOIN kabkot ON kabkot.id_kabkot = kec.id_kabkot AND kabkot.id_kabkot = tb_member.kabupaten_kota
-	              LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = tb_member.provinsi
+				  LEFT JOIN tb_alamat ON tb_alamat.id_member = tb_member.id_member
+	              LEFT JOIN kec ON kec.id_kec = tb_alamat.kecamatan
+	              LEFT JOIN kabkot ON kabkot.id_kabkot = kec.id_kabkot AND kabkot.id_kabkot = tb_alamat.kabupaten_kota
+	              LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = tb_alamat.provinsi
 	              WHERE tb_keranjang.id_keranjang = '$faktur'
 	                AND tb_keranjang.id_member = '$sesen_id' ");
 	$array        = mysqli_fetch_array($keranjang);
