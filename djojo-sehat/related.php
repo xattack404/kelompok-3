@@ -1,4 +1,8 @@
-
+<section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-lg-10 order-md-last">
+            <div class="row">
 <?php
   // batas threshold 75%
   $threshold = 75;
@@ -30,7 +34,7 @@
         // jika jumlah produk belum sampai batas maksimum, tambahkan ke dalam array
         $listProduk[] =
         "<div class='col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex'>
-        <div class='product d-flex flex-column' style='height: 354.98px;width: 236.65px'>
+        <div class='product'>
             <a href='$base_url"."produk/$data[judul].html' class='img-prod'>
               <h4 align='center'>$data[nama_barang]</h4>
             </a>
@@ -49,13 +53,12 @@
                           <a href='#'><span class='ion-ios-star-outline'></span></a>
                         </p>
                       </div>
-                    </div>
-                    </div>
-            <p class='bottom-area d-flex px-3' align='center'>
-              <a href='$base_url"."beli/$data[id_barang]' class='add-to-cart text-center py-2 mr-1'>Beli</a>
-              <a href='$base_url"."produk/$data[judul].html' class='buy-now text-center py-2'>Detail</a>
+                      </div>
+            <p class='bottom-area d-flex px-3'>
+              <a href='$base_url"."beli/$data[id_barang]' class='add-to-cart text-center py-2 mr-1'><span>Beli<i class='ion-ios-add ml-1'></i></span></a>
+              <a href='$base_url"."produk/$data[judul].html' class='buy-now text-center py-2'>Detail<span><i class='ion-ios-cart ml-1'></i></span></a>
             </p>
-        </div>";
+        </div></div></div>";
       }
     }
   }
@@ -63,10 +66,16 @@
   // jika array listproduk tidak kosong, tampilkan listnya
   // jika kosong, maka tampilkan 'tidak ada produk terkait'
   if (count($listProduk) > 0)
-  { echo "<ul>";
+  {
     for ($i=0; $i<=count($listProduk)-1; $i++)
-    {echo $listProduk[$i];}
-    echo "</ul>";
+    {
+      echo $listProduk[$i];
+    }
   }
   else echo "<p>Tidak ada produk terkait</p>";
 ?>
+</div>
+</div>
+</div>
+</div>
+</section>

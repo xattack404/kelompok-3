@@ -26,16 +26,8 @@ html {
 }
 
 body {
-  background-color: #211f23;
-  background-repeat: no-repeat;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF53455B', endColorstr='#FF201E22');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjAlIiByPSI3MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM1MzQ1NWIiLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iIzIwMWUyMiIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -moz-radial-gradient(top, circle, #53455b 0%, #201e22 70%);
-  background-image: -webkit-radial-gradient(top, circle, #53455b 0%, #201e22 70%);
-  background-image: radial-gradient(circle at top, #53455b 0%, #201e22 70%);
-  color: #fff;
+  background-color: white;
+  color: black;
   font-family: 'Lato', sans-serif;
   font-size: 80%;
   min-height: 100%;
@@ -55,7 +47,7 @@ body {
 }
 
 .grid-1-5 {
-  border: 2px solid #5d4e65;
+  border: 2px solid black;
   min-height: 300px;
   padding: 1.25em;
   position: relative;
@@ -92,15 +84,8 @@ body {
 }
 
 .grid-1-5:hover {
-  background-color: #53455b;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF53455B', endColorstr='#FF201D22');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzUzNDU1YiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzIwMWQyMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #53455b), color-stop(100%, #201d22));
-  background-image: -moz-linear-gradient(top, #53455b 0%, #201d22 100%);
-  background-image: -webkit-linear-gradient(top, #53455b 0%, #201d22 100%);
-  background-image: linear-gradient(to bottom, #53455b 0%, #201d22 100%);
+  background-color: white;
+  color:black;
   border-top: 2px solid #ec7a37;
   border-bottom: 2px solid #ff4f69;
   box-shadow: 0px 0px 10px 0px #323232;
@@ -110,7 +95,7 @@ body {
 .grid-1-5:hover:before, .grid-1-5:hover:after {
   content: "";
   position: absolute;
-  background-color: #f67d35;
+  background-color: black;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF67D35', endColorstr='#FFFF4F68');
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2N2QzNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmNGY2OCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
@@ -141,7 +126,7 @@ body {
   background-image: linear-gradient(to right, #ee7a36 0%, #eb495d 100%);
 }
 
-h2, h3, p, ul {
+h2, h3, p, ul, th, td {
   margin: 0;
 }
 
@@ -174,7 +159,6 @@ ul {
 ul li {
   margin: 0 0 0.8333333333333333em;
 }
-
 .button {
   background-color: #9c83aa;
   border-radius: 20px;
@@ -268,7 +252,6 @@ if(mysqli_num_rows($ambil) > 0)
     <!-- Memanggil file JS -->
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
   <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
-  <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
   <script src="<?= $base_url ?>template/Design/js/jquery.min.js"></script>
   <script src="<?= $base_url ?>template/Design/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="<?= $base_url ?>template/Design/js/popper.min.js"></script>
@@ -282,6 +265,4 @@ if(mysqli_num_rows($ambil) > 0)
   <script src="<?= $base_url ?>template/Design/js/jquery.animateNumber.min.js"></script>
   <script src="<?= $base_url ?>template/Design/js/bootstrap-datepicker.js"></script>
   <script src="<?= $base_url ?>template/Design/js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="<?= $base_url ?>template/Design/js/google-map.js"></script>
   <script src="<?= $base_url ?>template/Design/js/main.js"></script>
