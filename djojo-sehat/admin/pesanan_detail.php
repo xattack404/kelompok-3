@@ -21,9 +21,9 @@ $sql_pesanan  = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_bar
                                   FROM kabkot
                                   LEFT JOIN kec ON kabkot.id_kabkot = kec.id_kabkot
                                   INNER JOIN prov ON prov.id_prov = kec.id_prov
-                                  INNER JOIN tb_member ON tb_member.id_member = trans_jual.id_member
-                                  INNER JOIN tb_alamat ON tb_alamat.id_member = tb_member.id_member
-                                  INNER JOIN tb_alamat ON tb_alamat.kabupaten_kota = kec.id_kabkot
+                                  LEFT JOIN tb_member ON tb_member.id_member = trans_jual.id_member
+                                  LEFT JOIN tb_alamat ON tb_alamat.id_member = tb_member.id_member
+                                  AND tb_alamat.kabupaten_kota = kec.id_kabkot
                                   AND tb_alamat.kecamatan = kec.id_kec
                                   AND tb_alamat.provinsi = kec.id_prov,
                                   trans_jual
