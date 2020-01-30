@@ -14,6 +14,7 @@
 
 </head>
 <body class="form-v10">
+	<?php include 'navbar.php'; ?>
 	<div class="page-content" style="background: rgba(76,76,76,1);
 background: -moz-linear-gradient(-45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 8%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 23%, rgba(44,44,44,1) 40%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 62%, rgba(43,43,43,1) 79%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
 background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(8%, rgba(89,89,89,1)), color-stop(18%, rgba(102,102,102,1)), color-stop(23%, rgba(71,71,71,1)), color-stop(40%, rgba(44,44,44,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(62%, rgba(17,17,17,1)), color-stop(79%, rgba(43,43,43,1)), color-stop(91%, rgba(28,28,28,1)), color-stop(100%, rgba(19,19,19,1)));

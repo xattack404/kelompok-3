@@ -44,21 +44,30 @@ include 'fungsi/tgl_indo.php';            // Panggil fungsi tanggal indonesia
  ?>
 
     <!-- Page Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-sm-push-3">
-          <div class="thumbnail">
-            <div class="col-md-12">
-              <h3>Transaksi Selesai</h3>
-              <hr/>
-            </div>
-            <div class="caption-full">
-              
-<h4>NO. INVOICE: #<?php echo $id ?></h4>
+    <div class="hero-wrap hero-bread" style="background-image: url('<?= $base_url ?>images/produk/bg_6.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Transaksi Selesai</span></p>
+            <h1 class="mb-0 bread">Transaksi Selesai</h1>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <section class="ftco-section ftco-cart">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ftco-animate">
+        <div class="cart-list">
+
+<h4><strong>NO. INVOICE: #<?php echo $id ?></strong></h4>
 
 <p align="right">
   <a href='invoice/<?php echo $id; ?>'>
-    <button type='button' class='btn btn-primary'>
+    <button type='button' class='btn btn-primary py-3 px-4'>
       <span class='glyphicon glyphicon-download' aria-hidden='true'></span> Download Invoice
     </button>
   </a>
@@ -93,18 +102,17 @@ include 'fungsi/tgl_indo.php';            // Panggil fungsi tanggal indonesia
   else
   {
     echo "
-    <table class='col-md-12 table-bordered table-striped table-condensed cf'>
-      <thead class='cf'>
-        <tr>
-          <th>No.</th>
-          <th>Nama Produk</th>
-          <th>Harga</th>
-          <th>Berat</th>
-          <th>J.Berat</th>
-          <th>Qty</th>
-          <th>Sub Total</th>
-        </tr>
-      </thead>";
+    <table class='table'>
+        <thead class='thead-primary'>
+          <tr class='text-center'>
+            <th>&nbsp;</th>
+            <th>Nama Product</th>
+            <th>Harga</th>
+            <th>Berat</th>
+            <th>Jumlah Berat</th>
+            <th>Jumlah Barang</th>
+          </tr>
+        </thead>";
 
     $no = 1;
     while($data_trans = mysqli_fetch_array($ambil))
@@ -114,14 +122,13 @@ include 'fungsi/tgl_indo.php';            // Panggil fungsi tanggal indonesia
 
       echo "
       <tbody>
-        <tr>
-          <td data-title='No.' align='center'>".$no."</td>
-          <td data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_trans[judul].html'>$data_trans[nama_barang]</a></td>
-          <td data-title='Harga Diskon' align='right'>$harga,-</td>
-          <td data-title='Berat' align='center'>$data_trans[berat]</td>
-          <td data-title='Jumlah Berat' align='center'>$data_trans[berat]</td>
-          <td data-title='Jumlah barang' align='center'>$data_trans[jumlah]</td>
-          <td data-title='Sub Total' align='right'>$subtotal,-</td>
+        <tr class='text-center'>
+          <td class='price' data-title='No.' align='center'>".$no."</td>
+          <td class='product-name' data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_trans[judul].html'>$data_trans[nama_barang]</a></td>
+          <td class='price' data-title='Harga Diskon' align='right'>$harga,-</td>
+          <td class='quantity' data-title='Berat' align='center'>$data_trans[berat]</td>
+          <td class='quantity' data-title='Jumlah Berat' align='center'>$data_trans[berat]</td>
+          <td class='quantity' data-title='Jumlah barang' align='center'>$data_trans[jumlah]</td>
         </tr>";
       $no++;
     }
@@ -159,50 +166,27 @@ $nama_kota_kec= $array['nama_kabkot'].', '.$array['nama_kec'];
 if(mysqli_num_rows($ambil) > 0)
 {
 ?>
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Ongkos Kirim</th>
-        <td align="right">Via JNE REG</td>
-        <td><?php echo $nama_kota_kec ?></td>
-        <td align="right">Rp</td>
-        <td align="right"><?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
-      </tr>
-      <tr>
-        <th scope="row">Total Berat</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td align="right"><?php echo $total_berat ?> kg</td>
-      </tr>
-      <tr>
-        <th scope="row">Total Ongkos Kirim</th>
-        <td align="right"><?php echo $total_berat_genap ?> kg</td>
-        <td>x Rp <?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
-        <td align="right">Rp</td>
-        <td align="right">
-          <?php $totalongkir = $total_berat_genap * $ongkir;
+<div class="row justify-content-start">
+  <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+    <div class="cart-total mb-3">
+      <h3>Total</h3>
+      <p class="d-flex">
+        <span> Ongkos Kirim</span>
+        <span><?php $totalongkir = $total_berat_genap * $ongkir;
           echo number_format($totalongkir, 0, ',', '.').',-';
-          ?>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Grand Total</th>
-        <td></td>
-        <td></td>
-        <td align="right">Rp</td>
-        <td align="right">
-        <b>
-          <?php
+          ?></span>
+      </p>
+      <p class="d-flex">
+        <span>Alamat</span>
+        <span><?php echo $nama_kota_kec ?></span>
+      </p>
+      <p class="d-flex">
+        <span>Total Berat</span>
+        <span><?php echo $total_berat ?> kg</span>
+      </p>
+      <p class="d-flex total-price">
+        <span>Total berat</span>
+        <span>Rp. <?php
           $ambil =  mysqli_query($koneksi," SELECT tb_barang.id_barang,tb_barang.nama_barang,tb_barang.judul,
                                           tb_barang.berat,tb_barang.harga_jual,tb_member.id_member,
                                           tb_member.nama,tb_member.alamat,tb_member.kecamatan,
@@ -229,11 +213,11 @@ if(mysqli_num_rows($ambil) > 0)
           $subtotal     = $data['subtotal'];
           $grand_total  = $totalongkir + $subtotal;
           echo number_format($grand_total, 0, ',', '.').',-';
-          ?>
-        </b></td>
-      </tr>
-    </tbody>
-   </table>
+          ?></span>
+      </p>
+    </div>
+  </div>
+</div>
 
 <?php } ?>
 
@@ -261,7 +245,6 @@ if(mysqli_num_rows($ambil) > 0)
           </div>
         </div>
 
-        <?php include 'sidebar.php'; ?>
         
       </div>  
       
@@ -270,6 +253,24 @@ if(mysqli_num_rows($ambil) > 0)
       <?php include 'footer.php'; ?>
 
     </div>
-    
+    <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
+  <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
+  <script src="<?php echo $base_url ?>js/jquery-3.3.1.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/popper.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/bootstrap.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.easing.1.3.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.waypoints.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.stellar.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/owl.carousel.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.magnific-popup.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/aos.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/jquery.animateNumber.min.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/bootstrap-datepicker.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="<?= $base_url ?>template/Design/js/google-map.js"></script>
+  <script src="<?= $base_url ?>template/Design/js/main.js"></script>
   </body>
 </html>

@@ -20,7 +20,6 @@ error_reporting(0);
     <meta name="author" content="<?php echo $author ?>" />    
     <!-- CSS Bootstrap -->
     <link href="<?php echo $base_url ?>template/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo $base_url ?>template/css/shop-item.css" rel="stylesheet">
     <!-- JS -->
     <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
     <!-- Favicon -->
@@ -28,8 +27,79 @@ error_reporting(0);
 
 
   </head>
-  <body>
+  <body class="goto-here">
     <?php include 'navbar.php'; ?>
+
+  <div class="hero-wrap hero-bread" style="background-image: url('<?= $base_url ?>images/produk/bg_6.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Konfirmasi Pembayaran</span></p>
+            <h1 class="mb-0 bread">Konfirmasi Pembayaran</h1>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<form method="post" id="form-register" action="konfirmasi_kirim.php" enctype="multipart/form-data">
+  <section class="ftco-section">
+    <div class="container">
+
+        <?php include "sidebar.php" ?>
+      <div class="row justify-content-center">
+        <div class="col-xl-10 ftco-animate">
+          <form action="#" class="billing-form">
+            <h3 class="mb-4 billing-heading">Detail Konfirmasi</h3>
+            <div class="row align-items-end">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="No Invoice">No Invoice</label>
+                  <div class="select-wrap">
+                    <select name="no" id="no" class="form-control">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <option value="">No.Invoice</option>
+                      <?php
+                      $query = "SELECT id_trans FROM trans_jual WHERE id_member ='$sesen_id' AND status = 2 ORDER BY id_trans ASC ";
+                      $sql = mysqli_query($koneksi, $query);
+                      while($data = mysqli_fetch_array($sql)){
+                      echo '<option value="'.$data['id_trans'].'">'.$data['id_trans'].'</option>';
+                      }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="namapengirim">Nama Pengirim</label>
+                  <input type="text" class="form-control" value="<?= $sesen_nama ?>" id="nama_pengirim" name="nama_pengirim" readonly required placeholder="">
+                </div>
+              </div>
+              <div class="w-100"></div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="foto">* Foto Baru</label>
+                  <label for="choose" class="btn btn-primary py-3 px-4"> Pilih Foto 
+                  <input type="file" onchange="tampilkanPreview(this,'preview')" id="gbr" name="gbr" style="opacity: 0;margin-top: -22px" required></label>
+                  <br><b>Preview Gambar</b><br>
+                  <img id="preview" src="<?= $base_url?>images/close.gif" alt="" style="max-width: 665px" />
+                </div>
+              </div>
+              <div class="w-100"></div>
+              <div class="w-100"></div>
+              <p>
+                    <button class="btn btn-primary py-3 px-4" style="margin-left:10px;width:100px"  type="submit" name="submit">Submit</button>
+                    <button class="btn btn-primary py-3 px-4" id="a" style="width:100px;" type="submit" name="submit">Reset</button>
+                  </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+<!-- 
 
     <div class="container">
       <div class="row">
@@ -40,7 +110,6 @@ error_reporting(0);
               <hr/>
             </div>
             <div class="caption-full">
-              <form method="post" id="form-register" action="konfirmasi_kirim.php" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="box box-primary">
@@ -68,7 +137,7 @@ error_reporting(0);
                           <br><b>Preview Gambar</b><br>
                           <img id="preview" src="" alt="" width="35%" />
                         </div>
-                      </div><!-- /.box-body -->
+                      </div> /.box-body 
                       <div class="box-footer">
                         <button type="submit" name="submit" class="btn btn-success">Submit</button>
                         <button type="reset" name="reset" class="btn btn-danger">Reset</button>
@@ -79,9 +148,8 @@ error_reporting(0);
               </form>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <?php include 'sidebar.php'; ?>
         
       </div>
       
@@ -106,7 +174,7 @@ error_reporting(0);
       return false;
       return true;
     }
-    </script> -->
+    </script> 
 
   </body> <!-- Memanggil file JS -->
   <script src="<?php echo $base_url ?>template/js/jquery.js"></script>
@@ -128,4 +196,14 @@ error_reporting(0);
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?= $base_url ?>template/Design/js/google-map.js"></script>
   <script src="<?= $base_url ?>template/Design/js/main.js"></script>
+  <script>
+    $(document).ready(function(){
+        $('#a').mouseenter(function(){
+            $(this).css("background-color","red");
+        });
+        $('#a').mouseleave(function(){
+            $(this).css("background-color","#dbcc8f");
+        });
+    });
+  </script>
 </html>

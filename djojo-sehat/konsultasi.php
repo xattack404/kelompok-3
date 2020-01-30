@@ -20,6 +20,7 @@ include 'fungsi/setting.php';             // Panggil data setting
     <meta name="keywords" content="<?php echo $konsultasi['seo_keyword'] ?>" />
     <meta name="author" content="<?php echo $namatoko ?>" />
     <!-- Facebook SEO -->
+    <script src="Konsul.js"></script>
     <meta property="og:title" content="<?php echo $konsultasi['nama_produk']; ?> | <?php echo $namatoko ?>" />
     <meta property="og:url" content="<?php echo $base_url; echo "produk/"; echo $konsultasi['judul_seo']; echo ".html" ?>" />
     <meta property="og:image" content="<?php echo $base_url; echo "images/produk/"; echo $konsultasi['img']; ?>" />
@@ -32,18 +33,21 @@ include 'fungsi/setting.php';             // Panggil data setting
   </head>
   <body>
     <?php include 'navbar.php'; ?>
-<br>
-<br>
-<br>
+    <div class="hero-wrap hero-bread" style="background-image: url(<?= $base_url?>/images/produk/bg_6.jpg)">
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center"><p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Konsutasi</span></p><h1 class="mb-0 bread">Konsultasi</h1>
+      </div>
+      </div>
+      </div>
+      </div>
 
-    <div class="container">
       <?php include 'konsultasi_form.php'; ?>
 
       <hr/>
 
       <?php include 'footer.php'; ?>
 
-    </div>
 
     <!-- Memanggil file JS -->
     <script src="<?php echo $base_url ?>template/js/jquery.js"></script>

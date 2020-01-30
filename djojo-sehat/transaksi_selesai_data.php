@@ -1,9 +1,13 @@
-
-<h4>NO. INVOICE: #<?php echo $faktur_selesai ?></h4>
+<section class="ftco-section ftco-cart">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ftco-animate">
+        <div class="cart-list">
+<h4><strong>NO. INVOICE: #<?php echo $faktur_selesai ?></strong></h4>
 
 <p align="right">
   <a href='invoice/<?php echo $faktur_selesai; ?>'>
-    <button type='button' class='btn btn-primary'>
+    <button type='button' class='btn btn-primary py-3 px-4'>
       <span class='glyphicon glyphicon-download' aria-hidden='true'></span> Download Invoice
     </button>
   </a>
@@ -27,18 +31,17 @@
   else
   {
     echo "
-    <table class='col-md-12 table-bordered table-striped table-condensed cf'>
-      <thead class='cf'>
-        <tr>
-          <th>No.</th>
-          <th>Nama Produk</th>
-          <th>Harga</th>
-          <th>Berat</th>
-          <th>J.Berat</th>
-          <th>Qty</th>
-          <th>Sub Total</th>
-        </tr>
-      </thead>";
+    <table class='table'>
+        <thead class='thead-primary'>
+          <tr class='text-center'>
+            <th>&nbsp;</th>
+            <th>Nama Product</th>
+            <th>Harga</th>
+            <th>Berat</th>
+            <th>Jumlah Berat</th>
+            <th>Jumlah Barang</th>
+          </tr>
+        </thead>";
 
     $no = 1;
     while($data_trans = mysqli_fetch_array($cek_trans))
@@ -49,13 +52,12 @@
       echo "
       <tbody>
         <tr>
-          <td data-title='No.' align='center'>".$no."</td>
-          <td data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_trans[judul].html'>$data_trans[nama_barang]</a></td>
-          <td data-title='Harga Diskon' align='right'>$harga,-</td>
-          <td data-title='Berat' align='center'>$data_trans[berat]</td>
-          <td data-title='Jumlah Berat' align='center'>$data_trans[jumlah_berat]</td>
-          <td data-title='Jumlah barang' align='center'>$data_trans[jumlah]</td>
-          <td data-title='Sub Total' align='right'>$subtotal,-</td>
+          <td class='price' data-title='No.' align='center'>".$no."</td>
+          <td class='product-name' data-title='Nama Produk' align='left'><a href='$base_url"."produk/$data_trans[judul].html'>$data_trans[nama_barang]</a></td>
+          <td class='price' data-title='Harga Diskon' align='right'>$harga,-</td>
+          <td class='quantity' data-title='Berat' align='center'>$data_trans[berat]</td>
+          <td class='quantity' data-title='Jumlah Berat' align='center'>$data_trans[jumlah_berat]</td>
+          <td class='quantity' data-title='Jumlah barang' align='center'>$data_trans[jumlah]</td>
         </tr>";
       $no++;
     }
@@ -93,50 +95,25 @@ $nama_kota_kec= $array['nama_kabkot'].', '.$array['nama_kec'];
 if(mysqli_num_rows($ambil) > 0)
 {
 ?>
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Ongkos Kirim</th>
-        <td align="right">Via JNE REG</td>
-        <td><?php echo $nama_kota_kec ?></td>
-        <td align="right">Rp</td>
-        <td align="right"><?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
-      </tr>
-      <tr>
-        <th scope="row">Total Berat</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td align="right"><?php echo $total_berat ?> kg</td>
-      </tr>
-      <tr>
-        <th scope="row">Total Ongkos Kirim</th>
-        <td align="right"><?php echo $total_berat_genap ?> kg</td>
-        <td>x Rp <?php echo number_format($ongkir, 0, ',', '.').',-' ?></td>
-        <td align="right">Rp</td>
-        <td align="right">
-          <?php $totalongkir = $total_berat_genap * $ongkir;
-          echo number_format($totalongkir, 0, ',', '.').',-';
-          ?>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Grand Total</th>
-        <td></td>
-        <td></td>
-        <td align="right">Rp</td>
-        <td align="right">
-        <b>
-          <?php
+<div class="row justify-content-start">
+  <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+    <div class="cart-total mb-3">
+      <h3>Total</h3>
+      <p class="d-flex">
+        <span> Ongkos Kirim</span>
+        <span><?php echo number_format($ongkir, 0, ',', '.').',-' ?></span>
+      </p>
+      <p class="d-flex">
+        <span>Alamat</span>
+        <span><?php echo $nama_kota_kec ?></span>
+      </p>
+      <p class="d-flex">
+        <span>Total Berat</span>
+        <span><?php echo $total_berat ?> kg</span>
+      </p>
+      <p class="d-flex total-price">
+        <span>Total berat</span>
+        <span><?php
           $query        = "SELECT sum(subtotal) AS subtotal FROM detail_jual
                           INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
                           INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
@@ -148,12 +125,11 @@ if(mysqli_num_rows($ambil) > 0)
           $subtotal     = $data['subtotal'];
           $grand_total  = $totalongkir + $subtotal;
           echo number_format($grand_total, 0, ',', '.').',-';
-          ?>
-        </b></td>
-      </tr>
-    </tbody>
-   </table>
-
+          ?></span>
+      </p>
+    </div>
+  </div>
+</div>
 <?php } ?>
 
 <hr/>
@@ -175,3 +151,4 @@ if(mysqli_num_rows($ambil) > 0)
 </p>
 <hr/>
 <p align="center">Terima kasih telah berbelanja bersama kami, <?php echo $namatoko ?>.</p>
+</div></div></div></div></section>

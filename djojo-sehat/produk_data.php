@@ -58,7 +58,7 @@
                   <i class="ion-ios-remove"></i>
                   </button>
                 </span>
-                <input type="text" id="quantity" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                <input type="text" id="quantity" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100\">
                 <span class="input-group-btn ml-2">
                   <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                   <i class="ion-ios-add"></i>
@@ -70,7 +70,7 @@
                 <p style="color: #000;"><?php echo $produk['jumlah']; ?> available</p>
               </div>
             </div>
-            <p><a href="<?php echo $base_url ?>produk/<?php echo $row['judul']; ?>" class="btn btn-primary py-3 px-5">Add to Cart</a></p>
+            <p><a href="<?php echo $base_url ?>beli/<?php echo $produk['id_barang']; ?>" class="btn btn-primary py-3 px-5">Add to Cart</a></p>
           </div>
         </div>
         <div class="row mt-5">
@@ -142,3 +142,39 @@
    <?php// include 'sidebar.php'; ?>
  </div>
  -->
+ <script>
+    $(document).ready(function(){
+
+    var quantitiy=0;
+       $('.quantity-right-plus').click(function(e){
+            
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+            
+            // If is not undefined
+                
+                $('#quantity').val(quantity + 1);
+
+              
+                // Increment
+            
+        });
+
+         $('.quantity-left-minus').click(function(e){
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+            
+            // If is not undefined
+          
+                // Increment
+                if(quantity>0){
+                $('#quantity').val(quantity - 1);
+                }
+        });
+        
+    });
+  </script>

@@ -21,7 +21,7 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 <div class="goto-here" style="margin-bottom:50px">
-    <div class="py-1 bg-black">
+    <div class="py-1 bg-black" style="height:30px">
       <div class="container">
         <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
           <div class="col-lg-12 d-block">
@@ -58,14 +58,14 @@
                 ?>
               </div>
               <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-                <span class="text"><?= date('D - M / Y'); ?></span>
+                <span class="text"><?= date('D - M d / Y'); ?></span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" style="margin-top:5px" id="ftco-navbar">
       <div class="container">
         <a class="navbar-brand" href="../index.html">Djojo Store</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">

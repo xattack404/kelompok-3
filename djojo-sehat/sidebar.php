@@ -1,4 +1,4 @@
-<div class="col-sm-3 col-sm-pull-9">
+<div class="col-md-3">
   <?php include "modul/mod_kategori.php" ?>
   <br>
   <br>

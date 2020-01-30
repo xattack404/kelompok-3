@@ -1,21 +1,3 @@
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/animate.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/aos.css">
-
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/jquery.timepicker.css">
-
-    
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/flaticon.css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/icomoon.css">
-    <link rel="stylesheet" href="<?php echo $base_url ?>template/Design/css/style.css">
 <!-- 
 <h3>Kategori</h3>
 <hr/>
@@ -38,6 +20,7 @@
   //       echo '</ul>';
   //     echo '</li>';
   ?>-->
+  <section>
 <div class="col-md-4 col-lg-2">
   <div class="sidebar">
     <div class="sidebar-box-2">
@@ -75,3 +58,4 @@
     </div>
   </div>
 </div>
+</section>
