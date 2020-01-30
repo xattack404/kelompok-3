@@ -30,13 +30,17 @@ include 'fungsi/setting.php';             // Panggil data setting
     <link href="<?php echo $base_url ?>template/css/jquery.fancybox.css" rel="stylesheet"/>
     <!-- Favicon -->
     <link href="<?php echo $base_url ?>images/fav.ico" rel="shortcut icon"/>
-    <script src="<?=$base_url?>/node_modules/react/cjs/react.development.js" crossorigin></script>
-<script src="<?=$base_url?>/node_modules/react/cjs/react.production.min.js" crossorigin></script>
-<script src="Konsul.js"></script> 
   </head>
   <body>
     <?php include 'navbar.php'; ?>
-    <div id="Header"></div>
+    <div class="hero-wrap hero-bread" style="background-image: url(../images/produk/bg_6.jpg)">
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center"><p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Konsutasi</span></p><h1 class="mb-0 bread">Konsultasi</h1>
+      </div>
+      </div>
+      </div>
+      </div>
 
       <?php include 'konsultasi_form.php'; ?>
 
