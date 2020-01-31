@@ -4,46 +4,51 @@ include 'cek_login.php';        // Panggil fungsi cek sudah login/belum
 include 'cek_session.php';      // Panggil fungsi cek session
 include '../fungsi/setting.php';          // Panggil data setting
 include '../fungsi/tgl_indo.php';         // Panggil fungsi merubah tanggal menjadi format seperti 2 Mei 2015
-
+ 
 $notransaksi  = mysqli_real_escape_string($koneksi, $_GET['id_trans']);
-
+ 
 $sql_pesanan  = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_barang.id_barang,kec.id_kec,
-                                            kec.nama_kec,kabkot.id_kabkot,kabkot.nama_kabkot,
-                                            kabkot.jne_reg,kec.id_prov,kec.id_kabkot,tb_member.id_member,
-                                            tb_member.nama,tb_alamat.alamat,tb_alamat.kecamatan,
-                                            tb_alamat.kabupaten_kota,tb_alamat.provinsi,
-                                            tb_alamat.kode_pos,tb_alamat.no_hp,trans_jual.id_trans,
-                                            trans_jual.id_member,trans_jual.tanggal,
-                                            detail_jual.id_trans,detail_jual.id_member,detail_jual.id_barang,
-                                            detail_jual.jumlah,detail_jual.jumlah_berat,detail_jual.subtotal,
-                                            tb_barang.nama_barang,tb_barang.judul,
-                                            tb_barang.berat,tb_barang.harga_jual
-                                  FROM kabkot
-                                  LEFT JOIN kec ON kabkot.id_kabkot = kec.id_kabkot
-                                  INNER JOIN prov ON prov.id_prov = kec.id_prov
-                                  LEFT JOIN tb_member ON tb_member.id_member = trans_jual.id_member
-                                  LEFT JOIN tb_alamat ON tb_alamat.id_member = tb_member.id_member
-                                  AND tb_alamat.kabupaten_kota = kec.id_kabkot
-                                  AND tb_alamat.kecamatan = kec.id_kec
-                                  AND tb_alamat.provinsi = kec.id_prov,
-                                  trans_jual
-                                  LEFT JOIN detail_jual ON trans_jual.id_trans = detail_jual.id_trans
-                                  INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
-                                  WHERE trans_jual.id_trans = '$notransaksi' AND tb_alamat.aktif = 1
-                                  AND trans_jual.id_member = tb_member.id_member
-                                   ");
-
+                                           kec.nama_kec,kabkot.id_kabkot,kabkot.nama_kabkot,
+                                           kabkot.jne_reg,kec.id_prov,kec.id_kabkot,tb_member.id_member,
+                                           tb_member.nama,trans_jual.id_trans,
+                                           trans_jual.id_member,trans_jual.tanggal,
+                                           detail_jual.id_trans,detail_jual.id_member,detail_jual.id_barang,
+                                           detail_jual.jumlah,detail_jual.jumlah_berat,detail_jual.subtotal,
+                                           tb_barang.nama_barang,tb_barang.judul,
+                                           tb_barang.berat,tb_barang.harga_jual
+                                 FROM kabkot
+                                 LEFT JOIN kec ON kabkot.id_kabkot = kec.id_kabkot
+                                 INNER JOIN prov ON prov.id_prov = kec.id_prov,
+                                 trans_jual
+                                 LEFT JOIN tb_member ON tb_member.id_member = trans_jual.id_member
+                                 LEFT JOIN detail_jual ON trans_jual.id_trans = detail_jual.id_trans
+                                 INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
+                                 WHERE trans_jual.id_trans = '$notransaksi'
+                                 AND trans_jual.id_member = tb_member.id_member
+                                  ");
+ 
 $array        = mysqli_fetch_array($sql_pesanan);
-
+// var_dump($sql_pesanan); die;
 $nama         = $array['nama'];
 $id_member    = $array['id_member'];
 $notransaksi  = $array['id_trans'];
 $tgl_checkout = tgl_indo($array['tanggal']);
-$alamat       = $array['alamat'];
-$kecamatan    = $array['nama_kec'];
-$kota         = $array['nama_kabkot'];
-$provinsi     = $array['nama_prov'];
-$kopos        = $array['kode_pos'];
+ 
+// Ambil alamat yang aktif berdasarkan ID MEMBER
+$sql_alamat   = mysqli_query($koneksi,"SELECT tb_alamat.*, prov.nama_prov, kec.nama_kec, kabkot.nama_kabkot FROM tb_alamat
+               JOIN prov ON prov.id_prov = tb_alamat.provinsi
+               JOIN kabkot ON kabkot.id_kabkot = tb_alamat.kabupaten_kota
+               JOIN kec ON kec.id_kec = tb_alamat.kecamatan  
+               WHERE id_member='$id_member' AND aktif = 1
+ ");
+$array_alamat = mysqli_fetch_array($sql_alamat);
+$alamat       = $array_alamat['alamat'];
+$kecamatan    = $array_alamat['nama_kec'];
+$kota         = $array_alamat['nama_kabkot'];
+$provinsi     = $array_alamat['nama_prov'];
+$kopos        = $array_alamat['kode_pos'];
+// var_dump($sql_alamat); die;
+// EOL Ambil alamat yang aktif berdasarkan ID MEMBER
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,7 +64,7 @@ $kopos        = $array['kode_pos'];
   <body class="skin-blue sidebar-mini">
     <div class="wrapper">
       <?php include 'header.php'; ?>
-
+ 
       <div class="content-wrapper">
         <section class="content-header">
           <h1>NO. INVOICE #<?php echo $notransaksi ?> </h1>
@@ -69,7 +74,7 @@ $kopos        = $array['kode_pos'];
             <li class="active"><a href="product_list.php">No. Invoice #<?php echo $notransaksi ?></a></li>
           </ol>
         </section>
-
+ 
         <section class="content">
           <div class="pad margin no-print">
             <div class="callout callout-info" style="margin-bottom: 0!important;">
@@ -77,7 +82,7 @@ $kopos        = $array['kode_pos'];
               Halaman ini bisa langsung diprint dengan menekan tombol (ctrl + p) pada keyboard
             </div>
           </div>
-
+ 
           <!-- Main content -->
           <section class="invoice">
             <!-- title row -->
@@ -114,7 +119,7 @@ $kopos        = $array['kode_pos'];
                 <b>Tanggal Pemesanan: <?php echo $tgl_checkout ?></b><br/>
               </div><!-- /.col -->
             </div><!-- /.row -->
-
+ 
             <!-- Table row -->
             <div class="row">
               <div class="col-xs-12 table-responsive">
@@ -133,31 +138,25 @@ $kopos        = $array['kode_pos'];
                   <tbody>
 <?php
 $sql_pesanan = mysqli_query($koneksi,"SELECT prov.id_prov,prov.nama_prov,tb_barang.id_barang,kec.id_kec,
-                                          kec.nama_kec,kabkot.id_kabkot,kabkot.nama_kabkot,
-                                          kabkot.jne_reg,kec.id_prov,kec.id_kabkot,tb_member.id_member,
-                                          tb_member.nama,tb_alamat.alamat,tb_alamat.kecamatan,
-                                          tb_alamat.kabupaten_kota,tb_alamat.provinsi,
-                                          tb_alamat.kode_pos,tb_alamat.no_hp,trans_jual.id_trans,
-                                          trans_jual.id_member,trans_jual.tanggal,
-                                          detail_jual.id_trans,detail_jual.id_member,detail_jual.id_barang,
-                                          detail_jual.jumlah as jumlah_jual,detail_jual.jumlah_berat,detail_jual.subtotal,
-                                          tb_barang.nama_barang,tb_barang.judul,
-                                          tb_barang.berat,tb_barang.harga_jual
-                              FROM kabkot
-                              LEFT JOIN kec ON kabkot.id_kabkot = kec.id_kabkot
-                              INNER JOIN prov ON prov.id_prov = kec.id_prov
-                              INNER JOIN tb_member ON tb_member.id_member = trans_jual.id_member
-                              JOIN tb_alamat ON tb_alamat.id_member = tb_member.id_member
-                              INNER JOIN tb_alamat ON tb_alamat.kabupaten_kota = kec.id_kabkot
-                              AND tb_alamat.kecamatan = kec.id_kec
-                              AND tb_alamat.provinsi = kec.id_prov,
-                              trans_jual
-                              LEFT JOIN detail_jual ON trans_jual.id_trans = detail_jual.id_trans
-                              INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
-                              WHERE trans_jual.id_trans = '$notransaksi' AND tb_alamat.aktif = 1
-                              
-                               GROUP BY tb_barang.nama_barang ASC");
+                                         kec.nama_kec,kabkot.id_kabkot,kabkot.nama_kabkot,
+                                         kabkot.jne_reg,kec.id_prov,kec.id_kabkot,tb_member.id_member,
+                                         tb_member.nama,trans_jual.id_trans,
+                                         trans_jual.id_member,trans_jual.tanggal,
+                                         detail_jual.id_trans,detail_jual.id_member,detail_jual.id_barang,
+                                         detail_jual.jumlah as jumlah_jual,detail_jual.jumlah_berat,detail_jual.subtotal,
+                                         tb_barang.nama_barang,tb_barang.judul,
+                                         tb_barang.berat,tb_barang.harga_jual
+                             FROM kabkot
+                             LEFT JOIN kec ON kabkot.id_kabkot = kec.id_kabkot
+                             INNER JOIN prov ON prov.id_prov = kec.id_prov
+                             ,trans_jual
+                             INNER JOIN tb_member ON tb_member.id_member = trans_jual.id_member
+                             LEFT JOIN detail_jual ON trans_jual.id_trans = detail_jual.id_trans
+                             INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
+                             WHERE trans_jual.id_trans = '$notransaksi'
+                              GROUP BY tb_barang.nama_barang ASC");
 $numrows  = mysqli_num_rows($sql_pesanan);
+// var_dump($sql_pesanan); die();
           $no = 1;
           // Jika data ketemu, maka akan ditampilkan dengan While
           if($numrows > 0)
@@ -181,20 +180,20 @@ $numrows  = mysqli_num_rows($sql_pesanan);
                 </table>
               </div><!-- /.col -->
             </div><!-- /.row -->
-
+ 
             <div class="row">
               <div class="col-xs-12">
                 <div class="table-responsive">
                   <table class="table">
                     <tr>
                       <th>Ongkir Per Kg</th>
-                      <td align="right">VIA JNE REG ke <?php echo $array['kabupaten_kota'] ?></td>
+                      <td align="right">VIA JNE REG ke <?php echo $kota ?></td>
                       <td></td>
                       <td align="right">
                       <?php
-                      $keranjang_ongkir   = "SELECT * FROM kabkot 
-                                            INNER JOIN tb_alamat on tb_alamat.kabupaten_kota = kabkot.id_kabkot
-                                            WHERE tb_alamat.id_member = '$id_member' ";
+                      $keranjang_ongkir   = "SELECT * FROM kabkot
+                                           INNER JOIN tb_alamat on tb_alamat.kabupaten_kota = kabkot.id_kabkot
+                                           WHERE tb_alamat.id_member = '$id_member' ";
                       $hasil  = mysqli_query($koneksi,$keranjang_ongkir);
                       $data2   = mysqli_fetch_array($hasil);
                       $jne_reg = number_format($data2['jne_reg'], 0, ',', '.');
@@ -209,11 +208,11 @@ $numrows  = mysqli_num_rows($sql_pesanan);
                       <td align="right">
                       <?php
                       $query1 = "SELECT sum(jumlah_berat) AS jumlah_berat FROM detail_jual
-                                INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
-                                INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
-                                WHERE trans_jual.id_trans = '$notransaksi'
-                                  AND detail_jual.id_member = '$id_member'
-                                   ";
+                               INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
+                               INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
+                               WHERE trans_jual.id_trans = '$notransaksi'
+                                 AND detail_jual.id_member = '$id_member'
+                                  ";
                       $hasil = mysqli_query($koneksi,$query1);
                       $data3 = mysqli_fetch_array($hasil);
                       $jumlah_berat = $data3['jumlah_berat'];
@@ -226,11 +225,11 @@ $numrows  = mysqli_num_rows($sql_pesanan);
                       <td align="right">
                       <?php // Penggenapan jumlah berat (bulat keatas)
                       $query = "SELECT sum(jumlah_berat) AS jumlah_berat FROM detail_jual
-                      INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
-                      INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
-                      WHERE detail_jual.id_member = '$id_member'
-                        AND trans_jual.id_trans = '$notransaksi'
-                         ";
+                     INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
+                     INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
+                     WHERE detail_jual.id_member = '$id_member'
+                       AND trans_jual.id_trans = '$notransaksi'
+                        ";
                       $hasil = mysqli_query($koneksi,$query);
                       $data4 = mysqli_fetch_assoc($hasil);
                       $jumlah_berat = $data4['jumlah_berat'];
@@ -254,11 +253,11 @@ $numrows  = mysqli_num_rows($sql_pesanan);
                       <td align="right">
                         <?php
                         $query  = "SELECT sum(subtotal) AS total FROM detail_jual
-                                  INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
-                                  INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
-                                  WHERE detail_jual.id_trans = '$notransaksi'
-                                    AND detail_jual.id_member = '$id_member'
-                                    ";
+                                 INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
+                                 INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
+                                 WHERE detail_jual.id_trans = '$notransaksi'
+                                   AND detail_jual.id_member = '$id_member'
+                                   ";
                         $hasil  = mysqli_query($koneksi,$query);
                         $data5   = mysqli_fetch_assoc($hasil);
                         $subtotal = $data5['total'];
@@ -275,12 +274,12 @@ $numrows  = mysqli_num_rows($sql_pesanan);
           </section><!-- /.content -->
         </section>
       </div>
-
+ 
       <div class="row no-print">
         <?php include "footer.php" ?>
       </div>
-
+ 
     </div>
-
+ 
   </body>
 </html>
