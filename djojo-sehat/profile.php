@@ -1,3 +1,10 @@
+<?php session_start();
+include 'fungsi/cek_session_public.php';
+include 'config/koneksi.php';
+$sql = mysqli_query($koneksi,"SELECT * from tb_member where id_member = $sesen_id");
+$row = mysqli_fetch_array($sql);
+
+?>
 <div class="container">
 	<div class="topnav">
 	  <a  class="active" href="coba.php">biodata diri</a>
@@ -17,7 +24,7 @@
 		</div>
 		<div class="form-group">
 			<label for="nama">Nama</label>
-			<input type="text" value="<?= $row['nama'] ?>" name="nama" autofocus class="form-control" required>
+			<input type="text" value="<?= $sesen_nama ?>" name="nama" autofocus class="form-control" required>
 		</div>
 		<div class="form-group">
 			<label for="jenis_kelamin">Jenis Kelamin</label><br>
