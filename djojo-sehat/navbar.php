@@ -34,7 +34,7 @@
                       <span class='text'>Anda Belum login</span>
                     ";
                   }else{
-                     $sql    = "SELECT * FROM tb_alamat WHERE id_member = '$_SESSION[id_member]' ";
+                     $sql    = "SELECT * FROM tb_member WHERE id_member = '$_SESSION[id_member]' ";
                      $result = mysqli_query($koneksi, $sql);
                      $data   = mysqli_fetch_array($result);
                      echo "
@@ -95,7 +95,7 @@
           <a href='#' class='nav-link dropdown-toggle'> Hai, ".$sesen_nama." 
           </a>
           <div class='dropdown-menu' aria-labelledby='dropdown04'>
-              <a href='$base_url"."profile' class='dropdown-item'>profile</a>
+              <a href='$base_url"."profile.php' class='dropdown-item'>profile</a>
               <a href='$base_url"."konsultasi.php'class='dropdown-item'>Konsultasi</a>
               <a href='$base_url"."histori_transaksi.php'class='dropdown-item'>Histori Transaksi</a>
               <a href='$base_url"."logout'class='dropdown-item'>Logout</a>
