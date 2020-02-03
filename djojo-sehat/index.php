@@ -60,7 +60,10 @@ include 'navbar.php';
       <div class="container">
         <div class="row">
 <?php 
-    $data     = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang DESC LIMIT 10");
+    $data     = mysqli_query($koneksi, "SELECT tb_barang.*, trans_jual.id_barang,trans_jual.jumlah
+                                        FROM tb_barang
+                                        JOIN trans_jual ON trans_jual.id_barang = tb_barang.id_barang
+                                         ORDER BY trans_jual.jumlah DESC LIMIT 4");
 $numrows  = mysqli_num_rows($data);
 ?>
 <?php
@@ -110,7 +113,7 @@ if($numrows > 0)
       <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
           <div class="col-md-12 heading-section text-center ftco-animate">
-            <h2 class="mb-4">New Clothes Arrival</h2>
+            <h2 class="mb-4">Produk Terbaru </h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
           </div>
         </div>      

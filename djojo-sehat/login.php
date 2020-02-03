@@ -44,9 +44,9 @@ if(isset($_POST['submit']))
 	        $_SESSION['id_member']         = $data['id_member'];
 	        $_SESSION['email']             = $data['email'];
 	        $_SESSION['nama']              = $data['nama'];
-	        $_SESSION['kecamatan']         = $data['kecamatan'];
-	        $_SESSION['kabupaten_kota']    = $data['kabupaten_kota'];
-	        $_SESSION['provinsi']          = $data['provinsi'];
+	        // $_SESSION['kecamatan']         = $data['kecamatan'];
+	        // $_SESSION['kabupaten_kota']    = $data['kabupaten_kota'];
+	        // $_SESSION['provinsi']          = $data['provinsi'];
 
 	        echo "<script language='javascript'>alert('Anda berhasil Login'); location.replace('$base_url')</script>";
           // tulis("Berhasil Login");

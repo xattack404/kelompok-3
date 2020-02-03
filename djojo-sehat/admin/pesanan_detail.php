@@ -35,12 +35,13 @@ $notransaksi  = $array['id_trans'];
 $tgl_checkout = tgl_indo($array['tanggal']);
  
 // Ambil alamat yang aktif berdasarkan ID MEMBER
-$sql_alamat   = mysqli_query($koneksi,"SELECT tb_alamat.*, prov.nama_prov, kec.nama_kec, kabkot.nama_kabkot FROM tb_alamat
-               JOIN prov ON prov.id_prov = tb_alamat.provinsi
-               JOIN kabkot ON kabkot.id_kabkot = tb_alamat.kabupaten_kota
-               JOIN kec ON kec.id_kec = tb_alamat.kecamatan  
-               WHERE id_member='$id_member' AND aktif = 1
- ");
+$sql_alamat   = mysqli_query($koneksi,"SELECT tb_alamat.*, prov.nama_prov, kec.nama_kec, kabkot.nama_kabkot 
+                                      FROM tb_alamat
+                                      JOIN prov ON prov.id_prov = tb_alamat.provinsi
+                                      JOIN kabkot ON kabkot.id_kabkot = tb_alamat.kabupaten_kota
+                                      JOIN kec ON kec.id_kec = tb_alamat.kecamatan  
+                                      WHERE id_member='$id_member' AND aktif = 1
+                        ");
 $array_alamat = mysqli_fetch_array($sql_alamat);
 $alamat       = $array_alamat['alamat'];
 $kecamatan    = $array_alamat['nama_kec'];
