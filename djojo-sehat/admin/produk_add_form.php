@@ -100,7 +100,7 @@
     </div>
   </div>
 </form>
-<script src="../template/js/jquery-3.4.1.min.js"></script>
+<!-- <script src="../template/js/jquery-3.4.1.min.js"></script> -->
 <script type="text/javascript">
   function sum() {
       var harga_beli = document.getElementById('hrg_beli').value;

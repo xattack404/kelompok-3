@@ -19,7 +19,6 @@ include '../fungsi/base_url.php';
     <link href="template/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/>
     <script src="template/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="template/plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
-  <script src="../template/js/jquery-3.4.1.min.js"></script>
     <script src="<?php echo $base_url ?>template/js/bootstrap.min.js"></script>
     <!-- Skrip Datatables -->
     <script type="text/javascript">

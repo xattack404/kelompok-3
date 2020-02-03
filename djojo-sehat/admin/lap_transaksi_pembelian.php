@@ -100,7 +100,7 @@ $pdf->SetX(19.5);
 $pdf->MultiCell(19,0.5, '_________________________',0,'L');
 $pdf->SetX(19.5);
 $pdf->MultiCell(19,0.5, 'N0 : ',0,'L');
-$pdf->Output("laporan_transaksi_pembelian.pdf","I");
+$pdf->Output("laporan_transaksi_pembelian".date("Y-m-d").".pdf","I");
 
 ?>
 
