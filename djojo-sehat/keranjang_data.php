@@ -98,6 +98,7 @@
 	//$ongkir 		= number_format($array['jne_reg'], 0, ',', '.');
 	if(mysqli_num_rows($keranjang) > 0)
 	{
+		$totalongkir = $total_berat_genap * $ongkir;
 	?>
 
 <div class="row justify-content-start">
@@ -115,6 +116,10 @@
     					<p class="d-flex">
     						<span>Total Berat</span>
     						<span><?= $total_berat ?> kg</span>
+    					</p>
+						<p class="d-flex">
+    						<span>Total Ongkir</span>
+    						<span>Rp.<?= number_format($totalongkir, 0, ',', '.').',-'; ?></span>
     					</p>
     					<hr>
     					<p class="d-flex total-price">

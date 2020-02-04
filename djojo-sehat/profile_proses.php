@@ -98,9 +98,9 @@ if(mysqli_num_rows($ada) > 0)
 									values(	'$id',
 										'$judul',
 										'$alamat',
-										'$prov',
-										'$kot',
 										'$kec',
+										'$kot',
+										'$prov',
 										'$kd_pos',
 										'$no_hp',
 										'0')";
@@ -120,9 +120,9 @@ if(mysqli_num_rows($ada) > 0)
 									values(	'$id',
 										'$judul',
 										'$alamat',
-										'$prov',
-										'$kot',
 										'$kec',
+										'$kot',
+										'$prov',
 										'$kd_pos',
 										'$no_hp',
 										'1')";
