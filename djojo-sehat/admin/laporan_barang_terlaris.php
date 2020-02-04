@@ -9,7 +9,7 @@ include 'cek_session.php';      // Panggil fungsi cek session
 
 <head>
   <meta charset="UTF-8">
-  <title>Laporan Pembelian | <?php include "title.php" ?></title>
+  <title>Daftar Penjualan | <?php include "title.php" ?></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <!-- Favicon -->
   <link rel="shortcut icon" href="../images/fav.ico" />
@@ -33,19 +33,19 @@ include 'cek_session.php';      // Panggil fungsi cek session
 
     <div class="content-wrapper">
       <section class="content-header">
-        <h1>Laporan Pembelian / Penyetokan Barang </h1>
+        <h1>Laporan Penjualan </h1>
         <ol class="breadcrumb">
           <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
           <li>Laporan</li>
-          <li class="active"><a href="laporan_pembelian.php">Laporan Pembelian </a></li>
+          <li class="active"><a href="laporan_penjualan.php">Laporan Penjualan</a></li>
         </ol>
       </section>
 
       <section class="content">
-        <div class="row">
-          <div class="col-lg-6">
+        <!-- <div class="row">
+          <div class="col-lg-8">
              <div class="table-responsive">
-                <form action="lap_transaksi_pembelian.php" method="post">
+                <form action="lap_transaksi_penjualan.php" method="post">
                      <table class="table table-bordered" >
                         <tr bgcolor="white">
                             <td width="50"><input required type="radio" name="cek" value="1" style="cursor: pointer;"></td>
@@ -62,25 +62,22 @@ include 'cek_session.php';      // Panggil fungsi cek session
                             <td class="text-left"><input type="submit" name="tampilkan" class="btn btn-danger" value="Cetak PDF"></td>
                         </tr>
                     </table>
-                </form>
+                  </form>
               </div>
           </div>
-        </div>
-         <div class="row">
+        </div> -->
+        <div class="row">
           <div class="col-lg-12">
             <div class="box">
               <div class="box-body table-responsive padding">
                 <?php 
-                $query_data = mysqli_query($koneksi, "SELECT trans_beli.id_beli, trans_beli.jumlah_beli, trans_beli.total_bayar, trans_beli.tanggal, tb_supplier.nama_supplier FROM trans_beli LEFT JOIN tb_supplier on tb_supplier.id_supplier = trans_beli.id_supplier");          ?>
-                <table id="example1" class="table table-bordered table-striped">
+                $query_data = mysqli_query($koneksi, "SELECT tb_barang.nama_barang, sum(detail_jual.jumlah) as jumlah, tb_barang.id_barang FROM tb_barang INNER JOIN detail_jual ON tb_barang.id_barang = detail_jual.id_barang group by detail_jual.id_barang order by sum(detail_jual.jumlah) desc limit 10");?>
+                <table class="table table-bordered table-striped">
                   <thead>
                     <tr bgcolor="skyblue">
                       <th style="text-align: center">No.</th>
-                      <th >Aksi</th>
-                      <th style="text-align: center">Tanggal</th>
-                      <th style="text-align: center">Nama Supplier</th>
-                      <th style="text-align: center">Jumlah beli</th>
-                      <th style="text-align: center">Total Bayar</th>
+                      <th style="text-align: center">Nama Barang</th>
+                      <th style="text-align: center">Jumlah terjual</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -88,12 +85,9 @@ include 'cek_session.php';      // Panggil fungsi cek session
                   <?php while ($row = mysqli_fetch_array($query_data)){ ?>
                      <tr>
                       <td><?= $no++; ?></td>
-                      <td><a href="tmp_mdl_beli.php?kd_beli=<?= $row['id_beli']?>" class="btn btn-info" data-toggle="modal" data-target="#myModal" ><b>Deskripsi Pembelian</b></td>
-                      <td><?= $row['tanggal'] ?></td>
-                      <td class="text-center"><?= $row['nama_supplier'] ?></td>
-                      <td class="text-center"><?= $row['jumlah_beli'] ?></td>
-                      <td class="text-right">Rp. <?= number_format($row['total_bayar'], 0, ',', '.').",-"; ?></td>
-                    </tr>
+                      <td class="text-left"><?= $row['nama_barang'] ?></td>
+                      <td class="text-center"><?= $row['jumlah'] ?></td>
+                     </tr>
                   <?php } ?>
                   </tbody>
                 </table>
@@ -103,24 +97,8 @@ include 'cek_session.php';      // Panggil fungsi cek session
         </div>
       </section>
     </div>
-    <div class="modal fade" id="myModal" role="dialog" >
-            <div class="modal-dialog" style="width: 800px;">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                </div>
-                <div class="modal-body">
-                </div>
-                <div class="modal-footer">
-                </div>
-              </div>
-            </div>
-        </div>
-    <script language="javascript">
-        $('body').on('hidden.bs.modal', '.modal', function () {
-            $(this).removeData('bs.modal');
-        });
-    </script>
+  
+
     <?php include "footer.php" ?>
 
   </div>

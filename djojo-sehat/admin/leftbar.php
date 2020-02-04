@@ -91,7 +91,6 @@
         <ul class='treeview-menu'>
           <li><a href='laporan_pembelian.php'><i class='fa fa-circle-o'></i> Laporan Pembelian / nyetok </a></li>
           <li><a href='laporan_penjualan.php'><i class='fa fa-circle-o'></i> Laporan Penjualan  </a></li>
-          <li><a href='laporan_labarugi.php'><i class='fa fa-circle-o'></i> Laporan Laba Rugi  </a></li>
           <li><a href='laporan_barang_terlaris.php'><i class='fa fa-circle-o'></i> Laporan Barang Terlaris  </a></li>
         </ul>
       ";
