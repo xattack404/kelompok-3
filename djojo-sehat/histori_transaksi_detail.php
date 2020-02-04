@@ -175,7 +175,7 @@ if(mysqli_num_rows($ambil) > 0)
       <h3>Total</h3>
       <p class="d-flex">
         <span> Ongkos Kirim</span>
-        <span><?php $totalongkir = $total_berat_genap * $ongkir;
+        <span><?php $totalongkir = $array['jumlah_berat'] * $ongkir;
           echo number_format($totalongkir, 0, ',', '.').',-';
           ?></span>
       </p>
@@ -185,32 +185,15 @@ if(mysqli_num_rows($ambil) > 0)
       </p>
       <p class="d-flex">
         <span>Total Berat</span>
-        <span><?php echo $total_berat ?> kg</span>
+        <span><?php echo $array['jumlah_berat'] ?> kg</span>
       </p>
       <p class="d-flex total-price">
-        <span>Total berat</span>
+        <span>Grand Total</span>
         <span>Rp. <?php
-          $ambil =  mysqli_query($koneksi," SELECT tb_barang.id_barang,tb_barang.nama_barang,tb_barang.judul,
-                                          tb_barang.berat,tb_barang.harga_jual,tb_member.id_member,
-                                          tb_member.nama,tb_member.alamat,tb_member.kecamatan,
-                                          tb_member.kabupaten_kota,tb_member.provinsi,tb_member.kode_pos,
-                                          tb_member.no_hp,tb_pengiriman.metode_pengiriman,detail_pengiriman.no_resi_pengiriman,
-                                          trans_jual.id_trans,trans_jual.id_member,trans_jual.status,trans_jual.total_bayar,
-                                          tb_status.status_pesanan,
-                                          kec.nama_kec,
-                                          kabkot.nama_kabkot,kabkot.jne_reg,
-                                          prov.nama_prov
-              FROM trans_jual
-              LEFT JOIN tb_pengiriman ON tb_pengiriman.id_pengiriman = trans_jual.id_pengiriman
-              LEFT JOIN detail_pengiriman ON detail_pengiriman.id_trans = trans_jual.id_trans
-              LEFT JOIN tb_status ON tb_status.id_status = trans_jual.status
-              LEFT JOIN tb_barang ON tb_barang.id_barang  = trans_jual.id_barang
-              LEFT JOIN tb_member ON tb_member.id_member  = trans_jual.id_member
-              LEFT JOIN kec ON kec.id_kec = tb_member.kecamatan
-              LEFT JOIN kabkot ON kabkot.id_kabkot = kec.id_kabkot 
-                        AND kabkot.id_kabkot = tb_member.kabupaten_kota
-              LEFT JOIN prov ON prov.id_prov = kabkot.id_prov AND prov.id_prov = tb_member.provinsi
-                AND trans_jual.id_member= '$sesen_id' WHERE trans_jual.id_member= '$sesen_id'");
+          $ambil =  "SELECT sum(subtotal) AS subtotal FROM tb_keranjang
+                            INNER JOIN tb_barang ON tb_barang.id_barang = tb_keranjang.id_barang
+                            WHERE tb_keranjang.id_member = '$sesen_id'";
+          //echo("Error description: " . mysqli_error($koneksi));
           $hasil        = mysqli_query($koneksi,$ambil);
           $data         = mysqli_fetch_assoc($hasil);
           $subtotal     = $data['subtotal'];
