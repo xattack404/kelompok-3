@@ -29,17 +29,21 @@
               <div class="col-md pr-4 d-flex topper align-items-center">
                 <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
                 <?php
+                error_reporting(0);
                   if(empty($_SESSION['nama']) && (empty($_SESSION['email']))){
                     echo"
                       <span class='text'>Anda Belum login</span>
                     ";
                   }else{
-                     $sql    = "SELECT * FROM tb_member WHERE id_member = '$_SESSION[id_member]' ";
+                     $sql    = "SELECT * FROM tb_alamat WHERE id_member = '$_SESSION[id_member]' ";
                      $result = mysqli_query($koneksi, $sql);
                      $data   = mysqli_fetch_array($result);
+                     if (empty($data[no_hp])){
+                      echo "<span class='text'>No hp Belum Terdaftar</span>";
+                     }else{
                      echo "
                     <span class='text'>$data[no_hp]</span>
-                     ";
+                     ";}
                   }
                 ?>
               </div>
@@ -105,10 +109,7 @@
         {
           echo"
           <li class='nav-item'>
-          <a href='register_form.php' class='nav-link'>Register</a></li>
-          <li class='nav-item'>
-          <a href='login_form.php' class='nav-link' style='color:black;'>Sign in</a>
-                    </li>";
+          <a href='register_form.php' class='nav-link'>Register / Login</a></li>";
         }
       ?>
             <li class="nav-item cta cta-colored"><a href="keranjang.php" class="nav-link"><span class="icon-shopping_cart"></span>
