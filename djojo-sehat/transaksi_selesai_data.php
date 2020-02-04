@@ -112,8 +112,8 @@ if(mysqli_num_rows($ambil) > 0)
         <span><?php echo $total_berat ?> kg</span>
       </p>
       <p class="d-flex total-price">
-        <span>Total berat</span>
-        <span><?php
+        <span>Total Harga</span>
+        <span> Rp.<?php
           $query        = "SELECT sum(subtotal) AS subtotal FROM detail_jual
                           INNER JOIN tb_barang ON tb_barang.id_barang = detail_jual.id_barang
                           INNER JOIN trans_jual ON trans_jual.id_trans = detail_jual.id_trans
