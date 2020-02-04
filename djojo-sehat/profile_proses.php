@@ -82,43 +82,90 @@ if  (isset($_POST['daftar_alamat_baru'])){
 	$kec = mysqli_real_escape_string($koneksi,$_POST['kec']);
 	$kd_pos = mysqli_real_escape_string($koneksi,$_POST['kd_pos']);
 	$no_hp = mysqli_real_escape_string($koneksi,$_POST['no_hp']);
-	$sql = mysqli_query($koneksi,"INSERT INTO tb_alamat(	id_member,
-									judul_alamat,
-									alamat,
-									kecamatan,
-									kabupaten_kota,
-									provinsi,
-									kode_pos,
-									no_hp,
-									aktif)
-						   values(	'$id',
-									'$judul',
-									'$alamat',
-									'$prov',
-									'$kot',
-									'$kec',
-									'$kd_pos',
-									'$no_hp',
-									'1')");
-										echo "<script>alert('Berhasil Menambahkan Alamat Baru ! Klik ok untuk melanjutkan');</script>";
-										echo("Error description: " . mysqli_error($koneksi));	
+	$cekdata = "SELECT aktif FROM tb_alamat WHERE aktif = 1 ";
+	$ada     = mysqli_query($koneksi, $cekdata);
+if(mysqli_num_rows($ada) > 0)
+{ 
+	$sql_alamat = "INSERT INTO tb_alamat(id_member,
+										judul_alamat,
+										alamat,
+										kecamatan,
+										kabupaten_kota,
+										provinsi,
+										kode_pos,
+										no_hp,
+										aktif)
+									values(	'$id',
+										'$judul',
+										'$alamat',
+										'$prov',
+										'$kot',
+										'$kec',
+										'$kd_pos',
+										'$no_hp',
+										'0')";
+	mysqli_query($koneksi,$sql_alamat);
+	echo "<script>alert('Berhasil Menambahkan Alamat Baru ! Klik ok untuk melanjutkan');location.replace('profile.php')</script>";
+
+} else {
+	$sql_alamat2 = "INSERT INTO tb_alamat(id_member,
+										judul_alamat,
+										alamat,
+										kecamatan,
+										kabupaten_kota,
+										provinsi,
+										kode_pos,
+										no_hp,
+										aktif)
+									values(	'$id',
+										'$judul',
+										'$alamat',
+										'$prov',
+										'$kot',
+										'$kec',
+										'$kd_pos',
+										'$no_hp',
+										'1')";
+	if(mysqli_query($koneksi,$sql_alamat2)){
+
+		echo "<script>alert('Berhasil Menambahkan Alamat Baru ! Klik ok untuk melanjutkan');location.replace('profile.php')</script>";
+                           
+	}else {
+      echo "Error updating record: " . mysqli_error($koneksi);
+	}
+}
 			
 }
 
 if  (isset($_POST['pilih_alamat'])){
 	$id = mysqli_real_escape_string($koneksi,$_POST['id']);
 	$judul = mysqli_real_escape_string($koneksi,$_POST['amt']);
-	$sql = mysqli_query($koneksi,"UPDATE tb_alamat set aktif = '0' where alamat='$judul'");
-										echo "<script>alert('Berhasil Update Alamat Baru ! Klik ok untuk melanjutkan');</script>";
-										echo("Error description: " . mysqli_error($koneksi));	
-			
+	$cekdata = "SELECT aktif FROM tb_alamat WHERE aktif = 1 ";
+	$ada     = mysqli_query($koneksi, $cekdata);
+if(mysqli_num_rows($ada) > 0)
+{ 
+  $sql_aktif = mysqli_query($koneksi,"UPDATE tb_alamat SET aktif = 0 WHERE aktif = 1 ");
+  mysqli_query($koneksi,$sql_aktif);
+
+
+  $sql_aktif2 = "UPDATE tb_alamat SET aktif = 1 WHERE aktif = 0 AND judul_alamat = '$judul' ";                      
+  if(mysqli_query($koneksi, $sql_aktif2)) 
+  {
+    echo "<script>alert('Set Active berhasil! Klik ok untuk melanjutkan');location.replace('profile.php')</script>";
+  } 
+    else 
+    {
+      echo "Error updating record: " . mysqli_error($koneksi);
+    }
+}
 }
 if  (isset($_POST['hapus_alamat'])){
 	$id = mysqli_real_escape_string($koneksi,$_POST['id']);
 	$judul = mysqli_real_escape_string($koneksi,$_POST['amt']);
-	$sql = mysqli_query($koneksi,"DELETE * from tb_alamat where alamat='$judul'");
-										echo "<script>alert('Berhasil Menghapus Alamat Baru ! Klik ok untuk melanjutkan');</script>";
-										echo("Error description: " . mysqli_error($koneksi));	
+	$sql = mysqli_query($koneksi,"DELETE FROM tb_alamat where judul_alamat='$judul'");
+			echo "<script>alert('Berhasil Menghapus Alamat Baru ! Klik ok untuk melanjutkan');location.replace('profile.php')</script>";
+} else {
+			echo("Error description: " . mysqli_error($koneksi));	
 			
 }
 

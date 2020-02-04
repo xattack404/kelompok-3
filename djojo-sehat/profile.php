@@ -58,7 +58,7 @@ include 'navbar.php';
            </div></div>
            <div class="input-block">
           	<label for="Jenis Kelamin">No Handphone</label> <br>
-          	<label style="color: black" id="no-hp" for="login-email"><?= $row2['no_hp']; if	(empty($row2['no_hp'])){echo "Data Belum Ada";}else{echo "$row2[no_hp]";}?></label>
+          	<label style="color: black" id="no-hp" for="login-email"><?= $row2['no_hp']; if	(empty($row2['no_hp'])){echo "Data Belum Ada";}?></label>
              <div id="edit-no-hp" style="display: none">
             <input id="email-login" name="no-hp" type="number" value="<?= $row2['no_hp']?>">
             <p class="no-hp" style="color: red"></p>
@@ -194,14 +194,14 @@ include 'navbar.php';
                       $query = "SELECT * FROM tb_alamat where id_member = $sesen_id";
                       $sql = mysqli_query($koneksi, $query);
                       while($data = mysqli_fetch_array($sql)){
-                      echo '<option value="'.$data['id_member'].'">'.$data['alamat'].'</option>';
+                      echo '<option value="'.$data['judul_alamat'].'">'.$data['judul_alamat'].'</option>';
                       }
                       ?>
                     </select>
                   </div>
           </div>
           <button type="submit" name="pilih_alamat" class="btn-signup">Set Active</button>
-          <button type="submit" name="hapus_alamat" class="btn-signup">Hapus</button>
+          <button type="submit" name="hapus_alamat" class="btn-signup" OnClick=\"return confirm('Apakah Anda yakin?');\">Hapus</button>
         </form>
         </fieldset>
     </div>
